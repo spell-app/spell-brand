@@ -2,7 +2,7 @@ import { describe, expect, test } from "vite-plus/test"
 
 import { Palette, STEPS } from "$/brand"
 
-import { ColorLadder } from "./ColorLadder"
+import { ColorLadder } from "$/brand/components/ui-brand-color-range/ColorLadder"
 
 describe("ColorLadder.from()", () => {
   test("makes `Palette.generateScale()`'s ladder;  `undefined` for a value that isn't a colour", () => {

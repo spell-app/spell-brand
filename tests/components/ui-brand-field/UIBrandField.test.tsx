@@ -2,7 +2,7 @@ import { describe, expect, it } from "vite-plus/test"
 
 import { ElementFixture } from "$/ui/test/ElementFixture"
 import { expectAccessible } from "$/ui/test/A11y"
-import type { DOMBrandFieldElement } from "./UIBrandField"
+import type { DOMBrandFieldElement } from "$/brand/components/ui-brand-field/UIBrandField"
 
 // every Spell UI family the fields hold (`<ui-menu>`, `<ui-form>`, `<ui-input>` ...), as the brand bundle loads them
 import "$/ui"
