@@ -6,3 +6,16 @@
 
 # the design bundle's build of the elements (`vite.design.config.ts`):  read by `bundle-spell-ui.js --design`
 dist/
+node_modules
+.yarn/install-state.gz
+.DS_Store
+*.log
+# `/park`'s note on where parked work stopped:  never committed
+PARKED-*.md
+*.code-workspace
+# the brand pages' bundle, built by the page server when it starts, if stale (`spell dev bundles build --stale`)
+/_assets/ui/
+# the docs pages' waiting comments (`<page>.inbox.json5` beside a page, and its lock):  per machine
+/docs/**/*.inbox.json*
+# `agents/`:  a link to spell-util's agents/ (WWOD and the three logs), made by the top repo's setup
+/agents

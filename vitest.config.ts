@@ -21,7 +21,7 @@ import { baseConfig } from "@spell-app/ui/vite.config.ts"
  *   Own run:  no prefix, `root` is this folder.
  */
 /** The tests live in the repo's tests/ folder, at the same paths as the code. */
-const TESTS = resolve(import.meta.dirname, "../../tests/brand")
+const TESTS = resolve(import.meta.dirname, "./tests")
 
 /** Tests of `src/` that need a browser (a page's CSS on real elements):  the `browser` project's, not `node`'s. */
 const BROWSER_SRC = "src/**/*.browser.test.ts"

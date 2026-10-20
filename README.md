@@ -19,12 +19,21 @@ The page must load Spell UI's [docs bundle](../epics/tools/_assets/spell-ui.js),
 - the pack registers there (`SpellUI.registerPack()`)
 - and takes Solid and Spell UI's shared code from it (`SpellUI.packModules`)
 
+## This repo
+
+- `spell-brand`:  Spell's brand:  Claude Design's pages and tokens, their Spell UI copies, and the brand-* component pack.
+- Cut from [spell-app](https://github.com/spell-app/spell-app) with its history (epic `repo-split` P8);
+  the repo IS the package, at its root.
+- It may use:  spell-ui (Spell UI, which it's built on) and spell-element (its elements are written on it);  and, as Spell UI does, spell-server for its site and spell-util (util's json5, the toolchain).
+- A child repo of the top repo `spell` (`~/www/spell`), which holds the ONE install for every repo:
+  `yarn install` there.  No `yarn.lock` here, for now.
+
 ## The DRY rule (one of each)
 
 If you find yourself writing a second copy of any of these, stop and reuse.
 
-- the pack's build, catalog and staleness check:  Spell UI's, `spell-ui-pack` ([ComponentPack.ts](../ui/tools/ComponentPack.ts))
-- reading a vocabulary's tag and skeleton:  Spell UI's [`RootCatalog`](../ui/tools/RootCatalog.ts)
+- the pack's build, catalog and staleness check:  Spell UI's, `spell-ui-pack` ([ComponentPack.ts](../spell-ui/tools/ComponentPack.ts))
+- reading a vocabulary's tag and skeleton:  Spell UI's [`RootCatalog`](../spell-ui/tools/RootCatalog.ts)
 - the docs data, in [site-data.ts](scripts/site-data.ts):  Spell UI's builders
   - `SiteDataBuilder`, `SiteSearchBuilder`, `ElementManifests`
 - the element authoring API:  `$/spell-element`, and Spell UI's `$/ui/core`
