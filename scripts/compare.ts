@@ -1,9 +1,11 @@
 /**
- * `yarn compare [<page>...] [--width 1280] [--height 900] [--dark] [--full]` (in `packages/brand`):  screenshot each
+ * `yarn compare [<page>...] [--width 1280] [--height 900] [--dark] [--full]` (in spell-brand):  screenshot each
  * Claude Design original and its Spell UI copy at the same size, and measure how far apart they are.
  * - Pages:  the names given (`"Spell App"`), else every page whose copy exists (`built: true` in
  *   `_assets/brand-pages.js`, the one list the index and Compare use too).
- * - Served by THIS checkout's page server (started if it isn't running):  four originals fetch local files.
+ * - Served by spell-app's page server (started if it isn't running):  four originals fetch local files.
+ *   - Which checkout:  `$SPELL_APP_CHECKOUT`, else spell-app's beside this repo in the top repo `spell`
+ *     (`../spell-app`, epic `repo-split` P8).  Only RUN, never imported:  spell-app is above the brand.
  * - `--dark`:  the browser prefers dark;  the copies follow (`color-scheme`), the originals keep their own toggle
  *   (light), so its diff compares dark against light:  look at `side.png`, ignore the figure.  Both runs write the same
  *   files:  the last one wins.
@@ -23,9 +25,9 @@ import { chromium, type Page } from "playwright"
 
 import { SRV } from "@spell-app/server"
 
-/** `packages/brand/`, and the repo root. */
+/** This repo, and the spell-app checkout whose page server serves the brand pages. */
 const BRAND = path.resolve(import.meta.dirname, "..")
-const REPO = path.resolve(BRAND, "../..")
+const REPO = path.resolve(process.env.SPELL_APP_CHECKOUT ?? path.join(BRAND, "..", "spell-app"))
 
 /** Where results go (git-ignored). */
 const OUT = path.join(BRAND, ".compare")
@@ -108,7 +110,7 @@ function href(name: string, version: "dc" | "spell"): string {
   return `spell-design-system/${encodeURIComponent(name)}.${version}.html`
 }
 
-/** This checkout's page server, started if it isn't running. */
+/** spell-app's page server (`REPO`'s), started if it isn't running. */
 async function serverBase(): Promise<string> {
   const pid = new SRV.PidFile(REPO)
   let running = await pid.status()
