@@ -22,7 +22,7 @@
 import { existsSync, readdirSync, readFileSync, writeFileSync } from "node:fs"
 import path from "node:path"
 
-import { keepingCommentsIn, readJSON5File } from "@spell-app/util/node/json5"
+import { keepingCommentsIn, readJSON5File } from "spell-kit/util/node/json5"
 import type {
   SiteDataFile,
   SiteNav,

@@ -30,7 +30,7 @@ import "./inspector.css"
 
 import { BuiltInPacks } from "@spell-app/ui/icons"
 import { UI } from "@spell-app/ui/runtime"
-import { defineSite } from "@spell-app/server/site"
+import { defineSite } from "spell-kit/server/site"
 import { Palette } from "$/brand"
 
 /** This bundle's folder, `.../_assets/ui/`:  a string slice, NOT `new URL(".", import.meta.url)` (Vite would inline it). */

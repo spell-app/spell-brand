@@ -1,7 +1,7 @@
 import { defineConfig, type UserConfig } from "vite-plus"
 import { fileURLToPath } from "node:url"
 
-import { fmtConfig, packageLint } from "@spell-app/toolchain/lint"
+import { fmtConfig, packageLint } from "spell-kit/toolchain/lint"
 import { baseConfig } from "@spell-app/ui/vite.config.ts"
 
 /** `packages/brand/`. */

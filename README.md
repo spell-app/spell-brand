@@ -24,8 +24,9 @@ The page must load Spell UI's [docs bundle](../epics/tools/_assets/spell-ui.js),
 - `spell-brand`:  Spell's brand:  Claude Design's pages and tokens, their Spell UI copies, and the brand-* component pack.
 - Cut from [spell-app](https://github.com/spell-app/spell-app) with its history (epic `repo-split` P8);
   the repo IS the package, at its root.
-- It may use:  spell-ui (Spell UI, which it's built on) and spell-element (its elements are written on it);  and, as Spell UI does, spell-server for its site and spell-util (util's json5, the toolchain).
-- A child repo of the top repo `spell` (`~/www/spell`), which holds the ONE install for every repo:
+- It may use:  spell-ui (Spell UI, which it's built on) and the kit:  its `element/` (its elements are written on it);
+  and, as Spell UI does, its `server/` for the site, and util's json5 and the toolchain.
+- A child repo of the kit `spell-kit` (`~/www/spell`), which holds the ONE install for every repo:
   `yarn install` there.  No `yarn.lock` here, for now.
 
 ## The DRY rule (one of each)
@@ -36,7 +37,7 @@ If you find yourself writing a second copy of any of these, stop and reuse.
 - reading a vocabulary's tag and skeleton:  Spell UI's [`RootCatalog`](../spell-ui/tools/RootCatalog.ts)
 - the docs data, in [site-data.ts](scripts/site-data.ts):  Spell UI's builders
   - `SiteDataBuilder`, `SiteSearchBuilder`, `ElementManifests`
-- the element authoring API:  `$/spell-element`, and Spell UI's `$/ui/core`
+- the element authoring API:  `spell-kit/element`, and Spell UI's `@spell-app/ui/core`
 - the brand's colour math:  [`Palette`](src/Palette.ts)
 
 ## Files

@@ -13,10 +13,10 @@
     }
   },
   "scripts": {
-    "build": "tsx --import @spell-app/toolchain/aliases scripts/build.ts",
-    "compare": "tsx --import @spell-app/toolchain/aliases scripts/compare.ts",
-    "site:data": "tsx --import @spell-app/toolchain/aliases scripts/site-data.ts",
-    "rename:shared": "tsx --import @spell-app/toolchain/aliases scripts/rename-shared.ts",
+    "build": "tsx --import spell-kit/toolchain/aliases scripts/build.ts",
+    "compare": "tsx --import spell-kit/toolchain/aliases scripts/compare.ts",
+    "site:data": "tsx --import spell-kit/toolchain/aliases scripts/site-data.ts",
+    "rename:shared": "tsx --import spell-kit/toolchain/aliases scripts/rename-shared.ts",
     "/////// CORRECTNESS": "",
     "review": "yarn ts && yarn lint:fix && yarn format && yarn test && echo '== REVIEW PASSED\n===========\n'",
     "ts": "echo '>>>>>>>>>>>\n>> RUNNING TSC' && spell-types --below && spell-types && tsc -p ./tests && echo '<< TSC PASSED\n'",
@@ -29,13 +29,10 @@
     "pack:check": "spell-ui-pack check"
   },
   "dependencies": {
-    "@spell-app/spell-element": "workspace:*",
-    "@spell-app/util": "workspace:*"
+    "spell-kit": "workspace:*"
   },
   "devDependencies": {
     "@solidjs/web": "2.0.0-rc.13",
-    "@spell-app/server": "workspace:*",
-    "@spell-app/toolchain": "workspace:*",
     "@spell-app/ui": "workspace:*",
     "@types/node": "^22.20.4",
     "solid-js": "2.0.0-rc.13",

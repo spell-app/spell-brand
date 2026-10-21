@@ -23,7 +23,7 @@ import { execFileSync } from "node:child_process"
 import { runInNewContext } from "node:vm"
 import { chromium, type Page } from "playwright"
 
-import { SRV } from "@spell-app/server"
+import { SRV } from "spell-kit/server"
 
 /** This repo, and the spell-app checkout whose page server serves the brand pages. */
 const BRAND = path.resolve(import.meta.dirname, "..")

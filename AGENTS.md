@@ -12,13 +12,14 @@ when working with code in this package, `@spell-app/brand`.
 
 - `github.com/spell-app/spell-brand`, private;  cut from spell-app with its history (epic `repo-split` P8).
 - It holds `@spell-app/brand` itself, at the repo's root:  the `<brand-*>` elements (a component pack, `components/`), the palette and hues (`src/`), Brand UI's docs pages (`docs/`).
-- It may use:  spell-ui (Spell UI, which it's built on) and spell-element (its elements are written on it);  and, as Spell UI does, spell-server for its site and spell-util (util's json5, the toolchain).
+- It may use:  spell-ui (Spell UI, which it's built on) and the kit:  its `element/` (its elements are written on it);
+  and, as Spell UI does, its `server/` for the site, and util's json5 and the toolchain.
   - Every arrow points DOWN:  no repo below this one may import it.
-- It lives inside the top repo `spell`, at `~/www/spell/spell-brand/`:  the top holds the ONE install for every repo
+- It lives inside the kit `spell-kit`, at `~/www/spell/spell-brand/`:  the kit holds the ONE install for every repo
   (no `yarn.lock` here), and [its AGENTS.md](../AGENTS.md) has the rules across repos.
 - `$/` aliases are for inside this repo ([tsconfig.base.json](tsconfig.base.json));  another repo's package is imported
-  by its npm name (`@spell-app/...`), an entry of its `package.json` `exports`.
-- `agents/` (WWOD and the three logs):  a link to spell-util's main checkout, made by the top repo's setup (not yet).
+  by its npm name (`spell-kit/...`, `@spell-app/...`), an entry of its `package.json` `exports`.
+- `agents/` (WWOD and the three logs):  a link to the kit's `agents/` (git-ignored here), made by `yarn clone`.
 
 ## Overview
 
@@ -121,10 +122,10 @@ when working with code in this package, `@spell-app/brand`.
       the docs set loads Spell UI's site bundle and the pack instead.
 - `components/` (`$/brand/components`):  the `<brand-*>` elements, one folder per family.
   - Written exactly like a Spell UI family ([ui's AGENTS.md](../spell-ui/AGENTS.md), "Solid authoring").
-  - Written on `$/spell-element`:  `import { E } from "$/spell-element"`.
+  - Written on the kit's element:  `import { E } from "spell-kit/element"`.
     - Spell UI's shared code comes from `$/ui/core` / `$/ui/forms`.
     - A file using Spell UI's own pieces (`E.IconGlyph` ...) takes `E` from `$/ui/core` instead,
-      which carries spell-element's names too ([spell-element's AGENTS.md](../spell-element/AGENTS.md), "Imports").
+      which carries the kit's element's names too ([its AGENTS.md](../element/AGENTS.md), "Imports").
   - `yarn lint` holds them to it:  the `spell-ui/*` rules (ui's "Solid authoring", "The lint guard").
   - Generic ones move into Spell UI later (epic decision D2).
   - `__pack/`:  GENERATED and committed, by `spell dev pack build brand` (or `yarn pack:build`).
@@ -133,7 +134,7 @@ when working with code in this package, `@spell-app/brand`.
       - its second line records the sources' hash
     - `brand.entry.ts`:  `SpellUI.registerPack({ name, prefix, catalog, define })`
     - `brand.pack.js`:  the CLASSIC script a page loads
-      - Solid, spell-element and Spell UI's shared modules are NOT in it (`SpellUI.packModules`)
+      - Solid, the kit's element and Spell UI's shared modules are NOT in it (`SpellUI.packModules`)
   - A pack's events keep their own names:
     - the composer's own:  `brand-cast`
     - the ones Spell UI's controls send too keep Spell UI's (`ui-change`, `ui-input`, `ui-copy`),
@@ -276,10 +277,10 @@ when working with code in this package, `@spell-app/brand`.
 ## Imports
 
 As the root's, plus these reaches into `ui` past its barrel, each because the barrel can't give it
-(until the elements move into Spell UI, epic todo T2).  Spell UI and spell-element are other repos', so all by npm name
+(until the elements move into Spell UI, epic todo T2).  Spell UI and the kit are other repos', so all by npm name
 (epic `repo-split` P6), entries of their `exports`:
 - `@spell-app/ui/core` (and `@spell-app/ui/forms`):  Spell UI's half of the element authoring API,
-  beside `@spell-app/spell-element`'s.
+  beside `spell-kit/element`'s.
   - Imported as a `ui` family imports it, through its namespaces:
 
     ```ts
@@ -288,8 +289,8 @@ As the root's, plus these reaches into `ui` past its barrel, each because the ba
     ```
 
   - then `E.IconGlyph`, `UI.browser`, `F.FormComponent` ...
-  - `E.UIComponent` and `@E.state` are spell-element's:
-    a file that needs nothing more takes `E` from `@spell-app/spell-element`
+  - `E.UIComponent` and `@E.state` are the kit's element's:
+    a file that needs nothing more takes `E` from `spell-kit/element`
 - the bundle entries (`src/`), as Spell UI's site entry does:
   - `@spell-app/ui/runtime`, `@spell-app/ui/icons`, `@spell-app/ui/styles`, `@spell-app/ui/styles/ui.css`
 - [site-data.ts](scripts/site-data.ts):  Spell UI's site-data tools, and the site data's types
@@ -302,7 +303,7 @@ As the root's, plus these reaches into `ui` past its barrel, each because the ba
   - Its design export (`DesignBrand`) READS the docs set's `components.json5` and its pages, as data.
 - The pack's script may import only what a page shares (`PACK_MODULES` in Spell UI's
   [pack modules](../spell-ui/tools/packModules.ts), by their `$/` keys:  `packModuleKey()`):
-  - `@spell-app/spell-element`, `@spell-app/ui/core`, `@spell-app/ui/forms`, Solid
+  - `spell-kit/element`, `@spell-app/ui/core`, `@spell-app/ui/forms`, Solid
   - `$/brand` (`src/`) is bundled into it
 
 ## Serving
@@ -310,7 +311,7 @@ As the root's, plus these reaches into `ui` past its barrel, each because the ba
 - The page server serves the repo at `/`.
   - So the Brand tab's pages are at `/brand/...`, and this package's files at `/packages/brand/...`.
   - The site header's Brand tab opens `/brand/index.html`, and lights on every page under `/brand/`.
-    - Its entry:  `PROPERTIES`, in [site.types.ts](../spell-server/server/src/site/site.types.ts).
+    - Its entry:  `PROPERTIES`, in the kit's [site.types.ts](../server/src/site/site.types.ts).
   - The docs set, `docs/`, at `/components/brand/` (the page server's `componentSets` setting).
     - Spell UI's site bundle is laid over it at `_assets/`, as over every set's.
     - `/brand/components/` (the old element pages) answers "not found".

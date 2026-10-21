@@ -48,7 +48,8 @@ export default defineConfig(() => {
       cssTarget: ["chrome125", "safari26", "firefox147"],
       lib: { entry: { "brand-design": `${ROOT}src/brand-design.ts` }, formats: ["es"] },
       rolldownOptions: {
-        external: (id: string) => SOLID_EXTERNAL.test(id) || /^(\$|@spell-app)\/(ui|spell-element)(\/|$)/.test(id),
+        external: (id: string) =>
+          SOLID_EXTERNAL.test(id) || /^(\$|@spell-app)\/(ui|spell-element)(\/|$)|^spell-kit\/element(\/|$)/.test(id),
         output: {
           paths: packModuleKey,
           // custom element class names are read by dev-time warnings (see ui's `vite.config.ts`)
