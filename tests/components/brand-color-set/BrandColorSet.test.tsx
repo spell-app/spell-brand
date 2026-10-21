@@ -1,8 +1,8 @@
 import { describe, expect, it } from "vite-plus/test"
 import { userEvent } from "vite-plus/test/browser"
 
-import { ElementFixture } from "@spell-app/ui/test/ElementFixture"
-import { expectAccessible } from "@spell-app/ui/test/A11y"
+import { ElementFixture } from "spell-kit/test-helpers/ElementFixture"
+import { expectAccessible } from "spell-kit/test-helpers/A11y"
 
 import "$/brand/components/brand-color-set"
 

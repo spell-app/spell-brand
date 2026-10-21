@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vite-plus/test"
 
-import { ElementFixture } from "@spell-app/ui/test/ElementFixture"
+import { ElementFixture } from "spell-kit/test-helpers/ElementFixture"
 
 import "$/brand/components/brand-blob"
 

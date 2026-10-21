@@ -33,8 +33,10 @@ The page must load Spell UI's [docs bundle](../epics/tools/_assets/spell-ui.js),
 
 If you find yourself writing a second copy of any of these, stop and reuse.
 
-- the pack's build, catalog and staleness check:  Spell UI's, `spell-ui-pack` ([ComponentPack.ts](../spell-ui/tools/ComponentPack.ts))
-- reading a vocabulary's tag and skeleton:  Spell UI's [`RootCatalog`](../spell-ui/tools/RootCatalog.ts)
+- the pack's build, catalog and staleness check:  the kit's, `spell-pack`
+  ([ComponentPack.ts](../element/tools/ComponentPack.ts))
+- reading a vocabulary's tag and skeleton:  the kit's [`RootCatalog`](../element/tools/RootCatalog.ts)
+- the brand's logo, fonts and reference images:  [`assets/`](assets/)
 - the docs data, in [site-data.ts](scripts/site-data.ts):  Spell UI's builders
   - `SiteDataBuilder`, `SiteSearchBuilder`, `ElementManifests`
 - the element authoring API:  `spell-kit/element`, and Spell UI's `@spell-app/ui/core`
@@ -52,10 +54,12 @@ If you find yourself writing a second copy of any of these, stop and reuse.
 | `docs/__data/` | `pages.json5` (hand-kept);  `components.json5`, `search.json5`, the editor manifests (generated) |
 | `src/index.ts` | `$/brand`:  `Palette`, the brand's types |
 | `src/brand-ui.ts` | the Brand tab copies' bundle entry, `_assets/ui/brand-ui.js` (git-ignored) |
-| `src/brand-design.ts` | the elements for the claude.ai design bundle |
+| `src/brand-design.ts` | the elements for the claude.ai design bundle (`yarn design:bundle`) |
 | `src/hues.ts` | the brand's `accent` hue |
 | `_assets/` | the Brand tab's own script and sheet (`brand-pages.*`);  `ui/`, the built bundle |
-| `scripts/` | `build.ts`, `compare.ts`, `site-data.ts`, `rename-shared.ts` |
+| `assets/` | the brand's source files people link or download:  `logo/`, `fonts/`, `reference/`;  a copy of the content repo's `brand/spell-design-system/assets/`, served from every set at `/_brand/assets/...` |
+| `scripts/` | `build.ts`, `compare.ts`, `site-data.ts`, `rename-shared.ts`;  the claude.ai design bundle's `design-bundle.ts` and `design-check.ts` |
+| `vendor/claude-design/` | Claude Design's artboard runtime, for `yarn design:check`:  never edited |
 | `vitest.config.ts` | `node` (`src/`) and `browser` (`components/`) projects |
 | `_data/` | *(none -- `docs/__data/`, since epic `people-and-orgs` P18)* |
 

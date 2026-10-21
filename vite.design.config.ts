@@ -1,18 +1,18 @@
 import { defineConfig, type UserConfig } from "vite-plus"
 import { fileURLToPath } from "node:url"
 
-import { packModuleKey } from "@spell-app/ui/tools/packModules"
+import { packModuleKey } from "spell-kit/element/tools/packModules"
 import { baseConfig, SOLID_EXTERNAL } from "@spell-app/ui/vite.config.ts"
 
 /** `packages/brand/`. */
 const ROOT = fileURLToPath(new URL("./", import.meta.url))
 
-/** Where the build goes:  `dist/` (git-ignored), read by the docs' design bundle. */
+/** Where the build goes:  `dist/` (git-ignored), read by the design bundle (`yarn design:bundle`). */
 export const DESIGN_OUT = `${ROOT}dist`
 
 /**
  * The brand elements for the claude.ai design bundle (epic `claude-design`, P11):  `src/brand-design.ts` =>
- * `dist/brand-design.js`, ONE ES module, which `spell-epic/src/tools/bundle-spell-ui.js --design` bundles beside
+ * `dist/brand-design.js`, ONE ES module, which `yarn design:bundle` (`scripts/design-bundle.ts`) bundles beside
  * Spell UI's `dist/` (it runs this build:  `vp build --config vite.design.config.ts`).
  * - Why a build of its own, not `src/` straight into that bundle:  the elements are Solid JSX, which only the Solid
  *   compiler (`baseConfig()`'s plugins) turns into code;  esbuild, which makes the bundle, can't.

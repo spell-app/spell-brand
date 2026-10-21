@@ -34,16 +34,17 @@ when working with code in this package, `@spell-app/brand`.
   - A page loads them through `<ui-root>`, as it loads the epics pack's ([ui's AGENTS.md](../spell-ui/AGENTS.md), "Component packs").
   - They were `<ui-brand-*>`, Spell UI's prefix, before P18.
   - Made one by `spell dev pack new brand --prefix brand-`.
-  - Its build and check are Spell UI's own pack tooling (epic `repo-split` P5):  `spell-ui-pack`,
-    [ComponentPack.ts](../spell-ui/tools/ComponentPack.ts), which the brand uses as any pack does.
-    - A bin of `@spell-app/ui`, a dev dependency here:  the brand reaches Spell UI's tool, never spell-app's CLI.
+  - Its build and check are the kit's pack tooling:  `spell-pack`,
+    [ComponentPack.ts](../element/tools/ComponentPack.ts), which the brand uses as any pack does.
+    - A bin of `spell-kit`, a dependency here:  the brand reaches the kit's tool, never spell-app's CLI.
+    - Spell UI's `spell-ui-pack` from epic `repo-split` P5 to P10.
 - Two halves (epic `claude-design`, P11, 2026-10-05):
   - The Brand tab's PAGES are shared, in the repo root's `brand/`.
     - It's a link into spell-app-dev, the same in every checkout (the root's `AGENTS.md`, "Shared content").
     - Edit them at their real path, `/Users/owen/www/spell-app/spell-app-dev/brand/`.
     - Never commit them.
   - The CODE stays here, tracked:
-    - the elements (`components/<tag>/`), `src/`, `scripts/`, `_assets/`, configs
+    - the elements (`components/<tag>/`), `src/`, `scripts/`, `_assets/`, `assets/`, configs
     - the elements' own docs pages, `docs/` (P18:  they live with the code they describe, per branch)
   - So a Brand tab page links this package's files from one folder deeper than before:
 
@@ -82,6 +83,19 @@ when working with code in this package, `@spell-app/brand`.
     - The page server builds it when it starts, if stale (`spell dev bundles build --stale`).
       - That's `$/assembler`'s `Bundle`:  `.bundle.json` records the sources' hash.
     - NEVER edit.
+- `assets/`:  the brand's SOURCE files, which people link or download (epic `repo-split` P10).
+  - `logo/`:  the mark and the lockups as SVG and PNG, in each colour;  `logo/explore/`, the variants tried
+  - `fonts/`:  the P052 serif (`.otf`), and its licence (URW base35)
+  - `reference/`:  the reference images the brand was drawn from
+  - A COPY of the content repo's `brand/spell-design-system/assets/`, Claude Design's export:
+    the content repo's stays for now (`repo-split` T15).
+  - Served from every component set at `/_brand/assets/...` (`/_brand/assets/logo/spell-lockup.svg`):
+    an engine route in spell-app's root `package.json`'s `"pageServer"` (`engineRoutes`).
+  - `assets/`, not `_assets/`:  `_assets/` holds the brand pages' scripts and their built bundle;
+    `assets/` holds files people use as they are.
+  - The component sets' page frames draw the lockup inline (their `__parts/layout.html`);
+    their comments name this copy as its source.
+  - NEVER edit them by hand:  they're Claude Design's.
 - `docs/`:  Brand UI, the elements' docs set, served at `/components/brand/`.
   - A COMPONENT SET:  the root's `AGENTS.md`, "Packages".
   - One flat folder, in Spell UI's component page shape (Examples / Usage / API / Theming):
@@ -144,10 +158,13 @@ when working with code in this package, `@spell-app/brand`.
   - `compare.ts`:  screenshot diffs
   - `site-data.ts`:  `docs/__data/`
   - `rename-shared.ts`:  the shared Brand tab pages' rename to `brand-`, once, at the merge (see "Commands")
+  - the claude.ai design bundle (see "The design bundle"):  `design-bundle.ts` and its entry
+    (`design-bundle.entry.js`), `design-check.ts`, and where both look (`design-paths.ts`)
 - `vite.design.config.ts`:  the elements, built for the claude.ai design bundle.
   - The output:  `brand-design.js`, in `dist/` (git-ignored).
-  - The design bundle's build runs it:  [bundle-spell-ui.js](../spell-epic/src/tools/bundle-spell-ui.js) `--design`.
-    That's `yarn design:bundle`, in epics.
+  - The design bundle's build runs it first:  `yarn design:bundle` ([design-bundle.ts](scripts/design-bundle.ts)).
+- `vendor/claude-design/`:  Claude Design's artboard runtime, `dc-runtime.js`, copied from claude.ai (2026-10-05),
+  for `yarn design:check`.  NEVER edit;  not linted, formatted or type-checked.
 - `brand/leonardo/` (shared):  the original reference images and brief, from before Claude Design.
 
 ## A `.spell.html` copy
@@ -179,9 +196,9 @@ when working with code in this package, `@spell-app/brand`.
   - The page server rebuilds it when it starts, if any of these changed:
     `components/`, `src/`, or the Spell UI source it reads.
   - While the page server runs, rerun it by hand (or restart the page server).
-- `yarn pack:build` ~== `spell-ui-pack build` ~== `spell dev pack build brand`:  the pack, `components/__pack/`.
+- `yarn pack:build` ~== `spell-pack build` ~== `spell dev pack build brand`:  the pack, `components/__pack/`.
   - then `yarn site:data`
-  - `yarn pack:check` ~== `spell-ui-pack check` ~== `spell dev pack check brand`:  exits 1 while the pack or the docs
+  - `yarn pack:check` ~== `spell-pack check` ~== `spell dev pack check brand`:  exits 1 while the pack or the docs
     data is stale.
   - [The pack's test](./tests/src/pack.test.ts) runs the check, so `yarn test` fails on a stale pack.
 - `yarn site:data [--check]`:  the docs set's data, `docs/__data/` (see "Overview").
@@ -202,6 +219,10 @@ when working with code in this package, `@spell-app/brand`.
   - What it renames:  tags, tokens, `ui-cast`, and links to the old element pages (now `/components/brand/`).
   - Then it deletes the old pages' folder, `brand/components/`.
   - Idempotent.
+- `yarn design:bundle [--out <dir>] [--skip-ui-build]` ~== `spell dev design bundle`:  the claude.ai design bundle
+  (see "The design bundle").
+- `yarn design:check [bundle.js] [outDir]` ~== `spell dev design check`:  proves it the two ways Claude Design runs
+  it.  Run it after touching the bundle, its entry, `src/brand-design.ts` or `vite.design.config.ts`.
 - `yarn compare [<page>...] [--width 1280] [--height 900] [--dark] [--full]`:
   screenshots of each original and its copy, and a diff % per page.
   - into `.compare/` (git-ignored):  `dc.png`, `spell.png`, `side.png`, `diff.png`, `report.md`
@@ -213,9 +234,32 @@ when working with code in this package, `@spell-app/brand`.
   - `browser`:  in Vitest browser mode, chromium
     - the elements
     - `src/`'s `*.browser.test.ts`:  the inspector's look
-    - with Spell UI's helpers:  `$/ui/test/ElementFixture`, `$/ui/test/a11y`
+    - with the kit's test helpers:  `spell-kit/test-helpers/ElementFixture`, `spell-kit/test-helpers/A11y`;
+      Spell UI's own, `@spell-app/ui/test/MemberClashes`, and its setup
   - The root's `yarn test` runs them as `brand:node` / `brand:browser`.
 - `yarn ts`, `yarn lint`, `yarn format`, `yarn review`.
+
+## The design bundle
+
+The claude.ai Design System's `components/bundle.js` (epic `claude-design` P8, P11):  ONE classic script of Spell UI,
+the `<brand-*>` elements and the `spell-brand` theme, defining `window.SpellUI`.  spell-epic built it until epic
+`repo-split` P10 (Q32):  spell-epic needed spell-brand only for this.
+- `yarn design:bundle` ([design-bundle.ts](scripts/design-bundle.ts)), also `spell dev design bundle`:
+  - builds Spell UI (`yarn build`) and the brand's elements (`vite.design.config.ts`) from their working trees,
+    unless `--skip-ui-build`
+  - bundles [design-bundle.entry.js](scripts/design-bundle.entry.js) with esbuild, everything inlined:  Claude Design
+    refuses a relative `<script src>`
+  - every Font Awesome Free icon, under its own names and the widgets' (`NAMES`)
+  - `<!--` / `</script` escaped, since readers inline it;  fails over 6 MB
+  - writes `project/components/bundle.js` in the design system's folder `spell dev design build` writes (Spell UI's
+    `build/design-system/`, git-ignored), or `--out <dir>`
+- `yarn design:check` ([design-check.ts](scripts/design-check.ts)), also `spell dev design check`, with Playwright:
+  - the bundle inlined into an `about:srcdoc` frame, as a preview card runs it:  icons, code colours, markdown, the
+    brand's elements and theme, no errors
+  - then a Design board under Claude Design's own runtime (`vendor/claude-design/`), whose `<ui-button onClick>`
+    must count
+- spell-epic's docs bundle (its `_assets/spell-ui.js`) is built the same way by its own `bundle-spell-ui.js`:  the
+  resolver and checks here are a copy of its, kept in step by hand.
 
 ## The elements
 
@@ -298,11 +342,12 @@ As the root's, plus these reaches into `ui` past its barrel, each because the ba
   - `@spell-app/ui/tools/SiteSearchBuilder`
   - `@spell-app/ui/tools/ElementManifests`
   - `@spell-app/ui/docs-components/docs-components.types`
-- `@spell-app/ui/test/...`, in tests
+- `@spell-app/ui/test/...` (`MemberClashes`, `setup.ts`), in tests;  the generic helpers are the kit's,
+  `spell-kit/test-helpers/...`
 - NEVER the other way:  `ui` imports nothing of `brand`.
   - Its design export (`DesignBrand`) READS the docs set's `components.json5` and its pages, as data.
-- The pack's script may import only what a page shares (`PACK_MODULES` in Spell UI's
-  [pack modules](../spell-ui/tools/packModules.ts), by their `$/` keys:  `packModuleKey()`):
+- The pack's script may import only what a page shares (`PACK_MODULES` in the kit's
+  [pack modules](../element/tools/packModules.ts), by their `$/` keys:  `packModuleKey()`):
   - `spell-kit/element`, `@spell-app/ui/core`, `@spell-app/ui/forms`, Solid
   - `$/brand` (`src/`) is bundled into it
 
