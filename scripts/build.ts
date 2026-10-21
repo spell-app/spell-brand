@@ -7,7 +7,7 @@
  * - Icon packs:  `_assets/ui/icon-packs` is a SYMLINK to Spell UI's packs (its `src/icons/icon-packs`), made here if
  *   missing (or re-pointed when it leads elsewhere), as Spell UI's site bundle does (its `scripts/site-bundle.ts`):
  *   never a second copy.
- *   - Spell UI found as a package (`@spell-app/ui`, through `node_modules`), wherever its repo is:  beside this one in
+ *   - Spell UI found as a package (`spell-ui`, through `node_modules`), wherever its repo is:  beside this one in
  *     the top repo `spell` since epic `repo-split` P8.
  * - Fails if the bundle holds two copies of a Solid package (`solid-js`, `@solidjs/web`):  two would split signals
  *   and break every element.  The docs bundle checks the same (`bundle-spell-ui.js` `checkOneSolid()`).
@@ -32,10 +32,7 @@ import { BRAND_ASSETS } from "../vite.config.ts"
 
 /** The packs link inside `_assets/ui/`, and where it points (relative, so the repos can move together). */
 const PACKS = path.join(BRAND_ASSETS, "icon-packs")
-const PACKS_TARGET = path.relative(
-  BRAND_ASSETS,
-  path.join(packageFolder("@spell-app/ui"), "src", "icons", "icon-packs")
-)
+const PACKS_TARGET = path.relative(BRAND_ASSETS, path.join(packageFolder("spell-ui"), "src", "icons", "icon-packs"))
 
 /** A Solid package's folder in a module id:  `.../node_modules/solid-js/...`, `.../node_modules/@solidjs/web/...`. */
 const SOLID_MODULE = /node_modules\/(solid-js|@solidjs\/[\w-]+)\//

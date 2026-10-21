@@ -1,4 +1,4 @@
-import { E } from "@spell-app/ui/core"
+import { E } from "spell-ui/core"
 import { Palette } from "$/brand"
 
 import { brandColorPickerVocabulary } from "./BrandColorPicker.en"

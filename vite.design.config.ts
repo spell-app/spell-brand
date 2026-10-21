@@ -2,7 +2,7 @@ import { defineConfig, type UserConfig } from "vite-plus"
 import { fileURLToPath } from "node:url"
 
 import { packModuleKey } from "spell-kit/element/tools/packModules"
-import { baseConfig, SOLID_EXTERNAL } from "@spell-app/ui/vite.config.ts"
+import { baseConfig, SOLID_EXTERNAL } from "spell-ui/vite.config.ts"
 
 /** `packages/brand/`. */
 const ROOT = fileURLToPath(new URL("./", import.meta.url))
@@ -17,7 +17,7 @@ export const DESIGN_OUT = `${ROOT}dist`
  * - Why a build of its own, not `src/` straight into that bundle:  the elements are Solid JSX, which only the Solid
  *   compiler (`baseConfig()`'s plugins) turns into code;  esbuild, which makes the bundle, can't.
  * - Spell UI, spell-element and Solid stay EXTERNAL, by their `$/` names (`packModuleKey()`:  the elements import
- *   `@spell-app/ui/core`, the build writes `$/ui/core`, as before epic `repo-split` P6):  the design bundle resolves `$/ui/core` /
+ *   `spell-ui/core`, the build writes `$/ui/core`, as before epic `repo-split` P6):  the design bundle resolves `$/ui/core` /
  *   `$/ui/forms` to Spell UI's `dist/core.js` / `dist/forms.js`, and `$/spell-element` to `dist/core.js` (which carries
  *   it), the same modules its own elements use, so there's ONE `UIComponent`, one `ValueSets` (the `accent` hue
  *   reaches every element) and one Solid.
@@ -49,7 +49,7 @@ export default defineConfig(() => {
       lib: { entry: { "brand-design": `${ROOT}src/brand-design.ts` }, formats: ["es"] },
       rolldownOptions: {
         external: (id: string) =>
-          SOLID_EXTERNAL.test(id) || /^(\$|@spell-app)\/(ui|spell-element)(\/|$)|^spell-kit\/element(\/|$)/.test(id),
+          SOLID_EXTERNAL.test(id) || /^\$\/(ui|spell-element)(\/|$)|^spell-(ui|kit\/element)(\/|$)/.test(id),
         output: {
           paths: packModuleKey,
           // custom element class names are read by dev-time warnings (see ui's `vite.config.ts`)

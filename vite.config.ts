@@ -2,7 +2,7 @@ import { defineConfig, type UserConfig } from "vite-plus"
 import { fileURLToPath } from "node:url"
 
 import { fmtConfig, packageLint } from "spell-kit/toolchain/lint"
-import { baseConfig } from "@spell-app/ui/vite.config.ts"
+import { baseConfig } from "spell-ui/vite.config.ts"
 
 /** `packages/brand/`. */
 const ROOT = fileURLToPath(new URL("./", import.meta.url))

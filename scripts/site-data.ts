@@ -28,10 +28,10 @@ import type {
   SiteNav,
   SitePagesFile,
   SiteSearchFile
-} from "@spell-app/ui/docs-components/docs-components.types"
-import { ElementManifests } from "@spell-app/ui/tools/ElementManifests"
-import { SiteDataBuilder } from "@spell-app/ui/tools/SiteDataBuilder"
-import { SiteSearchBuilder } from "@spell-app/ui/tools/SiteSearchBuilder"
+} from "spell-ui/docs-components/docs-components.types"
+import { ElementManifests } from "spell-ui/tools/ElementManifests"
+import { SiteDataBuilder } from "spell-ui/tools/SiteDataBuilder"
+import { SiteSearchBuilder } from "spell-ui/tools/SiteSearchBuilder"
 
 /** `packages/brand/`. */
 const BRAND = path.resolve(import.meta.dirname, "..")

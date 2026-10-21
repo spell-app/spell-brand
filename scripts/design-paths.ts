@@ -8,18 +8,18 @@
 import { existsSync, realpathSync } from "node:fs"
 import path from "node:path"
 
-/** This repo, spell-brand:  `@spell-app/brand`. */
+/** This repo, spell-brand:  `spell-brand`. */
 export const BRAND_DIR = path.resolve(import.meta.dirname, "..")
 
 /**
- * Spell UI, the `@spell-app/ui` package, by its REAL path;  `SPELL_UI_DIR` says otherwise.
+ * Spell UI, the `spell-ui` package, by its REAL path;  `SPELL_UI_DIR` says otherwise.
  * - Real, since esbuild resolves UI's own imports (`dist/` chunk to chunk) to real paths:  had the entry's
- *   `@spell-app/ui/*` gone through a link, the bundle held TWO of UI's modules (`core.js` ...), so two of
+ *   `spell-ui/*` gone through a link, the bundle held TWO of UI's modules (`core.js` ...), so two of
  *   spell-element's `ShadowEvents`, and a `<ui-button>`'s page `onClick` ran twice (epic `epic-engine` I18).
  */
 export const UI_DIR = process.env.SPELL_UI_DIR
   ? realPath(path.resolve(process.env.SPELL_UI_DIR))
-  : packageFolder("@spell-app/ui")
+  : packageFolder("spell-ui")
 
 /** The kit's element, `spell-kit/element`, by its real path:  its SOURCE must never be bundled. */
 export const ELEMENT_DIR = path.join(packageFolder("spell-kit"), "element")

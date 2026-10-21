@@ -1,5 +1,5 @@
 {
-  "name": "@spell-app/brand",
+  "name": "spell-brand",
   "version": "0.0.0",
   "private": true,
   "description": "Spell's brand:  Claude Design's pages and tokens, their Spell UI copies, and the <brand-*> elements they need (a component pack)",
@@ -36,11 +36,11 @@
   },
   "devDependencies": {
     "@solidjs/web": "2.0.0-rc.13",
-    "@spell-app/ui": "workspace:*",
     "@types/node": "^22.20.4",
     "esbuild": "^0.28.2",
     "playwright": "1.63.0",
     "solid-js": "2.0.0-rc.13",
+    "spell-ui": "workspace:*",
     "tsx": "^4.23.15",
     "typescript": "^7.0.2",
     "vite": "catalog:",

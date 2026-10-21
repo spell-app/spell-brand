@@ -2,10 +2,10 @@ import { resolve } from "node:path"
 import { defineConfig, type TestProjectConfiguration } from "vite-plus"
 import { playwright } from "vite-plus/test/browser-playwright"
 
-import { baseConfig } from "@spell-app/ui/vite.config.ts"
+import { baseConfig } from "spell-ui/vite.config.ts"
 
 /**
- * vitest config for `@spell-app/brand`, a component pack (`spell dev pack`):  two projects.
+ * vitest config for `spell-brand`, a component pack (`spell dev pack`):  two projects.
  * - `node` -- `src/**`:
  *   - the pack's own checks, `pack.test.ts` among them:
  *     `spell dev pack check brand`, that `components/__pack/` and `docs/__data/` are current
@@ -15,7 +15,7 @@ import { baseConfig } from "@spell-app/ui/vite.config.ts"
  *   - the brand pages' look on Spell UI's elements (`inspector.browser.test.ts`)
  *   - Vitest browser mode + Playwright, chromium
  *   - `baseConfig()`:  Spell UI's plugins (decorators BEFORE Solid), Solid dedupe, Lightning CSS
- *   - the test helpers come from the kit (`spell-kit/test-helpers/...`), Spell UI's own from `@spell-app/ui/test/...`
+ *   - the test helpers come from the kit (`spell-kit/test-helpers/...`), Spell UI's own from `spell-ui/test/...`
  * - `prefix` / `root`:  the repo root's `vitest.config.ts` lists these as `brand:node` / `brand:browser`,
  *   `root` set to this package, since vitest doesn't nest `projects`.
  *   Own run:  no prefix, `root` is this folder.
@@ -50,7 +50,7 @@ export function brandProjects({
         dir: TESTS,
         include: ["components/**/*.test.{ts,tsx}", BROWSER_SRC],
         // Spell UI's core first, as a page has it:  its settings for `$/spell-element` (`packages/ui/test/setup.ts`)
-        setupFiles: ["@spell-app/ui/test/setup.ts"],
+        setupFiles: ["spell-ui/test/setup.ts"],
         testTimeout: 10_000,
         browser: {
           enabled: true,

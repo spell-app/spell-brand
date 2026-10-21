@@ -11,7 +11,7 @@
  * - What it holds, in import order (ES modules evaluate top to bottom):
  *   0. `./hues`:  the brand's `accent` hue, added to Spell UI's `hues` before any element is defined
  *   1. the page CSS, extracted to `brand-ui.css`:
- *      - `@spell-app/ui`'s foundation (`ui.css`:  layers, tokens, reset, typography, native markup)
+ *      - `spell-ui`'s foundation (`ui.css`:  layers, tokens, reset, typography, native markup)
  *      - the inspector's fields (`inspector.css`):
  *        Spell UI's `<ui-field>` in a `<ui-panel>`, as Claude Design draws them
  *   2. `BuiltInPacks`:  pointed at `_assets/ui/icon-packs/` (a symlink to ui's packs) from THIS file's URL,
@@ -25,11 +25,11 @@
  * - `window.Palette`:  the brand's colour math (`$/brand`), for the pages' own scripts.
  */
 import "./hues"
-import "@spell-app/ui/styles/ui.css"
+import "spell-ui/styles/ui.css"
 import "./inspector.css"
 
-import { BuiltInPacks } from "@spell-app/ui/icons"
-import { UI } from "@spell-app/ui/runtime"
+import { BuiltInPacks } from "spell-ui/icons"
+import { UI } from "spell-ui/runtime"
 import { defineSite } from "spell-kit/server/site"
 import { Palette } from "$/brand"
 
@@ -47,5 +47,5 @@ defineSite()
 
 // The elements LAST, by `import()`:  a chunked build may run a static import's chunk before this file's own
 // imports (`./hues`), and an element upgraded before `accent` is a hue drops `color="accent"` (issue I17)
-await import("@spell-app/ui")
+await import("spell-ui")
 await import("$/brand/components")

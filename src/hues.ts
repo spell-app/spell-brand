@@ -6,6 +6,6 @@
  *   `spell-brand.css`):  under another theme the name is accepted but tints nothing.
  * - SIDE EFFECT:  `ValueSets.add("hues", "accent")`, page-wide.
  */
-import { ValueSets } from "@spell-app/ui/core"
+import { ValueSets } from "spell-ui/core"
 
 ValueSets.add("hues", "accent")

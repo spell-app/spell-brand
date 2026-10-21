@@ -11,7 +11,7 @@
  *   - spell's colouring isn't Spell UI's since epic `repo-split` P2:  `language="spell"` shows plain here
  * - `spell-ui:icons` FIRST:  it registers EVERY Font Awesome Free icon (solid, regular, brands) under the names
  *   `fa7-free` / `fa7-brands` give them, then the widgets' and docs' own names on top (`close`, `info` ...).
- * - Then the brand's elements (P11, `@spell-app/brand/design`:  `src/brand-design.ts`, built by
+ * - Then the brand's elements (P11, `spell-brand/design`:  `src/brand-design.ts`, built by
  *   `vite.design.config.ts`):  its `accent` hue first, then every `<brand-*>`.  BEFORE Spell UI's families, so
  *   `color="accent"` is a hue when they define (issue I17).
  * - Exports become `window.SpellUI` (`UI`);  the `spell-brand` theme applies as soon as the bundle runs, as on every
@@ -19,8 +19,8 @@
  */
 
 import "spell-ui:icons"
-import "@spell-app/brand/design"
-import { UI } from "@spell-app/ui"
+import "spell-brand/design"
+import { UI } from "spell-ui"
 
 export { UI }
 

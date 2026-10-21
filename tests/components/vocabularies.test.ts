@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vite-plus/test"
 
-import { MemberClashes } from "@spell-app/ui/test/MemberClashes"
+import { MemberClashes } from "spell-ui/test/MemberClashes"
 
 /** Every brand family's English vocabulary module, by path. */
 const MODULES = import.meta.glob<Record<string, unknown>>("../../components/*/*.en.ts", {

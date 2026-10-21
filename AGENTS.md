@@ -1,7 +1,7 @@
 # AGENTS.md
 
 This file provides guidance to AI coding agents (Claude Code, Codex, and others)
-when working with code in this package, `@spell-app/brand`.
+when working with code in this package, `spell-brand`.
 
 **Root conventions apply:  READ the repo root's `AGENTS.md` and [WWOD](agents/wwod/WWOD.md) FIRST.**
 - the root's:  the repo's layout
@@ -11,14 +11,14 @@ when working with code in this package, `@spell-app/brand`.
 ## This repo:  `spell-brand`
 
 - `github.com/spell-app/spell-brand`, private;  cut from spell-app with its history (epic `repo-split` P8).
-- It holds `@spell-app/brand` itself, at the repo's root:  the `<brand-*>` elements (a component pack, `components/`), the palette and hues (`src/`), Brand UI's docs pages (`docs/`).
+- It holds `spell-brand` itself, at the repo's root:  the `<brand-*>` elements (a component pack, `components/`), the palette and hues (`src/`), Brand UI's docs pages (`docs/`).
 - It may use:  spell-ui (Spell UI, which it's built on) and the kit:  its `element/` (its elements are written on it);
   and, as Spell UI does, its `server/` for the site, and util's json5 and the toolchain.
   - Every arrow points DOWN:  no repo below this one may import it.
 - It lives inside the kit `spell-kit`, at `~/www/spell/spell-brand/`:  the kit holds the ONE install for every repo
   (no `yarn.lock` here), and [its AGENTS.md](../AGENTS.md) has the rules across repos.
 - `$/` aliases are for inside this repo ([tsconfig.base.json](tsconfig.base.json));  another repo's package is imported
-  by its npm name (`spell-kit/...`, `@spell-app/...`), an entry of its `package.json` `exports`.
+  by its npm name (`spell-kit/...`, `spell-ui/...`), an entry of its `package.json` `exports`.
 - `agents/` (WWOD and the three logs):  a link to the kit's `agents/` (git-ignored here), made by `yarn clone`.
 
 ## Overview
@@ -235,7 +235,7 @@ when working with code in this package, `@spell-app/brand`.
     - the elements
     - `src/`'s `*.browser.test.ts`:  the inspector's look
     - with the kit's test helpers:  `spell-kit/test-helpers/ElementFixture`, `spell-kit/test-helpers/A11y`;
-      Spell UI's own, `@spell-app/ui/test/MemberClashes`, and its setup
+      Spell UI's own, `spell-ui/test/MemberClashes`, and its setup
   - The root's `yarn test` runs them as `brand:node` / `brand:browser`.
 - `yarn ts`, `yarn lint`, `yarn format`, `yarn review`.
 
@@ -323,32 +323,32 @@ the `<brand-*>` elements and the `spell-brand` theme, defining `window.SpellUI`.
 As the root's, plus these reaches into `ui` past its barrel, each because the barrel can't give it
 (until the elements move into Spell UI, epic todo T2).  Spell UI and the kit are other repos', so all by npm name
 (epic `repo-split` P6), entries of their `exports`:
-- `@spell-app/ui/core` (and `@spell-app/ui/forms`):  Spell UI's half of the element authoring API,
+- `spell-ui/core` (and `spell-ui/forms`):  Spell UI's half of the element authoring API,
   beside `spell-kit/element`'s.
   - Imported as a `ui` family imports it, through its namespaces:
 
     ```ts
-    import { E, UI, UIT } from "@spell-app/ui/core"
-    import { F } from "@spell-app/ui/forms"
+    import { E, UI, UIT } from "spell-ui/core"
+    import { F } from "spell-ui/forms"
     ```
 
   - then `E.IconGlyph`, `UI.browser`, `F.FormComponent` ...
   - `E.UIComponent` and `@E.state` are the kit's element's:
     a file that needs nothing more takes `E` from `spell-kit/element`
 - the bundle entries (`src/`), as Spell UI's site entry does:
-  - `@spell-app/ui/runtime`, `@spell-app/ui/icons`, `@spell-app/ui/styles`, `@spell-app/ui/styles/ui.css`
+  - `spell-ui/runtime`, `spell-ui/icons`, `spell-ui/styles`, `spell-ui/styles/ui.css`
 - [site-data.ts](scripts/site-data.ts):  Spell UI's site-data tools, and the site data's types
-  - `@spell-app/ui/tools/SiteDataBuilder`
-  - `@spell-app/ui/tools/SiteSearchBuilder`
-  - `@spell-app/ui/tools/ElementManifests`
-  - `@spell-app/ui/docs-components/docs-components.types`
-- `@spell-app/ui/test/...` (`MemberClashes`, `setup.ts`), in tests;  the generic helpers are the kit's,
+  - `spell-ui/tools/SiteDataBuilder`
+  - `spell-ui/tools/SiteSearchBuilder`
+  - `spell-ui/tools/ElementManifests`
+  - `spell-ui/docs-components/docs-components.types`
+- `spell-ui/test/...` (`MemberClashes`, `setup.ts`), in tests;  the generic helpers are the kit's,
   `spell-kit/test-helpers/...`
 - NEVER the other way:  `ui` imports nothing of `brand`.
   - Its design export (`DesignBrand`) READS the docs set's `components.json5` and its pages, as data.
 - The pack's script may import only what a page shares (`PACK_MODULES` in the kit's
   [pack modules](../element/tools/packModules.ts), by their `$/` keys:  `packModuleKey()`):
-  - `spell-kit/element`, `@spell-app/ui/core`, `@spell-app/ui/forms`, Solid
+  - `spell-kit/element`, `spell-ui/core`, `spell-ui/forms`, Solid
   - `$/brand` (`src/`) is bundled into it
 
 ## Serving

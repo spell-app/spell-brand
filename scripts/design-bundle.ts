@@ -45,7 +45,7 @@ const { values } = parseArgs({ options: { out: { type: "string" }, "skip-ui-buil
 const ENTRY = path.join(import.meta.dirname, "design-bundle.entry.js")
 /** Where the bundle goes. */
 const OUTFILE = values.out ? path.join(path.resolve(INVOKED_FROM, values.out), "bundle.js") : DESIGN_BUNDLE
-/** The brand's build of its elements, `@spell-app/brand/design` (`vite.design.config.ts`). */
+/** The brand's build of its elements, `spell-brand/design` (`vite.design.config.ts`). */
 const BRAND_DESIGN = path.join(BRAND_DIR, "dist/brand-design.js")
 /** Claude Design's cap on a design system's `bundle.js` (6 MB, counted in decimal to be safe). */
 const MAX_BYTES = 6_000_000
@@ -106,14 +106,14 @@ report(warnings)
  */
 function buildUI(): void {
   if (!existsSync(path.join(UI_DIR, "package.json"))) fail(`no UI checkout at ${UI_DIR} (set SPELL_UI_DIR)`)
-  if (run("yarn", ["build"], "build @spell-app/ui (tsc + vite)", { allowFailure: true })) return
+  if (run("yarn", ["build"], "build spell-ui (tsc + vite)", { allowFailure: true })) return
   console.warn("!! UI's tsc failed:  building with `vite build` alone (the bundle may carry type errors)")
-  run("yarn", ["vite", "build"], "build @spell-app/ui (vite only)")
+  run("yarn", ["vite", "build"], "build spell-ui (vite only)")
 }
 
 /** Builds the brand's elements for the bundle, `BRAND_DESIGN`, from this repo's working tree (P11). */
 function buildBrand(): void {
-  run("yarn", ["vp", "build", "--config", "vite.design.config.ts"], "build the brand elements (@spell-app/brand)", {
+  run("yarn", ["vp", "build", "--config", "vite.design.config.ts"], "build the brand elements (spell-brand)", {
     cwd: BRAND_DIR
   })
 }
@@ -177,8 +177,8 @@ async function bundle(): Promise<string[]> {
 
 /**
  * esbuild plugin wiring the entry to UI's `dist/` and the brand's build:
- * - `@spell-app/ui` ~== `dist/index.js`, `@spell-app/ui/<entry>` ~== `dist/<entry>.js` (mirrors UI's `exports`)
- * - `@spell-app/brand/design` ~== `BRAND_DESIGN`;  the `$/ui/<entry>` it imports ~== UI's `dist/<entry>.js`, and
+ * - `spell-ui` ~== `dist/index.js`, `spell-ui/<entry>` ~== `dist/<entry>.js` (mirrors UI's `exports`)
+ * - `spell-brand/design` ~== `BRAND_DESIGN`;  the `$/ui/<entry>` it imports ~== UI's `dist/<entry>.js`, and
  *   `$/spell-element` ~== `dist/core.js`, which carries it
  * - Solid imports resolve from UI's root (`SOLID`), whoever imports them
  * - `spell-ui:icons`:  the generated icon registrations (`iconsModule()`)
@@ -194,10 +194,10 @@ function designResolver(): Plugin {
         if (loaded.path === "icons") return { contents: await iconsModule(), resolveDir: UI_DIR, loader: "js" }
         return { contents: "export default {}", loader: "js" }
       })
-      pluginBuild.onResolve({ filter: /^@spell-app\/ui(\/.*)?$/ }, ({ path: specifier }) => ({
-        path: uiDistPath(specifier.slice("@spell-app/ui".length))
+      pluginBuild.onResolve({ filter: /^spell-ui(\/.*)?$/ }, ({ path: specifier }) => ({
+        path: uiDistPath(specifier.slice("spell-ui".length))
       }))
-      pluginBuild.onResolve({ filter: /^@spell-app\/brand\/design$/ }, () => {
+      pluginBuild.onResolve({ filter: /^spell-brand\/design$/ }, () => {
         if (!existsSync(BRAND_DESIGN)) fail(`${BRAND_DESIGN} is missing:  run without --skip-ui-build`)
         return { path: BRAND_DESIGN }
       })
@@ -235,7 +235,7 @@ function uiDistPath(sub: string): string {
  *   - Each is `register()`ed under each name in the first `UI.load()` callback:  every element `await`s that same
  *     promise before drawing an icon, so the names are in place first.
  *   - `reset()` first:  drop every pack, so the default pack's index is never requested (it can't load here).
- * - Imports `UI` from `@spell-app/ui/core`, the same module `index.js` uses, so this runs BEFORE any family defines
+ * - Imports `UI` from `spell-ui/core`, the same module `index.js` uses, so this runs BEFORE any family defines
  *   (and so upgrades) its elements.
  * - Each file's licence comment is stripped (they're all one text, and `<!--` can't be in the bundle anyway):  the
  *   text goes ONCE into a `/*!` legal comment, which esbuild keeps at the end.
@@ -275,7 +275,7 @@ async function iconsModule(): Promise<string> {
   console.log(`-- icons:  ${svgs.length} SVGs, ${files.size} names`)
   return [
     ...[...licenses].map((text) => `/*! ${text.replaceAll("*/", "* /")} */`),
-    `import { UI } from "@spell-app/ui/core"`,
+    `import { UI } from "spell-ui/core"`,
     `const SHEET = ${JSON.stringify(`<svg xmlns="http://www.w3.org/2000/svg">${svgs.join("")}</svg>`)}`,
     `const NAMES = ${JSON.stringify([...namesOf.values()])}`,
     `UI.load().then((ui) => {`,

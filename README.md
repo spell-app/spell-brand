@@ -39,7 +39,7 @@ If you find yourself writing a second copy of any of these, stop and reuse.
 - the brand's logo, fonts and reference images:  [`assets/`](assets/)
 - the docs data, in [site-data.ts](scripts/site-data.ts):  Spell UI's builders
   - `SiteDataBuilder`, `SiteSearchBuilder`, `ElementManifests`
-- the element authoring API:  `spell-kit/element`, and Spell UI's `@spell-app/ui/core`
+- the element authoring API:  `spell-kit/element`, and Spell UI's `spell-ui/core`
 - the brand's colour math:  [`Palette`](src/Palette.ts)
 
 ## Files
