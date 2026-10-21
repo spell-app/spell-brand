@@ -1,9 +1,9 @@
 /**
- * `yarn design:bundle [--out <dir>] [--skip-ui-build]` (in spell-brand;  also `spell dev design bundle`):  the claude.ai
+ * `yarn design:bundle [--out <dir>] [--skip-ui-build]` (in spell-brand;  also `spell design bundle`):  the claude.ai
  * Design System's `components/bundle.js` (epic `claude-design` P8;  spell-epic's until epic `repo-split` P10, Q32).
  * - ONE minified classic script (IIFE) defining `window.SpellUI`:  Spell UI, the brand's `<brand-*>` elements and the
  *   `spell-brand` theme, from `design-bundle.entry.js` (beside this).
- * - Written to `<dir>/bundle.js`;  default `DESIGN_BUNDLE`, in the folder `spell dev design build` writes
+ * - Written to `<dir>/bundle.js`;  default `DESIGN_BUNDLE`, in the folder `spell design build` writes
  *   (`design-paths.ts`).  `--out` is relative to the folder it was run from.
  * - First builds, from their working trees:
  *   - Spell UI (`yarn build`, `tsc && vite build`);  if `tsc` fails on in-progress work, `vite build` alone, saying so

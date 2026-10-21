@@ -26,7 +26,7 @@ export const ELEMENT_DIR = path.join(packageFolder("spell-kit"), "element")
 
 /**
  * The design bundle, where `yarn design:bundle` writes it by default:  `project/components/bundle.js` in the
- * design system's folder that `spell dev design build` writes (Spell UI's `build/design-system/`, git-ignored),
+ * design system's folder that `spell design build` writes (Spell UI's `build/design-system/`, git-ignored),
  * which that command leaves in place.
  */
 export const DESIGN_BUNDLE = path.join(UI_DIR, "build/design-system/project/components/bundle.js")

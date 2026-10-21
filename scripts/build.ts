@@ -1,7 +1,7 @@
 /**
  * `yarn build` (in spell-brand):  build the brand pages' bundle, `_assets/ui/` (git-ignored), from
  * `src/brand-ui.ts` with `vite.config.ts`, then report its sizes.
- * - Run by `spell dev bundles build brand` (`$/assembler` `Bundle`), which the page server runs when it starts and
+ * - Run by `spell bundle brand` (`$/assembler` `Bundle`), which the page server runs when it starts and
  *   the sources changed;  it then records their hash in `_assets/ui/.bundle.json`.
  * - Clears `_assets/ui/` first (everything but `icon-packs`, the record too), so a removed chunk doesn't linger.
  * - Icon packs:  `_assets/ui/icon-packs` is a SYMLINK to Spell UI's packs (its `src/icons/icon-packs`), made here if

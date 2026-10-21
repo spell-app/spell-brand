@@ -115,10 +115,10 @@ async function serverBase(): Promise<string> {
   const pid = new SRV.PidFile(REPO)
   let running = await pid.status()
   if (!running) {
-    execFileSync("yarn", ["server", "ensure"], { cwd: REPO, stdio: "ignore" })
+    execFileSync("yarn", ["server", "start"], { cwd: REPO, stdio: "ignore" })
     running = await pid.status()
   }
-  if (!running) throw new Error("brand compare:  couldn't start the page server (`yarn server ensure`)")
+  if (!running) throw new Error("brand compare:  couldn't start the page server (`yarn server start`)")
   return running.base
 }
 

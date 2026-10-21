@@ -7,7 +7,7 @@ import { baseConfig } from "spell-ui/vite.config.ts"
 /** `packages/brand/`. */
 const ROOT = fileURLToPath(new URL("./", import.meta.url))
 
-/** Where the bundle goes:  `_assets/ui/`, git-ignored, built by the page server when stale (`spell dev bundles`). */
+/** Where the bundle goes:  `_assets/ui/`, git-ignored, built by the page server when stale (`spell bundle`). */
 export const BRAND_ASSETS = `${ROOT}_assets/ui`
 
 /** The pages' entry:  `src/brand-ui.ts`. */

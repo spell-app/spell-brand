@@ -13,7 +13,7 @@ node_modules
 # `/park`'s note on where parked work stopped:  never committed
 PARKED-*.md
 *.code-workspace
-# the brand pages' bundle, built by the page server when it starts, if stale (`spell dev bundles build --stale`)
+# the brand pages' bundle, built by the page server when it starts, if stale (`spell bundle --stale`)
 /_assets/ui/
 # the docs pages' waiting comments (`<page>.inbox.json5` beside a page, and its lock):  per machine
 /docs/**/*.inbox.json*

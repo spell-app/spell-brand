@@ -16,5 +16,5 @@ docs/__data/custom-elements.json                              linguist-generated
 docs/__data/html-custom-data.json                             linguist-generated merge=binary
 docs/__data/search.json5                                      linguist-generated merge=binary
 
-# its component pack (`spell dev pack build brand`)
+# its component pack (`spell pack build brand`)
 components/__pack/**                                          linguist-generated merge=binary -diff

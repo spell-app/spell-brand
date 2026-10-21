@@ -1,5 +1,5 @@
 /**
- * `yarn design:check [bundle.js] [outDir]` (in spell-brand;  also `spell dev design check`):  check the claude.ai
+ * `yarn design:check [bundle.js] [outDir]` (in spell-brand;  also `spell design check`):  check the claude.ai
  * design bundle (`yarn design:bundle`) the two ways Claude Design runs it (epic `claude-design` P8, the P1 repro, kept;
  * spell-epic's until epic `repo-split` P10, Q32).
  * - `bundle.js`:  default `DESIGN_BUNDLE`, where `yarn design:bundle` writes it (`design-paths.ts`);  relative to the

@@ -5,10 +5,10 @@ import { playwright } from "vite-plus/test/browser-playwright"
 import { baseConfig } from "spell-ui/vite.config.ts"
 
 /**
- * vitest config for `spell-brand`, a component pack (`spell dev pack`):  two projects.
+ * vitest config for `spell-brand`, a component pack (`spell pack`):  two projects.
  * - `node` -- `src/**`:
  *   - the pack's own checks, `pack.test.ts` among them:
- *     `spell dev pack check brand`, that `components/__pack/` and `docs/__data/` are current
+ *     `spell pack check brand`, that `components/__pack/` and `docs/__data/` are current
  *   - the brand's colour math (`Palette.test.ts`)
  * - `browser` -- `components/**`, and the `*.browser.test.ts` files of `src/`, in a REAL browser, as Spell UI's are:
  *   - the `<brand-*>` elements

@@ -65,7 +65,7 @@ If you find yourself writing a second copy of any of these, stop and reuse.
 
 ## Adding a new element
 
-1. `spell dev pack element brand brand-<name>`:
+1. `spell pack add brand brand-<name>`:
    - writes the family's folder, `components/brand-<name>/`, and its test
    - adds it to [the barrel](components/index.ts)
    - rebuilds `components/__pack/`
