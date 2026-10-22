@@ -14,6 +14,7 @@
 docs/__data/components.json5                                  linguist-generated merge=binary
 docs/__data/custom-elements.json                              linguist-generated merge=binary
 docs/__data/html-custom-data.json                             linguist-generated merge=binary
+docs/__data/css-custom-data.json                              linguist-generated merge=binary
 docs/__data/search.json5                                      linguist-generated merge=binary
 
 # its component pack (`spell pack build brand`)

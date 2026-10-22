@@ -118,8 +118,9 @@ when working with code in this package, `spell-brand`.
     - GENERATED, committed (`yarn site:data`):
       - `components.json5`:  the pages' API and tokens, and the design system's Brand cards
       - `search.json5`:  every page's sections, for the side column's search
-      - VS Code autocomplete for `<brand-*>`, loaded by [the repo's VS Code settings](../../.vscode/settings.json):
-        `custom-elements.json` and `html-custom-data.json`
+      - VS Code autocomplete for `<brand-*>`, and for their custom properties, parts and states in CSS,
+        loaded by [the kit's VS Code settings](../.vscode/settings.json) and every epic's window:
+        `custom-elements.json`, `html-custom-data.json` and `css-custom-data.json`
 - `src/` (`spell-brand`, self-namespace `B`):  every file of the package.
   - `Palette`:  the brand's colour math, ported from Claude Design's palette script.
     - its source:  `palette.mjs`, in Claude Design's `lib/`

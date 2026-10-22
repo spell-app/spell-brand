@@ -13,7 +13,7 @@
   "generators": [
     {
       "name": "brand data",
-      "outputs": ["docs/__data/{components,search}.json5", "docs/__data/{custom-elements,html-custom-data}.json"],
+      "outputs": ["docs/__data/{components,search}.json5", "docs/__data/{custom-elements,html-custom-data,css-custom-data}.json"],
       "cwd": ".",
       "run": ["yarn", "site:data"]
     },

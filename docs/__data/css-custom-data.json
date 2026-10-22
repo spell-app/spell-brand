@@ -1,0 +1,835 @@
+{
+  "version": 1.1,
+  "properties": [
+    {
+      "name": "--brand-blob-x",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-blob>`'s token.  Default:  `160px`"
+      }
+    },
+    {
+      "name": "--brand-blob-y",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-blob>`'s token.  Default:  `180px`"
+      }
+    },
+    {
+      "name": "--brand-blob-width",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-blob>`'s token.  Default:  `420px`"
+      }
+    },
+    {
+      "name": "--brand-blob-height",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-blob>`'s token.  Default:  `360px`"
+      }
+    },
+    {
+      "name": "--brand-blob-color",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-blob>`'s token.  Default:  `currentColor`"
+      }
+    },
+    {
+      "name": "--brand-checklist-spacing",
+      "description": {
+        "kind": "markdown",
+        "value": "space between lines\n\n`<brand-checklist>`'s token.  Default:  `12px`"
+      }
+    },
+    {
+      "name": "--brand-checklist-font-family",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-checklist>`'s token.  Default:  `var(--spell-font-sans, var(--ui-font-family, system-ui, sans-serif))`"
+      }
+    },
+    {
+      "name": "--brand-checklist-font-size",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-checklist>`'s token.  Default:  `14px`"
+      }
+    },
+    {
+      "name": "--brand-checklist-marker-size",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-checklist>`'s token.  Default:  `20px`"
+      }
+    },
+    {
+      "name": "--brand-checklist-gap",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-checklist>`'s token.  Default:  `12px`"
+      }
+    },
+    {
+      "name": "--brand-checklist-align",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-checklist>`'s token.  Default:  `center`"
+      }
+    },
+    {
+      "name": "--brand-checklist-accent",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-checklist>`'s token.  Default:  `var(--spell-accent, var(--ui-primary, #6550ca))`"
+      }
+    },
+    {
+      "name": "--brand-checklist-accent-soft",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-checklist>`'s token.  Default:  `var(--spell-accent-soft-hover, var(--ui-primary-background, #e3e1ff))`"
+      }
+    },
+    {
+      "name": "--brand-checklist-on-accent",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-checklist>`'s token.  Default:  `var(--spell-text-on-accent, var(--ui-primary-on, #fff))`"
+      }
+    },
+    {
+      "name": "--brand-checklist-text",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-checklist>`'s token.  Default:  `var(--spell-text-body, var(--ui-text-color, CanvasText))`"
+      }
+    },
+    {
+      "name": "--brand-checklist-text-subtle",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-checklist>`'s token.  Default:  `var(--spell-text-subtle, var(--ui-text-light, GrayText))`"
+      }
+    },
+    {
+      "name": "--brand-checklist-ring",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-checklist>`'s token.  Default:  `var(--spell-border-default, var(--ui-border-color, #ccc))`"
+      }
+    },
+    {
+      "name": "--brand-checklist-ring-checkable",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-checklist>`'s token.  Default:  `var(--spell-border-strong, var(--ui-border-color-strong, #999))`"
+      }
+    },
+    {
+      "name": "--brand-color-size",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-color>`'s token.  Default:  `var(--_brand-color-fit, 3em)`"
+      }
+    },
+    {
+      "name": "--brand-color-radius",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-color>`'s token.  Default:  `min(var(--ui-radius-s, 0.5em), 22%)`"
+      }
+    },
+    {
+      "name": "--brand-color-border",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-color>`'s token.  Default:  `light-dark(rgb(43 47 63 / 0.08), rgb(255 255 255 / 0.12))`"
+      }
+    },
+    {
+      "name": "--brand-color-ring-color",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-color>`'s token.  Default:  `var(--spell-text-strong, var(--ui-text-dark))`"
+      }
+    },
+    {
+      "name": "--brand-color-ring-gap",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-color>`'s token.  Default:  `var(--ui-surface)`"
+      }
+    },
+    {
+      "name": "--brand-color-tip-background",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-color>`'s token.  Default:  `var(--spell-surface-inverse, var(--ui-text-dark))`"
+      }
+    },
+    {
+      "name": "--brand-color-tip-color",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-color>`'s token.  Default:  `var(--spell-text-inverse, var(--ui-surface))`"
+      }
+    },
+    {
+      "name": "--brand-color-tip-width",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-color>`'s token.  Default:  `18em`"
+      }
+    },
+    {
+      "name": "--brand-color-picker-gap",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-color-picker>`'s token.  Default:  `1em`"
+      }
+    },
+    {
+      "name": "--brand-color-picker-plane-height",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-color-picker>`'s token.  Default:  `10em`"
+      }
+    },
+    {
+      "name": "--brand-color-picker-radius",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-color-picker>`'s token.  Default:  `0.625em`"
+      }
+    },
+    {
+      "name": "--brand-color-picker-marker-size",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-color-picker>`'s token.  Default:  `0.875em`"
+      }
+    },
+    {
+      "name": "--brand-color-picker-chip-size",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-color-picker>`'s token.  Default:  `2.75em`"
+      }
+    },
+    {
+      "name": "--brand-color-picker-track-height",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-color-picker>`'s token.  Default:  `0.875em`"
+      }
+    },
+    {
+      "name": "--brand-color-picker-field-background",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-color-picker>`'s token.  Default:  `var(--ui-surface)`"
+      }
+    },
+    {
+      "name": "--brand-color-picker-field-border-color",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-color-picker>`'s token.  Default:  `var(--spell-border-default, var(--ui-border-color))`"
+      }
+    },
+    {
+      "name": "--brand-color-range-gap",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-color-range>`'s token.  Default:  `0.25em`"
+      }
+    },
+    {
+      "name": "--brand-color-range-number-color",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-color-range>`'s token.  Default:  `var(--spell-text-strong, var(--ui-text-dark))`"
+      }
+    },
+    {
+      "name": "--brand-color-range-dot-size",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-color-range>`'s token.  Default:  `0.625em`"
+      }
+    },
+    {
+      "name": "--brand-color-range-dot-gap",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-color-range>`'s token.  Default:  `0.125em`"
+      }
+    },
+    {
+      "name": "--brand-color-set-gap",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-color-set>`'s token.  Default:  `0.5em`"
+      }
+    },
+    {
+      "name": "--brand-composer-background",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-composer>`'s token.  Default:  `var(--ui-surface, Canvas)`"
+      }
+    },
+    {
+      "name": "--brand-composer-border-color",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-composer>`'s token.  Default:  `var(--spell-border-subtle, var(--ui-border-color, GrayText))`"
+      }
+    },
+    {
+      "name": "--brand-composer-radius",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-composer>`'s token.  Default:  `var(--ui-radius-l, 1em)`"
+      }
+    },
+    {
+      "name": "--brand-composer-shadow",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-composer>`'s token.  Default:  `var(--spell-shadow-sm, var(--ui-shadow-raised, none))`"
+      }
+    },
+    {
+      "name": "--brand-composer-padding",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-composer>`'s token.  Default:  `1em 1.125em 0.75em`"
+      }
+    },
+    {
+      "name": "--brand-composer-font",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-composer>`'s token.  Default:  `400 calc(var(--ui-font-size, 16px) * 17 / 16) / 1.5 var(--spell-font-serif, var(--ui-font-family-heading, serif))`"
+      }
+    },
+    {
+      "name": "--brand-composer-max-height",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-composer>`'s token.  Default:  `12lh`"
+      }
+    },
+    {
+      "name": "--brand-composer-button-size",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-composer>`'s token.  Default:  `calc(var(--ui-font-size, 16px) * 36 / 16)`"
+      }
+    },
+    {
+      "name": "--brand-composer-button-background",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-composer>`'s token.  Default:  `var(--spell-accent, var(--ui-primary, AccentColor))`"
+      }
+    },
+    {
+      "name": "--brand-composer-button-color",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-composer>`'s token.  Default:  `var(--spell-text-on-accent, var(--ui-primary-on, AccentColorText))`"
+      }
+    },
+    {
+      "name": "--brand-flourish-stroke",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-flourish>`'s token.  Default:  `var(--spell-line-flourish, #968aff)`"
+      }
+    },
+    {
+      "name": "--brand-flourish-fill",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-flourish>`'s token.  Default:  `var(--spell-blob, #e0dfff)`"
+      }
+    },
+    {
+      "name": "--brand-flourish-fill-2",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-flourish>`'s token.  Default:  `var(--spell-blob-2, #eef0fa)`"
+      }
+    },
+    {
+      "name": "--brand-logo-height",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-logo>`'s token.  Default:  `2em`"
+      }
+    },
+    {
+      "name": "--brand-logo-color",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-logo>`'s token.  Default:  `var(--spell-text-strong, var(--ui-text-dark))`"
+      }
+    },
+    {
+      "name": "--brand-phone-width",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-phone>`'s token.  Default:  `300px`"
+      }
+    },
+    {
+      "name": "--brand-phone-background",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-phone>`'s token.  Default:  `light-dark(var(--spell-surface-warm, var(--ui-surface-muted)), var(--ui-surface-muted))`"
+      }
+    },
+    {
+      "name": "--brand-phone-border-color",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-phone>`'s token.  Default:  `var(--spell-border-subtle, var(--ui-border-color))`"
+      }
+    },
+    {
+      "name": "--brand-phone-radius",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-phone>`'s token.  Default:  `32px`"
+      }
+    },
+    {
+      "name": "--brand-phone-shadow",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-phone>`'s token.  Default:  `var(--spell-shadow-md, var(--ui-shadow-floating))`"
+      }
+    },
+    {
+      "name": "--brand-phone-padding",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-phone>`'s token.  Default:  `14px 14px 18px`"
+      }
+    },
+    {
+      "name": "--brand-phone-gap",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-phone>`'s token.  Default:  `12px`"
+      }
+    },
+    {
+      "name": "--brand-phone-dimmed-opacity",
+      "description": {
+        "kind": "markdown",
+        "value": "`<brand-phone>`'s token.  Default:  `0.45`"
+      }
+    }
+  ],
+  "pseudoElements": [
+    {
+      "name": "::part(art)",
+      "description": {
+        "kind": "markdown",
+        "value": "Part of:\n\n- `<brand-flourish>`:  The `<svg>`."
+      }
+    },
+    {
+      "name": "::part(bar)",
+      "description": {
+        "kind": "markdown",
+        "value": "Part of:\n\n- `<brand-composer>`:  The row under the text box:  tools, hint, Cast button."
+      }
+    },
+    {
+      "name": "::part(blob)",
+      "description": {
+        "kind": "markdown",
+        "value": "Part of:\n\n- `<brand-blob>`:  The shape."
+      }
+    },
+    {
+      "name": "::part(cast)",
+      "description": {
+        "kind": "markdown",
+        "value": "Part of:\n\n- `<brand-composer>`:  The round Cast button."
+      }
+    },
+    {
+      "name": "::part(check)",
+      "description": {
+        "kind": "markdown",
+        "value": "Part of:\n\n- `<brand-check>`:  The line:  a `<button role=checkbox>` when `checkable`, else a box."
+      }
+    },
+    {
+      "name": "::part(chip)",
+      "description": {
+        "kind": "markdown",
+        "value": "Part of:\n\n- `<brand-color>`:  The chip:  a `<button>` with `copy`, else an image.\n- `<brand-color-picker>`:  The chip of the current colour.\n- `<brand-color-range>`:  A step's `<brand-color>`."
+      }
+    },
+    {
+      "name": "::part(composer)",
+      "description": {
+        "kind": "markdown",
+        "value": "Part of:\n\n- `<brand-composer>`:  The card."
+      }
+    },
+    {
+      "name": "::part(copied)",
+      "description": {
+        "kind": "markdown",
+        "value": "Part of:\n\n- `<brand-color>`:  The check shown for a moment after a copy."
+      }
+    },
+    {
+      "name": "::part(copy)",
+      "description": {
+        "kind": "markdown",
+        "value": "Part of:\n\n- `<brand-color-picker>`:  Each row's copy button (circular, an icon)."
+      }
+    },
+    {
+      "name": "::part(dot)",
+      "description": {
+        "kind": "markdown",
+        "value": "Part of:\n\n- `<brand-color-range>`:  A step's dot (`strip`)."
+      }
+    },
+    {
+      "name": "::part(eyebrow)",
+      "description": {
+        "kind": "markdown",
+        "value": "Part of:\n\n- `<brand-composer>`:  The line above the text box."
+      }
+    },
+    {
+      "name": "::part(families)",
+      "description": {
+        "kind": "markdown",
+        "value": "Part of:\n\n- `<brand-color-picker>`:  The box around the default slot."
+      }
+    },
+    {
+      "name": "::part(head)",
+      "description": {
+        "kind": "markdown",
+        "value": "Part of:\n\n- `<brand-color-picker>`:  The head row:  chip, readouts, actions."
+      }
+    },
+    {
+      "name": "::part(hex)",
+      "description": {
+        "kind": "markdown",
+        "value": "Part of:\n\n- `<brand-color-picker>`:  The hex readout in the head row."
+      }
+    },
+    {
+      "name": "::part(hint)",
+      "description": {
+        "kind": "markdown",
+        "value": "Part of:\n\n- `<brand-composer>`:  The keyboard hint."
+      }
+    },
+    {
+      "name": "::part(hsl)",
+      "description": {
+        "kind": "markdown",
+        "value": "Part of:\n\n- `<brand-color-picker>`:  Each HSL input (H, S, L)."
+      }
+    },
+    {
+      "name": "::part(hue)",
+      "description": {
+        "kind": "markdown",
+        "value": "Part of:\n\n- `<brand-color-picker>`:  The hue slider, a native `<input type=range>`."
+      }
+    },
+    {
+      "name": "::part(icons)",
+      "description": {
+        "kind": "markdown",
+        "value": "Part of:\n\n- `<brand-phone>`:  The status bar's signal, wifi and battery icons."
+      }
+    },
+    {
+      "name": "::part(label)",
+      "description": {
+        "kind": "markdown",
+        "value": "Part of:\n\n- `<brand-check>`:  The text's box.\n- `<brand-color>`:  The text inside the chip (`label`)."
+      }
+    },
+    {
+      "name": "::part(list)",
+      "description": {
+        "kind": "markdown",
+        "value": "Part of:\n\n- `<brand-checklist>`:  The list box (`role=list`)."
+      }
+    },
+    {
+      "name": "::part(logo)",
+      "description": {
+        "kind": "markdown",
+        "value": "Part of:\n\n- `<brand-logo>`:  The `<svg>`."
+      }
+    },
+    {
+      "name": "::part(mark)",
+      "description": {
+        "kind": "markdown",
+        "value": "Part of:\n\n- `<brand-color>`:  The `AA` mark (`contrast`)."
+      }
+    },
+    {
+      "name": "::part(marker)",
+      "description": {
+        "kind": "markdown",
+        "value": "Part of:\n\n- `<brand-check>`:  The round mark.\n- `<brand-color-picker>`:  The round marker at the current saturation and lightness."
+      }
+    },
+    {
+      "name": "::part(number)",
+      "description": {
+        "kind": "markdown",
+        "value": "Part of:\n\n- `<brand-color-range>`:  A step's number, under its chip."
+      }
+    },
+    {
+      "name": "::part(oklch)",
+      "description": {
+        "kind": "markdown",
+        "value": "Part of:\n\n- `<brand-color-picker>`:  Each OKLCH input (L, C, H)."
+      }
+    },
+    {
+      "name": "::part(phone)",
+      "description": {
+        "kind": "markdown",
+        "value": "Part of:\n\n- `<brand-phone>`:  The frame:  a `<section>`, the region named `label`."
+      }
+    },
+    {
+      "name": "::part(picker)",
+      "description": {
+        "kind": "markdown",
+        "value": "Part of:\n\n- `<brand-color-picker>`:  The picker box."
+      }
+    },
+    {
+      "name": "::part(plane)",
+      "description": {
+        "kind": "markdown",
+        "value": "Part of:\n\n- `<brand-color-picker>`:  The HSL square:  saturation across, lightness up (CSS gradients over the hue)."
+      }
+    },
+    {
+      "name": "::part(range)",
+      "description": {
+        "kind": "markdown",
+        "value": "Part of:\n\n- `<brand-color-range>`:  The ladder (an `<ol>`), or the strip."
+      }
+    },
+    {
+      "name": "::part(rgb)",
+      "description": {
+        "kind": "markdown",
+        "value": "Part of:\n\n- `<brand-color-picker>`:  The hex input."
+      }
+    },
+    {
+      "name": "::part(row)",
+      "description": {
+        "kind": "markdown",
+        "value": "Part of:\n\n- `<brand-color-picker>`:  Each format row (HSL, RGB, OKLCH):  label, inputs, copy button."
+      }
+    },
+    {
+      "name": "::part(set)",
+      "description": {
+        "kind": "markdown",
+        "value": "Part of:\n\n- `<brand-color-set>`:  The box laying the chips out."
+      }
+    },
+    {
+      "name": "::part(status)",
+      "description": {
+        "kind": "markdown",
+        "value": "Part of:\n\n- `<brand-checklist>`:  The visually hidden live region announcing progress.\n- `<brand-phone>`:  The status bar (hidden from screen readers)."
+      }
+    },
+    {
+      "name": "::part(step)",
+      "description": {
+        "kind": "markdown",
+        "value": "Part of:\n\n- `<brand-color-range>`:  One step:  its chip and number."
+      }
+    },
+    {
+      "name": "::part(textarea)",
+      "description": {
+        "kind": "markdown",
+        "value": "Part of:\n\n- `<brand-composer>`:  The native `<textarea>`."
+      }
+    },
+    {
+      "name": "::part(time)",
+      "description": {
+        "kind": "markdown",
+        "value": "Part of:\n\n- `<brand-phone>`:  The status bar's clock."
+      }
+    },
+    {
+      "name": "::part(tip)",
+      "description": {
+        "kind": "markdown",
+        "value": "Part of:\n\n- `<brand-color>`:  The details tip (`details`)."
+      }
+    },
+    {
+      "name": "::part(tools)",
+      "description": {
+        "kind": "markdown",
+        "value": "Part of:\n\n- `<brand-composer>`:  The box around the `tools` slot."
+      }
+    }
+  ],
+  "pseudoClasses": [
+    {
+      "name": ":state(active)",
+      "description": {
+        "kind": "markdown",
+        "value": "Custom state of:\n\n- `<brand-check>`:  The step in progress."
+      }
+    },
+    {
+      "name": ":state(busy)",
+      "description": {
+        "kind": "markdown",
+        "value": "Custom state of:\n\n- `<brand-blob>`:  `loading`, and the element draws the shared loader:  a spinner over it (`elementSetup.loading`).\n- `<brand-check>`:  `loading`, and the element draws the shared loader:  a spinner over it (`elementSetup.loading`).\n- `<brand-checklist>`:  `loading`, and the element draws the shared loader:  a spinner over it (`elementSetup.loading`).\n- `<brand-color>`:  `loading`, and the element draws the shared loader:  a spinner over it (`elementSetup.loading`).\n- `<brand-color-picker>`:  `loading`, and the element draws the shared loader:  a spinner over it (`elementSetup.loading`).\n- `<brand-color-range>`:  `loading`, and the element draws the shared loader:  a spinner over it (`elementSetup.loading`).\n- `<brand-color-set>`:  `loading`, and the element draws the shared loader:  a spinner over it (`elementSetup.loading`).\n- `<brand-composer>`:  `loading`, and the element draws the shared loader:  a spinner over it (`elementSetup.loading`).\n- `<brand-flourish>`:  `loading`, and the element draws the shared loader:  a spinner over it (`elementSetup.loading`).\n- `<brand-logo>`:  `loading`, and the element draws the shared loader:  a spinner over it (`elementSetup.loading`).\n- `<brand-phone>`:  `loading`, and the element draws the shared loader:  a spinner over it (`elementSetup.loading`)."
+      }
+    },
+    {
+      "name": ":state(casting)",
+      "description": {
+        "kind": "markdown",
+        "value": "Custom state of:\n\n- `<brand-composer>`:  Busy:  `casting` is set."
+      }
+    },
+    {
+      "name": ":state(checkable)",
+      "description": {
+        "kind": "markdown",
+        "value": "Custom state of:\n\n- `<brand-check>`:  A checkbox the user ticks."
+      }
+    },
+    {
+      "name": ":state(choice)",
+      "description": {
+        "kind": "markdown",
+        "value": "Custom state of:\n\n- `<brand-color>`:  One choice of a `selectable` `<brand-color-set>`:  the host is a radio."
+      }
+    },
+    {
+      "name": ":state(copied)",
+      "description": {
+        "kind": "markdown",
+        "value": "Custom state of:\n\n- `<brand-color>`:  Just copied:  for about 1.4 seconds after a click.\n- `<brand-color-picker>`:  Just copied:  for about 1.4 seconds after a copy button."
+      }
+    },
+    {
+      "name": ":state(dimmed)",
+      "description": {
+        "kind": "markdown",
+        "value": "Custom state of:\n\n- `<brand-blob>`:  Disabled or loading the shared way:  everything inside is inert, and dimmed.\n- `<brand-check>`:  Disabled or loading the shared way:  everything inside is inert, and dimmed.\n- `<brand-checklist>`:  Disabled or loading the shared way:  everything inside is inert, and dimmed.\n- `<brand-color>`:  Disabled or loading the shared way:  everything inside is inert, and dimmed.\n- `<brand-color-picker>`:  Disabled or loading the shared way:  everything inside is inert, and dimmed.\n- `<brand-color-range>`:  Disabled or loading the shared way:  everything inside is inert, and dimmed.\n- `<brand-color-set>`:  Disabled or loading the shared way:  everything inside is inert, and dimmed.\n- `<brand-composer>`:  Disabled or loading the shared way:  everything inside is inert, and dimmed.\n- `<brand-flourish>`:  Disabled or loading the shared way:  everything inside is inert, and dimmed.\n- `<brand-logo>`:  Disabled or loading the shared way:  everything inside is inert, and dimmed.\n- `<brand-phone>`:  Disabled or loading the shared way:  everything inside is inert, and dimmed."
+      }
+    },
+    {
+      "name": ":state(disabled)",
+      "description": {
+        "kind": "markdown",
+        "value": "Custom state of:\n\n- `<brand-blob>`:  `disabled` is set (or, on a form control, a `<fieldset disabled>` around it).\n- `<brand-check>`:  `disabled` is set (or, on a form control, a `<fieldset disabled>` around it).\n- `<brand-checklist>`:  `disabled` is set (or, on a form control, a `<fieldset disabled>` around it).\n- `<brand-color>`:  `disabled` is set (or, on a form control, a `<fieldset disabled>` around it).\n- `<brand-color-picker>`:  Can't be used.\n- `<brand-color-range>`:  `disabled` is set (or, on a form control, a `<fieldset disabled>` around it).\n- `<brand-color-set>`:  `disabled` is set (or, on a form control, a `<fieldset disabled>` around it).\n- `<brand-composer>`:  Can't be used.\n- `<brand-flourish>`:  `disabled` is set (or, on a form control, a `<fieldset disabled>` around it).\n- `<brand-logo>`:  `disabled` is set (or, on a form control, a `<fieldset disabled>` around it).\n- `<brand-phone>`:  `disabled` is set (or, on a form control, a `<fieldset disabled>` around it)."
+      }
+    },
+    {
+      "name": ":state(done)",
+      "description": {
+        "kind": "markdown",
+        "value": "Custom state of:\n\n- `<brand-check>`:  Done (or ticked)."
+      }
+    },
+    {
+      "name": ":state(dragging)",
+      "description": {
+        "kind": "markdown",
+        "value": "Custom state of:\n\n- `<brand-color-picker>`:  The square's marker is being dragged."
+      }
+    },
+    {
+      "name": ":state(empty)",
+      "description": {
+        "kind": "markdown",
+        "value": "Custom state of:\n\n- `<brand-composer>`:  Nothing (or only blank) written:  the Cast button is dimmed."
+      }
+    },
+    {
+      "name": ":state(hidden)",
+      "description": {
+        "kind": "markdown",
+        "value": "Custom state of:\n\n- `<brand-blob>`:  Hidden (`hidden`, or `visible=\"false\"`), once its animation has run.\n- `<brand-check>`:  Hidden (`hidden`, or `visible=\"false\"`), once its animation has run.\n- `<brand-checklist>`:  Hidden (`hidden`, or `visible=\"false\"`), once its animation has run.\n- `<brand-color>`:  Hidden (`hidden`, or `visible=\"false\"`), once its animation has run.\n- `<brand-color-picker>`:  Hidden (`hidden`, or `visible=\"false\"`), once its animation has run.\n- `<brand-color-range>`:  Hidden (`hidden`, or `visible=\"false\"`), once its animation has run.\n- `<brand-color-set>`:  Hidden (`hidden`, or `visible=\"false\"`), once its animation has run.\n- `<brand-composer>`:  Hidden (`hidden`, or `visible=\"false\"`), once its animation has run.\n- `<brand-flourish>`:  Hidden (`hidden`, or `visible=\"false\"`), once its animation has run.\n- `<brand-logo>`:  Hidden (`hidden`, or `visible=\"false\"`), once its animation has run.\n- `<brand-phone>`:  Hidden (`hidden`, or `visible=\"false\"`), once its animation has run."
+      }
+    },
+    {
+      "name": ":state(hiding)",
+      "description": {
+        "kind": "markdown",
+        "value": "Custom state of:\n\n- `<brand-blob>`:  Animating out:  `hidden` is already set, and the element stays on screen until it ends.\n- `<brand-check>`:  Animating out:  `hidden` is already set, and the element stays on screen until it ends.\n- `<brand-checklist>`:  Animating out:  `hidden` is already set, and the element stays on screen until it ends.\n- `<brand-color>`:  Animating out:  `hidden` is already set, and the element stays on screen until it ends.\n- `<brand-color-picker>`:  Animating out:  `hidden` is already set, and the element stays on screen until it ends.\n- `<brand-color-range>`:  Animating out:  `hidden` is already set, and the element stays on screen until it ends.\n- `<brand-color-set>`:  Animating out:  `hidden` is already set, and the element stays on screen until it ends.\n- `<brand-composer>`:  Animating out:  `hidden` is already set, and the element stays on screen until it ends.\n- `<brand-flourish>`:  Animating out:  `hidden` is already set, and the element stays on screen until it ends.\n- `<brand-logo>`:  Animating out:  `hidden` is already set, and the element stays on screen until it ends.\n- `<brand-phone>`:  Animating out:  `hidden` is already set, and the element stays on screen until it ends."
+      }
+    },
+    {
+      "name": ":state(invalid)",
+      "description": {
+        "kind": "markdown",
+        "value": "Custom state of:\n\n- `<brand-color-picker>`:  Fails validation (`required`), once a person has interacted.\n- `<brand-composer>`:  Fails validation (`required`), once a person has interacted."
+      }
+    },
+    {
+      "name": ":state(loading)",
+      "description": {
+        "kind": "markdown",
+        "value": "Custom state of:\n\n- `<brand-blob>`:  `loading` is set.\n- `<brand-check>`:  `loading` is set.\n- `<brand-checklist>`:  `loading` is set.\n- `<brand-color>`:  `loading` is set.\n- `<brand-color-picker>`:  `loading` is set.\n- `<brand-color-range>`:  `loading` is set.\n- `<brand-color-set>`:  `loading` is set.\n- `<brand-composer>`:  `loading` is set.\n- `<brand-flourish>`:  `loading` is set.\n- `<brand-logo>`:  `loading` is set.\n- `<brand-phone>`:  `loading` is set."
+      }
+    },
+    {
+      "name": ":state(pending)",
+      "description": {
+        "kind": "markdown",
+        "value": "Custom state of:\n\n- `<brand-check>`:  Not started (or not ticked)."
+      }
+    },
+    {
+      "name": ":state(readonly)",
+      "description": {
+        "kind": "markdown",
+        "value": "Custom state of:\n\n- `<brand-color-picker>`:  `readonly`:  the colour can't be changed.\n- `<brand-composer>`:  `readonly`:  can't be typed in."
+      }
+    },
+    {
+      "name": ":state(still)",
+      "description": {
+        "kind": "markdown",
+        "value": "Custom state of:\n\n- `<brand-blob>`:  `animation=\"none\"`:  no motion here, nor anywhere inside it (`--ui-motion: none`).\n- `<brand-check>`:  `animation=\"none\"`:  no motion here, nor anywhere inside it (`--ui-motion: none`).\n- `<brand-checklist>`:  `animation=\"none\"`:  no motion here, nor anywhere inside it (`--ui-motion: none`).\n- `<brand-color>`:  `animation=\"none\"`:  no motion here, nor anywhere inside it (`--ui-motion: none`).\n- `<brand-color-picker>`:  `animation=\"none\"`:  no motion here, nor anywhere inside it (`--ui-motion: none`).\n- `<brand-color-range>`:  `animation=\"none\"`:  no motion here, nor anywhere inside it (`--ui-motion: none`).\n- `<brand-color-set>`:  `animation=\"none\"`:  no motion here, nor anywhere inside it (`--ui-motion: none`).\n- `<brand-composer>`:  `animation=\"none\"`:  no motion here, nor anywhere inside it (`--ui-motion: none`).\n- `<brand-flourish>`:  `animation=\"none\"`:  no motion here, nor anywhere inside it (`--ui-motion: none`).\n- `<brand-logo>`:  `animation=\"none\"`:  no motion here, nor anywhere inside it (`--ui-motion: none`).\n- `<brand-phone>`:  `animation=\"none\"`:  no motion here, nor anywhere inside it (`--ui-motion: none`)."
+      }
+    }
+  ]
+}

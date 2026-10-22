@@ -14,7 +14,9 @@
  *   - an element's page names its tag
  * - The editors' element descriptions, by Spell UI's `ElementManifests`:
  *   - `custom-elements.json`:  `package.json`'s `customElements`
- *   - `html-custom-data.json`:  VS Code's `html.customData`, loaded by the repo's `.vscode/settings.json`
+ *   - `html-custom-data.json`:  VS Code's `html.customData`
+ *   - `css-custom-data.json`:  VS Code's `css.customData`
+ *   - both loaded by the kit's `.vscode/settings.json`, spell-app's, and every epic's window
  * - `--check`:  writes nothing;  exits 1 while any file is stale (`spell pack check brand` runs it).
  * - `spell pack build brand` runs it after the pack.
  *   Rerun it after changing a vocabulary, a sheet's tokens or a page's sections, and commit what it writes.
