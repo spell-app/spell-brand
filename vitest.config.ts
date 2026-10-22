@@ -16,9 +16,6 @@ import { baseConfig } from "spell-ui/vite.config.ts"
  *   - Vitest browser mode + Playwright, chromium
  *   - `baseConfig()`:  Spell UI's plugins (decorators BEFORE Solid), Solid dedupe, Lightning CSS
  *   - the test helpers come from the kit (`spell-kit/test-helpers/...`), Spell UI's own from `spell-ui/test-helpers/...`
- * - `prefix` / `root`:  the repo root's `vitest.config.ts` lists these as `brand:node` / `brand:browser`,
- *   `root` set to this package, since vitest doesn't nest `projects`.
- *   Own run:  no prefix, `root` is this folder.
  */
 /**
  * The tests live in the repo's tests/ folder, at the same paths as the code under `src/`:
@@ -29,15 +26,12 @@ const TESTS = resolve(import.meta.dirname, "./tests")
 /** Tests of `src/`'s own files that need a browser (a page's CSS on real elements):  the `browser` project's, not `node`'s. */
 const BROWSER_SRC = "*.browser.test.ts"
 
-export function brandProjects({
-  prefix = "",
-  root
-}: { prefix?: string; root?: string } = {}): TestProjectConfiguration[] {
+/** The two projects, `node` and `browser`. */
+function brandProjects(): TestProjectConfiguration[] {
   return [
     {
-      ...(root && { root }),
       test: {
-        name: `${prefix}node`,
+        name: "node",
         dir: TESTS,
         environment: "node",
         include: ["*.test.ts"],
@@ -46,9 +40,8 @@ export function brandProjects({
     },
     {
       ...baseConfig(),
-      ...(root && { root }),
       test: {
-        name: `${prefix}browser`,
+        name: "browser",
         dir: TESTS,
         include: ["components/**/*.test.{ts,tsx}", BROWSER_SRC],
         // Spell UI's core first, as a page has it:  its settings for the kit's element (`spell-ui/test-helpers/setup`)
