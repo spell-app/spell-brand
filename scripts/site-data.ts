@@ -16,7 +16,7 @@
  *   - `custom-elements.json`:  `package.json`'s `customElements`
  *   - `html-custom-data.json`:  VS Code's `html.customData`
  *   - `css-custom-data.json`:  VS Code's `css.customData`
- *   - VS Code's two are loaded by the kit's `.vscode/settings.json`, spell-app's, and every epic's window
+ *   - VS Code's two are carried by spell-app's VS Code extension, copied when it's built:  one in every window
  * - `--check`:  writes nothing;  exits 1 while any file is stale (`spell pack check brand` runs it).
  * - `spell pack build brand` runs it after the pack.
  *   Rerun it after changing a vocabulary, a sheet's tokens or a page's sections, and commit what it writes.

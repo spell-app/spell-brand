@@ -135,7 +135,8 @@ when working with code in this package, `spell-brand`.
       - `search.json5`:  every page's sections, for the side column's search
       - VS Code's autocomplete data:
         for the `<brand-*>` tags, and for their custom properties, parts and states in CSS
-        - loaded by [the kit's VS Code settings](../.vscode/settings.json) and every epic's window
+        - the HTML and CSS data:  copied into spell-app's VS Code extension when it's built, for every window
+        - the manifest:  read live by that extension's JSX help (slots, parts, attributes)
         - `custom-elements.json`
         - `html-custom-data.json`
         - `css-custom-data.json`
