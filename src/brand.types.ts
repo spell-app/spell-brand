@@ -1,5 +1,5 @@
 /**
- * Shared types and constants of `$/brand`:  the colour model and ladders (`Palette`).
+ * Shared types and constants of `spell-brand`:  the colour model and ladders (`Palette`).
  * - Runtime-light:  data only.
  */
 

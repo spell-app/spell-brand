@@ -2,13 +2,13 @@ import { For, Show } from "solid-js"
 import type { JSX } from "@solidjs/web"
 
 import { E } from "spell-kit/element"
-import { STEPS, type Scale, type Step } from "$/brand"
+import { STEPS, type Scale, type Step } from "spell-brand"
 
 import { brandColorRangeVocabulary } from "./BrandColorRange.en"
 import { ColorLadder } from "./ColorLadder"
 import type { BrandColorRangeVocabulary, CssFormat, LadderInput } from "./BrandColorRange.types"
 
-import "$/brand/components/brand-color"
+import "spell-brand/components/brand-color"
 
 import rangeCSS from "./BrandColorRange.css?inline"
 

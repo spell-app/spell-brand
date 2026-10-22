@@ -1,6 +1,6 @@
 /**
  * Every name `<brand-color-range>` uses:  tag, attributes, events, parts, texts.  Schema:  `E.ComponentVocabulary`.
- * - Pure data:  `import type` only;  the steps are written out (`STEPS` in `$/brand` is a value).
+ * - Pure data:  `import type` only;  the steps are written out (`STEPS` in `spell-brand` is a value).
  * - Class words:  `contrast`, `details`, `strip` their names;  `copy` as `<brand-color>`'s.
  *   The component adds `color brand` before the noun (`color brand range`).
  */

@@ -17,4 +17,4 @@ docs/__data/html-custom-data.json                             linguist-generated
 docs/__data/search.json5                                      linguist-generated merge=binary
 
 # its component pack (`spell pack build brand`)
-components/__pack/**                                          linguist-generated merge=binary -diff
+src/components/__pack/**                                       linguist-generated merge=binary -diff

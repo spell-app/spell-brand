@@ -3,7 +3,7 @@ import type { JSX } from "@solidjs/web"
 
 import { E } from "spell-ui/core"
 import { F } from "spell-ui/forms"
-import { Palette, type Hsl, type Oklch } from "$/brand"
+import { Palette, type Hsl, type Oklch } from "spell-brand"
 
 import { brandColorPickerVocabulary } from "./BrandColorPicker.en"
 import { BrandColorPickerFallback } from "./BrandColorPicker.fallback"

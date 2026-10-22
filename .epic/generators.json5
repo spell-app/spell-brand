@@ -17,6 +17,6 @@
       "cwd": ".",
       "run": ["yarn", "site:data"]
     },
-    { "name": "brand pack", "outputs": ["components/__pack/**"], "cwd": ".", "run": ["yarn", "pack:build"] }
+    { "name": "brand pack", "outputs": ["src/components/__pack/**"], "cwd": ".", "run": ["yarn", "pack:build"] }
   ]
 }

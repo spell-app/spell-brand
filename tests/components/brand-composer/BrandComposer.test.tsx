@@ -4,7 +4,7 @@ import { UI, type DOMElement } from "spell-ui/core"
 import { ElementFixture } from "spell-kit/test-helpers/ElementFixture"
 import { expectAccessible } from "spell-kit/test-helpers/A11y"
 
-import "$/brand/components/brand-composer"
+import "spell-brand/components/brand-composer"
 
 ////////////////
 // ## Fixtures

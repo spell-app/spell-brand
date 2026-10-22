@@ -1,12 +1,14 @@
 /**
  * Where the claude.ai design bundle's two tools (`design-bundle.ts`, `design-check.ts`) find what they read and write,
  * and the ONE place they read `process.env` (WWOD §11).
- * - Spell UI and the kit are found as packages, through `node_modules` (each folder up, as node does), wherever their
+ * - Spell UI and the kit are found as packages, as node finds them (the kit's `packageRootFor()`), wherever their
  *   repos are:  beside this one in the kit `spell-kit` since epic `repo-split` P8.
- * - Node only:  imports node built-ins and nothing of ours.
+ * - Node only:  imports node built-ins and the kit's `sourceNames` (node built-ins itself).
  */
 import { existsSync, realpathSync } from "node:fs"
 import path from "node:path"
+
+import { packageRootFor } from "spell-kit/toolchain/sourceNames"
 
 /** This repo, spell-brand:  `spell-brand`. */
 export const BRAND_DIR = path.resolve(import.meta.dirname, "..")
@@ -22,7 +24,7 @@ export const UI_DIR = process.env.SPELL_UI_DIR
   : packageFolder("spell-ui")
 
 /** The kit's element, `spell-kit/element`, by its real path:  its SOURCE must never be bundled. */
-export const ELEMENT_DIR = path.join(packageFolder("spell-kit"), "element")
+export const ELEMENT_DIR = path.join(packageFolder("spell-kit"), "src/element")
 
 /**
  * The design bundle, where `yarn design:bundle` writes it by default:  `project/components/bundle.js` in the
@@ -37,14 +39,11 @@ export const DESIGN_BUNDLE = path.join(UI_DIR, "build/design-system/project/comp
  */
 export const INVOKED_FROM = process.env.INIT_CWD ?? process.cwd()
 
-/** The real folder of package `name`, as this folder finds it in `node_modules` (each folder up, as node does). */
+/** The real folder of package `name`, as node finds it from here (the kit's `packageRootFor()`);  throws if it isn't installed. */
 export function packageFolder(name: string): string {
-  for (let at = import.meta.dirname; ; at = path.dirname(at)) {
-    const link = path.join(at, "node_modules", name)
-    if (existsSync(path.join(link, "package.json"))) return realpathSync(link)
-    if (path.dirname(at) === at)
-      throw new Error(`design bundle:  ${name} isn't installed (\`yarn install\` in the kit)`)
-  }
+  const folder = packageRootFor(name, import.meta.dirname)
+  if (!folder) throw new Error(`design bundle:  ${name} isn't installed (\`yarn install\` in the kit)`)
+  return folder
 }
 
 /** `file`'s real path (links resolved);  `file` itself when it isn't there (a later check says so). */

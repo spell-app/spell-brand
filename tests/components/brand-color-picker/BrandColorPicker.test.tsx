@@ -3,10 +3,10 @@ import { afterEach, describe, expect, it, vi } from "vite-plus/test"
 import type { DOMElement } from "spell-ui/core"
 import { ElementFixture } from "spell-kit/test-helpers/ElementFixture"
 import { expectAccessible } from "spell-kit/test-helpers/A11y"
-import { Palette } from "$/brand"
+import { Palette } from "spell-brand"
 
-import "$/brand/components/brand-color-picker"
-import "spell-ui/ui-form"
+import "spell-brand/components/brand-color-picker"
+import "spell-ui/components/ui-form"
 
 ////////////////
 // ## Fixtures

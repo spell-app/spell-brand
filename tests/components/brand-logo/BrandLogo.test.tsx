@@ -3,7 +3,7 @@ import { describe, expect, it, vi } from "vite-plus/test"
 import { ElementFixture } from "spell-kit/test-helpers/ElementFixture"
 import { expectAccessible } from "spell-kit/test-helpers/A11y"
 
-import "$/brand/components/brand-logo"
+import "spell-brand/components/brand-logo"
 
 /** The `<svg part="logo">` of a `<brand-logo>`, once the outlines have loaded. */
 async function logo(host: Element): Promise<SVGSVGElement> {

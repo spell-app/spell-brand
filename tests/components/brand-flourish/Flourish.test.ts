@@ -1,7 +1,7 @@
 import { describe, expect, test } from "vite-plus/test"
 
-import { Flourish } from "$/brand/components/brand-flourish/Flourish"
-import { VARIANTS } from "$/brand/components/brand-flourish/BrandFlourish.types"
+import { Flourish } from "spell-brand/components/brand-flourish/Flourish"
+import { VARIANTS } from "spell-brand/components/brand-flourish/BrandFlourish.types"
 
 /** Stroke, two fills and a weight, each easy to find in the markup. */
 const COLORS = { stroke: "red", fill: "green", fill2: "blue", weight: 2 }

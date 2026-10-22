@@ -1,6 +1,6 @@
 {
-  // brand's tests:  brand's own settings (packages/brand/tsconfig.json), over this folder
-  // - not the repo's `types/`, as brand's own doesn't take it:  through it, `$/util`'s spell half fails brand's settings
-  "extends": "../tsconfig.json",
+  // spell-brand's tests:  its node settings (`../tsconfig.node.json`:  the browser's, plus node's types), over this
+  // folder;  the browser tests and the node ones (`pack.test.ts`, `manifests.test.ts`) share it
+  "extends": "../tsconfig.node.json",
   "include": ["."]
 }

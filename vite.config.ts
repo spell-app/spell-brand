@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url"
 import { fmtConfig, packageLint } from "spell-kit/toolchain/lint"
 import { baseConfig } from "spell-ui/vite.config.ts"
 
-/** `packages/brand/`. */
+/** This repo, spell-brand. */
 const ROOT = fileURLToPath(new URL("./", import.meta.url))
 
 /** Where the bundle goes:  `_assets/ui/`, git-ignored, built by the page server when stale (`spell bundle`). */
@@ -19,15 +19,14 @@ export const BRAND_ENTRY = `${ROOT}src/brand-ui.ts`
  * - What's in it:  see the entry.
  * - Only the Brand tab's own pages load it.
  *   The docs set's pages (`docs/`) load Spell UI's site bundle and the brand pack instead (`docs/__parts/layout.html`).
- * - Modelled on Spell UI's site bundle (`packages/ui/vite.site.config.ts`):
+ * - Modelled on Spell UI's site bundle (its `vite.site.config.ts`):
  *   `baseConfig()` (decorators BEFORE Solid, Solid dedupe, Lightning CSS targets),
  *   an APP build of one entry, code-split, `base: "./"` so chunk URLs are relative to the chunk that imports them.
  * - An ES module, so a page loads it from the page server, not `file://`
  *   (judgement J4:  a classic script would inline every theme, engine and emoji chunk).
- * - The brand's own aliases set here as well, as the site's config does:
- *   files outside a `tsconfig.json`'s `include` may not get `tsconfigPaths`.  Other repos' packages (Spell UI ...)
- *   by their npm names, through their `exports` (epic `repo-split` P6).
- * - Also `vp lint` / `vp fmt`:  the repo root's `vite.lint.ts`;
+ * - No aliases:  every file is imported by its package name (`spell-brand/components`, `spell-ui/core`), which Vite
+ *   finds through each package's `exports` (epic `repo-split` P14).
+ * - Also `vp lint` / `vp fmt`:  the toolchain's settings, as the brand's own package's (`packageLint({ name: "brand" })`);
  *   the built bundles (this one, the pack, the design build) are not ours to lint.
  */
 export default defineConfig(() => {
@@ -36,22 +35,13 @@ export default defineConfig(() => {
     fmt: fmtConfig,
     lint: packageLint({
       name: "brand",
-      ignorePatterns: ["_assets/ui", "components/__pack", "dist", ".compare", ".vitest"]
+      ignorePatterns: ["_assets/ui", "src/components/__pack", "dist", ".compare", ".vitest"]
     }),
     ...base,
     root: ROOT,
     base: "./",
     publicDir: false,
     logLevel: "warn",
-    resolve: {
-      ...base.resolve,
-      alias: [
-        { find: /^\$\/brand\/components$/, replacement: `${ROOT}components/index.ts` },
-        { find: /^\$\/brand\/components\//, replacement: `${ROOT}components/` },
-        { find: /^\$\/brand$/, replacement: `${ROOT}src/index.ts` },
-        { find: /^\$\/brand\//, replacement: `${ROOT}src/` }
-      ]
-    },
     build: {
       outDir: BRAND_ASSETS,
       emptyOutDir: false,

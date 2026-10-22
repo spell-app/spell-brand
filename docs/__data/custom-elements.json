@@ -4,7 +4,7 @@
   "modules": [
     {
       "kind": "javascript-module",
-      "path": "components/brand-blob/index.ts",
+      "path": "src/components/brand-blob/index.ts",
       "declarations": [
         {
           "kind": "class",
@@ -143,7 +143,7 @@
           "name": "BrandBlob",
           "declaration": {
             "name": "BrandBlob",
-            "module": "components/brand-blob/index.ts"
+            "module": "src/components/brand-blob/index.ts"
           }
         },
         {
@@ -151,14 +151,14 @@
           "name": "brand-blob",
           "declaration": {
             "name": "BrandBlob",
-            "module": "components/brand-blob/index.ts"
+            "module": "src/components/brand-blob/index.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "components/brand-checklist/index.ts",
+      "path": "src/components/brand-checklist/index.ts",
       "declarations": [
         {
           "kind": "class",
@@ -489,7 +489,7 @@
           "name": "BrandCheck",
           "declaration": {
             "name": "BrandCheck",
-            "module": "components/brand-checklist/index.ts"
+            "module": "src/components/brand-checklist/index.ts"
           }
         },
         {
@@ -497,7 +497,7 @@
           "name": "brand-check",
           "declaration": {
             "name": "BrandCheck",
-            "module": "components/brand-checklist/index.ts"
+            "module": "src/components/brand-checklist/index.ts"
           }
         },
         {
@@ -505,7 +505,7 @@
           "name": "BrandChecklist",
           "declaration": {
             "name": "BrandChecklist",
-            "module": "components/brand-checklist/index.ts"
+            "module": "src/components/brand-checklist/index.ts"
           }
         },
         {
@@ -513,14 +513,14 @@
           "name": "brand-checklist",
           "declaration": {
             "name": "BrandChecklist",
-            "module": "components/brand-checklist/index.ts"
+            "module": "src/components/brand-checklist/index.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "components/brand-color/index.ts",
+      "path": "src/components/brand-color/index.ts",
       "declarations": [
         {
           "kind": "class",
@@ -741,7 +741,7 @@
           "name": "BrandColor",
           "declaration": {
             "name": "BrandColor",
-            "module": "components/brand-color/index.ts"
+            "module": "src/components/brand-color/index.ts"
           }
         },
         {
@@ -749,14 +749,14 @@
           "name": "brand-color",
           "declaration": {
             "name": "BrandColor",
-            "module": "components/brand-color/index.ts"
+            "module": "src/components/brand-color/index.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "components/brand-color-picker/index.ts",
+      "path": "src/components/brand-color-picker/index.ts",
       "declarations": [
         {
           "kind": "class",
@@ -1019,7 +1019,7 @@
           "name": "BrandColorPicker",
           "declaration": {
             "name": "BrandColorPicker",
-            "module": "components/brand-color-picker/index.ts"
+            "module": "src/components/brand-color-picker/index.ts"
           }
         },
         {
@@ -1027,14 +1027,14 @@
           "name": "brand-color-picker",
           "declaration": {
             "name": "BrandColorPicker",
-            "module": "components/brand-color-picker/index.ts"
+            "module": "src/components/brand-color-picker/index.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "components/brand-color-range/index.ts",
+      "path": "src/components/brand-color-range/index.ts",
       "declarations": [
         {
           "kind": "class",
@@ -1259,7 +1259,7 @@
           "name": "BrandColorRange",
           "declaration": {
             "name": "BrandColorRange",
-            "module": "components/brand-color-range/index.ts"
+            "module": "src/components/brand-color-range/index.ts"
           }
         },
         {
@@ -1267,14 +1267,14 @@
           "name": "brand-color-range",
           "declaration": {
             "name": "BrandColorRange",
-            "module": "components/brand-color-range/index.ts"
+            "module": "src/components/brand-color-range/index.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "components/brand-color-set/index.ts",
+      "path": "src/components/brand-color-set/index.ts",
       "declarations": [
         {
           "kind": "class",
@@ -1407,7 +1407,7 @@
           "name": "BrandColorSet",
           "declaration": {
             "name": "BrandColorSet",
-            "module": "components/brand-color-set/index.ts"
+            "module": "src/components/brand-color-set/index.ts"
           }
         },
         {
@@ -1415,14 +1415,14 @@
           "name": "brand-color-set",
           "declaration": {
             "name": "BrandColorSet",
-            "module": "components/brand-color-set/index.ts"
+            "module": "src/components/brand-color-set/index.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "components/brand-composer/index.ts",
+      "path": "src/components/brand-composer/index.ts",
       "declarations": [
         {
           "kind": "class",
@@ -1715,7 +1715,7 @@
           "name": "BrandComposer",
           "declaration": {
             "name": "BrandComposer",
-            "module": "components/brand-composer/index.ts"
+            "module": "src/components/brand-composer/index.ts"
           }
         },
         {
@@ -1723,14 +1723,14 @@
           "name": "brand-composer",
           "declaration": {
             "name": "BrandComposer",
-            "module": "components/brand-composer/index.ts"
+            "module": "src/components/brand-composer/index.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "components/brand-flourish/index.ts",
+      "path": "src/components/brand-flourish/index.ts",
       "declarations": [
         {
           "kind": "class",
@@ -1885,7 +1885,7 @@
           "name": "BrandFlourish",
           "declaration": {
             "name": "BrandFlourish",
-            "module": "components/brand-flourish/index.ts"
+            "module": "src/components/brand-flourish/index.ts"
           }
         },
         {
@@ -1893,14 +1893,14 @@
           "name": "brand-flourish",
           "declaration": {
             "name": "BrandFlourish",
-            "module": "components/brand-flourish/index.ts"
+            "module": "src/components/brand-flourish/index.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "components/brand-logo/index.ts",
+      "path": "src/components/brand-logo/index.ts",
       "declarations": [
         {
           "kind": "class",
@@ -2026,7 +2026,7 @@
           "name": "BrandLogo",
           "declaration": {
             "name": "BrandLogo",
-            "module": "components/brand-logo/index.ts"
+            "module": "src/components/brand-logo/index.ts"
           }
         },
         {
@@ -2034,14 +2034,14 @@
           "name": "brand-logo",
           "declaration": {
             "name": "BrandLogo",
-            "module": "components/brand-logo/index.ts"
+            "module": "src/components/brand-logo/index.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "components/brand-phone/index.ts",
+      "path": "src/components/brand-phone/index.ts",
       "declarations": [
         {
           "kind": "class",
@@ -2207,7 +2207,7 @@
           "name": "BrandPhone",
           "declaration": {
             "name": "BrandPhone",
-            "module": "components/brand-phone/index.ts"
+            "module": "src/components/brand-phone/index.ts"
           }
         },
         {
@@ -2215,7 +2215,7 @@
           "name": "brand-phone",
           "declaration": {
             "name": "BrandPhone",
-            "module": "components/brand-phone/index.ts"
+            "module": "src/components/brand-phone/index.ts"
           }
         }
       ]

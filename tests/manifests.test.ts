@@ -15,13 +15,13 @@ import { readJSON5File } from "spell-kit/util/node/json5"
  */
 
 /** This package's folder. */
-const PACKAGE = fileURLToPath(new URL("../../", import.meta.url))
+const PACKAGE = fileURLToPath(new URL("../", import.meta.url))
 
 /** Its committed docs-set data. */
 const DATA = readJSON5File<SiteDataFile>(join(PACKAGE, "docs/__data/components.json5"))
 
 test("leaves the brand's manifests current (else `yarn site:data`)", () => {
-  const manifests = new ElementManifests({ data: DATA, packageFolder: PACKAGE, componentsPath: "components" })
+  const manifests = new ElementManifests({ data: DATA, packageFolder: PACKAGE, componentsPath: "src/components" })
   const [[elements], [custom]] = manifests.outputs(join(PACKAGE, "docs/__data"))
   const written = JSON.parse(readFileSync(elements!, "utf8")) as { modules: unknown[] }
   expect(written.modules).toEqual(manifests.customElements().modules)

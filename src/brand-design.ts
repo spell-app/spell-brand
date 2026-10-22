@@ -3,9 +3,9 @@
  * (`vite.design.config.ts`), which `yarn design:bundle` (`scripts/design-bundle.ts`) bundles with Spell UI.
  * - In order (ES modules evaluate in import order):
  *   1. `./hues`:  the `accent` hue, added to Spell UI's `hues` before any element is defined (issue I17)
- *   2. every `<brand-*>` element (`$/brand/components`)
+ *   2. every `<brand-*>` element (`spell-brand/components`)
  * - NOT the theme, the page CSS, the icons or the site header:  the design entry
  *   (`scripts/design-bundle.entry.js`) applies `spell-brand` and registers the icons itself.
  */
 import "./hues"
-import "$/brand/components"
+import "spell-brand/components"

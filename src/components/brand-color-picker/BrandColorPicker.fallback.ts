@@ -1,5 +1,5 @@
 import { E } from "spell-ui/core"
-import { Palette } from "$/brand"
+import { Palette } from "spell-brand"
 
 import { brandColorPickerVocabulary } from "./BrandColorPicker.en"
 import { BRAND_COLOR, DEFAULT_VALUE } from "./BrandColorPicker.types"

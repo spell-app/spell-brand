@@ -1,4 +1,4 @@
-import { Palette, STEPS, type Scale, type Step } from "$/brand"
+import { Palette, STEPS, type Scale, type Step } from "spell-brand"
 
 import { DEFAULT_PREFIX, type CssFormat, type LadderInput } from "./BrandColorRange.types"
 

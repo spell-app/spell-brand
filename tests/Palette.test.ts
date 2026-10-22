@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vite-plus/test"
 
-import { Palette } from "$/brand"
+import { Palette } from "spell-brand"
 
 // Claude Design's own output (`brand/spell-design-system/lib/palette.json`, shared), copied:  a test can't read the
 // shared folder, which only this machine's checkouts link (claude-design P11).  Copy again if Claude Design re-exports.

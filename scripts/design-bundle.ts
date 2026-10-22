@@ -12,8 +12,8 @@
  *   - `--skip-ui-build`:  neither;  reuse both builds as they are
  * - Exactly ONE of each shared module:
  *   - every `solid-js` / `@solidjs/*` import resolves from UI's root, so a linked package can't bring its own copy
- *   - the brand build's `$/ui/<entry>` / `$/spell-element` imports resolve to UI's `dist/` (`core.js` carries
- *     spell-element), the modules UI's own elements use:  one `UIComponent`, one `ValueSets`
+ *   - the brand build's `spell-ui/<entry>` / `spell-kit/element` imports resolve to UI's `dist/` (`core.js` carries
+ *     the kit's element), the modules UI's own elements use:  one `UIComponent`, one `ValueSets`
  *   - checked against the metafile (`checkOneSolid()`, `checkEachFileOnce()`, `checkNoElementSource()`)
  * - Everything inlined:  Claude Design refuses a relative `<script src>` (caveat C6).
  *   - every string-literal `import()` (the runtime chunk, the code and markdown engines, the Temporal polyfill)
@@ -177,9 +177,10 @@ async function bundle(): Promise<string[]> {
 
 /**
  * esbuild plugin wiring the entry to UI's `dist/` and the brand's build:
- * - `spell-ui` ~== `dist/index.js`, `spell-ui/<entry>` ~== `dist/<entry>.js` (mirrors UI's `exports`)
- * - `spell-brand/design` ~== `BRAND_DESIGN`;  the `$/ui/<entry>` it imports ~== UI's `dist/<entry>.js`, and
- *   `$/spell-element` ~== `dist/core.js`, which carries it
+ * - `spell-ui` ~== `dist/index.js`, `spell-ui/<entry>` ~== `dist/<entry>.js` (mirrors UI's published `exports`),
+ *   the entry's imports and the brand build's alike
+ * - `spell-brand/design` ~== `BRAND_DESIGN`;  the `spell-kit/element` it imports ~== `dist/core.js`, which carries it
+ * - Not the kit's `sourceNames()`:  every one of our names here is a BUILT file, never source
  * - Solid imports resolve from UI's root (`SOLID`), whoever imports them
  * - `spell-ui:icons`:  the generated icon registrations (`iconsModule()`)
  * - UI's emoji data chunks:  an empty stand-in each
@@ -194,19 +195,16 @@ function designResolver(): Plugin {
         if (loaded.path === "icons") return { contents: await iconsModule(), resolveDir: UI_DIR, loader: "js" }
         return { contents: "export default {}", loader: "js" }
       })
-      pluginBuild.onResolve({ filter: /^spell-ui(\/.*)?$/ }, ({ path: specifier }) => ({
-        path: uiDistPath(specifier.slice("spell-ui".length))
-      }))
+      pluginBuild.onResolve({ filter: /^spell-ui(\/.*)?$/ }, ({ path: specifier }) => {
+        const file = uiDistPath(specifier.slice("spell-ui".length))
+        if (!existsSync(file)) fail(`${specifier} has no ${file} in Spell UI's build`)
+        return { path: file }
+      })
       pluginBuild.onResolve({ filter: /^spell-brand\/design$/ }, () => {
         if (!existsSync(BRAND_DESIGN)) fail(`${BRAND_DESIGN} is missing:  run without --skip-ui-build`)
         return { path: BRAND_DESIGN }
       })
-      pluginBuild.onResolve({ filter: /^\$\/spell-element$/ }, () => ({ path: uiDistPath("/core") }))
-      pluginBuild.onResolve({ filter: /^\$\/ui(\/.*)?$/ }, ({ path: specifier }) => {
-        const file = uiDistPath(specifier.slice("$/ui".length))
-        if (!existsSync(file)) fail(`${specifier} (a brand element's import) has no ${file}`)
-        return { path: file }
-      })
+      pluginBuild.onResolve({ filter: /^spell-kit\/element$/ }, () => ({ path: uiDistPath("/core") }))
       pluginBuild.onResolve({ filter: SOLID }, async ({ path: specifier, kind, pluginData }) => {
         if (pluginData?.fromUiRoot) return undefined
         const resolved = await pluginBuild.resolve(specifier, {
@@ -322,7 +320,7 @@ function checkEachFileOnce(metafile: Metafile): void {
 
 /**
  * Fails if the kit element's SOURCE made it into the bundle:  a second copy beside the one Spell UI's `dist/core.js`
- * carries, so two `UIComponent`s and two `ShadowEvents` (the brand's `$/spell-element` import, unless the resolver
+ * carries, so two `UIComponent`s and two `ShadowEvents` (the brand's `spell-kit/element` import, unless the resolver
  * sends it to `dist/core.js`;  epic `epic-engine` P9).
  */
 function checkNoElementSource(metafile: Metafile): void {

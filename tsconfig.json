@@ -1,13 +1,22 @@
 {
-  "extends": "./tsconfig.base.json",
+  // spell-brand's BROWSER code, ONE TypeScript program (epic `repo-split` P14, Q47):  everything in `src/`, the
+  // `<brand-*>` elements (`src/components/`) with the palette and the bundles' entries.
+  // - It extends the settings every repo shares, the kit's toolchain's (`spell-kit/toolchain/tsconfig.base.json`).
+  // - NO `paths`:  every file is imported by its package name and its path under `src/`
+  //   (`spell-brand/components/brand-color`), the brand's own files too.
+  //   `customConditions` makes TypeScript read the brand's SOURCE for its own name (`exports`, `spell-brand-source`),
+  //   where another repo reads its built declarations (`types`).
+  // - The node code (`scripts/`, the Vite configs) is `tsconfig.node.json`'s.
+  // - The declarations build (`spell-types`, the `package.json`'s `"spellTypes"`) builds both into `dist-types/`.
+  "extends": "spell-kit/toolchain/tsconfig.base.json",
   "compilerOptions": {
+    "customConditions": ["spell-brand-source"],
     "target": "ES2022",
     "lib": ["ES2023", "DOM", "DOM.Iterable"],
     "jsx": "preserve",
     "jsxImportSource": "@solidjs/web",
-    "types": ["vite/client", "node"]
+    "types": ["vite/client"]
   },
-  "include": ["src", "components", "scripts", "test", "vite.config.ts"],
-  // Claude Design's files and the committed bundle are not ours to check
-  "exclude": ["spell-design-system", "_assets", "node_modules"]
+  "include": ["src"],
+  "exclude": ["node_modules"]
 }

@@ -2,7 +2,7 @@ import { describe, expect, it } from "vite-plus/test"
 
 import { ElementFixture } from "spell-kit/test-helpers/ElementFixture"
 
-import "$/brand/components/brand-blob"
+import "spell-brand/components/brand-blob"
 
 /** The `<div part="blob">` of a `<brand-blob>`. */
 function shape(host: Element): HTMLElement {

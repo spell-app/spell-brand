@@ -4,8 +4,8 @@ import { ElementFixture } from "spell-kit/test-helpers/ElementFixture"
 
 // every Spell UI family the fields hold (`<ui-panel>`, `<ui-menu>`, `<ui-input>` ...), as the brand bundle loads them
 import "spell-ui"
-import "$/brand/components"
-import "$/brand/inspector.css"
+import "spell-brand/components"
+import "spell-brand/inspector.css"
 
 ////////////////
 // ## Helpers

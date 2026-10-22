@@ -2,7 +2,7 @@ import { describe, expect, it, vi } from "vite-plus/test"
 
 import { ElementFixture } from "spell-kit/test-helpers/ElementFixture"
 
-import "$/brand/components/brand-flourish"
+import "spell-brand/components/brand-flourish"
 
 /** The `<svg part="art">` of a `<brand-flourish>`. */
 function art(host: Element): SVGSVGElement {

@@ -3,7 +3,7 @@
  * - Data only:  nothing here runs.
  */
 
-import type { Scale, Step } from "$/brand"
+import type { Scale, Step } from "spell-brand"
 
 import type { brandColorRangeVocabulary } from "./BrandColorRange.en"
 

@@ -3,7 +3,7 @@
  * - SIDE EFFECT:  importing it defines the tag.
  * - Imports the `brand-color` family first (SIDE EFFECT:  defines `<brand-color>`), the chips it holds.
  */
-import "$/brand/components/brand-color"
+import "spell-brand/components/brand-color"
 
 import { BrandColorSet } from "./BrandColorSet"
 

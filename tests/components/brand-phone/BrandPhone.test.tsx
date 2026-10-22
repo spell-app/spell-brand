@@ -4,7 +4,7 @@ import { userEvent } from "vite-plus/test/browser"
 import { ElementFixture } from "spell-kit/test-helpers/ElementFixture"
 import { expectAccessible } from "spell-kit/test-helpers/A11y"
 
-import "$/brand/components/brand-phone"
+import "spell-brand/components/brand-phone"
 
 /** The shadow element with part `name` of a `<brand-phone>`. */
 function part(host: Element, name: string): HTMLElement | null {

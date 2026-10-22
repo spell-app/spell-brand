@@ -4,7 +4,7 @@ import { userEvent } from "vite-plus/test/browser"
 import { ElementFixture } from "spell-kit/test-helpers/ElementFixture"
 import { expectAccessible } from "spell-kit/test-helpers/A11y"
 
-import "$/brand/components/brand-checklist"
+import "spell-brand/components/brand-checklist"
 
 ////////////////
 // ## Fixtures

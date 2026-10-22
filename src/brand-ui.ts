@@ -17,12 +17,12 @@
  *   2. `BuiltInPacks`:  pointed at `_assets/ui/icon-packs/` (a symlink to ui's packs) from THIS file's URL,
  *      so every Font Awesome 7 icon draws, offline
  *   3. (LAST, by `import()`:  after the hue, whatever the chunking)
- *      every `ui-*` family (`$/ui`) and every `brand-*` element (`$/brand/components`), defined at once:
+ *      every `ui-*` family (`spell-ui`) and every `brand-*` element (`spell-brand/components`), defined at once:
  *      brand pages are small and use many families
  *   4. the `spell-brand` theme (`UI.themes.apply()`), then the site header (`defineSite()`)
  * - Lazy, by `import()`:  the runtime, the theme sheets, `<ui-code>`'s and `<ui-markdown>`'s engines, emoji names.
  * - `window.UI`:  the runtime, for poking in DevTools.
- * - `window.Palette`:  the brand's colour math (`$/brand`), for the pages' own scripts.
+ * - `window.Palette`:  the brand's colour math (`spell-brand`), for the pages' own scripts.
  */
 import "./hues"
 import "spell-ui/styles/ui.css"
@@ -31,7 +31,7 @@ import "./inspector.css"
 import { BuiltInPacks } from "spell-ui/icons"
 import { UI } from "spell-ui/runtime"
 import { defineSite } from "spell-kit/server/site"
-import { Palette } from "$/brand"
+import { Palette } from "spell-brand"
 
 /** This bundle's folder, `.../_assets/ui/`:  a string slice, NOT `new URL(".", import.meta.url)` (Vite would inline it). */
 const ASSETS = import.meta.url.slice(0, import.meta.url.lastIndexOf("/") + 1)
@@ -48,4 +48,4 @@ defineSite()
 // The elements LAST, by `import()`:  a chunked build may run a static import's chunk before this file's own
 // imports (`./hues`), and an element upgraded before `accent` is a hue drops `color="accent"` (issue I17)
 await import("spell-ui")
-await import("$/brand/components")
+await import("spell-brand/components")

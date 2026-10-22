@@ -1,14 +1,14 @@
 /**
  * `yarn build` (in spell-brand):  build the brand pages' bundle, `_assets/ui/` (git-ignored), from
  * `src/brand-ui.ts` with `vite.config.ts`, then report its sizes.
- * - Run by `spell bundle brand` (`$/assembler` `Bundle`), which the page server runs when it starts and
+ * - Run by `spell bundle brand` (the kit's `SRV.Bundle`), which the page server runs when it starts and
  *   the sources changed;  it then records their hash in `_assets/ui/.bundle.json`.
  * - Clears `_assets/ui/` first (everything but `icon-packs`, the record too), so a removed chunk doesn't linger.
  * - Icon packs:  `_assets/ui/icon-packs` is a SYMLINK to Spell UI's packs (its `src/icons/icon-packs`), made here if
  *   missing (or re-pointed when it leads elsewhere), as Spell UI's site bundle does (its `scripts/site-bundle.ts`):
  *   never a second copy.
  *   - Spell UI found as a package (`spell-ui`, through `node_modules`), wherever its repo is:  beside this one in
- *     the top repo `spell` since epic `repo-split` P8.
+ *     the kit `spell-kit` since epic `repo-split` P8.
  * - Fails if the bundle holds two copies of a Solid package (`solid-js`, `@solidjs/web`):  two would split signals
  *   and break every element.  The docs bundle checks the same (`bundle-spell-ui.js` `checkOneSolid()`).
  */
@@ -19,7 +19,6 @@ import {
   readdirSync,
   readFileSync,
   readlinkSync,
-  realpathSync,
   rmSync,
   statSync,
   symlinkSync
@@ -28,7 +27,8 @@ import path from "node:path"
 import { gzipSync } from "node:zlib"
 import { build, type Rolldown } from "vite-plus"
 
-import { BRAND_ASSETS } from "../vite.config.ts"
+import { packageRootFor } from "spell-kit/toolchain/sourceNames"
+import { BRAND_ASSETS } from "spell-brand/vite.config.ts"
 
 /** The packs link inside `_assets/ui/`, and where it points (relative, so the repos can move together). */
 const PACKS = path.join(BRAND_ASSETS, "icon-packs")
@@ -50,13 +50,11 @@ if (!existsSync(PACKS) && !isLink(PACKS)) symlinkSync(PACKS_TARGET, PACKS, "dir"
 if (!statSync(PACKS).isDirectory()) throw new Error(`${PACKS} doesn't lead to the icon packs`)
 report((performance.now() - started) / 1000)
 
-/** The real folder of package `name`, as this folder finds it in `node_modules` (each folder up, as node does). */
+/** The real folder of package `name`, as node finds it from here (the kit's `packageRootFor()`);  throws if it isn't installed. */
 function packageFolder(name: string): string {
-  for (let at = import.meta.dirname; ; at = path.dirname(at)) {
-    const link = path.join(at, "node_modules", name)
-    if (existsSync(path.join(link, "package.json"))) return realpathSync(link)
-    if (path.dirname(at) === at) throw new Error(`brand build:  ${name} isn't installed`)
-  }
+  const folder = packageRootFor(name, import.meta.dirname)
+  if (!folder) throw new Error(`brand build:  ${name} isn't installed (\`yarn install\` in the kit)`)
+  return folder
 }
 
 /** Is `file` a symlink (even a broken one)? */

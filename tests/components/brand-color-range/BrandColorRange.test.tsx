@@ -2,9 +2,9 @@ import { describe, expect, it } from "vite-plus/test"
 
 import { ElementFixture } from "spell-kit/test-helpers/ElementFixture"
 import { expectAccessible } from "spell-kit/test-helpers/A11y"
-import { Palette, STEPS, type Scale, type Step } from "$/brand"
+import { Palette, STEPS, type Scale, type Step } from "spell-brand"
 
-import "$/brand/components/brand-color-range"
+import "spell-brand/components/brand-color-range"
 
 ////////////////
 // ## Fixtures
