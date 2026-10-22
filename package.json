@@ -115,11 +115,11 @@
     "spell-kit": "workspace:*"
   },
   "devDependencies": {
-    "@solidjs/web": "2.0.0-rc.13",
+    "@solidjs/web": "2.0.0-rc.17",
     "@types/node": "^22.20.4",
     "esbuild": "^0.28.2",
     "playwright": "1.63.0",
-    "solid-js": "2.0.0-rc.13",
+    "solid-js": "2.0.0-rc.17",
     "spell-ui": "workspace:*",
     "tsx": "^4.23.15",
     "typescript": "^7.0.2",
