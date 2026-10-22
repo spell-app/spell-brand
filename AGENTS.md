@@ -100,7 +100,8 @@ when working with code in this package, `spell-brand`.
   - A COPY of the content repo's `brand/spell-design-system/assets/`, Claude Design's export:
     the content repo's stays for now (`repo-split` T15).
   - Served from every component set at `/_brand/assets/...` (`/_brand/assets/logo/spell-lockup.svg`):
-    an engine route in spell-app's root `package.json`'s `"pageServer"` (`engineRoutes`).
+    an engine route in this repo's part of the kit's page server settings (its `package.json`'s `"pageServer"`,
+    `engineRoutes`).
   - `assets/`, not `_assets/`:  `_assets/` holds the brand pages' scripts and their built bundle;
     `assets/` holds files people use as they are.
   - The component sets' page frames (each set's `__parts/` layout) draw the lockup inline;
@@ -380,12 +381,13 @@ As WWOD §4, plus:
 
 ## Serving
 
-- spell-app's page server serves the brand (its settings:  the `"pageServer"` block of spell-app's `package.json`):
+- The kit's page server serves the brand, by this repo's own part of its settings (the `"pageServer"` block of this
+  repo's `package.json`, its paths from here;  spell-app's held it until epic `repo-split` P16):
   - the Brand tab's pages at `/brand/...`, from the shared content folder
   - this package's `_assets/` and pack at `/packages/brand/...`, its `assets/` at `/_brand/assets/...`
     (`engineRoutes`)
   - The site header's Brand tab opens `/brand/index.html`, and lights on every page under `/brand/`.
-    - Its entry:  the Brand tab in the settings' `siteTabs` (the kit's [site.types.ts](../src/server/site/site.types.ts)
+    - Its entry:  the Brand tab in the content repo's `siteTabs` (`spell.epics/page-server.json5`;  the kit's [site.types.ts](../src/server/site/site.types.ts)
       has its shape, `SiteTab`).
   - The docs set, `docs/`, at `/components/brand/` (the page server's `componentSets` setting).
     - Spell UI's site bundle is laid over it at `_assets/`, as over every set's.
