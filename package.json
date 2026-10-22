@@ -139,5 +139,26 @@
     "name": "brand",
     "prefix": "brand-",
     "components": "src/components"
+  },
+  "pageServer": {
+    "watch": [
+      ".",
+      "src/components/__pack"
+    ],
+    "bundles": [
+      "_assets/ui"
+    ],
+    "componentSets": {
+      "brand": {
+        "name": "Brand",
+        "dir": "docs",
+        "assets": "../spell-ui/site/_assets"
+      }
+    },
+    "engineRoutes": {
+      "/packages/brand/components/__pack/": "src/components/__pack",
+      "/packages/brand/_assets/": "_assets",
+      "/_brand/assets/": "assets"
+    }
   }
 }
