@@ -8,10 +8,10 @@ import { ElementManifests } from "spell-ui/tools/ElementManifests"
 import { readJSON5File } from "spell-kit/util/node/json5"
 
 /**
- * The brand's element manifests are current (`docs/__data/custom-elements.json`, `html-custom-data.json`,
- * `css-custom-data.json`), as Spell UI's tools write them.
- * - Moved here from Spell UI's `ElementManifests.test.ts` (epic `repo-split` P8):  Spell UI never reads this repo,
- *   which is above it.
+ * The brand's element manifests are current, as Spell UI's tools write them.
+ * - the files, in `docs/__data/`:  `custom-elements.json`, `html-custom-data.json`, `css-custom-data.json`
+ * - Moved here from Spell UI's `ElementManifests.test.ts` (epic `repo-split` P8):
+ *   Spell UI never reads this repo, which is above it.
  */
 
 /** This package's folder. */
