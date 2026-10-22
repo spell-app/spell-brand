@@ -6,7 +6,7 @@ Spell's brand in code:
 - the `<brand-*>` elements those copies are built from
 - The elements are a COMPONENT PACK:  a page loads them on demand through `<ui-root>`, as it loads the epics pack's.
 - Their docs pages, Brand UI, live here too (`docs/`), served at `/components/brand/`.
-- The Brand tab's pages themselves are SHARED, in the repo root's `brand/`:  see [AGENTS.md](AGENTS.md).
+- The Brand tab's pages themselves are SHARED, in the content repo's `brand/`:  see [AGENTS.md](AGENTS.md).
 
 ```html
 <ui-root>
