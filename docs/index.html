@@ -1,6 +1,6 @@
 <!doctype html>
 <!--
-  Brand UI's home:  the docs set of the `<brand-*>` elements (`packages/brand/docs/`, served at `/components/brand/`;
+  Brand UI's home:  the docs set of the `<brand-*>` elements (`spell-brand/docs/`, served at `/components/brand/`;
   epic `people-and-orgs` P18), in Spell UI's page shape, inside the set's layout (`__parts/layout.html`).
   - Every element, grouped as the side column groups them (`__data/pages.json5`), each linked to its page.
   - The specimen at the end comes from the Brand tab's old specimen page (`brand/components/components.spell.html`),
@@ -49,7 +49,7 @@
         <ui-container>
           <ui-menu icon floated="right" class="site-page-links" aria-label="About this page">
             <ui-item
-              href="../../packages/brand/components/"
+              href="../../spell-brand/src/components/"
               icon="code"
               aria-label="The elements' code"
               title="The elements' code"
@@ -74,9 +74,9 @@
             <ui-item icon="flag"
               >Status: <ui-label size="mini" color="green">built</ui-label> every tag in
               <a
-                href="../../packages/brand/components/"
-                target="src-packages-brand-components"
-                title="packages/brand/components/"
+                href="../../spell-brand/src/components/"
+                target="src-spell-brand-src-components"
+                title="spell-brand/src/components/"
                 ><code>components/</code></a
               ></ui-item
             >
@@ -91,7 +91,7 @@
             <ul>
               <li>
                 They're a COMPONENT PACK:
-                <code title="packages/brand/components/__pack/brand.pack.js">brand.pack.js</code>, one script, built by
+                <code title="spell-brand/src/components/__pack/brand.pack.js">brand.pack.js</code>, one script, built by
                 <code>spell pack build brand</code>.
               </li>
               <li>
@@ -120,9 +120,9 @@
               The Brand tab's own copies load the whole brand bundle instead (<code>brand-ui.js</code>, with the
               <code>spell-brand</code> theme):
               <a
-                href="../../packages/brand/AGENTS.md"
-                target="src-packages-brand-agents-md"
-                title="packages/brand/AGENTS.md"
+                href="../../spell-brand/AGENTS.md"
+                target="src-spell-brand-agents-md"
+                title="spell-brand/AGENTS.md"
                 >the brand package's notes</a
               >.
             </p>

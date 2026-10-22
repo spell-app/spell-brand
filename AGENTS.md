@@ -3,8 +3,8 @@
 This file provides guidance to AI coding agents (Claude Code, Codex, and others)
 when working with code in this package, `spell-brand`.
 
-**Root conventions apply:  READ the repo root's `AGENTS.md` and [WWOD](agents/wwod/WWOD.md) FIRST.**
-- the root's:  the repo's layout
+**Root conventions apply:  READ [the kit's `AGENTS.md`](../AGENTS.md) and [WWOD](agents/wwod/WWOD.md) FIRST.**
+- the kit's:  the layout of every repo, and the rules across them
 - WWOD:  the house style every package shares (comments, functions, types / exports, imports ...)
 - Only what DIFFERS is below.
 
@@ -58,8 +58,9 @@ when working with code in this package, `spell-brand`.
     - `_assets/` and `assets/`
     - the configs
     - the elements' own docs pages, `docs/` (P18:  they live with the code they describe, per branch)
-  - A Brand tab page links this package's files through the page server's `/packages/brand/` routes
-    (spell-app's `engineRoutes`), relative to its own folder:
+  - A Brand tab page links this package's files through the page server's `/packages/brand/` routes,
+    relative to its own folder:
+    - URL routes, not folders:  this repo's `engineRoutes` ("Serving", below) map them to `_assets/` and the pack
 
     ```text
     from brand/                       ../packages/brand/_assets/...
@@ -133,8 +134,9 @@ when working with code in this package, `spell-brand`.
     - GENERATED, committed (`yarn site:data`):
       - `components.json5`:  the pages' API and tokens, and the design system's Brand cards
       - `search.json5`:  every page's sections, for the side column's search
-      - VS Code autocomplete for `<brand-*>`, loaded by [spell-app's VS Code settings](../spell-app/.vscode/settings.json):
-        `custom-elements.json` and `html-custom-data.json`
+      - the editor manifests, VS Code's autocomplete for `<brand-*>`:
+        `custom-elements.json`, `html-custom-data.json` and `css-custom-data.json`
+        - the app's VS Code extension (`spell-app/vscode`) builds them in, as `spell-brand.*-custom-data.json`
 - `src/` (`spell-brand`, self-namespace `B`):  every file of the package.
   - `Palette`:  the brand's colour math, ported from Claude Design's palette script.
     - its source:  `palette.mjs`, in Claude Design's `lib/`
@@ -406,6 +408,6 @@ As WWOD §4, plus:
     - `/brand/components/` (the old element pages) answers "not found".
 - Live reload:
   - the Brand tab's pages:  the page server watches the whole shared content folder
-  - this repo (the bundles, the pack and the docs set):  in the settings' `watch` list,
-    as `../spell-brand` and its `src/components/__pack`
+  - this repo (the bundles, the pack and the docs set):  in this repo's `watch` list,
+    as `.` and `src/components/__pack`
 - File names with spaces are fine:  links write them `Brand%20Montage.spell.html`.

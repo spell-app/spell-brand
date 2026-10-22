@@ -3,21 +3,21 @@
   Brand UI's LAYOUT:  every page's chrome, written ONCE, as Epic UI's (`spell-epic/src/docs/__parts/layout.html`, which
   this copies, as it copies Spell UI's).
   - Brand UI is the docs set of the `<brand-*>` elements, a component pack (epic `people-and-orgs` P18), served at
-    `/components/brand/` by the page server (its `componentSets` setting, in the root `package.json`), with Spell
-    UI's site bundle laid over it at `_assets/`:  so the bundle takes `/components/brand/` as its site's root, and
-    mounts THIS layout around each page's `main` (`packages/ui/site/_src/SiteShell.ts`), then swaps only the `main`
+    `/components/brand/` by the kit's page server (its `componentSets` setting, in this repo's `package.json`), with
+    Spell UI's site bundle laid over it at `_assets/`:  so the bundle takes `/components/brand/` as its site's root, and
+    mounts THIS layout around each page's `main` (`spell-ui/site/_src/SiteShell.ts`), then swaps only the `main`
     (`SiteRouter.ts`).
   - Relative URLs here are against THIS file AS SERVED (`/components/brand/__parts/`):  `../../..` is the checkout's
     root, at `/worktrees/<w>/components/brand/` too.  The shell makes them absolute as it mounts.
   - Against Spell UI's:
-    - `<ui-components>`:  the brand pack (`packages/brand/components/__pack/brand.pack.js`), for the pages' live
-      examples;  the site bundle shares its Solid and Spell UI with it (`SitePacks.ts`)
+    - `<ui-components>`:  the brand pack (`spell-brand/src/components/__pack/brand.pack.js`, served at
+      `/packages/brand/components/__pack/`), for the pages' live examples;  the site bundle shares its Solid and Spell UI with it (`SitePacks.ts`)
     - the brand reads "Brand UI";  the side column's links and groups come from `__data/` (`yarn site:data`, in
-      `packages/brand`), not Spell UI's
+      `spell-brand`), not Spell UI's
   - The COMMENTS (epic `epic-engine`, as Epic UI's):  every page loads `/_epic/assets/spell-comments.js` in its
     `<head>`, after the site's bundle:  the bullhorns, threads, Send and the page's toolbar;  its threads and pane are
     the epics pack's elements, so this loads that pack too (`/_epic/pack/epics.pack.js`, the epic server's engine
-    route, which spell-app's page server serves as well)
+    route, which the kit's page server serves as well)
   - Only `<body>` is used.
 -->
 <html lang="en">

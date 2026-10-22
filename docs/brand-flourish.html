@@ -1,9 +1,9 @@
 <!doctype html>
 <!--
-  A <brand-*> element's page in the brand's docs set (`packages/brand/docs/`, served at `/components/brand/`), in
+  A <brand-*> element's page in the brand's docs set (`spell-brand/docs/`, served at `/components/brand/`), in
   Spell UI's component page shape:  masthead, then Examples / Usage / API / Theming tabs.
   - The set's layout (`__parts/layout.html`) loads Spell UI's site bundle and the brand pack;  API and tokens come
-    from `__data/components.json5` (`yarn site:data` in `packages/brand`).
+    from `__data/components.json5` (`yarn site:data` in `spell-brand`).
   - Example ids:  `<tab>-<section>-<example>`, as Spell UI's pages.
   - A flourish fills its positioned parent:  every example puts it in a `.stage` (the `<style>` at the top of `main`), a box that
     is positioned and clips, as a page's hero or card is.
@@ -83,7 +83,7 @@
         <ui-container>
           <ui-menu icon floated="right" class="site-page-links" aria-label="About this page">
             <ui-item
-              href="../../packages/brand/components/brand-flourish/"
+              href="../../spell-brand/src/components/brand-flourish/"
               icon="code"
               aria-label="Its code"
               title="Its code"

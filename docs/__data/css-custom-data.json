@@ -814,7 +814,7 @@
       "name": ":state(pending)",
       "description": {
         "kind": "markdown",
-        "value": "Custom state of:\n\n- `<brand-check>`:  Not started (or not ticked)."
+        "value": "Custom state of:\n\n- `<brand-blob>`:  Defined by its `<ui-root>` before its family loaded:  no component yet, its values kept until it arrives.\n- `<brand-check>`:  Not started (or not ticked).\n- `<brand-checklist>`:  Defined by its `<ui-root>` before its family loaded:  no component yet, its values kept until it arrives.\n- `<brand-color>`:  Defined by its `<ui-root>` before its family loaded:  no component yet, its values kept until it arrives.\n- `<brand-color-picker>`:  Defined by its `<ui-root>` before its family loaded:  no component yet, its values kept until it arrives.\n- `<brand-color-range>`:  Defined by its `<ui-root>` before its family loaded:  no component yet, its values kept until it arrives.\n- `<brand-color-set>`:  Defined by its `<ui-root>` before its family loaded:  no component yet, its values kept until it arrives.\n- `<brand-composer>`:  Defined by its `<ui-root>` before its family loaded:  no component yet, its values kept until it arrives.\n- `<brand-flourish>`:  Defined by its `<ui-root>` before its family loaded:  no component yet, its values kept until it arrives.\n- `<brand-logo>`:  Defined by its `<ui-root>` before its family loaded:  no component yet, its values kept until it arrives.\n- `<brand-phone>`:  Defined by its `<ui-root>` before its family loaded:  no component yet, its values kept until it arrives."
       }
     },
     {
@@ -822,6 +822,13 @@
       "description": {
         "kind": "markdown",
         "value": "Custom state of:\n\n- `<brand-color-picker>`:  `readonly`:  the colour can't be changed.\n- `<brand-composer>`:  `readonly`:  can't be typed in."
+      }
+    },
+    {
+      "name": ":state(ready)",
+      "description": {
+        "kind": "markdown",
+        "value": "Custom state of:\n\n- `<brand-blob>`:  Ready to go:  drawn with its styles (its `ready` promise has resolved).\n- `<brand-check>`:  Ready to go:  drawn with its styles (its `ready` promise has resolved).\n- `<brand-checklist>`:  Ready to go:  drawn with its styles (its `ready` promise has resolved).\n- `<brand-color>`:  Ready to go:  drawn with its styles (its `ready` promise has resolved).\n- `<brand-color-picker>`:  Ready to go:  drawn with its styles (its `ready` promise has resolved).\n- `<brand-color-range>`:  Ready to go:  drawn with its styles (its `ready` promise has resolved).\n- `<brand-color-set>`:  Ready to go:  drawn with its styles (its `ready` promise has resolved).\n- `<brand-composer>`:  Ready to go:  drawn with its styles (its `ready` promise has resolved).\n- `<brand-flourish>`:  Ready to go:  drawn with its styles (its `ready` promise has resolved).\n- `<brand-logo>`:  Ready to go:  drawn with its styles (its `ready` promise has resolved).\n- `<brand-phone>`:  Ready to go:  drawn with its styles (its `ready` promise has resolved)."
       }
     },
     {
