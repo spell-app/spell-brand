@@ -18,6 +18,7 @@ import type { E } from "spell-kit/element"
  ****************/
 export const brandComposerVocabulary = {
   tag: "brand-composer",
+  formControl: true,
   topics: ["forms", "inputs", "text"],
   aka: ["composer", "prompt box", "prompt input", "chat input", "message box", "spell box", "command box"],
   skeleton: "8.5 tall",

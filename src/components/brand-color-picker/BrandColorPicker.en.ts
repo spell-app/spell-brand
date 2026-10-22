@@ -20,6 +20,7 @@ import type { E } from "spell-kit/element"
  ****************/
 export const brandColorPickerVocabulary = {
   tag: "brand-color-picker",
+  formControl: true,
   topics: ["inputs", "forms", "controls", "selection"],
   aka: ["color picker", "colour picker", "color chooser", "hsl picker", "swatch picker", "eyedropper", "color input"],
   skeleton: "27 tall",
