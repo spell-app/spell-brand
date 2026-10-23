@@ -2,13 +2,13 @@
  * Where the claude.ai design bundle's two tools (`design-bundle.ts`, `design-check.ts`) find what they read and write,
  * and the ONE place they read `process.env` (WWOD §11).
  * - Spell UI and the kit are found as packages, as node finds them (the kit's `packageRootFor()`), wherever their
- *   repos are:  beside this one in the kit `spell-kit` since epic `repo-split` P8.
+ *   repos are:  beside this one in the kit `spell` since epic `repo-split` P8.
  * - Node only:  imports node built-ins and the kit's `sourceNames` (node built-ins itself).
  */
 import { existsSync, realpathSync } from "node:fs"
 import path from "node:path"
 
-import { packageRootFor } from "spell-kit/toolchain/sourceNames"
+import { packageRootFor } from "spell/toolchain/sourceNames"
 
 /** This repo, spell-brand:  `spell-brand`. */
 export const BRAND_DIR = path.resolve(import.meta.dirname, "..")
@@ -23,8 +23,8 @@ export const UI_DIR = process.env.SPELL_UI_DIR
   ? realPath(path.resolve(process.env.SPELL_UI_DIR))
   : packageFolder("spell-ui")
 
-/** The kit's element, `spell-kit/element`, by its real path:  its SOURCE must never be bundled. */
-export const ELEMENT_DIR = path.join(packageFolder("spell-kit"), "src/element")
+/** The kit's element, `spell/element`, by its real path:  its SOURCE must never be bundled. */
+export const ELEMENT_DIR = path.join(packageFolder("spell"), "src/element")
 
 /**
  * The design bundle, where `yarn design:bundle` writes it by default:  `project/components/bundle.js` in the

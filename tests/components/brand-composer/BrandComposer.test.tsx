@@ -1,8 +1,8 @@
 import { describe, expect, it, vi } from "vite-plus/test"
 
 import { UI, type DOMElement } from "spell-ui/core"
-import { ElementFixture } from "spell-kit/test-helpers/ElementFixture"
-import { expectAccessible } from "spell-kit/test-helpers/A11y"
+import { ElementFixture } from "spell/test-helpers/ElementFixture"
+import { expectAccessible } from "spell/test-helpers/A11y"
 
 import "spell-brand/components/brand-composer"
 

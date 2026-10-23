@@ -6,7 +6,7 @@
  *   The element adds `brand` before the noun (`brand color`).
  */
 
-import type { E } from "spell-kit/element"
+import type { E } from "spell/element"
 
 /****************
  * ### `<brand-color>`

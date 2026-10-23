@@ -4,7 +4,7 @@
   // - As `tsconfig.json`, but node's types too:  the configs and the design bundle's build reach the brand's and
   //   Spell UI's browser source, so they keep the DOM, Vite's client types and the JSX settings.
   // - The declarations build (`spell-types`) builds it into `dist-types/` too, beside the browser program's.
-  "extends": "spell-kit/toolchain/tsconfig.base.json",
+  "extends": "spell/toolchain/tsconfig.base.json",
   "compilerOptions": {
     "customConditions": ["spell-brand-source"],
     "target": "ES2022",

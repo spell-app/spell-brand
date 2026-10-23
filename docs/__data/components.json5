@@ -5418,6 +5418,12 @@
       "global": true
     },
     {
+      "name": "fruity",
+      "title": "Fruity",
+      "families": [],
+      "global": true
+    },
+    {
       "name": "github",
       "title": "GitHub",
       "families": [],

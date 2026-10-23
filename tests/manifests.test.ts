@@ -5,7 +5,7 @@ import { expect, test } from "vite-plus/test"
 
 import type { SiteDataFile } from "spell-ui/docs-components/docs-components.types"
 import { ElementManifests } from "spell-ui/tools/ElementManifests"
-import { readJSON5File } from "spell-kit/util/node/json5"
+import { readJSON5File } from "spell/util/node/json5"
 
 /**
  * The brand's element manifests are current, as Spell UI's tools write them.

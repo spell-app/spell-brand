@@ -112,7 +112,7 @@
     "pack:check": "spell-pack check"
   },
   "dependencies": {
-    "spell-kit": "workspace:*"
+    "spell": "workspace:*"
   },
   "devDependencies": {
     "@solidjs/web": "2.0.0-rc.17",

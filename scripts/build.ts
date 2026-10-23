@@ -8,7 +8,7 @@
  *   missing (or re-pointed when it leads elsewhere), as Spell UI's site bundle does (its `scripts/site-bundle.ts`):
  *   never a second copy.
  *   - Spell UI found as a package (`spell-ui`, through `node_modules`), wherever its repo is:  beside this one in
- *     the kit `spell-kit` since epic `repo-split` P8.
+ *     the kit `spell` since epic `repo-split` P8.
  * - Fails if the bundle holds two copies of a Solid package (`solid-js`, `@solidjs/web`):  two would split signals
  *   and break every element.  The docs bundle checks the same (`bundle-spell-ui.js` `checkOneSolid()`).
  */
@@ -27,7 +27,7 @@ import path from "node:path"
 import { gzipSync } from "node:zlib"
 import { build, type Rolldown } from "vite-plus"
 
-import { packageRootFor } from "spell-kit/toolchain/sourceNames"
+import { packageRootFor } from "spell/toolchain/sourceNames"
 import { BRAND_ASSETS } from "spell-brand/vite.config.ts"
 
 /** The packs link inside `_assets/ui/`, and where it points (relative, so the repos can move together). */

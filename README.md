@@ -28,7 +28,7 @@ The page must load Spell UI's [docs bundle](../spell-epic/src/tools/_assets/spel
   ([AGENTS.md](AGENTS.md), "Imports").
 - It may use:  spell-ui (Spell UI, which it's built on) and the kit:  its `element/` (its elements are written on it);
   and, as Spell UI does, its `server/` for the site, and util's json5 and the toolchain.
-- A child repo of the kit `spell-kit` (`~/www/spell`), which holds the ONE install for every repo:
+- A child repo of the kit `spell` (`~/www/spell`), which holds the ONE install for every repo:
   `yarn install` there.  No `yarn.lock` here, for now.
 
 ## The DRY rule (one of each)
@@ -41,7 +41,7 @@ If you find yourself writing a second copy of any of these, stop and reuse.
 - the brand's logo, fonts and reference images:  [`assets/`](assets/)
 - the docs data, in [site-data.ts](scripts/site-data.ts):  Spell UI's builders
   - `SiteDataBuilder`, `SiteSearchBuilder`, `ElementManifests`
-- the element authoring API:  `spell-kit/element`, and Spell UI's `spell-ui/core`
+- the element authoring API:  `spell/element`, and Spell UI's `spell-ui/core`
 - the brand's colour math:  [`Palette`](src/Palette.ts)
 
 ## Files

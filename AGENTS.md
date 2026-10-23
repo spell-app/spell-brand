@@ -16,14 +16,14 @@ when working with code in this package, `spell-brand`.
   - outside it, Brand UI's docs pages (`docs/`)
 - It may use:
   - spell-ui (Spell UI), which it's built on
-  - the kit:  `spell-kit/element` (its elements are written on it);
-    and, as Spell UI does, `spell-kit/server` for the site, util's json5 and the toolchain
+  - the kit:  `spell/element` (its elements are written on it);
+    and, as Spell UI does, `spell/server` for the site, util's json5 and the toolchain
   - Every arrow points DOWN:  no repo below this one may import it.
-- It lives inside the kit `spell-kit`, at `~/www/spell/spell-brand/`:
+- It lives inside the kit `spell`, at `~/www/spell/spell-brand/`:
   - the kit holds the ONE install for every repo (no `yarn.lock` here)
   - [its AGENTS.md](../AGENTS.md) has the rules across repos
 - Every file is imported by its package name and its path under `src/` ("Imports", below):
-  the brand's own (`spell-brand/components/brand-color`), and other repos' (`spell-kit/element`, `spell-ui/core`).
+  the brand's own (`spell-brand/components/brand-color`), and other repos' (`spell/element`, `spell-ui/core`).
 - `agents/` (WWOD and the three logs):  a link to the kit's `agents/` (git-ignored here).
   - Every `yarn install` at the kit makes it (its `postinstall`).
 
@@ -45,7 +45,7 @@ when working with code in this package, `spell-brand`.
     `spell-pack`, and [ComponentPack](../src/element-tools/ComponentPack.ts).
     - Its families are in `src/components/`, not the default `components/`:
       `"spellPack": { "components" }` in [package.json](package.json).
-    - A bin of `spell-kit`, a dependency here:  the brand reaches the kit's tool, never spell-app's CLI.
+    - A bin of `spell`, a dependency here:  the brand reaches the kit's tool, never spell-app's CLI.
     - Spell UI's `spell-ui-pack` from epic `repo-split` P5 to P10.
 - Two halves (epic `claude-design`, P11, 2026-10-05):
   - The Brand tab's PAGES are shared:  the content repo's `brand/`, `spell.epics/brand/` beside the kit's checkout.
@@ -96,7 +96,7 @@ when working with code in this package, `spell-brand`.
     - It's the copies' bundle (`yarn build`):  `brand-ui.js`, its CSS and lazy chunks.
     - `icon-packs` is a symlink to Spell UI's.
     - The page server builds it when it starts, if stale (`spell bundle --stale`).
-      - That's the kit's `SRV.Bundle`, from `spell-kit/server`.
+      - That's the kit's `SRV.Bundle`, from `spell/server`.
       - Its `.bundle.json` records the sources' hash.
     - NEVER edit.
 - `assets/`:  the brand's SOURCE files, which people link or download (epic `repo-split` P10).
@@ -156,7 +156,7 @@ when working with code in this package, `spell-brand`.
 - `src/components/`:  the `<brand-*>` elements, one folder per family.
   - Imported as `spell-brand/components`.
   - Written exactly like a Spell UI family ([ui's AGENTS.md](../spell-ui/AGENTS.md), "Solid authoring").
-  - Written on the kit's element:  `import { E } from "spell-kit/element"`.
+  - Written on the kit's element:  `import { E } from "spell/element"`.
     - Spell UI's shared code comes from `spell-ui/core` / `spell-ui/forms`.
     - A file using Spell UI's own pieces (`E.IconGlyph` ...) imports Spell UI's `E` instead.
       - `spell-ui/core`'s `E` carries the kit's element's names too
@@ -250,7 +250,7 @@ when working with code in this package, `spell-brand`.
   - `browser`:  in Vitest browser mode, chromium
     - the elements
     - the `*.browser.test.ts` files:  the inspector's look
-    - with the kit's test helpers:  `spell-kit/test-helpers/ElementFixture`, `spell-kit/test-helpers/A11y`;
+    - with the kit's test helpers:  `spell/test-helpers/ElementFixture`, `spell/test-helpers/A11y`;
       Spell UI's own, `spell-ui/test-helpers/MemberClashes`, and its setup
   - The kit's `yarn test` runs this repo's `yarn test`, after the repos below it.
 - `yarn ts`, `yarn lint`, `yarn format`, `yarn review`.
@@ -363,7 +363,7 @@ As WWOD §4, plus:
     its own resolver sends each of its imports to a built file.
 - Spell UI and the kit by the same names, entries of their `exports`:
   - `spell-ui/core` (and `spell-ui/forms`):
-    Spell UI's half of the element authoring API, beside `spell-kit/element`'s.
+    Spell UI's half of the element authoring API, beside `spell/element`'s.
     - Imported as a `ui` family imports it, through its namespaces:
 
       ```ts
@@ -373,7 +373,7 @@ As WWOD §4, plus:
 
     - then `E.IconGlyph`, `UI.browser`, `F.FormComponent` ...
     - `E.UIComponent` and `@E.state` are the kit's element's.
-      - A file that needs nothing more takes `E` from `spell-kit/element`.
+      - A file that needs nothing more takes `E` from `spell/element`.
   - the bundle entries (`src/`), as Spell UI's site entry does:
     - `spell-ui/runtime`, `spell-ui/icons`, `spell-ui/styles`
     - its stylesheet, `spell-ui/styles/ui.css`
@@ -383,12 +383,12 @@ As WWOD §4, plus:
     - `spell-ui/tools/ElementManifests`
     - `spell-ui/docs-components/docs-components.types`
   - `spell-ui/test-helpers/...` (`MemberClashes`, `setup.ts`), in tests
-    - the generic helpers are the kit's:  `spell-kit/test-helpers/...`
+    - the generic helpers are the kit's:  `spell/test-helpers/...`
 - NEVER the other way:  `ui` imports nothing of `brand`.
   - Its design export (`DesignBrand`) READS the docs set's `components.json5` and its pages, as data.
 - The pack's script may import only what a page shares (`PACK_MODULES` in the kit's
   [pack modules](../src/element-tools/packModules.ts), each by the name the source imports it by):
-  - `spell-kit/element`
+  - `spell/element`
   - `spell-ui/core` and `spell-ui/forms`
   - Solid
   - the brand's own files (`spell-brand/...`) are bundled into it

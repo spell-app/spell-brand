@@ -15,7 +15,7 @@ import { baseConfig } from "spell-ui/vite.config.ts"
  *   - the brand pages' look on Spell UI's elements (`inspector.browser.test.ts`)
  *   - Vitest browser mode + Playwright, chromium
  *   - `baseConfig()`:  Spell UI's plugins (decorators BEFORE Solid), Solid dedupe, Lightning CSS
- *   - the test helpers come from the kit (`spell-kit/test-helpers/...`), Spell UI's own from `spell-ui/test-helpers/...`
+ *   - the test helpers come from the kit (`spell/test-helpers/...`), Spell UI's own from `spell-ui/test-helpers/...`
  */
 /**
  * The tests live in the repo's tests/ folder, at the same paths as the code under `src/`:

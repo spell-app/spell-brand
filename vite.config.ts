@@ -1,7 +1,7 @@
 import { defineConfig, type UserConfig } from "vite-plus"
 import { fileURLToPath } from "node:url"
 
-import { fmtConfig, packageLint } from "spell-kit/toolchain/lint"
+import { fmtConfig, packageLint } from "spell/toolchain/lint"
 import { baseConfig } from "spell-ui/vite.config.ts"
 
 /** This repo, spell-brand. */
