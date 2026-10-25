@@ -730,7 +730,7 @@
       "name": ":state(checkable)",
       "description": {
         "kind": "markdown",
-        "value": "Custom state of:\n\n- `<brand-check>`:  A checkbox the user ticks."
+        "value": "Custom state of:\n\n- `<brand-check>`:  A checkbox people tick."
       }
     },
     {

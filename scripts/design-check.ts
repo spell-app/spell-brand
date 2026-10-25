@@ -21,10 +21,10 @@
  *   summary on stdout, problems on stderr;  exits 1 on any, 2 when there's no bundle.
  */
 import { existsSync, mkdirSync, mkdtempSync, readFileSync } from "node:fs"
-import { createServer } from "node:http"
 import { tmpdir } from "node:os"
 import path from "node:path"
 
+import { SRV } from "spell/server"
 import { BrowserPage } from "spell/element-tools/BrowserPage"
 
 import { BRAND_DIR, DESIGN_BUNDLE, INVOKED_FROM } from "./design-paths.ts"
@@ -153,21 +153,19 @@ async function checkBoard() {
     "/support.js": readFileSync(DC_RUNTIME, "utf8"),
     "/bundle.js": bundle
   }
-  const server = createServer((request, response) => {
-    const body = files[new URL(request.url ?? "/", "http://x").pathname]
-    if (body === undefined) return response.writeHead(404).end()
-    const type = request.url?.endsWith(".js") ? "text/javascript" : "text/html"
-    response.writeHead(200, { "content-type": `${type}; charset=utf-8` }).end(body)
-  })
-  await new Promise((done) => server.listen(0, "127.0.0.1", () => done(undefined)))
-  const address = server.address()
-  const port = typeof address === "object" && address ? address.port : 0
+  // the kit's server, on a free port:  each file at its path
+  const server = new SRV.WebServer()
+  for (const [route, body] of Object.entries(files)) {
+    const type = route.endsWith(".js") ? "text/javascript" : "text/html"
+    server.router.get(route, (_request, reply) => reply.type(`${type}; charset=utf-8`).send(body))
+  }
+  const { url } = await server.listen()
   const errors: string[] = []
   const page = await BrowserPage.newPage(browser, {
     viewport: { width: 700, height: 260 },
     onProblem: (text) => errors.push(text)
   })
-  await page.goto(`http://127.0.0.1:${port}/board.html`)
+  await page.goto(`${url}/board.html`)
   const button = page.locator("ui-button", { hasText: "Clicked" })
   await button.waitFor({ timeout: 8000 }).catch(() => undefined)
   const before = await button.textContent({ timeout: 1000 }).catch(() => null)
@@ -180,7 +178,7 @@ async function checkBoard() {
     .catch(() => null)
   await page.screenshot({ path: path.join(out, "board.png") })
   await page.close()
-  server.close()
+  await server.close()
   if (errors.length) problems.push(`board:  page errors:\n   ${errors.join("\n   ")}`)
   if (!loaded?.includes("object")) problems.push(`board:  the bundle didn't load (${loaded})`)
   if (before?.trim() !== "Clicked 0" || after?.trim() !== "Clicked 1") {

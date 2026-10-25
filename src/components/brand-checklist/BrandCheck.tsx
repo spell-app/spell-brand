@@ -146,7 +146,7 @@ export class BrandCheck extends E.UIComponent<BrandCheckVocabulary> {
     return this.font ?? this.ownerState?.font
   }
 
-  /** A checkbox the user ticks:  its own `checkable`, or its list's. */
+  /** A checkbox people tick:  its own `checkable`, or its list's. */
   get isCheckable(): boolean {
     return !!this.checkable || !!this.ownerState?.checkable
   }
@@ -218,7 +218,7 @@ export class BrandCheck extends E.UIComponent<BrandCheckVocabulary> {
     )
   }
 
-  /** A line the user ticks:  a `<button role="checkbox">`, so Space and Enter both tick it. */
+  /** A line people tick:  a `<button role="checkbox">`, so Space and Enter both tick it. */
   private checkbox(): JSX.Element {
     return (
       <button
@@ -251,7 +251,7 @@ export class BrandCheck extends E.UIComponent<BrandCheckVocabulary> {
 
 export interface BrandCheck extends E.AttributeValues<BrandCheckVocabulary> {}
 
-/** The class word of a check the user ticks. */
+/** The class word of a check people tick. */
 const CHECKABLE = "checkable"
 
 /** The class word of a serif check (`BrandCheck.css` switches its defaults on it). */
