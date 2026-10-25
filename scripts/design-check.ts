@@ -24,7 +24,8 @@ import { existsSync, mkdirSync, mkdtempSync, readFileSync } from "node:fs"
 import { createServer } from "node:http"
 import { tmpdir } from "node:os"
 import path from "node:path"
-import { chromium, type Page } from "playwright"
+
+import { BrowserPage } from "spell/element-tools/BrowserPage"
 
 import { BRAND_DIR, DESIGN_BUNDLE, INVOKED_FROM } from "./design-paths.ts"
 
@@ -98,7 +99,7 @@ const out = outArg ? path.resolve(INVOKED_FROM, outArg) : mkdtempSync(path.join(
 mkdirSync(out, { recursive: true })
 const bundle = readFileSync(bundlePath, "utf8")
 const problems: string[] = []
-const browser = await chromium.launch()
+const browser = await BrowserPage.launch()
 const card = await checkCard()
 const board = await checkBoard()
 await browser.close()
@@ -113,8 +114,11 @@ process.exit(problems.length ? 1 : 0)
 
 /** Check 1:  the bundle inlined into an `about:srcdoc` frame, as a design system's preview card runs it. */
 async function checkCard() {
-  const page = await browser.newPage({ viewport: { width: 800, height: 600 } })
-  const errors = watchErrors(page)
+  const errors: string[] = []
+  const page = await BrowserPage.newPage(browser, {
+    viewport: { width: 800, height: 600 },
+    onProblem: (text) => errors.push(text)
+  })
   const html = `<!doctype html><html><head><meta charset="utf-8"><script>${bundle}</script></head><body class="ui-typography">${CARD}</body></html>`
   await page.setContent(`<iframe id="card" style="width: 780px; height: 580px; border: 0"></iframe>`)
   await page.$eval("#card", (frame: HTMLIFrameElement, srcdoc) => (frame.srcdoc = srcdoc), html)
@@ -158,8 +162,11 @@ async function checkBoard() {
   await new Promise((done) => server.listen(0, "127.0.0.1", () => done(undefined)))
   const address = server.address()
   const port = typeof address === "object" && address ? address.port : 0
-  const page = await browser.newPage({ viewport: { width: 700, height: 260 } })
-  const errors = watchErrors(page)
+  const errors: string[] = []
+  const page = await BrowserPage.newPage(browser, {
+    viewport: { width: 700, height: 260 },
+    onProblem: (text) => errors.push(text)
+  })
   await page.goto(`http://127.0.0.1:${port}/board.html`)
   const button = page.locator("ui-button", { hasText: "Clicked" })
   await button.waitFor({ timeout: 8000 }).catch(() => undefined)
@@ -224,12 +231,4 @@ function inspectCard(): CardState {
     const code = document.querySelector(selector)?.shadowRoot?.querySelector("[part~=code]")
     return code?.querySelectorAll("[class^=hljs-]").length ?? 0
   }
-}
-
-/** Collects `page`'s uncaught errors and console errors, as text. */
-function watchErrors(page: Page): string[] {
-  const errors: string[] = []
-  page.on("pageerror", (error) => errors.push(error.message))
-  page.on("console", (message) => message.type() === "error" && errors.push(message.text()))
-  return errors
 }

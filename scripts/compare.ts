@@ -21,8 +21,9 @@ import { mkdirSync, readFileSync, writeFileSync } from "node:fs"
 import path from "node:path"
 import { execFileSync } from "node:child_process"
 import { runInNewContext } from "node:vm"
-import { chromium, type Page } from "playwright"
+import type { Page } from "playwright"
 
+import { BrowserPage } from "spell/element-tools/BrowserPage"
 import { SRV } from "spell/server"
 
 /** This repo, and the spell-app checkout whose page server serves the brand pages. */
@@ -48,12 +49,11 @@ if (!pages.length) {
   process.exit(0)
 }
 const base = await serverBase()
-const browser = await chromium.launch()
-const context = await browser.newContext({
+const browser = await BrowserPage.launch()
+const page = await BrowserPage.newPage(browser, {
   viewport: { width: options.width, height: options.height },
   colorScheme: options.dark ? "dark" : "light"
 })
-const page = await context.newPage()
 const results: Result[] = []
 for (const each of pages) {
   const folder = path.join(OUT, each.name)
@@ -150,9 +150,8 @@ async function shoot(page: Page, url: string, file: string): Promise<Buffer> {
  * - sizes differ with `--full`:  both are drawn on the larger canvas, the missing part counts as different
  */
 async function measure(page: Page, dc: Buffer, spell: Buffer, folder: string) {
+  // `BrowserPage` gives about:blank `__name` too, for the functions below
   await page.goto("about:blank")
-  // HACK:  `tsx` (esbuild `keepNames`) wraps named functions in `__name(...)`, which the page doesn't have
-  await page.evaluate("globalThis.__name = (fn) => fn")
   const result = await page.evaluate(
     async ({ dcUrl, spellUrl, threshold }) => {
       const load = (src: string) =>
