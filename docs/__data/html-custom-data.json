@@ -210,14 +210,7 @@
           "name": "link",
           "description": {
             "kind": "markdown",
-            "value": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name is `href`.\n\nTakes:  text"
-          }
-        },
-        {
-          "name": "href",
-          "description": {
-            "kind": "markdown",
-            "value": "An old name:  write `link`.  It still works until every page is rewritten."
+            "value": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name was `href`.\n\nTakes:  text"
           }
         },
         {
@@ -469,14 +462,7 @@
           "name": "link",
           "description": {
             "kind": "markdown",
-            "value": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name is `href`.\n\nTakes:  text"
-          }
-        },
-        {
-          "name": "href",
-          "description": {
-            "kind": "markdown",
-            "value": "An old name:  write `link`.  It still works until every page is rewritten."
+            "value": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name was `href`.\n\nTakes:  text"
           }
         },
         {
@@ -677,14 +663,7 @@
           "name": "link",
           "description": {
             "kind": "markdown",
-            "value": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name is `href`.\n\nTakes:  text"
-          }
-        },
-        {
-          "name": "href",
-          "description": {
-            "kind": "markdown",
-            "value": "An old name:  write `link`.  It still works until every page is rewritten."
+            "value": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name was `href`.\n\nTakes:  text"
           }
         },
         {
@@ -969,14 +948,7 @@
           "name": "link",
           "description": {
             "kind": "markdown",
-            "value": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name is `href`.\n\nTakes:  text"
-          }
-        },
-        {
-          "name": "href",
-          "description": {
-            "kind": "markdown",
-            "value": "An old name:  write `link`.  It still works until every page is rewritten."
+            "value": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name was `href`.\n\nTakes:  text"
           }
         },
         {
@@ -1209,14 +1181,7 @@
           "name": "link",
           "description": {
             "kind": "markdown",
-            "value": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name is `href`.\n\nTakes:  text"
-          }
-        },
-        {
-          "name": "href",
-          "description": {
-            "kind": "markdown",
-            "value": "An old name:  write `link`.  It still works until every page is rewritten."
+            "value": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name was `href`.\n\nTakes:  text"
           }
         },
         {
@@ -1586,14 +1551,7 @@
           "name": "link",
           "description": {
             "kind": "markdown",
-            "value": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name is `href`.\n\nTakes:  text"
-          }
-        },
-        {
-          "name": "href",
-          "description": {
-            "kind": "markdown",
-            "value": "An old name:  write `link`.  It still works until every page is rewritten."
+            "value": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name was `href`.\n\nTakes:  text"
           }
         },
         {
@@ -1812,14 +1770,7 @@
           "name": "link",
           "description": {
             "kind": "markdown",
-            "value": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name is `href`.\n\nTakes:  text"
-          }
-        },
-        {
-          "name": "href",
-          "description": {
-            "kind": "markdown",
-            "value": "An old name:  write `link`.  It still works until every page is rewritten."
+            "value": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name was `href`.\n\nTakes:  text"
           }
         },
         {
@@ -2109,14 +2060,7 @@
           "name": "link",
           "description": {
             "kind": "markdown",
-            "value": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name is `href`.\n\nTakes:  text"
-          }
-        },
-        {
-          "name": "href",
-          "description": {
-            "kind": "markdown",
-            "value": "An old name:  write `link`.  It still works until every page is rewritten."
+            "value": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name was `href`.\n\nTakes:  text"
           }
         },
         {
@@ -2373,14 +2317,7 @@
           "name": "link",
           "description": {
             "kind": "markdown",
-            "value": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name is `href`.\n\nTakes:  text"
-          }
-        },
-        {
-          "name": "href",
-          "description": {
-            "kind": "markdown",
-            "value": "An old name:  write `link`.  It still works until every page is rewritten."
+            "value": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name was `href`.\n\nTakes:  text"
           }
         },
         {
@@ -2640,14 +2577,7 @@
           "name": "link",
           "description": {
             "kind": "markdown",
-            "value": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name is `href`.\n\nTakes:  text"
-          }
-        },
-        {
-          "name": "href",
-          "description": {
-            "kind": "markdown",
-            "value": "An old name:  write `link`.  It still works until every page is rewritten."
+            "value": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name was `href`.\n\nTakes:  text"
           }
         },
         {
@@ -2866,14 +2796,7 @@
           "name": "link",
           "description": {
             "kind": "markdown",
-            "value": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name is `href`.\n\nTakes:  text"
-          }
-        },
-        {
-          "name": "href",
-          "description": {
-            "kind": "markdown",
-            "value": "An old name:  write `link`.  It still works until every page is rewritten."
+            "value": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name was `href`.\n\nTakes:  text"
           }
         },
         {
