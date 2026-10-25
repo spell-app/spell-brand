@@ -91,12 +91,12 @@ export const brandComposerVocabulary = {
   ],
   events: [
     {
-      name: "ui-input",
+      name: "ui-typed",
       detail: "{ value: string, originalEvent?: Event }",
       description: "The text changed (every keystroke).  A handler that re-sets `value` wins."
     },
     {
-      name: "ui-change",
+      name: "ui-changed",
       detail: "{ value: string, originalEvent?: Event }",
       description: "The user committed an edit (left the text box changed)."
     },

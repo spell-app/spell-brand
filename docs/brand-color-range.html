@@ -177,7 +177,7 @@
 
                   - `anchor`, `vibrancy` and `hue-shift` are the Chooser's Tweak sliders (its Hue drift slider's value
                     times 2.5 is `hue-shift`).
-                  - `ui-change` (`{ value, scale, anchor }`) follows every change to the colours, not the first render.
+                  - `ui-changed` (`{ value, scale, anchor }`) follows every change to the colours, not the first render.
                   - Read the ladder from JS: `scale` (step to `#RRGGBB`), `anchorStep`, and `css()`, the ladder as CSS
                     custom properties (`css("oklch")` for OKLCH values). They're right straight after a write.
                 </script>

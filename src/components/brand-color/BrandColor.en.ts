@@ -67,7 +67,7 @@ export const brandColorVocabulary = {
   ],
   events: [
     {
-      name: "ui-copy",
+      name: "ui-copied",
       detail: "{ value: string, originalEvent?: Event }",
       description: "A click copied `value` to the clipboard (`copy`)."
     }

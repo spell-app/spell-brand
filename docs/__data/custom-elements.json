@@ -187,7 +187,7 @@
             },
             {
               "name": "selected",
-              "description": "Ticked:  done.  What a `checkable` check toggles;  `ui-change` first.  Alias:  `checked` (attribute and property).",
+              "description": "Ticked:  done.  What a `checkable` check toggles;  `ui-changed` first.  Alias:  `checked` (attribute and property).",
               "type": {
                 "text": "boolean"
               },
@@ -245,7 +245,7 @@
           "members": [],
           "events": [
             {
-              "name": "ui-change",
+              "name": "ui-changed",
               "description": "The user ticked or unticked a `checkable` check (`checked` ~== `selected`).",
               "type": {
                 "text": "CustomEvent<{ selected: boolean, checked: boolean, originalEvent?: Event }>"
@@ -651,7 +651,7 @@
           "members": [],
           "events": [
             {
-              "name": "ui-copy",
+              "name": "ui-copied",
               "description": "A click copied `value` to the clipboard (`copy`).",
               "type": {
                 "text": "CustomEvent<{ value: string, originalEvent?: Event }>"
@@ -877,14 +877,14 @@
               }
             },
             {
-              "name": "ui-change",
+              "name": "ui-changed",
               "description": "A choice was committed:  a drag or hue drag ends, a key on the square, Enter or leaving a field -- when the colour differs from the last commit.",
               "type": {
                 "text": "CustomEvent<{ value: string, originalEvent?: Event }>"
               }
             },
             {
-              "name": "ui-copy",
+              "name": "ui-copied",
               "description": "A row's copy button wrote `value` to the clipboard:  `hsl(...)`, `#RRGGBB` or `oklch(...)`.",
               "type": {
                 "text": "CustomEvent<{ value: string, format: \"hsl\" | \"hex\" | \"oklch\", originalEvent?: Event }>"
@@ -1209,7 +1209,7 @@
           "members": [],
           "events": [
             {
-              "name": "ui-change",
+              "name": "ui-changed",
               "description": "The ladder changed (`value`, `anchor`, `vibrancy`, `hue-shift`):  not on first render.",
               "type": {
                 "text": "CustomEvent<{ value: string, scale: Record<Step, string>, anchor: Step }>"
@@ -1388,7 +1388,7 @@
           "members": [],
           "events": [
             {
-              "name": "ui-change",
+              "name": "ui-changed",
               "description": "A chip was chosen (`selectable`):  `value` is its `name`, else its colour.",
               "type": {
                 "text": "CustomEvent<{ value: string, originalEvent?: Event }>"
@@ -1610,14 +1610,14 @@
           "members": [],
           "events": [
             {
-              "name": "ui-input",
+              "name": "ui-typed",
               "description": "The text changed (every keystroke).  A handler that re-sets `value` wins.",
               "type": {
                 "text": "CustomEvent<{ value: string, originalEvent?: Event }>"
               }
             },
             {
-              "name": "ui-change",
+              "name": "ui-changed",
               "description": "The user committed an edit (left the text box changed).",
               "type": {
                 "text": "CustomEvent<{ value: string, originalEvent?: Event }>"

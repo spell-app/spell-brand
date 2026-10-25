@@ -41,10 +41,10 @@ function chipOf(chip: Element): HTMLElement {
   return chip.shadowRoot!.querySelector<HTMLElement>("[part~=chip]")!
 }
 
-/** `ui-change` values `host` dispatches from now on. */
+/** `ui-changed` values `host` dispatches from now on. */
 function changes(host: Element): string[] {
   const values: string[] = []
-  host.addEventListener("ui-change", (event) => values.push((event as CustomEvent<{ value: string }>).detail.value))
+  host.addEventListener("ui-changed", (event) => values.push((event as CustomEvent<{ value: string }>).detail.value))
   return values
 }
 
@@ -127,7 +127,7 @@ describe("<brand-color-set selectable>", () => {
     await expectAccessible(host)
   })
 
-  it("a click chooses:  `ui-change`, then `value`, `selected` and the Tab stop move", async () => {
+  it("a click chooses:  `ui-changed`, then `value`, `selected` and the Tab stop move", async () => {
     const { host, chips } = await render(`<brand-color-set selectable>${PRESETS}</brand-color-set>`)
     expect(chips.map((chip) => chip.tabIndex)).toEqual([0, -1, -1, -1, -1, -1])
     const values = changes(host)
@@ -172,9 +172,9 @@ describe("<brand-color-set selectable>", () => {
     ])
   })
 
-  it("a `ui-change` handler that re-sets `value` wins", async () => {
+  it("a `ui-changed` handler that re-sets `value` wins", async () => {
     const { host, chips } = await render(`<brand-color-set selectable value="brand">${PRESETS}</brand-color-set>`)
-    host.addEventListener("ui-change", () => (host.value = "brand"))
+    host.addEventListener("ui-changed", () => (host.value = "brand"))
     chipOf(chips[2]!).click()
     await ElementFixture.settle()
     expect(host.value).toBe("brand")

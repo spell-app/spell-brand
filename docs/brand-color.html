@@ -121,7 +121,7 @@
 
               <ui-section id="examples-content-copy" label="What it copies" sticky collapsible dividing>
                 <ui-docs-example
-                  description="`copy`:  `hex` (bare `copy` too), `oklch`, `token` (`var(--violet-600)`) or `css` (`--violet-600: #6550CA;`).  Each dispatches `ui-copy` and shows a check for a moment."
+                  description="`copy`:  `hex` (bare `copy` too), `oklch`, `token` (`var(--violet-600)`) or `css` (`--violet-600: #6550CA;`).  Each dispatches `ui-copied` and shows a check for a moment."
                 >
                   <brand-color
                     value="#6550CA"
@@ -193,14 +193,14 @@
 
                   - `label` puts text inside: the hex, OKLCH, the name or the step.
                   - `contrast` marks the shades text reads clearly on; `details` explains each one in a tip.
-                  - `copy` copies the colour on a click, in the format you pick, and dispatches `ui-copy`.
+                  - `copy` copies the colour on a click, in the format you pick, and dispatches `ui-copied`.
                   - Many chips: `<brand-color-set>` lays them out and lets people pick one;
                     `<brand-color-range>` draws a whole 17-step ladder from one colour.
                 </script>
               </ui-markdown>
               <ui-code language="js">
                 <script type="text/plain">
-                  document.addEventListener("ui-copy", (event) => {
+                  document.addEventListener("ui-copied", (event) => {
                     if (event.target.localName === "brand-color") console.log("copied", event.detail.value)
                   })
                 </script>

@@ -42,7 +42,7 @@ export const brandColorSetVocabulary = {
   ],
   events: [
     {
-      name: "ui-change",
+      name: "ui-changed",
       detail: "{ value: string, originalEvent?: Event }",
       description: "A chip was chosen (`selectable`):  `value` is its `name`, else its colour."
     }

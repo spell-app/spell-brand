@@ -53,10 +53,10 @@ function copyButton(host: Element, index: number): HTMLButtonElement {
   return all<HTMLButtonElement>(host, '[part~="copy"]')[index]!
 }
 
-/** `ui-input` / `ui-change` / `ui-copy` events from `host`, in order. */
+/** `ui-input` / `ui-changed` / `ui-copied` events from `host`, in order. */
 function record(host: Element): Fired[] {
   const fired: Fired[] = []
-  for (const type of ["ui-input", "ui-change", "ui-copy"]) {
+  for (const type of ["ui-input", "ui-changed", "ui-copied"]) {
     host.addEventListener(type, (event) => {
       const { value, format } = (event as CustomEvent).detail
       fired.push(format ? { type, value, format } : { type, value })
@@ -230,10 +230,10 @@ describe("<brand-color-picker> fields", () => {
     await ElementFixture.tick()
     expect(fired).toEqual([
       { type: "ui-input", value: "#14A39A" },
-      { type: "ui-change", value: "#14A39A" },
+      { type: "ui-changed", value: "#14A39A" },
       { type: "ui-input", value: "#E8436A" },
       { type: "ui-input", value: "#AABBCC" },
-      { type: "ui-change", value: "#AABBCC" },
+      { type: "ui-changed", value: "#AABBCC" },
       { type: "ui-input", value: "#008000" }
     ])
   })
@@ -275,7 +275,7 @@ describe("<brand-color-picker> fields", () => {
     key(hslField(host, 1), "Escape")
     await ElementFixture.tick()
     expect(hslField(host, 1).value).toBe("100")
-    expect(fired.map((event) => event.type)).toEqual(["ui-input", "ui-input", "ui-input", "ui-change"])
+    expect(fired.map((event) => event.type)).toEqual(["ui-input", "ui-input", "ui-input", "ui-changed"])
   })
 
   it("OKLCH fields:  L (%), C and H edit the colour;  a C no screen shows is mapped in (same L and H)", async () => {
@@ -321,7 +321,7 @@ describe("<brand-color-picker> square and hue", () => {
     expect(host.value).toBe(Palette.hslToHex({ h: 140, s, l }))
     expect(hslField(host, 0).value).toBe("140")
     expect(part(host, "picker").style.getPropertyValue("--_brand-color-picker-hue")).toBe("140")
-    expect(fired.map((event) => event.type)).toEqual(["ui-input", "ui-change"])
+    expect(fired.map((event) => event.type)).toEqual(["ui-input", "ui-changed"])
     // 360 stays at the slider's end
     hue.value = "360"
     hue.dispatchEvent(new InputEvent("input", { bubbles: true, composed: true }))
@@ -329,7 +329,7 @@ describe("<brand-color-picker> square and hue", () => {
     expect(hue.value).toBe("360")
   })
 
-  it("square:  a press jumps there, a drag follows (`ui-input`), release commits once (`ui-change`)", async () => {
+  it("square:  a press jumps there, a drag follows (`ui-input`), release commits once (`ui-changed`)", async () => {
     const host = await picker(`<brand-color-picker value="#8E96B5"></brand-color-picker>`)
     const fired = record(host)
     const { h } = Palette.hexToHsl("#8E96B5")
@@ -343,7 +343,7 @@ describe("<brand-color-picker> square and hue", () => {
     pointer(host, "pointerup", 0.9, 0.3)
     await ElementFixture.tick()
     expect(host.matches(":state(dragging)")).toBe(false)
-    expect(fired.map((event) => event.type)).toEqual(["ui-input", "ui-input", "ui-change"])
+    expect(fired.map((event) => event.type)).toEqual(["ui-input", "ui-input", "ui-changed"])
     expect(fired.at(-1)!.value).toBe(host.value)
     const [x, y] = markerAt(host)
     expect(x).toBeCloseTo(0.9, 2)
@@ -374,7 +374,7 @@ describe("<brand-color-picker> square and hue", () => {
     expect(vivid.s).toBeCloseTo(1, 2)
     // the hue the grey "forgot" came back:  the picker kept it
     expect(vivid.h).toBeCloseTo(start.h, 0)
-    expect(fired.map((event) => event.type)).toEqual(Array(5).fill(["ui-input", "ui-change"]).flat())
+    expect(fired.map((event) => event.type)).toEqual(Array(5).fill(["ui-input", "ui-changed"]).flat())
   })
 
   it("a grey keeps its hue;  black and white keep hue and saturation", async () => {
@@ -400,7 +400,7 @@ describe("<brand-color-picker> square and hue", () => {
 ////////////////
 
 describe("<brand-color-picker> copy", () => {
-  it("copy buttons:  HSL as shown, the hex, OKLCH;  `ui-copy`, a check, an announcement", async () => {
+  it("copy buttons:  HSL as shown, the hex, OKLCH;  `ui-copied`, a check, an announcement", async () => {
     const write = vi.spyOn(navigator.clipboard, "writeText").mockResolvedValue()
     const host = await picker(`<brand-color-picker value="#6550CA"></brand-color-picker>`)
     const fired = record(host)
@@ -414,9 +414,9 @@ describe("<brand-color-picker> copy", () => {
       Palette.format("#6550CA", "oklch")
     ])
     expect(fired).toEqual([
-      { type: "ui-copy", value: "hsl(250 54% 55%)", format: "hsl" },
-      { type: "ui-copy", value: "#6550CA", format: "hex" },
-      { type: "ui-copy", value: Palette.format("#6550CA", "oklch"), format: "oklch" }
+      { type: "ui-copied", value: "hsl(250 54% 55%)", format: "hsl" },
+      { type: "ui-copied", value: "#6550CA", format: "hex" },
+      { type: "ui-copied", value: Palette.format("#6550CA", "oklch"), format: "oklch" }
     ])
     await ElementFixture.tick()
     expect(host.matches(":state(copied)")).toBe(true)
@@ -545,6 +545,6 @@ describe("<brand-color-picker> form and states", () => {
     input.dispatchEvent(new Event("change", { bubbles: true }))
     expect(host.value).toBe("#14A39A")
     expect(new FormData(form).get("base")).toBe("#14A39A")
-    expect(fired).toEqual([{ type: "ui-change", value: "#14A39A" }])
+    expect(fired).toEqual([{ type: "ui-changed", value: "#14A39A" }])
   })
 })

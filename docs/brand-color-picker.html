@@ -6,7 +6,7 @@
     from `__data/components.json5` (`yarn site:data` in `spell-brand`).
   - Example ids:  `<tab>-<section>-<example>`, as Spell UI's pages.
   - The family chips are plain buttons with a `data-pick` colour;  the script at the end of `main` hands it to the picker
-    they're in, closes a popup from its picker's close button, and writes `ui-copy` into a `data-copy-log` line.
+    they're in, closes a popup from its picker's close button, and writes `ui-copied` into a `data-copy-log` line.
   - What the examples need, styles and script, is INSIDE `main`:  the site swaps only `main` between its pages.
     A script adds its listeners once (`window.<flag>`):  the site runs it again each time the page is shown.
 -->
@@ -187,10 +187,10 @@
             <ui-section id="examples-states" label="States" sticky collapsible dividing>
               <ui-section id="examples-states-copy-any-format" label="Copy any format" sticky collapsible dividing>
                 <ui-docs-example
-                  description="Each row's button copies its format:  `hsl(250 54% 55%)` (as the row shows it), `#6550CA`, or `oklch(52.0% 0.181 286)`.  It shows a check for a moment (`:state(copied)`), announces what it copied, and dispatches `ui-copy` `{ value, format }`:  the line under the picker listens."
+                  description="Each row's button copies its format:  `hsl(250 54% 55%)` (as the row shows it), `#6550CA`, or `oklch(52.0% 0.181 286)`.  It shows a check for a moment (`:state(copied)`), announces what it copied, and dispatches `ui-copied` `{ value, format }`:  the line under the picker listens."
                 >
                   <brand-color-picker value="#6550CA" class="brand-docs-panel"></brand-color-picker>
-                  <p class="brand-docs-copy-log" data-copy-log>Copy a row to see its <code>ui-copy</code> here.</p>
+                  <p class="brand-docs-copy-log" data-copy-log>Copy a row to see its <code>ui-copied</code> here.</p>
                 </ui-docs-example>
               </ui-section>
 
@@ -218,9 +218,9 @@
 
                   - `value` is `#RRGGBB`. Set it as an attribute or property; anything the hex field reads works
                     (`#abc`, `142 150 181`, `hsl(250 54% 55%)`, `oklch(67.7% 0.047 274)`), and reads back upper-case.
-                  - `ui-input` fires as the colour changes (dragging, sliding, typing); `ui-change` when a choice is
+                  - `ui-input` fires as the colour changes (dragging, sliding, typing); `ui-changed` when a choice is
                     committed (release, Enter, leaving a field, a key on the square).
-                  - Each row's copy button writes its format to the clipboard and dispatches `ui-copy`
+                  - Each row's copy button writes its format to the clipboard and dispatches `ui-copied`
                     `{ value, format: "hsl" | "hex" | "oklch" }`.
                   - The picker remembers a grey's hue (and black's or white's saturation), so the square and the hue
                     slider don't jump as the colour passes through them.
@@ -231,7 +231,7 @@
               <ui-code language="js">
                 <script type="text/plain">
                   const picker = document.querySelector("brand-color-picker")
-                  picker.addEventListener("ui-change", (event) => {
+                  picker.addEventListener("ui-changed", (event) => {
                     document.body.style.setProperty("--seed", event.detail.value)
                   })
                   picker.value = "#14A39A" // redraws, no events
@@ -247,7 +247,7 @@
                   - Right / Left: more / less saturated (1%; Shift 10%).
                   - Home: grey (saturation 0%). End: saturation 100%.
 
-                  Each key commits (`ui-input`, then `ui-change`). The hue slider is a native range: arrows,
+                  Each key commits (`ui-input`, then `ui-changed`). The hue slider is a native range: arrows,
                   PageUp / PageDown, Home / End. In the fields, Enter commits and Escape drops what you typed. The
                   copy buttons are buttons: Enter or Space.
                 </script>
@@ -305,10 +305,10 @@
             const popup = close?.closest("ui-popup")
             if (popup) popup.visible = false
           })
-          // `ui-copy`:  written into the `data-copy-log` line beside its picker
-          document.addEventListener("ui-copy", (event) => {
+          // `ui-copied`:  written into the `data-copy-log` line beside its picker
+          document.addEventListener("ui-copied", (event) => {
             const log = event.target.parentElement?.querySelector("[data-copy-log]")
-            if (log) log.textContent = `ui-copy:  ${event.detail.format} -> ${event.detail.value}`
+            if (log) log.textContent = `ui-copied:  ${event.detail.format} -> ${event.detail.value}`
           })
         }
       </script>

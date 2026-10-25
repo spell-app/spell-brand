@@ -220,7 +220,7 @@
         {
           "name": "selected",
           "kind": "boolean",
-          "description": "Ticked:  done.  What a `checkable` check toggles;  `ui-change` first.  Alias:  `checked` (attribute and property)."
+          "description": "Ticked:  done.  What a `checkable` check toggles;  `ui-changed` first.  Alias:  `checked` (attribute and property)."
         },
         {
           "name": "checkable",
@@ -306,7 +306,7 @@
       ],
       "events": [
         {
-          "name": "ui-change",
+          "name": "ui-changed",
           "detail": "{ selected: boolean, checked: boolean, originalEvent?: Event }",
           "description": "The user ticked or unticked a `checkable` check (`checked` ~== `selected`)."
         }
@@ -713,7 +713,7 @@
       "slots": [],
       "events": [
         {
-          "name": "ui-copy",
+          "name": "ui-copied",
           "detail": "{ value: string, originalEvent?: Event }",
           "description": "A click copied `value` to the clipboard (`copy`)."
         }
@@ -985,12 +985,12 @@
           "description": "The colour changed while choosing:  each drag step, hue step, key or valid keystroke.  A handler that re-sets `value` wins."
         },
         {
-          "name": "ui-change",
+          "name": "ui-changed",
           "detail": "{ value: string, originalEvent?: Event }",
           "description": "A choice was committed:  a drag or hue drag ends, a key on the square, Enter or leaving a field -- when the colour differs from the last commit."
         },
         {
-          "name": "ui-copy",
+          "name": "ui-copied",
           "detail": "{ value: string, format: \"hsl\" | \"hex\" | \"oklch\", originalEvent?: Event }",
           "description": "A row's copy button wrote `value` to the clipboard:  `hsl(...)`, `#RRGGBB` or `oklch(...)`."
         }
@@ -1396,7 +1396,7 @@
       "slots": [],
       "events": [
         {
-          "name": "ui-change",
+          "name": "ui-changed",
           "detail": "{ value: string, scale: Record<Step, string>, anchor: Step }",
           "description": "The ladder changed (`value`, `anchor`, `vibrancy`, `hue-shift`):  not on first render."
         }
@@ -1576,7 +1576,7 @@
       ],
       "events": [
         {
-          "name": "ui-change",
+          "name": "ui-changed",
           "detail": "{ value: string, originalEvent?: Event }",
           "description": "A chip was chosen (`selectable`):  `value` is its `name`, else its colour."
         }
@@ -1786,12 +1786,12 @@
       ],
       "events": [
         {
-          "name": "ui-input",
+          "name": "ui-typed",
           "detail": "{ value: string, originalEvent?: Event }",
           "description": "The text changed (every keystroke).  A handler that re-sets `value` wins."
         },
         {
-          "name": "ui-change",
+          "name": "ui-changed",
           "detail": "{ value: string, originalEvent?: Event }",
           "description": "The user committed an edit (left the text box changed)."
         },
@@ -5494,6 +5494,12 @@
       "title": "Striped",
       "families": [],
       "global": false
+    },
+    {
+      "name": "studio",
+      "title": "Studio",
+      "families": [],
+      "global": true
     },
     {
       "name": "systemfont",

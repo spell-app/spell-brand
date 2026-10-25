@@ -13,7 +13,7 @@ import { BRAND_COLOR, DEFAULT_VALUE } from "./BrandColorPicker.types"
  *   in the root (`<div class="picker brand color" part="picker">`).
  * - Still a form control.  `input` / `change`:
  *   - set `domElement.value` (`#RRGGBB`), and the DOM element's form value
- *   - send a composed `ui-input` / `ui-change`.
+ *   - send a composed `ui-input` / `ui-changed`.
  * - Its starting value is the DOM element's `value` PROPERTY, else the attribute (read as the component reads it),
  *   else `#8E96B5`.
  * - Named by `label` (else "Colour"), and the DOM element's `aria-*`.
@@ -47,7 +47,7 @@ export class BrandColorPickerFallback extends E.NativeFallback<typeof brandColor
     // a colour input takes lower-case `#rrggbb` only
     input.value = (Palette.parse(start) ?? DEFAULT_VALUE).toLowerCase()
     this.listen(input, "input", (event) => this.changed(event, "ui-input"))
-    this.listen(input, "change", (event) => this.changed(event, "ui-change"))
+    this.listen(input, "change", (event) => this.changed(event, "ui-changed"))
     this.input = input
     return [this.create("div", { class: this.classes(BRAND_COLOR), part: "picker" }, input)]
   }

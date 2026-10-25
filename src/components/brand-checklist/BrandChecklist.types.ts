@@ -66,7 +66,7 @@ export type ChecklistCheckState = {
 // ## Events
 ////////////////
 
-/** `detail` of `ui-change`, from a `checkable` `<brand-check>`. */
+/** `detail` of `ui-changed`, from a `checkable` `<brand-check>`. */
 export type BrandCheckChangeDetail = {
   /** ticked after the change */
   selected: boolean

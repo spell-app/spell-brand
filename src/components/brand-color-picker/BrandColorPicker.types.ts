@@ -24,7 +24,7 @@ export const GREY = 0.0005
 
 // ## Rows
 
-/** What a row copies, and `ui-copy`'s `format`:  `hsl(...)`, `#RRGGBB`, `oklch(...)`. */
+/** What a row copies, and `ui-copied`'s `format`:  `hsl(...)`, `#RRGGBB`, `oklch(...)`. */
 export type CopyFormat = "hsl" | "hex" | "oklch"
 
 /** One text input of a row;  also its vocabulary text key (its name), except `rgb`. */

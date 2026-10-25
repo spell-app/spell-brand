@@ -8,7 +8,7 @@
   - Example ids:  `<tab>-<section>-<example>`, as Spell UI's pages.
   - The script at the end of `main` wires the live examples:  a `data-cast` button runs its card's checklist through every
     step (850ms each, as the Spell App's build);  a `data-streak` line counts its checklist's ticked habits;
-    `data-log` lines show `ui-change`.
+    `data-log` lines show `ui-changed`.
   - What the examples need, styles and script, is INSIDE `main`:  the site swaps only `main` between its pages.
     A script adds its listeners once (`window.<flag>`):  the site runs it again each time the page is shown.
 -->
@@ -133,7 +133,7 @@
               </ui-section>
               <ui-section id="examples-types-checkable" label="Checkable" sticky collapsible dividing>
                 <ui-docs-example
-                  description="`checkable`:  every check is a checkbox the user ticks (click, Space or Enter), struck through once done;  `step` is ignored.  The Spell App phone's habits, in the serif font.  Each tick fires `ui-change` on the check, which bubbles through the list:  here it updates the count."
+                  description="`checkable`:  every check is a checkbox the user ticks (click, Space or Enter), struck through once done;  `step` is ignored.  The Spell App phone's habits, in the serif font.  Each tick fires `ui-changed` on the check, which bubbles through the list:  here it updates the count."
                 >
                   <div class="checklist-card">
                     <b>Today</b>
@@ -302,7 +302,7 @@
 
                   - **Progress:** set `step` on the list (0 to the number of checks) and move it on as the work goes;
                     the list marks each check done, active or pending, and tells screen readers.
-                  - **To-dos:** `checkable` makes each check a checkbox. Listen for `ui-change` on the list (it
+                  - **To-dos:** `checkable` makes each check a checkbox. Listen for `ui-changed` on the list (it
                     bubbles from the check); count the done ones with `brand-check[selected]`.
                   - Add a check with `list.append(check)`; a new one in a `checkable` list is checkable too.
                   - The card around it, and its title, are the page's own markup.
@@ -332,7 +332,7 @@
                   }, 850)
 
                   // to-dos:  how many are done
-                  habits.addEventListener("ui-change", () => {
+                  habits.addEventListener("ui-changed", () => {
                     const done = habits.querySelectorAll("brand-check[selected]").length
                   })
                 </script>
@@ -423,8 +423,8 @@
             if (card) cast(card)
           })
 
-          // `ui-change`:  a `data-streak` line counts its list's ticked checks;  a `data-log` line shows the event
-          document.addEventListener("ui-change", (event) => {
+          // `ui-changed`:  a `data-streak` line counts its list's ticked checks;  a `data-log` line shows the event
+          document.addEventListener("ui-changed", (event) => {
             const card = event.target.closest?.(".checklist-card")
             if (!card) return
             queueMicrotask(() => {
@@ -435,7 +435,7 @@
                 streak.textContent = `${done.length} of ${checks.length} done`
               }
               const log = card.querySelector("[data-log]")
-              if (log) log.textContent = `ui-change:  "${event.target.textContent}", selected ${event.detail.selected}`
+              if (log) log.textContent = `ui-changed:  "${event.target.textContent}", selected ${event.detail.selected}`
             })
           })
 

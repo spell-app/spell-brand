@@ -53,7 +53,7 @@ function isSameChips(a: readonly SetChip[], b: readonly SetChip[]): boolean {
  *     the chosen chip, else the first (a roving `tabindex`).
  *   - Click, Enter or Space chooses;  the arrows move and choose (wrapping;  left / right swap right-to-left);
  *     Home / End go to the ends.
- *   - A choice sends `ui-change`, then sets `value`, unless a handler set it first.
+ *   - A choice sends `ui-changed`, then sets `value`, unless a handler set it first.
  * - Watches its children and their `name` / `value` / `selected` (`@watches`),
  *   so chips added, removed or recoloured later just work.
  * - SIDE EFFECT:  writes its chips' `selected` (while `value` is set), `choice` and `tabindex` (while `selectable`);
@@ -162,7 +162,7 @@ export class BrandColorSet extends E.UIComponent<BrandColorSetVocabulary> {
   }
 
   /**
-   * A user choice of chip `index`:  focus it, then (unless it's the chosen one already) `ui-change` and `value`.
+   * A user choice of chip `index`:  focus it, then (unless it's the chosen one already) `ui-changed` and `value`.
    * - Returns true when `value` changed.
    */
   @E.untracked
@@ -172,7 +172,7 @@ export class BrandColorSet extends E.UIComponent<BrandColorSetVocabulary> {
     chip.chip.focus()
     if (index === this.chosen && this.value) return false
     const value = BrandColorSet.keyOf(chip)
-    return this.requestChange("value", value, () => this.send("ui-change", { value, originalEvent }))
+    return this.requestChange("value", value, () => this.send("ui-changed", { value, originalEvent }))
   }
 
   /** A click on a chip chooses it (`selectable`). */

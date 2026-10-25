@@ -51,9 +51,9 @@ export class DOMBrandComposerElement extends F.DOMFormControl<BrandComposer> {
  *   the `tools` slot (chips), the hint, the round Cast button.
  *
  * - `value` is controlled (`@E.controlled`, as `text`), as `<ui-textarea>`'s:
- *   - typing sends `ui-input` first, and a handler that sets `el.value` again wins
+ *   - typing sends `ui-typed` first, and a handler that sets `el.value` again wins
  *   - the ATTRIBUTE is the starting value, which a form reset restores;  no reflection
- *   - leaving the box edited sends `ui-change`
+ *   - leaving the box edited sends `ui-changed`
  *
  * - Cast:  the button, Cmd / Ctrl+Enter in the box (either key, on any platform), or the DOM element's `cast()`.
  *   - Plain Enter types a new line.
@@ -107,7 +107,7 @@ export class BrandComposer extends F.FormComponent<BrandComposerVocabulary> {
   /** The native text box. */
   private control?: HTMLTextAreaElement
 
-  /** The text box shows the text again, e.g. after a cancelled `ui-input`, or a set from outside. */
+  /** The text box shows the text again, e.g. after a cancelled `ui-typed`, or a set from outside. */
   @E.onChange("text", "isReady")
   protected onTextChanged() {
     this.syncControl()
@@ -120,17 +120,17 @@ export class BrandComposer extends F.FormComponent<BrandComposerVocabulary> {
     if (control && control.value !== text) control.value = text
   }
 
-  /** Typing:  `ui-input` first, then the text (unless a handler took over:  the box shows the text again). */
+  /** Typing:  `ui-typed` first, then the text (unless a handler took over:  the box shows the text again). */
   private readonly onInput = (event: Event) => {
     const next = (event.currentTarget as HTMLTextAreaElement).value
-    const applied = this.requestChange("text", next, () => this.send("ui-input", { value: next, originalEvent: event }))
+    const applied = this.requestChange("text", next, () => this.send("ui-typed", { value: next, originalEvent: event }))
     if (!applied) this.syncControl()
   }
 
-  /** Left the box edited:  `ui-change`. */
+  /** Left the box edited:  `ui-changed`. */
   @E.untracked
   private readonly onChange = (event: Event) => {
-    this.send("ui-change", { value: this.text, originalEvent: event })
+    this.send("ui-changed", { value: this.text, originalEvent: event })
   }
 
   ////////////////

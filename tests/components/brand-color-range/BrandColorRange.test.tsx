@@ -42,10 +42,10 @@ function chipsOf(host: Element): ChipHost[] {
   return [...host.shadowRoot!.querySelectorAll<ChipHost>("brand-color")]
 }
 
-/** `ui-change` details `host` dispatches from now on. */
+/** `ui-changed` details `host` dispatches from now on. */
 function changes(host: Element) {
   const details: { value: string; scale: Scale; anchor: Step }[] = []
-  host.addEventListener("ui-change", (event) => details.push((event as CustomEvent).detail))
+  host.addEventListener("ui-changed", (event) => details.push((event as CustomEvent).detail))
   return details
 }
 
@@ -136,7 +136,7 @@ describe("<brand-color-range>", () => {
     expect(host.css()).toBe("")
   })
 
-  it("`ui-change` when the colours change, not on first render, not for a new `name`", async () => {
+  it("`ui-changed` when the colours change, not on first render, not for a new `name`", async () => {
     const { host } = await render(`<brand-color-range value="#8E96B5"></brand-color-range>`)
     const details = changes(host)
     await ElementFixture.tick()

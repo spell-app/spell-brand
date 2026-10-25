@@ -49,18 +49,18 @@ import pickerCSS from "./BrandColorPicker.css?inline"
  *   Saturation and Lightness (one tab stop:  the Lightness one is `tabindex=-1`);
  *   on either, Left / Right move S and Up / Down move L by 1% (10% with Shift),
  *   PageUp / PageDown L by 10%, Home / End S to 0 / 100%.
- *   - Each key is `ui-input` then `ui-change`.
+ *   - Each key is `ui-input` then `ui-changed`.
  *   - An assistive technology's own increment arrives as their `input`.
  * - Pointer:  press on the square jumps the marker there and drags it (pointer capture);
- *   `ui-input` per new colour, `ui-change` on release.
- *   The hue slider:  `ui-input` per step, `ui-change` on its native `change`.
+ *   `ui-input` per new colour, `ui-changed` on release.
+ *   The hue slider:  `ui-input` per step, `ui-changed` on its native `change`.
  * - Typing:  the hex field takes anything `Palette.parse()` reads;
  *   the HSL and OKLCH fields numbers (H in degrees, S / L in %, C plain).
  *   - An OKLCH colour a screen can't show is mapped in (`Palette.oklchToHex()`:  same L and H, less C).
  *   - A valid keystroke is `ui-input`;  unreadable text shows the field's `error` look and changes nothing.
- *   - Enter or leaving the field commits (`ui-change`) and shows the value again;  Escape drops the draft.
+ *   - Enter or leaving the field commits (`ui-changed`) and shows the value again;  Escape drops the draft.
  * - Copy buttons:  the row's colour to the clipboard,
- *   then `ui-copy`, a check for `COPIED_MS`, and "Copied ..." announced.
+ *   then `ui-copied`, a check for `COPIED_MS`, and "Copied ..." announced.
  *   - What each copies:  `hsl(250 54% 55%)` (the HSL row as shown), `#RRGGBB`, `oklch(52.0% 0.181 286)`.
  *   - A refused clipboard write does nothing.
  * - `readonly`:  as ui's form controls (`FormComponent.isReadOnly`, `:state(readonly)`), the colour can't be changed:
@@ -101,7 +101,7 @@ export class BrandColorPicker extends F.FormComponent<BrandColorPickerVocabulary
    */
   private latestHex = this.hex
 
-  /** `value` at the last `ui-change` (or outside set):  a commit fires only when it differs. */
+  /** `value` at the last `ui-changed` (or outside set):  a commit fires only when it differs. */
   private committedHex = this.latestHex
 
   /**
@@ -121,11 +121,11 @@ export class BrandColorPicker extends F.FormComponent<BrandColorPickerVocabulary
     else this.working = previous
   }
 
-  /** Commit:  `ui-change` if `value` differs from the last commit. */
+  /** Commit:  `ui-changed` if `value` differs from the last commit. */
   private commit(originalEvent: Event) {
     if (this.latestHex === this.committedHex) return
     this.committedHex = this.latestHex
-    this.send("ui-change", { value: this.latestHex, originalEvent })
+    this.send("ui-changed", { value: this.latestHex, originalEvent })
   }
 
   /** `value` changed:  from outside (not one of our own edits), follow it without events. */
@@ -357,7 +357,7 @@ export class BrandColorPicker extends F.FormComponent<BrandColorPickerVocabulary
     this.move({ h: this.working.h, s: x, l: 1 - y }, event)
   }
 
-  /** A key on the square's sliders (see the class doc):  `ui-input`, then `ui-change`. */
+  /** A key on the square's sliders (see the class doc):  `ui-input`, then `ui-changed`. */
   @E.untracked
   private readonly onPlaneKeyDown = (event: KeyboardEvent) => {
     const next = this.keyMove(event)
@@ -643,7 +643,7 @@ export class BrandColorPicker extends F.FormComponent<BrandColorPickerVocabulary
   }
 
   /**
-   * A copy button:  write the clipboard, then `ui-copy`, the check and the announcement.
+   * A copy button:  write the clipboard, then `ui-copied`, the check and the announcement.
    * - SIDE EFFECT:  writes the clipboard;  a refused write (no permission) does nothing.
    */
   @E.untracked
@@ -656,7 +656,7 @@ export class BrandColorPicker extends F.FormComponent<BrandColorPickerVocabulary
       return
     }
     this.copied = { format, value }
-    this.send("ui-copy", { value, format, originalEvent })
+    this.send("ui-copied", { value, format, originalEvent })
     this.copiedTimer?.cancel()
     this.copiedTimer = E.after(COPIED_MS / 1000, () => (this.copied = undefined))
   }

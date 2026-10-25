@@ -171,7 +171,7 @@
                   name the group.
 
                   - `value` is the chosen chip's `name`, else its colour; set it to choose one from code.
-                  - A choice dispatches `ui-change` (`{ value }`), then sets `value`. Re-set `value` in the handler to
+                  - A choice dispatches `ui-changed` (`{ value }`), then sets `value`. Re-set `value` in the handler to
                     refuse it.
                   - Without `columns`, chips sit in one row at their own size (`--brand-color-size`); with it, they
                     fill a grid's cells.
@@ -180,7 +180,7 @@
               <ui-code language="js">
                 <script type="text/plain">
                   const presets = document.querySelector("brand-color-set")
-                  presets.addEventListener("ui-change", (event) => {
+                  presets.addEventListener("ui-changed", (event) => {
                     document.querySelector("brand-color-range").value =
                       presets.querySelector(`[name="${event.detail.value}"]`).getAttribute("value")
                   })

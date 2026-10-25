@@ -54,7 +54,7 @@ export class DOMBrandColorElement extends E.DOMElement<BrandColor> {
  * - `value`:  any colour `Palette.parse()` reads, drawn as `#RRGGBB`.
  *   The text inside is white or the brand's ink, whichever contrasts more (`Palette.ink()`).
  *
- * - `copy`:  a click copies the colour (`navigator.clipboard`) and sends `ui-copy`.
+ * - `copy`:  a click copies the colour (`navigator.clipboard`) and sends `ui-copied`.
  *   - A check shows for `COPIED_MS`, and a status line announces "Copied …".
  *   - If the browser refuses the write (no permission), nothing happens.
  *
@@ -335,7 +335,7 @@ export class BrandColor extends E.UIComponent<BrandColorVocabulary> {
   }
 
   /**
-   * A click:  copy, then `ui-copy` and the check.
+   * A click:  copy, then `ui-copied` and the check.
    * - SIDE EFFECT:  writes the clipboard.
    */
   @E.untracked
@@ -349,7 +349,7 @@ export class BrandColor extends E.UIComponent<BrandColorVocabulary> {
       return
     }
     this.copied = value
-    this.send("ui-copy", { value, originalEvent: event })
+    this.send("ui-copied", { value, originalEvent: event })
     this.copiedTimer?.cancel()
     this.copiedTimer = E.after(COPIED_MS / 1000, () => (this.copied = ""))
   }

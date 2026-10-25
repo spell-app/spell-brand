@@ -68,14 +68,14 @@ export const brandColorPickerVocabulary = {
         "re-sets `value` wins."
     },
     {
-      name: "ui-change",
+      name: "ui-changed",
       detail: "{ value: string, originalEvent?: Event }",
       description:
         "A choice was committed:  a drag or hue drag ends, a key on the square, Enter or leaving a field -- when the " +
         "colour differs from the last commit."
     },
     {
-      name: "ui-copy",
+      name: "ui-copied",
       detail: '{ value: string, format: "hsl" | "hex" | "oklch", originalEvent?: Event }',
       description: "A row's copy button wrote `value` to the clipboard:  `hsl(...)`, `#RRGGBB` or `oklch(...)`."
     }

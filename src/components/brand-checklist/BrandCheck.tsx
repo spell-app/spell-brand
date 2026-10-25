@@ -56,7 +56,7 @@ export class DOMBrandCheckElement extends E.DOMElement<BrandCheck> {
  *
  * - Ticking (the phone's habits):  `checkable` makes the line a checkbox (click, Space, Enter);
  *   done ~== `selected`, the text then subtle and struck through.
- *   - A tick sends `ui-change` first, then sets `selected` (reflected), unless a handler set it first.
+ *   - A tick sends `ui-changed` first, then sets `selected` (reflected), unless a handler set it first.
  *   - `checked` is another name for `selected` (`DOMBrandCheckElement`;  the attribute ticks it).
  *
  * - Owned (`PartContext`, `:state(in-checklist)`):  the `<brand-checklist>` around it decides its state
@@ -104,13 +104,13 @@ export class BrandCheck extends E.UIComponent<BrandCheckVocabulary> {
   }
 
   /**
-   * A click (or Space / Enter on the button):  send `ui-change`, then set `selected`, unless a handler set it first.
+   * A click (or Space / Enter on the button):  send `ui-changed`, then set `selected`, unless a handler set it first.
    */
   @E.untracked
   private readonly onToggle = (event: MouseEvent) => {
     const selected = !this.isSelected
     const detail: BrandCheckChangeDetail = { selected, checked: selected, originalEvent: event }
-    this.requestChange("isSelected", selected, () => this.send("ui-change", detail))
+    this.requestChange("isSelected", selected, () => this.send("ui-changed", detail))
   }
 
   ////////////////

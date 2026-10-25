@@ -105,14 +105,14 @@ describe("<brand-color> chip", () => {
 ////////////////
 
 describe("<brand-color> copy", () => {
-  it("`copy`:  a button named after the chip;  a click copies, `ui-copy`, then `:state(copied)` for a moment", async () => {
+  it("`copy`:  a button named after the chip;  a click copies, `ui-copied`, then `:state(copied)` for a moment", async () => {
     const writeText = stubClipboard()
     const host = await ElementFixture.render(`<brand-color value="#8E96B5" name="brand-500" copy></brand-color>`)
     const chip = part(host, "chip")! as HTMLButtonElement
     expect(chip.localName).toBe("button")
     expect(chip.getAttribute("aria-label")).toBe("Copy brand-500")
     const onCopy = vi.fn()
-    host.addEventListener("ui-copy", onCopy)
+    host.addEventListener("ui-copied", onCopy)
     vi.useFakeTimers({ toFake: ["setTimeout", "clearTimeout"] })
     chip.click()
     await vi.waitFor(() => expect(onCopy).toHaveBeenCalled())

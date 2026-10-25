@@ -212,7 +212,7 @@
       "name": "brand-check",
       "description": {
         "kind": "markdown",
-        "value": "A brand check is one line of a checklist:  a round mark, filled with a check once done, and its text.\n\nAlso known as:  check item, to-do, todo, task, habit, progress step, check mark.\n\n**Slots:**  default\n\n**Events:**  `ui-change`"
+        "value": "A brand check is one line of a checklist:  a round mark, filled with a check once done, and its text.\n\nAlso known as:  check item, to-do, todo, task, habit, progress step, check mark.\n\n**Slots:**  default\n\n**Events:**  `ui-changed`"
       },
       "attributes": [
         {
@@ -237,7 +237,7 @@
           "name": "selected",
           "description": {
             "kind": "markdown",
-            "value": "Ticked:  done.  What a `checkable` check toggles;  `ui-change` first.  Alias:  `checked` (attribute and property).\n\nTakes:  flag (present / absent)"
+            "value": "Ticked:  done.  What a `checkable` check toggles;  `ui-changed` first.  Alias:  `checked` (attribute and property).\n\nTakes:  flag (present / absent)"
           }
         },
         {
@@ -576,7 +576,7 @@
       "name": "brand-color",
       "description": {
         "kind": "markdown",
-        "value": "A brand color is a square colour chip:  a label inside, an AA mark, a selected ring, a details tip;  click to copy.\n\nAlso known as:  swatch, color chip, colour chip, color swatch, color sample, color tile.\n\n**Events:**  `ui-copy`"
+        "value": "A brand color is a square colour chip:  a label inside, an AA mark, a selected ring, a details tip;  click to copy.\n\nAlso known as:  swatch, color chip, colour chip, color swatch, color sample, color tile.\n\n**Events:**  `ui-copied`"
       },
       "attributes": [
         {
@@ -833,7 +833,7 @@
       "name": "brand-color-picker",
       "description": {
         "kind": "markdown",
-        "value": "A brand color picker chooses a colour on an HSL square and a hue slider, or by typing HSL, hex or OKLCH;  each format copies.\n\nAlso known as:  color picker, colour picker, color chooser, hsl picker, swatch picker, eyedropper, color input.\n\n**Slots:**  default, `header`, `actions`\n\n**Events:**  `ui-input`, `ui-change`, `ui-copy`"
+        "value": "A brand color picker chooses a colour on an HSL square and a hue slider, or by typing HSL, hex or OKLCH;  each format copies.\n\nAlso known as:  color picker, colour picker, color chooser, hsl picker, swatch picker, eyedropper, color input.\n\n**Slots:**  default, `header`, `actions`\n\n**Events:**  `ui-input`, `ui-changed`, `ui-copied`"
       },
       "attributes": [
         {
@@ -1012,7 +1012,7 @@
       "name": "brand-color-range",
       "description": {
         "kind": "markdown",
-        "value": "A brand color range is a 17-step ladder of shades made from one base colour, the base colour's step ringed.\n\nAlso known as:  color scale, colour scale, color ramp, shades, tints and shades, color ladder, palette row.\n\n**Events:**  `ui-change`"
+        "value": "A brand color range is a 17-step ladder of shades made from one base colour, the base colour's step ringed.\n\nAlso known as:  color scale, colour scale, color ramp, shades, tints and shades, color ladder, palette row.\n\n**Events:**  `ui-changed`"
       },
       "attributes": [
         {
@@ -1328,7 +1328,7 @@
       "name": "brand-color-set",
       "description": {
         "kind": "markdown",
-        "value": "A brand color set lays out colour chips in a row or a grid;  `selectable` makes it a radio group to pick one.\n\nAlso known as:  swatches, swatch picker, color picker, palette, color presets, color choices.\n\n**Slots:**  default\n\n**Events:**  `ui-change`"
+        "value": "A brand color set lays out colour chips in a row or a grid;  `selectable` makes it a radio group to pick one.\n\nAlso known as:  swatches, swatch picker, color picker, palette, color presets, color choices.\n\n**Slots:**  default\n\n**Events:**  `ui-changed`"
       },
       "attributes": [
         {
@@ -1493,7 +1493,7 @@
       "name": "brand-composer",
       "description": {
         "kind": "markdown",
-        "value": "A brand composer is the box where you describe an app in plain words and cast it:  a serif text box, tool chips, a keyboard hint and a round Cast button.\n\nAlso known as:  composer, prompt box, prompt input, chat input, message box, spell box, command box.\n\n**Slots:**  `eyebrow`, `tools`\n\n**Events:**  `ui-input`, `ui-change`, `brand-cast`"
+        "value": "A brand composer is the box where you describe an app in plain words and cast it:  a serif text box, tool chips, a keyboard hint and a round Cast button.\n\nAlso known as:  composer, prompt box, prompt input, chat input, message box, spell box, command box.\n\n**Slots:**  `eyebrow`, `tools`\n\n**Events:**  `ui-typed`, `ui-changed`, `brand-cast`"
       },
       "attributes": [
         {

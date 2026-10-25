@@ -30,7 +30,7 @@ export type LadderInput = {
   name?: string
 }
 
-/** `ui-change`'s detail. */
+/** `ui-changed`'s detail. */
 export type RangeChange = {
   /** the base colour, `#RRGGBB` */
   value: string

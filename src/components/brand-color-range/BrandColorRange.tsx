@@ -59,7 +59,7 @@ export class DOMBrandColorRangeElement extends E.DOMElement<BrandColorRange> {
  *   the chips fill their cells (`--_brand-color-fit`).
  * - `strip`:  17 small dots instead (the Chooser's folded Variants header), one image named for the ladder.
  * - No base colour (or one it can't read):  nothing is drawn.
- * - `ui-change` (`{ value, scale, anchor }`) when the ladder's colours change after the first render;
+ * - `ui-changed` (`{ value, scale, anchor }`) when the ladder's colours change after the first render;
  *   a new `name` alone renames the chips and changes `css()`, without one.
  * - The DOM element (`DOMBrandColorRangeElement`) has `scale`, `anchorStep` and `css(format)`.
  ****************/
@@ -87,17 +87,17 @@ export class BrandColorRange extends E.UIComponent<BrandColorRangeVocabulary> {
     })
   }
 
-  /** The ladder last announced (`null` before the first one), for `ui-change`. */
+  /** The ladder last announced (`null` before the first one), for `ui-changed`. */
   private announced: ColorLadder | undefined | null = null
 
-  /** A new ladder:  `ui-change`, unless it's the first one or only its prefix changed. */
+  /** A new ladder:  `ui-changed`, unless it's the first one or only its prefix changed. */
   @E.onChange("ladder")
   protected onLadderChanged(ladder: ColorLadder | undefined) {
     const first = this.announced === null
     const previous = this.announced
     this.announced = ladder
     if (first || !ladder || ladder.sameColors(previous ?? undefined)) return
-    this.send("ui-change", { value: ladder.seed, scale: { ...ladder.scale }, anchor: ladder.anchor })
+    this.send("ui-changed", { value: ladder.seed, scale: { ...ladder.scale }, anchor: ladder.anchor })
   }
 
   ////////////////

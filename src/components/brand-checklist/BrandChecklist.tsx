@@ -28,7 +28,7 @@ import checklistCSS from "./BrandChecklist.css?inline"
  *   - A check finds this list through `PartContext` (`ownsParts:  check`).
  * - Announces progress politely:  "<text> done" as `step` moves past a check, "All done" at the end.
  *   Never on first render, nor when `step` goes back.
- * - `checkable` (the phone's habits):  every check is a checkbox;  their `ui-change`s bubble through the list.
+ * - `checkable` (the phone's habits):  every check is a checkbox;  their `ui-changed`s bubble through the list.
  * - `font` (`sans` / `serif`):
  *   each check without its own asks it through `checkState()` and draws the face's defaults (`check serif`).
  *   The `--brand-checklist-*` tokens set on the list reach the checks by inheritance.

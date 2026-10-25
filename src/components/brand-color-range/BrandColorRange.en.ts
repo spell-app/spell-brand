@@ -104,7 +104,7 @@ export const brandColorRangeVocabulary = {
   ],
   events: [
     {
-      name: "ui-change",
+      name: "ui-changed",
       detail: "{ value: string, scale: Record<Step, string>, anchor: Step }",
       description: "The ladder changed (`value`, `anchor`, `vibrancy`, `hue-shift`):  not on first render."
     }

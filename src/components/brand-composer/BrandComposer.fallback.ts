@@ -11,7 +11,7 @@ import { BRAND, DEFAULT_ROWS, ENTER } from "./BrandComposer.types"
  * - Its shadow DOM:  a native `<textarea part="textarea">` and a `<button part="cast">Cast spell</button>`,
  *   in the root (`<div class="composer brand" part="composer">`).
  * - Still a form control:  typing sets `domElement.value` and the DOM element's form value,
- *   and sends a composed `ui-input`;  leaving the box edited sends `ui-change`.
+ *   and sends a composed `ui-typed`;  leaving the box edited sends `ui-changed`.
  * - Still casts:  the button or Cmd / Ctrl+Enter send a cancelable `brand-cast` (not with blank text),
  *   then submit the form.
  * - Its starting value is the DOM element's `value` PROPERTY, else its attribute.
@@ -47,9 +47,9 @@ export class BrandComposerFallback extends E.NativeFallback<typeof brandComposer
     this.listen(control, "input", (event) => {
       domElement.value = control.value
       this.sync()
-      this.announce("ui-input", event)
+      this.announce("ui-typed", event)
     })
-    this.listen(control, "change", (event) => this.announce("ui-change", event))
+    this.listen(control, "change", (event) => this.announce("ui-changed", event))
     this.listen<KeyboardEvent>(control, "keydown", (event) => {
       if (event.key !== ENTER || !(event.metaKey || event.ctrlKey)) return
       event.preventDefault()

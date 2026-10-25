@@ -35,10 +35,10 @@ function button(host: Element): HTMLButtonElement {
   return part<HTMLButtonElement>(host, "cast")
 }
 
-/** `ui-input` / `ui-change` / `brand-cast` events from `host`, in order. */
+/** `ui-typed` / `ui-changed` / `brand-cast` events from `host`, in order. */
 function record(host: Element): Fired[] {
   const fired: Fired[] = []
-  for (const type of ["ui-input", "ui-change", "brand-cast"]) {
+  for (const type of ["ui-typed", "ui-changed", "brand-cast"]) {
     host.addEventListener(type, (event) => fired.push({ type, value: (event as CustomEvent).detail.value }))
   }
   return fired
@@ -161,7 +161,7 @@ describe("<brand-composer> card", () => {
 ////////////////
 
 describe("<brand-composer> casting", () => {
-  it("typing:  `ui-input` per keystroke, `host.value` follows;  leaving it edited:  `ui-change`", async () => {
+  it("typing:  `ui-typed` per keystroke, `host.value` follows;  leaving it edited:  `ui-changed`", async () => {
     const host = await composer(`<brand-composer></brand-composer>`)
     const fired = record(host)
     type(host, "A")
@@ -171,15 +171,15 @@ describe("<brand-composer> casting", () => {
     expect(host.matches(":state(empty)")).toBe(false)
     box(host).dispatchEvent(new Event("change", { bubbles: true }))
     expect(fired).toEqual([
-      { type: "ui-input", value: "A" },
-      { type: "ui-input", value: "A book club" },
-      { type: "ui-change", value: "A book club" }
+      { type: "ui-typed", value: "A" },
+      { type: "ui-typed", value: "A book club" },
+      { type: "ui-changed", value: "A book club" }
     ])
   })
 
-  it("a `ui-input` handler that re-sets `value` wins;  an outside set redraws without events", async () => {
+  it("a `ui-typed` handler that re-sets `value` wins;  an outside set redraws without events", async () => {
     const host = await composer(`<brand-composer value="Habits"></brand-composer>`)
-    host.addEventListener("ui-input", () => (host.value = "Habits"), { once: true })
+    host.addEventListener("ui-typed", () => (host.value = "Habits"), { once: true })
     type(host, "Hab")
     await ElementFixture.tick()
     await ElementFixture.tick()
@@ -222,7 +222,7 @@ describe("<brand-composer> casting", () => {
     expect(button(host).hasAttribute("aria-disabled")).toBe(false)
     button(host).click()
     expect(fired).toEqual([
-      { type: "ui-input", value: "Book club" },
+      { type: "ui-typed", value: "Book club" },
       { type: "brand-cast", value: "Book club" }
     ])
   })
@@ -366,7 +366,7 @@ describe("<brand-composer> form", () => {
     expect(host.value).toBe("Book club")
     host.shadowRoot!.querySelector<HTMLButtonElement>('[part~="cast"]')!.click()
     expect(fired).toEqual([
-      { type: "ui-input", value: "Book club" },
+      { type: "ui-typed", value: "Book club" },
       { type: "brand-cast", value: "Book club" }
     ])
     expect(submitted).toEqual(["Book club"])

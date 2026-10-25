@@ -37,7 +37,7 @@ export const brandCheckVocabulary = {
       name: "selected",
       kind: "boolean",
       description:
-        "Ticked:  done.  What a `checkable` check toggles;  `ui-change` first.  Alias:  `checked` (attribute and " +
+        "Ticked:  done.  What a `checkable` check toggles;  `ui-changed` first.  Alias:  `checked` (attribute and " +
         "property)."
     },
     {
@@ -56,7 +56,7 @@ export const brandCheckVocabulary = {
   ],
   events: [
     {
-      name: "ui-change",
+      name: "ui-changed",
       detail: "{ selected: boolean, checked: boolean, originalEvent?: Event }",
       description: "The user ticked or unticked a `checkable` check (`checked` ~== `selected`)."
     }

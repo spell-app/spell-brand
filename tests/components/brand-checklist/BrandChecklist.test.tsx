@@ -60,10 +60,10 @@ function status(host: Element): string {
   return host.shadowRoot!.querySelector("[part~=status]")!.textContent ?? ""
 }
 
-/** `ui-change` details `target` hears from now on. */
+/** `ui-changed` details `target` hears from now on. */
 function changes(target: Element): { selected: boolean; checked: boolean }[] {
   const details: { selected: boolean; checked: boolean }[] = []
-  target.addEventListener("ui-change", (event) => details.push((event as CustomEvent).detail))
+  target.addEventListener("ui-changed", (event) => details.push((event as CustomEvent).detail))
   return details
 }
 
@@ -203,7 +203,7 @@ describe("<brand-checklist checkable>", () => {
     expect(marker(checks[0]!).getBoundingClientRect().width).toBe(19)
   })
 
-  it("a click ticks and unticks:  `ui-change` { selected, checked } first, then `selected` reflects", async () => {
+  it("a click ticks and unticks:  `ui-changed` { selected, checked } first, then `selected` reflects", async () => {
     const { host, checks } = await render(`<brand-checklist checkable>${HABITS}</brand-checklist>`)
     const heard = changes(host)
     await userEvent.click(line(checks[1]!))
@@ -233,9 +233,9 @@ describe("<brand-checklist checkable>", () => {
     expect(checks[2]!.shadowRoot!.activeElement).toBe(line(checks[2]!))
   })
 
-  it("a handler that re-sets `selected` during `ui-change` wins", async () => {
+  it("a handler that re-sets `selected` during `ui-changed` wins", async () => {
     const { host, checks } = await render(`<brand-checklist checkable>${HABITS}</brand-checklist>`)
-    host.addEventListener("ui-change", (event) => ((event.target as DOMCheckElement).selected = false))
+    host.addEventListener("ui-changed", (event) => ((event.target as DOMCheckElement).selected = false))
     await userEvent.click(line(checks[2]!))
     await ElementFixture.settle()
     expect(checks[2]!.selected).toBe(false)
