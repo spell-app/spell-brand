@@ -5187,8 +5187,14 @@
     {
       "id": "motion",
       "title": "Motion",
-      "description": "Durations and easing curves.",
+      "description": "Durations, easing curves, and how long a hover waits.",
       "tokens": [
+        {
+          "name": "--ui-hover-delay",
+          "default": "800ms",
+          "description": "How long a hover popup waits before it shows.",
+          "type": "time"
+        },
         {
           "name": "--ui-duration-fast",
           "default": "100ms",
@@ -5494,6 +5500,12 @@
       "title": "Striped",
       "families": [],
       "global": false
+    },
+    {
+      "name": "studio",
+      "title": "Studio",
+      "families": [],
+      "global": true
     },
     {
       "name": "systemfont",
