@@ -87,7 +87,7 @@
         <ui-container>
           <ui-menu icon class="site-page-links" aria-label="About this page">
             <ui-item
-              link="../../spell-brand/src/components/brand-color-picker/"
+              link="/spell-brand/src/components/brand-color-picker/"
               icon="code"
               aria-label="Its code"
               title="Its code"
@@ -121,7 +121,14 @@
                   <ui-popup on="click" position="bottom left" flowing>
                     <brand-color-picker value="#8E96B5" class="brand-docs-popup-picker">
                       <b slot="header">Choose a colour</b>
-                      <ui-button slot="actions" size="mini" appearance="basic" icon="close" aria-label="Done" data-close></ui-button>
+                      <ui-button
+                        slot="actions"
+                        size="mini"
+                        appearance="basic"
+                        icon="close"
+                        aria-label="Done"
+                        data-close
+                      ></ui-button>
                       <div class="brand-docs-families">
                         <span>Or start from a family</span>
                         <div>

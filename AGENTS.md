@@ -202,7 +202,8 @@ when working with code in this package, `spell-brand`.
   <script type="module" src="../../packages/brand/_assets/ui/brand-ui.js"></script>
   ```
 
-- It starts its `<body>` with `<spell-site-header root="../..">`.
+- It starts its `<body>` with `<spell-site-header></spell-site-header>`:  no `root` since epic `epic-engine` P46 (pages are
+  served, their links root paths).
 - Colours, fonts, radii and shadows come ONLY from the theme's tokens, so dark mode works:
   - `--ui-*`
   - the brand roles, `--spell-*`:  `spell-brand.css`, "Brand roles"

@@ -49,7 +49,7 @@
         <ui-container>
           <ui-menu icon class="site-page-links" aria-label="About this page">
             <ui-item
-              link="../../spell-brand/src/components/"
+              link="/spell-brand/src/components/"
               icon="code"
               aria-label="The elements' code"
               title="The elements' code"
@@ -74,7 +74,7 @@
             <ui-item icon="flag"
               >Status: <ui-label size="mini" color="green">built</ui-label> every tag in
               <a
-                href="../../spell-brand/src/components/"
+                href="/spell-brand/src/components/"
                 target="src-spell-brand-src-components"
                 title="spell-brand/src/components/"
                 ><code>components/</code></a
@@ -82,7 +82,7 @@
             >
             <ui-item icon="swatchbook"
               >The pages they're for:
-              <a href="../../brand/index.html" target="src-brand-index-html">the Brand tab</a></ui-item
+              <a href="/brand/index.html" target="src-brand-index-html">the Brand tab</a></ui-item
             >
           </ui-list>
 
@@ -119,10 +119,7 @@
             <p>
               The Brand tab's own copies load the whole brand bundle instead (<code>brand-ui.js</code>, with the
               <code>spell-brand</code> theme):
-              <a
-                href="../../spell-brand/AGENTS.md"
-                target="src-spell-brand-agents-md"
-                title="spell-brand/AGENTS.md"
+              <a href="/spell-brand/AGENTS.md" target="src-spell-brand-agents-md" title="spell-brand/AGENTS.md"
                 >the brand package's notes</a
               >.
             </p>
@@ -140,19 +137,31 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><a href="brand-color.html"><code>brand-color</code></a></td>
-                    <td>A square colour chip: a label inside, an AA mark, a selected ring, a details tip; click to copy.</td>
+                    <td>
+                      <a href="brand-color.html"><code>brand-color</code></a>
+                    </td>
+                    <td>
+                      A square colour chip: a label inside, an AA mark, a selected ring, a details tip; click to copy.
+                    </td>
                   </tr>
                   <tr>
-                    <td><a href="brand-color-set.html"><code>brand-color-set</code></a></td>
-                    <td>Colour chips in a row or a grid; <code>selectable</code> makes it a radio group to pick one.</td>
+                    <td>
+                      <a href="brand-color-set.html"><code>brand-color-set</code></a>
+                    </td>
+                    <td>
+                      Colour chips in a row or a grid; <code>selectable</code> makes it a radio group to pick one.
+                    </td>
                   </tr>
                   <tr>
-                    <td><a href="brand-color-range.html"><code>brand-color-range</code></a></td>
+                    <td>
+                      <a href="brand-color-range.html"><code>brand-color-range</code></a>
+                    </td>
                     <td>A 17-step ladder of shades made from one base colour, the base colour's step ringed.</td>
                   </tr>
                   <tr>
-                    <td><a href="brand-color-picker.html"><code>brand-color-picker</code></a></td>
+                    <td>
+                      <a href="brand-color-picker.html"><code>brand-color-picker</code></a>
+                    </td>
                     <td>Chooses a colour by lightness and colourfulness for a hue, or by typing its hex or OKLCH.</td>
                   </tr>
                 </tbody>
@@ -172,7 +181,9 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><a href="brand-composer.html"><code>brand-composer</code></a></td>
+                    <td>
+                      <a href="brand-composer.html"><code>brand-composer</code></a>
+                    </td>
                     <td>
                       The box where you describe an app in plain words and cast it: a serif text box, tool chips, a
                       keyboard hint and a round Cast button.
@@ -195,14 +206,18 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><a href="brand-checklist.html"><code>brand-checklist</code></a></td>
                     <td>
-                      A build's progress step by step, or a list of things to tick off, each with a round mark;  its
+                      <a href="brand-checklist.html"><code>brand-checklist</code></a>
+                    </td>
+                    <td>
+                      A build's progress step by step, or a list of things to tick off, each with a round mark; its
                       lines are <code>brand-check</code>s.
                     </td>
                   </tr>
                   <tr>
-                    <td><a href="brand-phone.html"><code>brand-phone</code></a></td>
+                    <td>
+                      <a href="brand-phone.html"><code>brand-phone</code></a>
+                    </td>
                     <td>Live app content framed as a phone: a status bar on top, the app below.</td>
                   </tr>
                 </tbody>
@@ -222,15 +237,24 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><a href="brand-logo.html"><code>brand-logo</code></a></td>
-                    <td>The Spell logo: the hat mark, or the mark with the wordmark (and tagline), outlined, in one colour.</td>
+                    <td>
+                      <a href="brand-logo.html"><code>brand-logo</code></a>
+                    </td>
+                    <td>
+                      The Spell logo: the hat mark, or the mark with the wordmark (and tagline), outlined, in one
+                      colour.
+                    </td>
                   </tr>
                   <tr>
-                    <td><a href="brand-flourish.html"><code>brand-flourish</code></a></td>
+                    <td>
+                      <a href="brand-flourish.html"><code>brand-flourish</code></a>
+                    </td>
                     <td>Generated page art (swoops, blobs, curls, sparkles) behind its parent's content.</td>
                   </tr>
                   <tr>
-                    <td><a href="brand-blob.html"><code>brand-blob</code></a></td>
+                    <td>
+                      <a href="brand-blob.html"><code>brand-blob</code></a>
+                    </td>
                     <td>One soft lavender shape tucked into a corner of its parent, never behind body text.</td>
                   </tr>
                 </tbody>
@@ -241,9 +265,9 @@
           <ui-section id="6-specimen" label="6. Specimen" sticky collapsible dividing open="false">
             <ui-icon slot="icon" name="eye"></ui-icon>
             <p>
-              Spell UI's fields in its panels, as the Theme Creator's inspector has them: an info tip, an output,
-              action buttons, a hint and an error. The brand pages draw them smaller, the inspector's look; this site
-              shows Spell UI's own.
+              Spell UI's fields in its panels, as the Theme Creator's inspector has them: an info tip, an output, action
+              buttons, a hint and an error. The brand pages draw them smaller, the inspector's look; this site shows
+              Spell UI's own.
             </p>
             <div class="brand-home-row">
               <ui-panel label="Color Set" collapsible style="width: 380px">
@@ -265,7 +289,9 @@
                     <ui-slider min="0" max="16" value="6" ticked></ui-slider>
                   </ui-field>
                   <ui-field label="Vibrancy" output="100%" description="How colourful the middle steps are.">
-                    <ui-button slot="actions" size="mini" appearance="circular basic" icon="rotate left">Reset</ui-button>
+                    <ui-button slot="actions" size="mini" appearance="circular basic" icon="rotate left"
+                      >Reset</ui-button
+                    >
                     <ui-slider min="0" max="200" step="20" value="100" ticked></ui-slider>
                   </ui-field>
                 </ui-panel>

@@ -66,7 +66,7 @@
         <ui-container>
           <ui-menu icon class="site-page-links" aria-label="About this page">
             <ui-item
-              link="../../spell-brand/src/components/brand-composer/"
+              link="/spell-brand/src/components/brand-composer/"
               icon="code"
               aria-label="Its code"
               title="Its code"
@@ -104,14 +104,17 @@
                   description='`eyebrow`:  a small mono caps line above the text box;  it also names the box for screen readers.  `slot="eyebrow"` takes richer content.'
                 >
                   <div class="composer-demo">
-                    <brand-composer
-                      eyebrow="Try a spell"
-                      value="A reading list where members vote."
-                    ></brand-composer>
+                    <brand-composer eyebrow="Try a spell" value="A reading list where members vote."></brand-composer>
                   </div>
                 </ui-docs-example>
               </ui-section>
-              <ui-section id="examples-content-placeholder-hint" label="Placeholder and hint" sticky collapsible dividing>
+              <ui-section
+                id="examples-content-placeholder-hint"
+                label="Placeholder and hint"
+                sticky
+                collapsible
+                dividing
+              >
                 <ui-docs-example
                   description='`placeholder`:  shown while the box is empty (the Cast button dims:  nothing to cast).  `hint`:  your own keyboard hint;  `hint=""` hides it.  `rows`:  how many lines tall the box starts;  it grows as you write.'
                 >
