@@ -133,6 +133,51 @@
           ],
           "shared": true,
           "description": "How it shows and hides (Fomantic's names:  `fade up`, `scale`, `fly down` ...);  default its family's, else `fade`.  `none` turns motion off for it and everything inside it, as the person's reduced-motion setting does;  an element inside can't turn it back on."
+        },
+        {
+          "name": "link",
+          "kind": "string",
+          "replaces": [
+            {
+              "name": "href"
+            }
+          ],
+          "shared": true,
+          "description": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name is `href`."
+        },
+        {
+          "name": "target",
+          "kind": "string",
+          "shared": true,
+          "description": "Where `link` opens:  `_blank` for a new tab, or a window's name;  as a link's `target`."
+        },
+        {
+          "name": "font",
+          "kind": "multiple",
+          "values": [
+            "bold",
+            "italic",
+            "underline",
+            "strikethrough",
+            "code",
+            "highlight",
+            "subscript",
+            "superscript"
+          ],
+          "shared": true,
+          "description": "How its letters look, several words at once:  `bold`, `italic`, `underline`, `strikethrough`, `code`, `highlight`, `subscript`, `superscript` (`font=\"bold italic\"`).  `<ui-text>` draws each as its HTML element (`<strong>`, `<em>` ...), so screen readers hear it;  every other element shows the look alone."
+        },
+        {
+          "name": "tooltip",
+          "kind": "string",
+          "shared": true,
+          "description": "Its tooltip:  the browser's own, written as the element's `title`."
+        },
+        {
+          "name": "label",
+          "kind": "string",
+          "shared": true,
+          "description": "Its name for screen readers (`aria-label`), where it has no words of its own.  A family whose `label` is something else (a field's, a statistic's) keeps its own."
         }
       ],
       "slots": [],
@@ -296,6 +341,35 @@
           ],
           "shared": true,
           "description": "How it shows and hides (Fomantic's names:  `fade up`, `scale`, `fly down` ...);  default its family's, else `fade`.  `none` turns motion off for it and everything inside it, as the person's reduced-motion setting does;  an element inside can't turn it back on."
+        },
+        {
+          "name": "link",
+          "kind": "string",
+          "replaces": [
+            {
+              "name": "href"
+            }
+          ],
+          "shared": true,
+          "description": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name is `href`."
+        },
+        {
+          "name": "target",
+          "kind": "string",
+          "shared": true,
+          "description": "Where `link` opens:  `_blank` for a new tab, or a window's name;  as a link's `target`."
+        },
+        {
+          "name": "tooltip",
+          "kind": "string",
+          "shared": true,
+          "description": "Its tooltip:  the browser's own, written as the element's `title`."
+        },
+        {
+          "name": "label",
+          "kind": "string",
+          "shared": true,
+          "description": "Its name for screen readers (`aria-label`), where it has no words of its own.  A family whose `label` is something else (a field's, a statistic's) keeps its own."
         }
       ],
       "slots": [
@@ -491,6 +565,35 @@
           ],
           "shared": true,
           "description": "How it shows and hides (Fomantic's names:  `fade up`, `scale`, `fly down` ...);  default its family's, else `fade`.  `none` turns motion off for it and everything inside it, as the person's reduced-motion setting does;  an element inside can't turn it back on."
+        },
+        {
+          "name": "link",
+          "kind": "string",
+          "replaces": [
+            {
+              "name": "href"
+            }
+          ],
+          "shared": true,
+          "description": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name is `href`."
+        },
+        {
+          "name": "target",
+          "kind": "string",
+          "shared": true,
+          "description": "Where `link` opens:  `_blank` for a new tab, or a window's name;  as a link's `target`."
+        },
+        {
+          "name": "tooltip",
+          "kind": "string",
+          "shared": true,
+          "description": "Its tooltip:  the browser's own, written as the element's `title`."
+        },
+        {
+          "name": "label",
+          "kind": "string",
+          "shared": true,
+          "description": "Its name for screen readers (`aria-label`), where it has no words of its own.  A family whose `label` is something else (a field's, a statistic's) keeps its own."
         }
       ],
       "slots": [
@@ -708,6 +811,45 @@
           ],
           "shared": true,
           "description": "How it shows and hides (Fomantic's names:  `fade up`, `scale`, `fly down` ...);  default its family's, else `fade`.  `none` turns motion off for it and everything inside it, as the person's reduced-motion setting does;  an element inside can't turn it back on."
+        },
+        {
+          "name": "link",
+          "kind": "string",
+          "replaces": [
+            {
+              "name": "href"
+            }
+          ],
+          "shared": true,
+          "description": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name is `href`."
+        },
+        {
+          "name": "target",
+          "kind": "string",
+          "shared": true,
+          "description": "Where `link` opens:  `_blank` for a new tab, or a window's name;  as a link's `target`."
+        },
+        {
+          "name": "font",
+          "kind": "multiple",
+          "values": [
+            "bold",
+            "italic",
+            "underline",
+            "strikethrough",
+            "code",
+            "highlight",
+            "subscript",
+            "superscript"
+          ],
+          "shared": true,
+          "description": "How its letters look, several words at once:  `bold`, `italic`, `underline`, `strikethrough`, `code`, `highlight`, `subscript`, `superscript` (`font=\"bold italic\"`).  `<ui-text>` draws each as its HTML element (`<strong>`, `<em>` ...), so screen readers hear it;  every other element shows the look alone."
+        },
+        {
+          "name": "tooltip",
+          "kind": "string",
+          "shared": true,
+          "description": "Its tooltip:  the browser's own, written as the element's `title`."
         }
       ],
       "slots": [],
@@ -962,6 +1104,45 @@
           ],
           "shared": true,
           "description": "How it shows and hides (Fomantic's names:  `fade up`, `scale`, `fly down` ...);  default its family's, else `fade`.  `none` turns motion off for it and everything inside it, as the person's reduced-motion setting does;  an element inside can't turn it back on."
+        },
+        {
+          "name": "link",
+          "kind": "string",
+          "replaces": [
+            {
+              "name": "href"
+            }
+          ],
+          "shared": true,
+          "description": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name is `href`."
+        },
+        {
+          "name": "target",
+          "kind": "string",
+          "shared": true,
+          "description": "Where `link` opens:  `_blank` for a new tab, or a window's name;  as a link's `target`."
+        },
+        {
+          "name": "font",
+          "kind": "multiple",
+          "values": [
+            "bold",
+            "italic",
+            "underline",
+            "strikethrough",
+            "code",
+            "highlight",
+            "subscript",
+            "superscript"
+          ],
+          "shared": true,
+          "description": "How its letters look, several words at once:  `bold`, `italic`, `underline`, `strikethrough`, `code`, `highlight`, `subscript`, `superscript` (`font=\"bold italic\"`).  `<ui-text>` draws each as its HTML element (`<strong>`, `<em>` ...), so screen readers hear it;  every other element shows the look alone."
+        },
+        {
+          "name": "tooltip",
+          "kind": "string",
+          "shared": true,
+          "description": "Its tooltip:  the browser's own, written as the element's `title`."
         }
       ],
       "slots": [
@@ -1391,6 +1572,45 @@
           ],
           "shared": true,
           "description": "How it shows and hides (Fomantic's names:  `fade up`, `scale`, `fly down` ...);  default its family's, else `fade`.  `none` turns motion off for it and everything inside it, as the person's reduced-motion setting does;  an element inside can't turn it back on."
+        },
+        {
+          "name": "link",
+          "kind": "string",
+          "replaces": [
+            {
+              "name": "href"
+            }
+          ],
+          "shared": true,
+          "description": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name is `href`."
+        },
+        {
+          "name": "target",
+          "kind": "string",
+          "shared": true,
+          "description": "Where `link` opens:  `_blank` for a new tab, or a window's name;  as a link's `target`."
+        },
+        {
+          "name": "font",
+          "kind": "multiple",
+          "values": [
+            "bold",
+            "italic",
+            "underline",
+            "strikethrough",
+            "code",
+            "highlight",
+            "subscript",
+            "superscript"
+          ],
+          "shared": true,
+          "description": "How its letters look, several words at once:  `bold`, `italic`, `underline`, `strikethrough`, `code`, `highlight`, `subscript`, `superscript` (`font=\"bold italic\"`).  `<ui-text>` draws each as its HTML element (`<strong>`, `<em>` ...), so screen readers hear it;  every other element shows the look alone."
+        },
+        {
+          "name": "tooltip",
+          "kind": "string",
+          "shared": true,
+          "description": "Its tooltip:  the browser's own, written as the element's `title`."
         }
       ],
       "slots": [],
@@ -1566,6 +1786,51 @@
           ],
           "shared": true,
           "description": "How it shows and hides (Fomantic's names:  `fade up`, `scale`, `fly down` ...);  default its family's, else `fade`.  `none` turns motion off for it and everything inside it, as the person's reduced-motion setting does;  an element inside can't turn it back on."
+        },
+        {
+          "name": "link",
+          "kind": "string",
+          "replaces": [
+            {
+              "name": "href"
+            }
+          ],
+          "shared": true,
+          "description": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name is `href`."
+        },
+        {
+          "name": "target",
+          "kind": "string",
+          "shared": true,
+          "description": "Where `link` opens:  `_blank` for a new tab, or a window's name;  as a link's `target`."
+        },
+        {
+          "name": "font",
+          "kind": "multiple",
+          "values": [
+            "bold",
+            "italic",
+            "underline",
+            "strikethrough",
+            "code",
+            "highlight",
+            "subscript",
+            "superscript"
+          ],
+          "shared": true,
+          "description": "How its letters look, several words at once:  `bold`, `italic`, `underline`, `strikethrough`, `code`, `highlight`, `subscript`, `superscript` (`font=\"bold italic\"`).  `<ui-text>` draws each as its HTML element (`<strong>`, `<em>` ...), so screen readers hear it;  every other element shows the look alone."
+        },
+        {
+          "name": "tooltip",
+          "kind": "string",
+          "shared": true,
+          "description": "Its tooltip:  the browser's own, written as the element's `title`."
+        },
+        {
+          "name": "label",
+          "kind": "string",
+          "shared": true,
+          "description": "Its name for screen readers (`aria-label`), where it has no words of its own.  A family whose `label` is something else (a field's, a statistic's) keeps its own."
         }
       ],
       "slots": [
@@ -1772,6 +2037,45 @@
           ],
           "shared": true,
           "description": "How it shows and hides (Fomantic's names:  `fade up`, `scale`, `fly down` ...);  default its family's, else `fade`.  `none` turns motion off for it and everything inside it, as the person's reduced-motion setting does;  an element inside can't turn it back on."
+        },
+        {
+          "name": "link",
+          "kind": "string",
+          "replaces": [
+            {
+              "name": "href"
+            }
+          ],
+          "shared": true,
+          "description": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name is `href`."
+        },
+        {
+          "name": "target",
+          "kind": "string",
+          "shared": true,
+          "description": "Where `link` opens:  `_blank` for a new tab, or a window's name;  as a link's `target`."
+        },
+        {
+          "name": "font",
+          "kind": "multiple",
+          "values": [
+            "bold",
+            "italic",
+            "underline",
+            "strikethrough",
+            "code",
+            "highlight",
+            "subscript",
+            "superscript"
+          ],
+          "shared": true,
+          "description": "How its letters look, several words at once:  `bold`, `italic`, `underline`, `strikethrough`, `code`, `highlight`, `subscript`, `superscript` (`font=\"bold italic\"`).  `<ui-text>` draws each as its HTML element (`<strong>`, `<em>` ...), so screen readers hear it;  every other element shows the look alone."
+        },
+        {
+          "name": "tooltip",
+          "kind": "string",
+          "shared": true,
+          "description": "Its tooltip:  the browser's own, written as the element's `title`."
         }
       ],
       "slots": [
@@ -2041,6 +2345,51 @@
           ],
           "shared": true,
           "description": "How it shows and hides (Fomantic's names:  `fade up`, `scale`, `fly down` ...);  default its family's, else `fade`.  `none` turns motion off for it and everything inside it, as the person's reduced-motion setting does;  an element inside can't turn it back on."
+        },
+        {
+          "name": "link",
+          "kind": "string",
+          "replaces": [
+            {
+              "name": "href"
+            }
+          ],
+          "shared": true,
+          "description": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name is `href`."
+        },
+        {
+          "name": "target",
+          "kind": "string",
+          "shared": true,
+          "description": "Where `link` opens:  `_blank` for a new tab, or a window's name;  as a link's `target`."
+        },
+        {
+          "name": "font",
+          "kind": "multiple",
+          "values": [
+            "bold",
+            "italic",
+            "underline",
+            "strikethrough",
+            "code",
+            "highlight",
+            "subscript",
+            "superscript"
+          ],
+          "shared": true,
+          "description": "How its letters look, several words at once:  `bold`, `italic`, `underline`, `strikethrough`, `code`, `highlight`, `subscript`, `superscript` (`font=\"bold italic\"`).  `<ui-text>` draws each as its HTML element (`<strong>`, `<em>` ...), so screen readers hear it;  every other element shows the look alone."
+        },
+        {
+          "name": "tooltip",
+          "kind": "string",
+          "shared": true,
+          "description": "Its tooltip:  the browser's own, written as the element's `title`."
+        },
+        {
+          "name": "label",
+          "kind": "string",
+          "shared": true,
+          "description": "Its name for screen readers (`aria-label`), where it has no words of its own.  A family whose `label` is something else (a field's, a statistic's) keeps its own."
         }
       ],
       "slots": [],
@@ -2203,6 +2552,45 @@
           ],
           "shared": true,
           "description": "How it shows and hides (Fomantic's names:  `fade up`, `scale`, `fly down` ...);  default its family's, else `fade`.  `none` turns motion off for it and everything inside it, as the person's reduced-motion setting does;  an element inside can't turn it back on."
+        },
+        {
+          "name": "link",
+          "kind": "string",
+          "replaces": [
+            {
+              "name": "href"
+            }
+          ],
+          "shared": true,
+          "description": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name is `href`."
+        },
+        {
+          "name": "target",
+          "kind": "string",
+          "shared": true,
+          "description": "Where `link` opens:  `_blank` for a new tab, or a window's name;  as a link's `target`."
+        },
+        {
+          "name": "font",
+          "kind": "multiple",
+          "values": [
+            "bold",
+            "italic",
+            "underline",
+            "strikethrough",
+            "code",
+            "highlight",
+            "subscript",
+            "superscript"
+          ],
+          "shared": true,
+          "description": "How its letters look, several words at once:  `bold`, `italic`, `underline`, `strikethrough`, `code`, `highlight`, `subscript`, `superscript` (`font=\"bold italic\"`).  `<ui-text>` draws each as its HTML element (`<strong>`, `<em>` ...), so screen readers hear it;  every other element shows the look alone."
+        },
+        {
+          "name": "tooltip",
+          "kind": "string",
+          "shared": true,
+          "description": "Its tooltip:  the browser's own, written as the element's `title`."
         }
       ],
       "slots": [],
@@ -2362,6 +2750,45 @@
           ],
           "shared": true,
           "description": "How it shows and hides (Fomantic's names:  `fade up`, `scale`, `fly down` ...);  default its family's, else `fade`.  `none` turns motion off for it and everything inside it, as the person's reduced-motion setting does;  an element inside can't turn it back on."
+        },
+        {
+          "name": "link",
+          "kind": "string",
+          "replaces": [
+            {
+              "name": "href"
+            }
+          ],
+          "shared": true,
+          "description": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name is `href`."
+        },
+        {
+          "name": "target",
+          "kind": "string",
+          "shared": true,
+          "description": "Where `link` opens:  `_blank` for a new tab, or a window's name;  as a link's `target`."
+        },
+        {
+          "name": "font",
+          "kind": "multiple",
+          "values": [
+            "bold",
+            "italic",
+            "underline",
+            "strikethrough",
+            "code",
+            "highlight",
+            "subscript",
+            "superscript"
+          ],
+          "shared": true,
+          "description": "How its letters look, several words at once:  `bold`, `italic`, `underline`, `strikethrough`, `code`, `highlight`, `subscript`, `superscript` (`font=\"bold italic\"`).  `<ui-text>` draws each as its HTML element (`<strong>`, `<em>` ...), so screen readers hear it;  every other element shows the look alone."
+        },
+        {
+          "name": "tooltip",
+          "kind": "string",
+          "shared": true,
+          "description": "Its tooltip:  the browser's own, written as the element's `title`."
         }
       ],
       "slots": [

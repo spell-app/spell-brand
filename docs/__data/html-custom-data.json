@@ -205,6 +205,74 @@
               "name": "none"
             }
           ]
+        },
+        {
+          "name": "link",
+          "description": {
+            "kind": "markdown",
+            "value": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name is `href`.\n\nTakes:  text"
+          }
+        },
+        {
+          "name": "href",
+          "description": {
+            "kind": "markdown",
+            "value": "An old name:  write `link`.  It still works until every page is rewritten."
+          }
+        },
+        {
+          "name": "target",
+          "description": {
+            "kind": "markdown",
+            "value": "Where `link` opens:  `_blank` for a new tab, or a window's name;  as a link's `target`.\n\nTakes:  text"
+          }
+        },
+        {
+          "name": "font",
+          "description": {
+            "kind": "markdown",
+            "value": "How its letters look, several words at once:  `bold`, `italic`, `underline`, `strikethrough`, `code`, `highlight`, `subscript`, `superscript` (`font=\"bold italic\"`).  `<ui-text>` draws each as its HTML element (`<strong>`, `<em>` ...), so screen readers hear it;  every other element shows the look alone.\n\nTakes:  space-separated:  `bold` · `italic` · `underline` · `strikethrough` · `code` · `highlight` · `subscript` · `superscript`"
+          },
+          "values": [
+            {
+              "name": "bold"
+            },
+            {
+              "name": "italic"
+            },
+            {
+              "name": "underline"
+            },
+            {
+              "name": "strikethrough"
+            },
+            {
+              "name": "code"
+            },
+            {
+              "name": "highlight"
+            },
+            {
+              "name": "subscript"
+            },
+            {
+              "name": "superscript"
+            }
+          ]
+        },
+        {
+          "name": "tooltip",
+          "description": {
+            "kind": "markdown",
+            "value": "Its tooltip:  the browser's own, written as the element's `title`.\n\nTakes:  text"
+          }
+        },
+        {
+          "name": "label",
+          "description": {
+            "kind": "markdown",
+            "value": "Its name for screen readers (`aria-label`), where it has no words of its own.  A family whose `label` is something else (a field's, a statistic's) keeps its own.\n\nTakes:  text"
+          }
         }
       ]
     },
@@ -396,6 +464,41 @@
               "name": "none"
             }
           ]
+        },
+        {
+          "name": "link",
+          "description": {
+            "kind": "markdown",
+            "value": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name is `href`.\n\nTakes:  text"
+          }
+        },
+        {
+          "name": "href",
+          "description": {
+            "kind": "markdown",
+            "value": "An old name:  write `link`.  It still works until every page is rewritten."
+          }
+        },
+        {
+          "name": "target",
+          "description": {
+            "kind": "markdown",
+            "value": "Where `link` opens:  `_blank` for a new tab, or a window's name;  as a link's `target`.\n\nTakes:  text"
+          }
+        },
+        {
+          "name": "tooltip",
+          "description": {
+            "kind": "markdown",
+            "value": "Its tooltip:  the browser's own, written as the element's `title`.\n\nTakes:  text"
+          }
+        },
+        {
+          "name": "label",
+          "description": {
+            "kind": "markdown",
+            "value": "Its name for screen readers (`aria-label`), where it has no words of its own.  A family whose `label` is something else (a field's, a statistic's) keeps its own.\n\nTakes:  text"
+          }
         }
       ]
     },
@@ -569,6 +672,41 @@
               "name": "none"
             }
           ]
+        },
+        {
+          "name": "link",
+          "description": {
+            "kind": "markdown",
+            "value": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name is `href`.\n\nTakes:  text"
+          }
+        },
+        {
+          "name": "href",
+          "description": {
+            "kind": "markdown",
+            "value": "An old name:  write `link`.  It still works until every page is rewritten."
+          }
+        },
+        {
+          "name": "target",
+          "description": {
+            "kind": "markdown",
+            "value": "Where `link` opens:  `_blank` for a new tab, or a window's name;  as a link's `target`.\n\nTakes:  text"
+          }
+        },
+        {
+          "name": "tooltip",
+          "description": {
+            "kind": "markdown",
+            "value": "Its tooltip:  the browser's own, written as the element's `title`.\n\nTakes:  text"
+          }
+        },
+        {
+          "name": "label",
+          "description": {
+            "kind": "markdown",
+            "value": "Its name for screen readers (`aria-label`), where it has no words of its own.  A family whose `label` is something else (a field's, a statistic's) keeps its own.\n\nTakes:  text"
+          }
         }
       ]
     },
@@ -826,6 +964,67 @@
               "name": "none"
             }
           ]
+        },
+        {
+          "name": "link",
+          "description": {
+            "kind": "markdown",
+            "value": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name is `href`.\n\nTakes:  text"
+          }
+        },
+        {
+          "name": "href",
+          "description": {
+            "kind": "markdown",
+            "value": "An old name:  write `link`.  It still works until every page is rewritten."
+          }
+        },
+        {
+          "name": "target",
+          "description": {
+            "kind": "markdown",
+            "value": "Where `link` opens:  `_blank` for a new tab, or a window's name;  as a link's `target`.\n\nTakes:  text"
+          }
+        },
+        {
+          "name": "font",
+          "description": {
+            "kind": "markdown",
+            "value": "How its letters look, several words at once:  `bold`, `italic`, `underline`, `strikethrough`, `code`, `highlight`, `subscript`, `superscript` (`font=\"bold italic\"`).  `<ui-text>` draws each as its HTML element (`<strong>`, `<em>` ...), so screen readers hear it;  every other element shows the look alone.\n\nTakes:  space-separated:  `bold` · `italic` · `underline` · `strikethrough` · `code` · `highlight` · `subscript` · `superscript`"
+          },
+          "values": [
+            {
+              "name": "bold"
+            },
+            {
+              "name": "italic"
+            },
+            {
+              "name": "underline"
+            },
+            {
+              "name": "strikethrough"
+            },
+            {
+              "name": "code"
+            },
+            {
+              "name": "highlight"
+            },
+            {
+              "name": "subscript"
+            },
+            {
+              "name": "superscript"
+            }
+          ]
+        },
+        {
+          "name": "tooltip",
+          "description": {
+            "kind": "markdown",
+            "value": "Its tooltip:  the browser's own, written as the element's `title`.\n\nTakes:  text"
+          }
         }
       ]
     },
@@ -1005,6 +1204,67 @@
               "name": "none"
             }
           ]
+        },
+        {
+          "name": "link",
+          "description": {
+            "kind": "markdown",
+            "value": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name is `href`.\n\nTakes:  text"
+          }
+        },
+        {
+          "name": "href",
+          "description": {
+            "kind": "markdown",
+            "value": "An old name:  write `link`.  It still works until every page is rewritten."
+          }
+        },
+        {
+          "name": "target",
+          "description": {
+            "kind": "markdown",
+            "value": "Where `link` opens:  `_blank` for a new tab, or a window's name;  as a link's `target`.\n\nTakes:  text"
+          }
+        },
+        {
+          "name": "font",
+          "description": {
+            "kind": "markdown",
+            "value": "How its letters look, several words at once:  `bold`, `italic`, `underline`, `strikethrough`, `code`, `highlight`, `subscript`, `superscript` (`font=\"bold italic\"`).  `<ui-text>` draws each as its HTML element (`<strong>`, `<em>` ...), so screen readers hear it;  every other element shows the look alone.\n\nTakes:  space-separated:  `bold` · `italic` · `underline` · `strikethrough` · `code` · `highlight` · `subscript` · `superscript`"
+          },
+          "values": [
+            {
+              "name": "bold"
+            },
+            {
+              "name": "italic"
+            },
+            {
+              "name": "underline"
+            },
+            {
+              "name": "strikethrough"
+            },
+            {
+              "name": "code"
+            },
+            {
+              "name": "highlight"
+            },
+            {
+              "name": "subscript"
+            },
+            {
+              "name": "superscript"
+            }
+          ]
+        },
+        {
+          "name": "tooltip",
+          "description": {
+            "kind": "markdown",
+            "value": "Its tooltip:  the browser's own, written as the element's `title`.\n\nTakes:  text"
+          }
         }
       ]
     },
@@ -1321,6 +1581,67 @@
               "name": "none"
             }
           ]
+        },
+        {
+          "name": "link",
+          "description": {
+            "kind": "markdown",
+            "value": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name is `href`.\n\nTakes:  text"
+          }
+        },
+        {
+          "name": "href",
+          "description": {
+            "kind": "markdown",
+            "value": "An old name:  write `link`.  It still works until every page is rewritten."
+          }
+        },
+        {
+          "name": "target",
+          "description": {
+            "kind": "markdown",
+            "value": "Where `link` opens:  `_blank` for a new tab, or a window's name;  as a link's `target`.\n\nTakes:  text"
+          }
+        },
+        {
+          "name": "font",
+          "description": {
+            "kind": "markdown",
+            "value": "How its letters look, several words at once:  `bold`, `italic`, `underline`, `strikethrough`, `code`, `highlight`, `subscript`, `superscript` (`font=\"bold italic\"`).  `<ui-text>` draws each as its HTML element (`<strong>`, `<em>` ...), so screen readers hear it;  every other element shows the look alone.\n\nTakes:  space-separated:  `bold` · `italic` · `underline` · `strikethrough` · `code` · `highlight` · `subscript` · `superscript`"
+          },
+          "values": [
+            {
+              "name": "bold"
+            },
+            {
+              "name": "italic"
+            },
+            {
+              "name": "underline"
+            },
+            {
+              "name": "strikethrough"
+            },
+            {
+              "name": "code"
+            },
+            {
+              "name": "highlight"
+            },
+            {
+              "name": "subscript"
+            },
+            {
+              "name": "superscript"
+            }
+          ]
+        },
+        {
+          "name": "tooltip",
+          "description": {
+            "kind": "markdown",
+            "value": "Its tooltip:  the browser's own, written as the element's `title`.\n\nTakes:  text"
+          }
         }
       ]
     },
@@ -1486,6 +1807,74 @@
               "name": "none"
             }
           ]
+        },
+        {
+          "name": "link",
+          "description": {
+            "kind": "markdown",
+            "value": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name is `href`.\n\nTakes:  text"
+          }
+        },
+        {
+          "name": "href",
+          "description": {
+            "kind": "markdown",
+            "value": "An old name:  write `link`.  It still works until every page is rewritten."
+          }
+        },
+        {
+          "name": "target",
+          "description": {
+            "kind": "markdown",
+            "value": "Where `link` opens:  `_blank` for a new tab, or a window's name;  as a link's `target`.\n\nTakes:  text"
+          }
+        },
+        {
+          "name": "font",
+          "description": {
+            "kind": "markdown",
+            "value": "How its letters look, several words at once:  `bold`, `italic`, `underline`, `strikethrough`, `code`, `highlight`, `subscript`, `superscript` (`font=\"bold italic\"`).  `<ui-text>` draws each as its HTML element (`<strong>`, `<em>` ...), so screen readers hear it;  every other element shows the look alone.\n\nTakes:  space-separated:  `bold` · `italic` · `underline` · `strikethrough` · `code` · `highlight` · `subscript` · `superscript`"
+          },
+          "values": [
+            {
+              "name": "bold"
+            },
+            {
+              "name": "italic"
+            },
+            {
+              "name": "underline"
+            },
+            {
+              "name": "strikethrough"
+            },
+            {
+              "name": "code"
+            },
+            {
+              "name": "highlight"
+            },
+            {
+              "name": "subscript"
+            },
+            {
+              "name": "superscript"
+            }
+          ]
+        },
+        {
+          "name": "tooltip",
+          "description": {
+            "kind": "markdown",
+            "value": "Its tooltip:  the browser's own, written as the element's `title`.\n\nTakes:  text"
+          }
+        },
+        {
+          "name": "label",
+          "description": {
+            "kind": "markdown",
+            "value": "Its name for screen readers (`aria-label`), where it has no words of its own.  A family whose `label` is something else (a field's, a statistic's) keeps its own.\n\nTakes:  text"
+          }
         }
       ]
     },
@@ -1715,6 +2104,67 @@
               "name": "none"
             }
           ]
+        },
+        {
+          "name": "link",
+          "description": {
+            "kind": "markdown",
+            "value": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name is `href`.\n\nTakes:  text"
+          }
+        },
+        {
+          "name": "href",
+          "description": {
+            "kind": "markdown",
+            "value": "An old name:  write `link`.  It still works until every page is rewritten."
+          }
+        },
+        {
+          "name": "target",
+          "description": {
+            "kind": "markdown",
+            "value": "Where `link` opens:  `_blank` for a new tab, or a window's name;  as a link's `target`.\n\nTakes:  text"
+          }
+        },
+        {
+          "name": "font",
+          "description": {
+            "kind": "markdown",
+            "value": "How its letters look, several words at once:  `bold`, `italic`, `underline`, `strikethrough`, `code`, `highlight`, `subscript`, `superscript` (`font=\"bold italic\"`).  `<ui-text>` draws each as its HTML element (`<strong>`, `<em>` ...), so screen readers hear it;  every other element shows the look alone.\n\nTakes:  space-separated:  `bold` · `italic` · `underline` · `strikethrough` · `code` · `highlight` · `subscript` · `superscript`"
+          },
+          "values": [
+            {
+              "name": "bold"
+            },
+            {
+              "name": "italic"
+            },
+            {
+              "name": "underline"
+            },
+            {
+              "name": "strikethrough"
+            },
+            {
+              "name": "code"
+            },
+            {
+              "name": "highlight"
+            },
+            {
+              "name": "subscript"
+            },
+            {
+              "name": "superscript"
+            }
+          ]
+        },
+        {
+          "name": "tooltip",
+          "description": {
+            "kind": "markdown",
+            "value": "Its tooltip:  the browser's own, written as the element's `title`.\n\nTakes:  text"
+          }
         }
       ]
     },
@@ -1918,6 +2368,74 @@
               "name": "none"
             }
           ]
+        },
+        {
+          "name": "link",
+          "description": {
+            "kind": "markdown",
+            "value": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name is `href`.\n\nTakes:  text"
+          }
+        },
+        {
+          "name": "href",
+          "description": {
+            "kind": "markdown",
+            "value": "An old name:  write `link`.  It still works until every page is rewritten."
+          }
+        },
+        {
+          "name": "target",
+          "description": {
+            "kind": "markdown",
+            "value": "Where `link` opens:  `_blank` for a new tab, or a window's name;  as a link's `target`.\n\nTakes:  text"
+          }
+        },
+        {
+          "name": "font",
+          "description": {
+            "kind": "markdown",
+            "value": "How its letters look, several words at once:  `bold`, `italic`, `underline`, `strikethrough`, `code`, `highlight`, `subscript`, `superscript` (`font=\"bold italic\"`).  `<ui-text>` draws each as its HTML element (`<strong>`, `<em>` ...), so screen readers hear it;  every other element shows the look alone.\n\nTakes:  space-separated:  `bold` · `italic` · `underline` · `strikethrough` · `code` · `highlight` · `subscript` · `superscript`"
+          },
+          "values": [
+            {
+              "name": "bold"
+            },
+            {
+              "name": "italic"
+            },
+            {
+              "name": "underline"
+            },
+            {
+              "name": "strikethrough"
+            },
+            {
+              "name": "code"
+            },
+            {
+              "name": "highlight"
+            },
+            {
+              "name": "subscript"
+            },
+            {
+              "name": "superscript"
+            }
+          ]
+        },
+        {
+          "name": "tooltip",
+          "description": {
+            "kind": "markdown",
+            "value": "Its tooltip:  the browser's own, written as the element's `title`.\n\nTakes:  text"
+          }
+        },
+        {
+          "name": "label",
+          "description": {
+            "kind": "markdown",
+            "value": "Its name for screen readers (`aria-label`), where it has no words of its own.  A family whose `label` is something else (a field's, a statistic's) keeps its own.\n\nTakes:  text"
+          }
         }
       ]
     },
@@ -2117,6 +2635,67 @@
               "name": "none"
             }
           ]
+        },
+        {
+          "name": "link",
+          "description": {
+            "kind": "markdown",
+            "value": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name is `href`.\n\nTakes:  text"
+          }
+        },
+        {
+          "name": "href",
+          "description": {
+            "kind": "markdown",
+            "value": "An old name:  write `link`.  It still works until every page is rewritten."
+          }
+        },
+        {
+          "name": "target",
+          "description": {
+            "kind": "markdown",
+            "value": "Where `link` opens:  `_blank` for a new tab, or a window's name;  as a link's `target`.\n\nTakes:  text"
+          }
+        },
+        {
+          "name": "font",
+          "description": {
+            "kind": "markdown",
+            "value": "How its letters look, several words at once:  `bold`, `italic`, `underline`, `strikethrough`, `code`, `highlight`, `subscript`, `superscript` (`font=\"bold italic\"`).  `<ui-text>` draws each as its HTML element (`<strong>`, `<em>` ...), so screen readers hear it;  every other element shows the look alone.\n\nTakes:  space-separated:  `bold` · `italic` · `underline` · `strikethrough` · `code` · `highlight` · `subscript` · `superscript`"
+          },
+          "values": [
+            {
+              "name": "bold"
+            },
+            {
+              "name": "italic"
+            },
+            {
+              "name": "underline"
+            },
+            {
+              "name": "strikethrough"
+            },
+            {
+              "name": "code"
+            },
+            {
+              "name": "highlight"
+            },
+            {
+              "name": "subscript"
+            },
+            {
+              "name": "superscript"
+            }
+          ]
+        },
+        {
+          "name": "tooltip",
+          "description": {
+            "kind": "markdown",
+            "value": "Its tooltip:  the browser's own, written as the element's `title`.\n\nTakes:  text"
+          }
         }
       ]
     },
@@ -2282,6 +2861,67 @@
               "name": "none"
             }
           ]
+        },
+        {
+          "name": "link",
+          "description": {
+            "kind": "markdown",
+            "value": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name is `href`.\n\nTakes:  text"
+          }
+        },
+        {
+          "name": "href",
+          "description": {
+            "kind": "markdown",
+            "value": "An old name:  write `link`.  It still works until every page is rewritten."
+          }
+        },
+        {
+          "name": "target",
+          "description": {
+            "kind": "markdown",
+            "value": "Where `link` opens:  `_blank` for a new tab, or a window's name;  as a link's `target`.\n\nTakes:  text"
+          }
+        },
+        {
+          "name": "font",
+          "description": {
+            "kind": "markdown",
+            "value": "How its letters look, several words at once:  `bold`, `italic`, `underline`, `strikethrough`, `code`, `highlight`, `subscript`, `superscript` (`font=\"bold italic\"`).  `<ui-text>` draws each as its HTML element (`<strong>`, `<em>` ...), so screen readers hear it;  every other element shows the look alone.\n\nTakes:  space-separated:  `bold` · `italic` · `underline` · `strikethrough` · `code` · `highlight` · `subscript` · `superscript`"
+          },
+          "values": [
+            {
+              "name": "bold"
+            },
+            {
+              "name": "italic"
+            },
+            {
+              "name": "underline"
+            },
+            {
+              "name": "strikethrough"
+            },
+            {
+              "name": "code"
+            },
+            {
+              "name": "highlight"
+            },
+            {
+              "name": "subscript"
+            },
+            {
+              "name": "superscript"
+            }
+          ]
+        },
+        {
+          "name": "tooltip",
+          "description": {
+            "kind": "markdown",
+            "value": "Its tooltip:  the browser's own, written as the element's `title`.\n\nTakes:  text"
+          }
         }
       ]
     }

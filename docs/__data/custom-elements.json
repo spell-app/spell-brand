@@ -72,6 +72,46 @@
                 "text": "\"fade\" | \"fade up\" | \"fade down\" | \"fade left\" | \"fade right\" | \"scale\" | \"zoom\" | \"drop\" | \"browse\" | \"browse right\" | \"fly\" | \"fly up\" | \"fly down\" | \"fly left\" | \"fly right\" | \"slide\" | \"slide up\" | \"slide down\" | \"slide left\" | \"slide right\" | \"swing\" | \"swing up\" | \"swing down\" | \"swing left\" | \"swing right\" | \"horizontal flip\" | \"vertical flip\" | \"flash\" | \"shake\" | \"bounce\" | \"tada\" | \"pulse\" | \"jiggle\" | \"glow\" | \"none\""
               },
               "fieldName": "animation"
+            },
+            {
+              "name": "link",
+              "description": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name is `href`.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "link"
+            },
+            {
+              "name": "target",
+              "description": "Where `link` opens:  `_blank` for a new tab, or a window's name;  as a link's `target`.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "target"
+            },
+            {
+              "name": "font",
+              "description": "How its letters look, several words at once:  `bold`, `italic`, `underline`, `strikethrough`, `code`, `highlight`, `subscript`, `superscript` (`font=\"bold italic\"`).  `<ui-text>` draws each as its HTML element (`<strong>`, `<em>` ...), so screen readers hear it;  every other element shows the look alone.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "font"
+            },
+            {
+              "name": "tooltip",
+              "description": "Its tooltip:  the browser's own, written as the element's `title`.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "tooltip"
+            },
+            {
+              "name": "label",
+              "description": "Its name for screen readers (`aria-label`), where it has no words of its own.  A family whose `label` is something else (a field's, a statistic's) keeps its own.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "label"
             }
           ],
           "members": [],
@@ -240,6 +280,38 @@
                 "text": "\"fade\" | \"fade up\" | \"fade down\" | \"fade left\" | \"fade right\" | \"scale\" | \"zoom\" | \"drop\" | \"browse\" | \"browse right\" | \"fly\" | \"fly up\" | \"fly down\" | \"fly left\" | \"fly right\" | \"slide\" | \"slide up\" | \"slide down\" | \"slide left\" | \"slide right\" | \"swing\" | \"swing up\" | \"swing down\" | \"swing left\" | \"swing right\" | \"horizontal flip\" | \"vertical flip\" | \"flash\" | \"shake\" | \"bounce\" | \"tada\" | \"pulse\" | \"jiggle\" | \"glow\" | \"none\""
               },
               "fieldName": "animation"
+            },
+            {
+              "name": "link",
+              "description": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name is `href`.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "link"
+            },
+            {
+              "name": "target",
+              "description": "Where `link` opens:  `_blank` for a new tab, or a window's name;  as a link's `target`.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "target"
+            },
+            {
+              "name": "tooltip",
+              "description": "Its tooltip:  the browser's own, written as the element's `title`.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "tooltip"
+            },
+            {
+              "name": "label",
+              "description": "Its name for screen readers (`aria-label`), where it has no words of its own.  A family whose `label` is something else (a field's, a statistic's) keeps its own.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "label"
             }
           ],
           "members": [],
@@ -388,6 +460,38 @@
                 "text": "\"fade\" | \"fade up\" | \"fade down\" | \"fade left\" | \"fade right\" | \"scale\" | \"zoom\" | \"drop\" | \"browse\" | \"browse right\" | \"fly\" | \"fly up\" | \"fly down\" | \"fly left\" | \"fly right\" | \"slide\" | \"slide up\" | \"slide down\" | \"slide left\" | \"slide right\" | \"swing\" | \"swing up\" | \"swing down\" | \"swing left\" | \"swing right\" | \"horizontal flip\" | \"vertical flip\" | \"flash\" | \"shake\" | \"bounce\" | \"tada\" | \"pulse\" | \"jiggle\" | \"glow\" | \"none\""
               },
               "fieldName": "animation"
+            },
+            {
+              "name": "link",
+              "description": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name is `href`.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "link"
+            },
+            {
+              "name": "target",
+              "description": "Where `link` opens:  `_blank` for a new tab, or a window's name;  as a link's `target`.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "target"
+            },
+            {
+              "name": "tooltip",
+              "description": "Its tooltip:  the browser's own, written as the element's `title`.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "tooltip"
+            },
+            {
+              "name": "label",
+              "description": "Its name for screen readers (`aria-label`), where it has no words of its own.  A family whose `label` is something else (a field's, a statistic's) keeps its own.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "label"
             }
           ],
           "members": [],
@@ -646,6 +750,38 @@
                 "text": "\"fade\" | \"fade up\" | \"fade down\" | \"fade left\" | \"fade right\" | \"scale\" | \"zoom\" | \"drop\" | \"browse\" | \"browse right\" | \"fly\" | \"fly up\" | \"fly down\" | \"fly left\" | \"fly right\" | \"slide\" | \"slide up\" | \"slide down\" | \"slide left\" | \"slide right\" | \"swing\" | \"swing up\" | \"swing down\" | \"swing left\" | \"swing right\" | \"horizontal flip\" | \"vertical flip\" | \"flash\" | \"shake\" | \"bounce\" | \"tada\" | \"pulse\" | \"jiggle\" | \"glow\" | \"none\""
               },
               "fieldName": "animation"
+            },
+            {
+              "name": "link",
+              "description": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name is `href`.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "link"
+            },
+            {
+              "name": "target",
+              "description": "Where `link` opens:  `_blank` for a new tab, or a window's name;  as a link's `target`.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "target"
+            },
+            {
+              "name": "font",
+              "description": "How its letters look, several words at once:  `bold`, `italic`, `underline`, `strikethrough`, `code`, `highlight`, `subscript`, `superscript` (`font=\"bold italic\"`).  `<ui-text>` draws each as its HTML element (`<strong>`, `<em>` ...), so screen readers hear it;  every other element shows the look alone.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "font"
+            },
+            {
+              "name": "tooltip",
+              "description": "Its tooltip:  the browser's own, written as the element's `title`.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "tooltip"
             }
           ],
           "members": [],
@@ -865,6 +1001,38 @@
                 "text": "\"fade\" | \"fade up\" | \"fade down\" | \"fade left\" | \"fade right\" | \"scale\" | \"zoom\" | \"drop\" | \"browse\" | \"browse right\" | \"fly\" | \"fly up\" | \"fly down\" | \"fly left\" | \"fly right\" | \"slide\" | \"slide up\" | \"slide down\" | \"slide left\" | \"slide right\" | \"swing\" | \"swing up\" | \"swing down\" | \"swing left\" | \"swing right\" | \"horizontal flip\" | \"vertical flip\" | \"flash\" | \"shake\" | \"bounce\" | \"tada\" | \"pulse\" | \"jiggle\" | \"glow\" | \"none\""
               },
               "fieldName": "animation"
+            },
+            {
+              "name": "link",
+              "description": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name is `href`.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "link"
+            },
+            {
+              "name": "target",
+              "description": "Where `link` opens:  `_blank` for a new tab, or a window's name;  as a link's `target`.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "target"
+            },
+            {
+              "name": "font",
+              "description": "How its letters look, several words at once:  `bold`, `italic`, `underline`, `strikethrough`, `code`, `highlight`, `subscript`, `superscript` (`font=\"bold italic\"`).  `<ui-text>` draws each as its HTML element (`<strong>`, `<em>` ...), so screen readers hear it;  every other element shows the look alone.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "font"
+            },
+            {
+              "name": "tooltip",
+              "description": "Its tooltip:  the browser's own, written as the element's `title`.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "tooltip"
             }
           ],
           "members": [],
@@ -1204,6 +1372,38 @@
                 "text": "\"fade\" | \"fade up\" | \"fade down\" | \"fade left\" | \"fade right\" | \"scale\" | \"zoom\" | \"drop\" | \"browse\" | \"browse right\" | \"fly\" | \"fly up\" | \"fly down\" | \"fly left\" | \"fly right\" | \"slide\" | \"slide up\" | \"slide down\" | \"slide left\" | \"slide right\" | \"swing\" | \"swing up\" | \"swing down\" | \"swing left\" | \"swing right\" | \"horizontal flip\" | \"vertical flip\" | \"flash\" | \"shake\" | \"bounce\" | \"tada\" | \"pulse\" | \"jiggle\" | \"glow\" | \"none\""
               },
               "fieldName": "animation"
+            },
+            {
+              "name": "link",
+              "description": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name is `href`.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "link"
+            },
+            {
+              "name": "target",
+              "description": "Where `link` opens:  `_blank` for a new tab, or a window's name;  as a link's `target`.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "target"
+            },
+            {
+              "name": "font",
+              "description": "How its letters look, several words at once:  `bold`, `italic`, `underline`, `strikethrough`, `code`, `highlight`, `subscript`, `superscript` (`font=\"bold italic\"`).  `<ui-text>` draws each as its HTML element (`<strong>`, `<em>` ...), so screen readers hear it;  every other element shows the look alone.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "font"
+            },
+            {
+              "name": "tooltip",
+              "description": "Its tooltip:  the browser's own, written as the element's `title`.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "tooltip"
             }
           ],
           "members": [],
@@ -1383,6 +1583,46 @@
                 "text": "\"fade\" | \"fade up\" | \"fade down\" | \"fade left\" | \"fade right\" | \"scale\" | \"zoom\" | \"drop\" | \"browse\" | \"browse right\" | \"fly\" | \"fly up\" | \"fly down\" | \"fly left\" | \"fly right\" | \"slide\" | \"slide up\" | \"slide down\" | \"slide left\" | \"slide right\" | \"swing\" | \"swing up\" | \"swing down\" | \"swing left\" | \"swing right\" | \"horizontal flip\" | \"vertical flip\" | \"flash\" | \"shake\" | \"bounce\" | \"tada\" | \"pulse\" | \"jiggle\" | \"glow\" | \"none\""
               },
               "fieldName": "animation"
+            },
+            {
+              "name": "link",
+              "description": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name is `href`.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "link"
+            },
+            {
+              "name": "target",
+              "description": "Where `link` opens:  `_blank` for a new tab, or a window's name;  as a link's `target`.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "target"
+            },
+            {
+              "name": "font",
+              "description": "How its letters look, several words at once:  `bold`, `italic`, `underline`, `strikethrough`, `code`, `highlight`, `subscript`, `superscript` (`font=\"bold italic\"`).  `<ui-text>` draws each as its HTML element (`<strong>`, `<em>` ...), so screen readers hear it;  every other element shows the look alone.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "font"
+            },
+            {
+              "name": "tooltip",
+              "description": "Its tooltip:  the browser's own, written as the element's `title`.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "tooltip"
+            },
+            {
+              "name": "label",
+              "description": "Its name for screen readers (`aria-label`), where it has no words of its own.  A family whose `label` is something else (a field's, a statistic's) keeps its own.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "label"
             }
           ],
           "members": [],
@@ -1605,6 +1845,38 @@
                 "text": "\"fade\" | \"fade up\" | \"fade down\" | \"fade left\" | \"fade right\" | \"scale\" | \"zoom\" | \"drop\" | \"browse\" | \"browse right\" | \"fly\" | \"fly up\" | \"fly down\" | \"fly left\" | \"fly right\" | \"slide\" | \"slide up\" | \"slide down\" | \"slide left\" | \"slide right\" | \"swing\" | \"swing up\" | \"swing down\" | \"swing left\" | \"swing right\" | \"horizontal flip\" | \"vertical flip\" | \"flash\" | \"shake\" | \"bounce\" | \"tada\" | \"pulse\" | \"jiggle\" | \"glow\" | \"none\""
               },
               "fieldName": "animation"
+            },
+            {
+              "name": "link",
+              "description": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name is `href`.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "link"
+            },
+            {
+              "name": "target",
+              "description": "Where `link` opens:  `_blank` for a new tab, or a window's name;  as a link's `target`.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "target"
+            },
+            {
+              "name": "font",
+              "description": "How its letters look, several words at once:  `bold`, `italic`, `underline`, `strikethrough`, `code`, `highlight`, `subscript`, `superscript` (`font=\"bold italic\"`).  `<ui-text>` draws each as its HTML element (`<strong>`, `<em>` ...), so screen readers hear it;  every other element shows the look alone.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "font"
+            },
+            {
+              "name": "tooltip",
+              "description": "Its tooltip:  the browser's own, written as the element's `title`.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "tooltip"
             }
           ],
           "members": [],
@@ -1882,6 +2154,46 @@
                 "text": "\"fade\" | \"fade up\" | \"fade down\" | \"fade left\" | \"fade right\" | \"scale\" | \"zoom\" | \"drop\" | \"browse\" | \"browse right\" | \"fly\" | \"fly up\" | \"fly down\" | \"fly left\" | \"fly right\" | \"slide\" | \"slide up\" | \"slide down\" | \"slide left\" | \"slide right\" | \"swing\" | \"swing up\" | \"swing down\" | \"swing left\" | \"swing right\" | \"horizontal flip\" | \"vertical flip\" | \"flash\" | \"shake\" | \"bounce\" | \"tada\" | \"pulse\" | \"jiggle\" | \"glow\" | \"none\""
               },
               "fieldName": "animation"
+            },
+            {
+              "name": "link",
+              "description": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name is `href`.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "link"
+            },
+            {
+              "name": "target",
+              "description": "Where `link` opens:  `_blank` for a new tab, or a window's name;  as a link's `target`.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "target"
+            },
+            {
+              "name": "font",
+              "description": "How its letters look, several words at once:  `bold`, `italic`, `underline`, `strikethrough`, `code`, `highlight`, `subscript`, `superscript` (`font=\"bold italic\"`).  `<ui-text>` draws each as its HTML element (`<strong>`, `<em>` ...), so screen readers hear it;  every other element shows the look alone.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "font"
+            },
+            {
+              "name": "tooltip",
+              "description": "Its tooltip:  the browser's own, written as the element's `title`.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "tooltip"
+            },
+            {
+              "name": "label",
+              "description": "Its name for screen readers (`aria-label`), where it has no words of its own.  A family whose `label` is something else (a field's, a statistic's) keeps its own.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "label"
             }
           ],
           "members": [],
@@ -2035,6 +2347,38 @@
                 "text": "\"fade\" | \"fade up\" | \"fade down\" | \"fade left\" | \"fade right\" | \"scale\" | \"zoom\" | \"drop\" | \"browse\" | \"browse right\" | \"fly\" | \"fly up\" | \"fly down\" | \"fly left\" | \"fly right\" | \"slide\" | \"slide up\" | \"slide down\" | \"slide left\" | \"slide right\" | \"swing\" | \"swing up\" | \"swing down\" | \"swing left\" | \"swing right\" | \"horizontal flip\" | \"vertical flip\" | \"flash\" | \"shake\" | \"bounce\" | \"tada\" | \"pulse\" | \"jiggle\" | \"glow\" | \"none\""
               },
               "fieldName": "animation"
+            },
+            {
+              "name": "link",
+              "description": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name is `href`.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "link"
+            },
+            {
+              "name": "target",
+              "description": "Where `link` opens:  `_blank` for a new tab, or a window's name;  as a link's `target`.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "target"
+            },
+            {
+              "name": "font",
+              "description": "How its letters look, several words at once:  `bold`, `italic`, `underline`, `strikethrough`, `code`, `highlight`, `subscript`, `superscript` (`font=\"bold italic\"`).  `<ui-text>` draws each as its HTML element (`<strong>`, `<em>` ...), so screen readers hear it;  every other element shows the look alone.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "font"
+            },
+            {
+              "name": "tooltip",
+              "description": "Its tooltip:  the browser's own, written as the element's `title`.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "tooltip"
             }
           ],
           "members": [],
@@ -2183,6 +2527,38 @@
                 "text": "\"fade\" | \"fade up\" | \"fade down\" | \"fade left\" | \"fade right\" | \"scale\" | \"zoom\" | \"drop\" | \"browse\" | \"browse right\" | \"fly\" | \"fly up\" | \"fly down\" | \"fly left\" | \"fly right\" | \"slide\" | \"slide up\" | \"slide down\" | \"slide left\" | \"slide right\" | \"swing\" | \"swing up\" | \"swing down\" | \"swing left\" | \"swing right\" | \"horizontal flip\" | \"vertical flip\" | \"flash\" | \"shake\" | \"bounce\" | \"tada\" | \"pulse\" | \"jiggle\" | \"glow\" | \"none\""
               },
               "fieldName": "animation"
+            },
+            {
+              "name": "link",
+              "description": "Where a click on it goes, as a link's `href`:  `<ui-text link>` is a link in running text.  A family that draws its own link (text, button, image ...) draws an `<a>`;  on any other element a click goes there, except on a control of its own inside.  Its old name is `href`.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "link"
+            },
+            {
+              "name": "target",
+              "description": "Where `link` opens:  `_blank` for a new tab, or a window's name;  as a link's `target`.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "target"
+            },
+            {
+              "name": "font",
+              "description": "How its letters look, several words at once:  `bold`, `italic`, `underline`, `strikethrough`, `code`, `highlight`, `subscript`, `superscript` (`font=\"bold italic\"`).  `<ui-text>` draws each as its HTML element (`<strong>`, `<em>` ...), so screen readers hear it;  every other element shows the look alone.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "font"
+            },
+            {
+              "name": "tooltip",
+              "description": "Its tooltip:  the browser's own, written as the element's `title`.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "tooltip"
             }
           ],
           "members": [],
