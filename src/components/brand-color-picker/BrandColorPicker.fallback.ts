@@ -58,13 +58,11 @@ export class BrandColorPickerFallback extends E.NativeFallback<typeof brandColor
   }
 
   /** The input changed:  update the DOM element and its form value, and send event `name`. */
-  private changed(originalEvent: Event, name: string) {
+  private changed(originalEvent: Event, name: E.EventName<typeof brandColorPickerVocabulary>) {
     const value = this.input!.value.toUpperCase()
     ;(this.domElement as HTMLElement & { value?: string }).value = value
     this.sync()
-    this.domElement.dispatchEvent(
-      new CustomEvent(name, { bubbles: true, composed: true, detail: { value, originalEvent } })
-    )
+    this.send(name, { value, originalEvent })
   }
 
   /** Set the DOM element's form value to the colour. */

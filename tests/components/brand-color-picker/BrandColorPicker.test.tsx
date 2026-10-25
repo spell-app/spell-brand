@@ -427,12 +427,13 @@ describe("<brand-color-picker> copy", () => {
     )
   })
 
-  it("copy:  a refused clipboard write does nothing", async () => {
+  it("copy:  a clipboard write refused both ways (its side-bar fallback too) does nothing", async () => {
     const write = vi.spyOn(navigator.clipboard, "writeText").mockRejectedValue(new Error("denied"))
+    const fallback = vi.spyOn(document, "execCommand").mockReturnValue(false)
     const host = await picker(`<brand-color-picker value="#6550CA"></brand-color-picker>`)
     const fired = record(host)
     copyButton(host, 1).click()
-    // the picker's own `await` on the write was queued first:  its `catch` has run once this resumes
+    await vi.waitFor(() => expect(fallback).toHaveBeenCalled())
     await (write.mock.results[0]!.value as Promise<void>).catch(() => undefined)
     await ElementFixture.tick()
     expect(fired).toEqual([])

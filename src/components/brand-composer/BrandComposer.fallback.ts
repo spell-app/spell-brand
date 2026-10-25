@@ -69,19 +69,12 @@ export class BrandComposerFallback extends E.NativeFallback<typeof brandComposer
   private cast(originalEvent: Event) {
     const value = this.control!.value
     if (!value.trim()) return
-    const event = new CustomEvent("brand-cast", {
-      bubbles: true,
-      composed: true,
-      cancelable: true,
-      detail: { value, originalEvent }
-    })
-    if (this.domElement.dispatchEvent(event)) this.form()?.requestSubmit()
+    if (this.send("brand-cast", { value, originalEvent })) this.form()?.requestSubmit()
   }
 
   /** Send event `name`, with the text. */
-  private announce(name: string, originalEvent: Event) {
-    const detail = { value: this.control!.value, originalEvent }
-    this.domElement.dispatchEvent(new CustomEvent(name, { bubbles: true, composed: true, detail }))
+  private announce(name: E.EventName<typeof brandComposerVocabulary>, originalEvent: Event) {
+    this.send(name, { value: this.control!.value, originalEvent })
   }
 
   /** Set the DOM element's form value to the text. */

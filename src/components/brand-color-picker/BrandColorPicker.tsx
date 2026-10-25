@@ -63,7 +63,7 @@ import pickerCSS from "./BrandColorPicker.css?inline"
  * - Copy buttons:  the row's colour to the clipboard,
  *   then `ui-copied`, a check for `COPIED_MS`, and "Copied ..." announced.
  *   - What each copies:  `hsl(250 54% 55%)` (the HSL row as shown), `#RRGGBB`, `oklch(52.0% 0.181 286)`.
- *   - A refused clipboard write does nothing.
+ *   - Through `E.copyText()`, so it works in VS Code's side bar too;  a write refused both ways does nothing.
  * - `readonly`:  as ui's form controls (`FormComponent.isReadOnly`, `:state(readonly)`), the colour can't be changed:
  *   the square ignores the pointer and keys, the sliders spring back, the fields are read-only;
  *   copying still works, and the form still gets `value`.
@@ -645,17 +645,14 @@ export class BrandColorPicker extends F.FormComponent<BrandColorPickerVocabulary
 
   /**
    * A copy button:  write the clipboard, then `ui-copied`, the check and the announcement.
-   * - SIDE EFFECT:  writes the clipboard;  a refused write (no permission) does nothing.
+   * - SIDE EFFECT:  writes the clipboard (`E.copyText()`, which works in VS Code's side bar too);
+   *   a write refused both ways does nothing.
    */
   @E.untracked
   private async copy(format: CopyFormat, originalEvent: MouseEvent) {
     if (this.isDisabled) return
     const value = this.copyText(format)
-    try {
-      await navigator.clipboard.writeText(value)
-    } catch {
-      return
-    }
+    if (!(await E.copyText(value))) return
     this.copied = { format, value }
     this.send("ui-copied", { value, format, originalEvent })
     this.copiedTimer?.cancel()
