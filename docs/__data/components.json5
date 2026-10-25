@@ -5496,6 +5496,12 @@
       "global": false
     },
     {
+      "name": "studio",
+      "title": "Studio",
+      "families": [],
+      "global": true
+    },
+    {
       "name": "systemfont",
       "title": "Systemfont",
       "families": [],
