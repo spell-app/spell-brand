@@ -31,7 +31,7 @@ export const brandChecklistVocabulary = {
     {
       name: "checkable",
       kind: "boolean",
-      description: "Every check is a checkbox the user ticks (click, Space, Enter);  `step` is ignored."
+      description: "Every check is a checkbox people tick (click, Space, Enter);  `step` is ignored."
     },
     {
       name: "font",

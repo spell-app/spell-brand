@@ -44,7 +44,7 @@ export const brandCheckVocabulary = {
       name: "checkable",
       kind: "boolean",
       description:
-        "A checkbox the user ticks (click, Space, Enter):  done once ticked, the text struck through.  Inherited " +
+        "A checkbox people tick (click, Space, Enter):  done once ticked, the text struck through.  Inherited " +
         "from a `checkable` checklist."
     },
     {
@@ -58,7 +58,7 @@ export const brandCheckVocabulary = {
     {
       name: "ui-changed",
       detail: "{ selected: boolean, checked: boolean, originalEvent?: Event }",
-      description: "The user ticked or unticked a `checkable` check (`checked` ~== `selected`)."
+      description: "A person ticked or unticked a `checkable` check (`checked` ~== `selected`)."
     }
   ],
   slots: [{ name: "", description: "The text." }],
@@ -71,7 +71,7 @@ export const brandCheckVocabulary = {
     { name: "done", description: "Done (or ticked)." },
     { name: "active", description: "The step in progress." },
     { name: "pending", description: "Not started (or not ticked)." },
-    { name: "checkable", description: "A checkbox the user ticks." }
+    { name: "checkable", description: "A checkbox people tick." }
   ],
   texts: [
     {

@@ -312,7 +312,7 @@
           "name": "checkable",
           "description": {
             "kind": "markdown",
-            "value": "A checkbox the user ticks (click, Space, Enter):  done once ticked, the text struck through.  Inherited from a `checkable` checklist.\n\nTakes:  flag (present / absent)"
+            "value": "A checkbox people tick (click, Space, Enter):  done once ticked, the text struck through.  Inherited from a `checkable` checklist.\n\nTakes:  flag (present / absent)"
           }
         },
         {
@@ -520,7 +520,7 @@
           "name": "checkable",
           "description": {
             "kind": "markdown",
-            "value": "Every check is a checkbox the user ticks (click, Space, Enter);  `step` is ignored.\n\nTakes:  flag (present / absent)"
+            "value": "Every check is a checkbox people tick (click, Space, Enter);  `step` is ignored.\n\nTakes:  flag (present / absent)"
           }
         },
         {

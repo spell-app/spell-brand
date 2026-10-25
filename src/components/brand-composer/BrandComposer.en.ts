@@ -98,7 +98,7 @@ export const brandComposerVocabulary = {
     {
       name: "ui-changed",
       detail: "{ value: string, originalEvent?: Event }",
-      description: "The user committed an edit (left the text box changed)."
+      description: "A person committed an edit (left the text box changed)."
     },
     {
       name: "brand-cast",

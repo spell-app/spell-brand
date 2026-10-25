@@ -106,7 +106,7 @@ export class BrandColorPicker extends F.FormComponent<BrandColorPickerVocabulary
   private committedHex = this.latestHex
 
   /**
-   * Edit the colour to `next` as the user:  send `ui-moved` when `value` changes, then set the DOM element's
+   * Edit the colour to `next` as a person would:  send `ui-moved` when `value` changes, then set the DOM element's
    * property, unless a handler set it first (then the edit is undone).
    * - Nothing while `readonly`:  every edit comes through here.
    */
@@ -404,7 +404,7 @@ export class BrandColorPicker extends F.FormComponent<BrandColorPickerVocabulary
   }
 
   /**
-   * `readonly`:  put a native range the user moved back on `value`, and say so (true);  false otherwise.
+   * `readonly`:  put a native range a person moved back on `value`, and say so (true);  false otherwise.
    * - A range input has no `readonly` of its own:  its thumb moves before `input` arrives.
    */
   @E.untracked

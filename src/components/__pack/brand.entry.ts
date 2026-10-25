@@ -15,12 +15,12 @@ SpellUI.registerPack({
   catalog: CATALOG,
   families: {
     "brand-blob": "6b264cee09e5e854",
-    "brand-checklist": "50fc184a26041eb5",
+    "brand-checklist": "e3955bd24b3cf58e",
     "brand-color": "1df7f252c168d32b",
-    "brand-color-picker": "23e5015b15a25284",
+    "brand-color-picker": "35cbec46e0fbd905",
     "brand-color-range": "1186ba1b1989b070",
     "brand-color-set": "dd60f532381e69ba",
-    "brand-composer": "5c91bd42036df660",
+    "brand-composer": "fd50d5f1884de51c",
     "brand-flourish": "1779a045779a3765",
     "brand-logo": "8a819b74a10b535b",
     "brand-phone": "1b9f860eea394bdc"

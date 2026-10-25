@@ -235,7 +235,7 @@
             },
             {
               "name": "checkable",
-              "description": "A checkbox the user ticks (click, Space, Enter):  done once ticked, the text struck through.  Inherited from a `checkable` checklist.",
+              "description": "A checkbox people tick (click, Space, Enter):  done once ticked, the text struck through.  Inherited from a `checkable` checklist.",
               "type": {
                 "text": "boolean"
               },
@@ -318,7 +318,7 @@
           "events": [
             {
               "name": "ui-changed",
-              "description": "The user ticked or unticked a `checkable` check (`checked` ~== `selected`).",
+              "description": "A person ticked or unticked a `checkable` check (`checked` ~== `selected`).",
               "type": {
                 "text": "CustomEvent<{ selected: boolean, checked: boolean, originalEvent?: Event }>"
               }
@@ -359,7 +359,7 @@
             },
             {
               "name": "checkable",
-              "description": "A checkbox the user ticks."
+              "description": "A checkbox people tick."
             },
             {
               "name": "disabled",
@@ -414,7 +414,7 @@
             },
             {
               "name": "checkable",
-              "description": "Every check is a checkbox the user ticks (click, Space, Enter);  `step` is ignored.",
+              "description": "Every check is a checkbox people tick (click, Space, Enter);  `step` is ignored.",
               "type": {
                 "text": "boolean"
               },
@@ -1890,7 +1890,7 @@
             },
             {
               "name": "ui-changed",
-              "description": "The user committed an edit (left the text box changed).",
+              "description": "A person committed an edit (left the text box changed).",
               "type": {
                 "text": "CustomEvent<{ value: string, originalEvent?: Event }>"
               }
