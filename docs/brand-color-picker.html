@@ -218,14 +218,14 @@
 
                   - `value` is `#RRGGBB`. Set it as an attribute or property; anything the hex field reads works
                     (`#abc`, `142 150 181`, `hsl(250 54% 55%)`, `oklch(67.7% 0.047 274)`), and reads back upper-case.
-                  - `ui-input` fires as the colour changes (dragging, sliding, typing); `ui-changed` when a choice is
+                  - `ui-moved` fires as the colour changes (dragging, sliding, typing); `ui-changed` when a choice is
                     committed (release, Enter, leaving a field, a key on the square).
                   - Each row's copy button writes its format to the clipboard and dispatches `ui-copied`
                     `{ value, format: "hsl" | "hex" | "oklch" }`.
                   - The picker remembers a grey's hue (and black's or white's saturation), so the square and the hue
                     slider don't jump as the colour passes through them.
                   - In a `<form>`, it submits `value` under `name`; `form.reset()` goes back to its first `value`.
-                  - A `ui-input` handler that re-sets `value` wins, as on Spell UI's controls.
+                  - A `ui-moved` handler that re-sets `value` wins, as on Spell UI's controls.
                 </script>
               </ui-markdown>
               <ui-code language="js">
@@ -247,7 +247,7 @@
                   - Right / Left: more / less saturated (1%; Shift 10%).
                   - Home: grey (saturation 0%). End: saturation 100%.
 
-                  Each key commits (`ui-input`, then `ui-changed`). The hue slider is a native range: arrows,
+                  Each key commits (`ui-moved`, then `ui-changed`). The hue slider is a native range: arrows,
                   PageUp / PageDown, Home / End. In the fields, Enter commits and Escape drops what you typed. The
                   copy buttons are buttons: Enter or Space.
                 </script>

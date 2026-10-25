@@ -870,7 +870,7 @@
           "members": [],
           "events": [
             {
-              "name": "ui-input",
+              "name": "ui-moved",
               "description": "The colour changed while choosing:  each drag step, hue step, key or valid keystroke.  A handler that re-sets `value` wins.",
               "type": {
                 "text": "CustomEvent<{ value: string, originalEvent?: Event }>"

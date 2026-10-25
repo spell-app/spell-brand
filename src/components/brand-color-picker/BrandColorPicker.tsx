@@ -49,15 +49,15 @@ import pickerCSS from "./BrandColorPicker.css?inline"
  *   Saturation and Lightness (one tab stop:  the Lightness one is `tabindex=-1`);
  *   on either, Left / Right move S and Up / Down move L by 1% (10% with Shift),
  *   PageUp / PageDown L by 10%, Home / End S to 0 / 100%.
- *   - Each key is `ui-input` then `ui-changed`.
+ *   - Each key is `ui-moved` then `ui-changed`.
  *   - An assistive technology's own increment arrives as their `input`.
  * - Pointer:  press on the square jumps the marker there and drags it (pointer capture);
- *   `ui-input` per new colour, `ui-changed` on release.
- *   The hue slider:  `ui-input` per step, `ui-changed` on its native `change`.
+ *   `ui-moved` per new colour, `ui-changed` on release.
+ *   The hue slider:  `ui-moved` per step, `ui-changed` on its native `change`.
  * - Typing:  the hex field takes anything `Palette.parse()` reads;
  *   the HSL and OKLCH fields numbers (H in degrees, S / L in %, C plain).
  *   - An OKLCH colour a screen can't show is mapped in (`Palette.oklchToHex()`:  same L and H, less C).
- *   - A valid keystroke is `ui-input`;  unreadable text shows the field's `error` look and changes nothing.
+ *   - A valid keystroke is `ui-moved`;  unreadable text shows the field's `error` look and changes nothing.
  *   - Enter or leaving the field commits (`ui-changed`) and shows the value again;  Escape drops the draft.
  * - Copy buttons:  the row's colour to the clipboard,
  *   then `ui-copied`, a check for `COPIED_MS`, and "Copied ..." announced.
@@ -66,7 +66,7 @@ import pickerCSS from "./BrandColorPicker.css?inline"
  * - `readonly`:  as ui's form controls (`FormComponent.isReadOnly`, `:state(readonly)`), the colour can't be changed:
  *   the square ignores the pointer and keys, the sliders spring back, the fields are read-only;
  *   copying still works, and the form still gets `value`.
- * - `value` is controlled (`@E.controlled`) and reflects;  a `ui-input` handler that sets it again wins.
+ * - `value` is controlled (`@E.controlled`) and reflects;  a `ui-moved` handler that sets it again wins.
  *   - Its FIRST attribute value is the form's reset value.
  *   - Changes from outside redraw without events.
  * - A form control:  it submits `value` under `name`.
@@ -105,7 +105,7 @@ export class BrandColorPicker extends F.FormComponent<BrandColorPickerVocabulary
   private committedHex = this.latestHex
 
   /**
-   * Edit the colour to `next` as the user:  send `ui-input` when `value` changes, then set the DOM element's
+   * Edit the colour to `next` as the user:  send `ui-moved` when `value` changes, then set the DOM element's
    * property, unless a handler set it first (then the edit is undone).
    * - Nothing while `readonly`:  every edit comes through here.
    */
@@ -116,7 +116,7 @@ export class BrandColorPicker extends F.FormComponent<BrandColorPickerVocabulary
     this.working = next
     const hex = Palette.hslToHex(next)
     if (hex === this.latestHex) return
-    const applied = this.requestChange("value", hex, () => this.send("ui-input", { value: hex, originalEvent }))
+    const applied = this.requestChange("value", hex, () => this.send("ui-moved", { value: hex, originalEvent }))
     if (applied) this.latestHex = hex
     else this.working = previous
   }
@@ -357,7 +357,7 @@ export class BrandColorPicker extends F.FormComponent<BrandColorPickerVocabulary
     this.move({ h: this.working.h, s: x, l: 1 - y }, event)
   }
 
-  /** A key on the square's sliders (see the class doc):  `ui-input`, then `ui-changed`. */
+  /** A key on the square's sliders (see the class doc):  `ui-moved`, then `ui-changed`. */
   @E.untracked
   private readonly onPlaneKeyDown = (event: KeyboardEvent) => {
     const next = this.keyMove(event)

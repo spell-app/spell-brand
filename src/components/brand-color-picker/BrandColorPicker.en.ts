@@ -61,7 +61,7 @@ export const brandColorPickerVocabulary = {
   ],
   events: [
     {
-      name: "ui-input",
+      name: "ui-moved",
       detail: "{ value: string, originalEvent?: Event }",
       description:
         "The colour changed while choosing:  each drag step, hue step, key or valid keystroke.  A handler that " +

@@ -833,7 +833,7 @@
       "name": "brand-color-picker",
       "description": {
         "kind": "markdown",
-        "value": "A brand color picker chooses a colour on an HSL square and a hue slider, or by typing HSL, hex or OKLCH;  each format copies.\n\nAlso known as:  color picker, colour picker, color chooser, hsl picker, swatch picker, eyedropper, color input.\n\n**Slots:**  default, `header`, `actions`\n\n**Events:**  `ui-input`, `ui-changed`, `ui-copied`"
+        "value": "A brand color picker chooses a colour on an HSL square and a hue slider, or by typing HSL, hex or OKLCH;  each format copies.\n\nAlso known as:  color picker, colour picker, color chooser, hsl picker, swatch picker, eyedropper, color input.\n\n**Slots:**  default, `header`, `actions`\n\n**Events:**  `ui-moved`, `ui-changed`, `ui-copied`"
       },
       "attributes": [
         {
