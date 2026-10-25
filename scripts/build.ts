@@ -27,6 +27,7 @@ import path from "node:path"
 import { gzipSync } from "node:zlib"
 import { build, type Rolldown } from "vite-plus"
 
+import { kb } from "spell/util/number"
 import { packageRootFor } from "spell/toolchain/sourceNames"
 import { BRAND_ASSETS } from "spell-brand/vite.config.ts"
 
@@ -105,9 +106,4 @@ function checkOneSolid(result: Rolldown.RolldownOutput): void {
     if (roots.size > 1) throw new Error(`${name} bundled ${roots.size} times:\n  ${[...roots].join("\n  ")}`)
   }
   if (!copies.has("solid-js")) throw new Error("solid-js isn't in the bundle:  check the aliases")
-}
-
-/** `bytes` as `12.3 KB`. */
-function kb(bytes: number): string {
-  return `${(bytes / 1024).toFixed(1)} KB`
 }

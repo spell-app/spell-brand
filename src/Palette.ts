@@ -1,3 +1,6 @@
+import * as Color from "spell/util/color"
+import { clamp } from "spell/util/number"
+
 import {
   CHROMA,
   LADDER,
@@ -22,6 +25,8 @@ import {
  *   bends smoothly toward the seed, fixed at the ends;  chroma follows `CHROMA` relative to the anchor's;  hue drifts
  *   by `hueShift` toward the dark end.  Out-of-gamut colours are pulled in by chroma, never by lightness.
  * - `buildPalette()`:  the brand's 20 sets, as `lib/palette.json` has them (`Palette.test.ts` pins it).
+ * - The conversions and contrast are the kit's (`spell/util/color`);  Palette keeps the brand's shapes:
+ *   `[r, g, b]` tuples and upper-case hex.
  * - Pure:  no DOM, no Solid;  every member static.
  ****************/
 export class Palette {
@@ -31,78 +36,36 @@ export class Palette {
 
   /** `#abc` / `#aabbcc` -> sRGB, each channel 0-1. */
   static hexToRgb(hex: string): Rgb {
-    const digits = hex.replace("#", "")
-    const full =
-      digits.length === 3
-        ? digits
-            .split("")
-            .map((digit) => digit + digit)
-            .join("")
-        : digits
-    const number = Number.parseInt(full, 16)
-    return [((number >> 16) & 255) / 255, ((number >> 8) & 255) / 255, (number & 255) / 255]
+    return channelsOf(Color.hexToRgb(hex))
   }
 
   /** sRGB (each 0-1, clamped) -> `#AABBCC`, upper-case. */
   static rgbToHex(rgb: Rgb | readonly number[]): string {
-    const channels = rgb.map((value) =>
-      Math.round(Palette.clamp(value, 0, 1) * 255)
-        .toString(16)
-        .padStart(2, "0")
-    )
-    return `#${channels.join("")}`.toUpperCase()
+    return Color.rgbToHex(rgbOf(rgb)).toUpperCase()
   }
 
-  /** sRGB -> OKLCH. */
-  static rgbToOklch([red, green, blue]: Rgb | readonly number[]): Oklch {
-    const r = Palette.linear(red!)
-    const g = Palette.linear(green!)
-    const b = Palette.linear(blue!)
-    const l = Math.cbrt(0.4122214708 * r + 0.5363325363 * g + 0.0514459929 * b)
-    const m = Math.cbrt(0.2119034982 * r + 0.6806995451 * g + 0.1073969566 * b)
-    const s = Math.cbrt(0.0883024619 * r + 0.2817188376 * g + 0.6299787005 * b)
-    const L = 0.2104542553 * l + 0.793617785 * m - 0.0040720468 * s
-    const A = 1.9779984951 * l - 2.428592205 * m + 0.4505937099 * s
-    const B = 0.0259040371 * l + 0.7827717662 * m - 0.808675766 * s
-    return { l: L, c: Math.hypot(A, B), h: ((Math.atan2(B, A) * 180) / Math.PI + 360) % 360 }
+  /** sRGB -> OKLCH;  a grey's hue is `0`. */
+  static rgbToOklch(rgb: Rgb | readonly number[]): Oklch {
+    const { l, c, h } = Color.rgbToOklch(rgbOf(rgb))
+    return { l, c, h }
   }
 
   /** OKLCH -> sRGB, NOT clamped:  a channel outside 0-1 means out of gamut (`inGamut()`). */
-  static oklchToRgbRaw({ l, c, h }: Oklch): Rgb {
-    const a = c * Math.cos((h * Math.PI) / 180)
-    const b = c * Math.sin((h * Math.PI) / 180)
-    const L = (l + 0.3963377774 * a + 0.2158037573 * b) ** 3
-    const M = (l - 0.1055613458 * a - 0.0638541728 * b) ** 3
-    const S = (l - 0.0894841775 * a - 1.291485548 * b) ** 3
-    return [
-      Palette.gamma(4.0767416621 * L - 3.3077115913 * M + 0.2309699292 * S),
-      Palette.gamma(-1.2684380046 * L + 2.6097574011 * M - 0.3413193965 * S),
-      Palette.gamma(-0.0041960863 * L - 0.7034186147 * M + 1.707614701 * S)
-    ]
+  static oklchToRgbRaw(color: Oklch): Rgb {
+    return channelsOf(Color.oklchToRgb(color))
   }
 
   /** Is `rgb` displayable in sRGB (each channel 0-1, a hair of slack)? */
   static inGamut(rgb: Rgb | readonly number[]): boolean {
-    return rgb.every((value) => value >= -0.0005 && value <= 1.0005)
+    return Color.inGamut(rgbOf(rgb))
   }
 
   /**
    * OKLCH -> `#AABBCC`.
-   * - Out of gamut:  the largest chroma that fits, same lightness and hue (24 halvings).
+   * - Out of gamut:  the largest chroma that fits, same lightness and hue (`toGamut()` in `spell/util/color`).
    */
   static oklchToHex(color: Oklch): string {
-    let rgb = Palette.oklchToRgbRaw(color)
-    if (!Palette.inGamut(rgb)) {
-      let low = 0
-      let high = color.c
-      for (let round = 0; round < 24; round++) {
-        const middle = (low + high) / 2
-        if (Palette.inGamut(Palette.oklchToRgbRaw({ ...color, c: middle }))) low = middle
-        else high = middle
-      }
-      rgb = Palette.oklchToRgbRaw({ ...color, c: low })
-    }
-    return Palette.rgbToHex(rgb)
+    return Color.oklchToHex(color, { fit: "chroma" }).toUpperCase()
   }
 
   /** `#AABBCC` -> OKLCH. */
@@ -112,9 +75,9 @@ export class Palette {
 
   /** sRGB (each 0-1) -> HSL:  hue in degrees (`0` for a grey), saturation and lightness 0-1. */
   static rgbToHsl([red, green, blue]: Rgb | readonly number[]): Hsl {
-    const r = Palette.clamp(red!, 0, 1)
-    const g = Palette.clamp(green!, 0, 1)
-    const b = Palette.clamp(blue!, 0, 1)
+    const r = clamp(red!, 0, 1)
+    const g = clamp(green!, 0, 1)
+    const b = clamp(blue!, 0, 1)
     const max = Math.max(r, g, b)
     const min = Math.min(r, g, b)
     const l = (max + min) / 2
@@ -127,8 +90,8 @@ export class Palette {
 
   /** HSL -> sRGB (each 0-1);  the hue wraps, saturation and lightness are clamped to 0-1. */
   static hslToRgb({ h, s, l }: Hsl): Rgb {
-    const saturation = Palette.clamp(s, 0, 1)
-    const lightness = Palette.clamp(l, 0, 1)
+    const saturation = clamp(s, 0, 1)
+    const lightness = clamp(l, 0, 1)
     const chroma = (1 - Math.abs(2 * lightness - 1)) * saturation
     const sector = (((h % 360) + 360) % 360) / 60
     const x = chroma * (1 - Math.abs((sector % 2) - 1))
@@ -198,15 +161,12 @@ export class Palette {
 
   /** WCAG relative luminance of `#AABBCC`. */
   static luminance(hex: string): number {
-    const [r, g, b] = Palette.hexToRgb(hex).map((channel) => Palette.linear(channel))
-    return 0.2126 * r! + 0.7152 * g! + 0.0722 * b!
+    return Color.luminance(hex)
   }
 
   /** WCAG contrast ratio of two colours, 1-21. */
   static contrast(a: string, b: string): number {
-    const x = Palette.luminance(a)
-    const y = Palette.luminance(b)
-    return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05)
+    return Color.contrast(a, b)
   }
 
   /** Text colour for `background`:  white, or the brand's ink (`#1A1C27`), whichever contrasts more. */
@@ -238,8 +198,8 @@ export class Palette {
         continue
       }
       const t = step < anchor ? step / anchor : (1000 - step) / (1000 - anchor)
-      const weight = Math.sin((Palette.clamp(t, 0, 1) * Math.PI) / 2) ** 1.4
-      const l = Palette.clamp(LADDER[step] + lightShift * weight, 0.08, 0.995)
+      const weight = Math.sin((clamp(t, 0, 1) * Math.PI) / 2) ** 1.4
+      const l = clamp(LADDER[step] + lightShift * weight, 0.08, 0.995)
       const c = seed.c * (CHROMA[step] / anchorChroma) * chromaScale
       const h = seed.h + hueShift * ((step - anchor) / 1000)
       scale[step] = Palette.oklchToHex({ l, c, h })
@@ -270,24 +230,6 @@ export class Palette {
     sets.push({ name: "grey", label: "Grey", note, ...Palette.generateScale(greySeed, { anchor: 500 }) })
     return sets
   }
-
-  ////////////////
-  // ## Internals
-  ////////////////
-
-  private static clamp(value: number, low: number, high: number): number {
-    return Math.min(high, Math.max(low, value))
-  }
-
-  /** sRGB channel -> linear light. */
-  private static linear(channel: number): number {
-    return channel <= 0.04045 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4
-  }
-
-  /** Linear light -> sRGB channel. */
-  private static gamma(channel: number): number {
-    return channel <= 0.0031308 ? 12.92 * channel : 1.055 * channel ** (1 / 2.4) - 0.055
-  }
 }
 
 /**
@@ -295,6 +237,16 @@ export class Palette {
  * - `hslToRgb()` reads sector `floor(h / 60)`.
  */
 const HUE_SECTORS = ["cx0", "xc0", "0cx", "0xc", "x0c", "c0x"] as const
+
+/** The brand's `[r, g, b]` tuple as `spell/util/color`'s `{ r, g, b }`. */
+function rgbOf([r, g, b]: Rgb | readonly number[]): Color.Rgb {
+  return { r: r!, g: g!, b: b! }
+}
+
+/** `spell/util/color`'s `{ r, g, b }` as the brand's `[r, g, b]` tuple. */
+function channelsOf({ r, g, b }: Color.Rgb): Rgb {
+  return [r, g, b]
+}
 
 /** White, as `ink()` offers it. */
 const WHITE = "#FFFFFF"

@@ -37,6 +37,7 @@ import { parseArgs } from "node:util"
 import { Script } from "node:vm"
 import { gzipSync } from "node:zlib"
 
+import { kb } from "spell/util/number"
 import { BRAND_DIR, DESIGN_BUNDLE, ELEMENT_DIR, INVOKED_FROM, UI_DIR, realPath } from "./design-paths.ts"
 
 const { values } = parseArgs({ options: { out: { type: "string" }, "skip-ui-build": { type: "boolean" } } })
@@ -379,7 +380,6 @@ function checkBundle(): void {
 /** Prints the bundle's size (raw, gzip) and any esbuild warnings. */
 function report(warnings: string[]): void {
   const code = readFileSync(OUTFILE)
-  const kb = (bytes: number) => `${(bytes / 1024).toFixed(1)} KB`
   console.log(`-- ${OUTFILE}  ${kb(code.length)}  (gzip ${kb(gzipSync(code).length)})`)
   for (const warning of warnings) console.warn(`!! ${warning}`)
 }

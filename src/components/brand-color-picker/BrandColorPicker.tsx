@@ -1,6 +1,7 @@
 import { For, Show } from "solid-js"
 import type { JSX } from "@solidjs/web"
 
+import { clamp } from "spell/util/number"
 import { E } from "spell-ui/core"
 import { F } from "spell-ui/forms"
 import { Palette, type Hsl, type Oklch } from "spell-brand"
@@ -352,8 +353,8 @@ export class BrandColorPicker extends F.FormComponent<BrandColorPickerVocabulary
   /** The colour under the pointer:  S from across, L from up, the current hue. */
   private pick(event: PointerEvent) {
     const box = this.plane!.getBoundingClientRect()
-    const x = Math.min(1, Math.max(0, (event.clientX - box.left) / box.width))
-    const y = Math.min(1, Math.max(0, (event.clientY - box.top) / box.height))
+    const x = clamp((event.clientX - box.left) / box.width, 0, 1)
+    const y = clamp((event.clientY - box.top) / box.height, 0, 1)
     this.move({ h: this.working.h, s: x, l: 1 - y }, event)
   }
 
@@ -599,7 +600,7 @@ export class BrandColorPicker extends F.FormComponent<BrandColorPickerVocabulary
     if (key === "hslS") return at(h, number / 100, l)
     if (key === "hslL") return at(h, s, number / 100)
     const oklch: Oklch = Palette.hexToOklch(this.latestHex)
-    if (key === "oklchL") oklch.l = Math.min(100, Math.max(0, number)) / 100
+    if (key === "oklchL") oklch.l = clamp(number, 0, 100) / 100
     else if (key === "oklchC") oklch.c = Math.max(0, number)
     else oklch.h = ((number % 360) + 360) % 360
     return BrandColorPicker.fromHex(Palette.oklchToHex(oklch), this.working)
@@ -680,8 +681,8 @@ export class BrandColorPicker extends F.FormComponent<BrandColorPickerVocabulary
   private static onPlane(hue: number, saturation: number, lightness: number): Hsl {
     return {
       h: ((hue % 360) + 360) % 360,
-      s: Math.min(1, Math.max(0, saturation)),
-      l: Math.min(1, Math.max(0, lightness))
+      s: clamp(saturation, 0, 1),
+      l: clamp(lightness, 0, 1)
     }
   }
 
