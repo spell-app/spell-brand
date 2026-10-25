@@ -3,92 +3,38 @@
  * `src/brand-ui.ts` with `vite.config.ts`, then report its sizes.
  * - Run by `spell bundle brand` (the kit's `SRV.Bundle`), which the page server runs when it starts and
  *   the sources changed;  it then records their hash in `_assets/ui/.bundle.json`.
- * - Clears `_assets/ui/` first (everything but `icon-packs`, the record too), so a removed chunk doesn't linger.
- * - Icon packs:  `_assets/ui/icon-packs` is a SYMLINK to Spell UI's packs (its `src/icons/icon-packs`), made here if
- *   missing (or re-pointed when it leads elsewhere), as Spell UI's site bundle does (its `scripts/site-bundle.ts`):
- *   never a second copy.
- *   - Spell UI found as a package (`spell-ui`, through `node_modules`), wherever its repo is:  beside this one in
- *     the kit `spell` since epic `repo-split` P8.
+ * - Its steps are the kit's `Bundle`'s, as Spell UI's site bundle (its `scripts/site-bundle.ts`):
+ *   - `clearOutput()`:  `_assets/ui/` emptied first (everything but `icon-packs`, the record too),
+ *     so a removed chunk doesn't linger
+ *   - `linkIconPacks()`:  `_assets/ui/icon-packs` a LINK to Spell UI's packs, never a second copy;
+ *     Spell UI found as a package, wherever its repo is
+ *   - `sizeReport()`:  its scripts and sheets, raw and gzipped;  eager is `brand-ui.css` + `brand-ui.js` and the
+ *     chunks it imports statically
  * - Fails if the bundle holds two copies of a Solid package (`solid-js`, `@solidjs/web`):  two would split signals
  *   and break every element.  The docs bundle checks the same (`bundle-spell-ui.js` `checkOneSolid()`).
  */
-import {
-  existsSync,
-  lstatSync,
-  mkdirSync,
-  readdirSync,
-  readFileSync,
-  readlinkSync,
-  rmSync,
-  statSync,
-  symlinkSync
-} from "node:fs"
 import path from "node:path"
-import { gzipSync } from "node:zlib"
 import { build, type Rolldown } from "vite-plus"
 
-import { kb } from "spell/util/number"
-import { packageRootFor } from "spell/toolchain/sourceNames"
+import { SRV } from "spell/server"
+import { Terminal } from "spell/element-tools/Terminal"
 import { BRAND_ASSETS } from "spell-brand/vite.config.ts"
-
-/** The packs link inside `_assets/ui/`, and where it points (relative, so the repos can move together). */
-const PACKS = path.join(BRAND_ASSETS, "icon-packs")
-const PACKS_TARGET = path.relative(BRAND_ASSETS, path.join(packageFolder("spell-ui"), "src", "icons", "icon-packs"))
 
 /** A Solid package's folder in a module id:  `.../node_modules/solid-js/...`, `.../node_modules/@solidjs/web/...`. */
 const SOLID_MODULE = /node_modules\/(solid-js|@solidjs\/[\w-]+)\//
 
-mkdirSync(BRAND_ASSETS, { recursive: true })
-for (const entry of readdirSync(BRAND_ASSETS)) {
-  if (entry !== "icon-packs") rmSync(path.join(BRAND_ASSETS, entry), { recursive: true, force: true })
-}
+/** What the size report counts:  the scripts and sheets, not the fonts. */
+const COUNTED = /\.(js|css)$/
+
+SRV.Bundle.clearOutput(BRAND_ASSETS)
 const started = performance.now()
 const output = await build({ configFile: path.resolve(import.meta.dirname, "../vite.config.ts") })
 checkOneSolid(output as Rolldown.RolldownOutput)
-// a link left from another layout (`../../../ui/...`, the monorepo's):  re-pointed
-if (isLink(PACKS) && readlinkSync(PACKS) !== PACKS_TARGET) rmSync(PACKS)
-if (!existsSync(PACKS) && !isLink(PACKS)) symlinkSync(PACKS_TARGET, PACKS, "dir")
-if (!statSync(PACKS).isDirectory()) throw new Error(`${PACKS} doesn't lead to the icon packs`)
-report((performance.now() - started) / 1000)
-
-/** The real folder of package `name`, as node finds it from here (the kit's `packageRootFor()`);  throws if it isn't installed. */
-function packageFolder(name: string): string {
-  const folder = packageRootFor(name, import.meta.dirname)
-  if (!folder) throw new Error(`brand build:  ${name} isn't installed (\`yarn install\` in the kit)`)
-  return folder
-}
-
-/** Is `file` a symlink (even a broken one)? */
-function isLink(file: string): boolean {
-  try {
-    return lstatSync(file).isSymbolicLink()
-  } catch {
-    return false
-  }
-}
-
-/** Print the bundle's size:  the entry, the total, the biggest chunks. */
-function report(seconds: number): void {
-  const files = readdirSync(BRAND_ASSETS).filter((file) => file !== "icon-packs" && /\.(js|css)$/.test(file))
-  const sizes = files.map((file) => {
-    const text = readFileSync(path.join(BRAND_ASSETS, file))
-    return { file, raw: text.length, gzip: gzipSync(text).length }
-  })
-  const total = sizes.reduce((sum, size) => sum + size.raw, 0)
-  const gzip = sizes.reduce((sum, size) => sum + size.gzip, 0)
-  console.log(`brand bundle (${seconds.toFixed(1)}s):  ${path.relative(process.cwd(), BRAND_ASSETS)}/`)
-  for (const size of sizes.filter((size) => size.file.startsWith("brand-ui."))) {
-    console.log(`  ${size.file.padEnd(28)} ${kb(size.raw).padStart(10)}  gz ${kb(size.gzip)}`)
-  }
-  console.log(`  all ${files.length} files ${kb(total)} (gz ${kb(gzip)}), icon packs linked`)
-  const biggest = sizes.filter((size) => !size.file.startsWith("brand-ui.")).sort((a, b) => b.raw - a.raw)
-  console.log(
-    `  biggest chunks:  ${biggest
-      .slice(0, 5)
-      .map((size) => `${size.file} ${kb(size.raw)}`)
-      .join(", ")}`
-  )
-}
+SRV.Bundle.linkIconPacks(BRAND_ASSETS)
+const seconds = (performance.now() - started) / 1000
+const entries = ["brand-ui.css", "brand-ui.js"]
+for (const line of SRV.Bundle.sizeReport({ name: "brand", folder: BRAND_ASSETS, seconds, entries, only: COUNTED }))
+  Terminal.out(line)
 
 /** Fails if a Solid package was bundled from more than one folder, or `solid-js` not at all. */
 function checkOneSolid(result: Rolldown.RolldownOutput): void {

@@ -175,9 +175,10 @@ when working with code in this package, `spell-brand`.
     - the ones Spell UI's controls send too keep Spell UI's (`ui-change`, `ui-input`, `ui-copy`),
       so a form and a page hear them the same way
 - `scripts/`:
-  - `build.ts`:  the bundle
+  - `build.ts`:  the bundle, on the kit's `Bundle` steps (`clearOutput()`, `linkIconPacks()`, `sizeReport()`),
+    as Spell UI's site bundle
   - `compare.ts`:  screenshot diffs
-  - `site-data.ts`:  `docs/__data/`
+  - `site-data.ts`:  `docs/__data/`, through Spell UI's `SiteDataBuilder` `set` and the kit's `writeOrCheck()`
   - the claude.ai design bundle (see "The design bundle"):
     - `design-bundle.ts` and its entry (`design-bundle.entry.js`)
     - `design-check.ts`
