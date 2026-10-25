@@ -45,11 +45,11 @@
         }
       </style>
 
-      <ui-segment vertical class="site-masthead">
+      <ui-segment appearance="vertical" class="site-masthead">
         <ui-container>
           <ui-menu icon class="site-page-links" aria-label="About this page">
             <ui-item
-              href="../../spell-brand/src/components/"
+              link="../../spell-brand/src/components/"
               icon="code"
               aria-label="The elements' code"
               title="The elements' code"
@@ -86,7 +86,7 @@
             >
           </ui-list>
 
-          <ui-section id="1-loading-them" label="1. Loading them" sticky collapsible dividing collapsed>
+          <ui-section id="1-loading-them" label="1. Loading them" sticky collapsible dividing open="false">
             <ui-icon slot="icon" name="box open"></ui-icon>
             <ul>
               <li>
@@ -103,7 +103,7 @@
                 (<code>--spell-*</code>) of the <code>spell-brand</code> theme where the page has it.
               </li>
             </ul>
-            <ui-accordion class="spell-code" styled>
+            <ui-accordion class="spell-code" appearance="styled">
               <ui-title>A page with the brand's elements · 4 lines</ui-title>
               <ui-content>
                 <ui-code language="html"
@@ -128,9 +128,9 @@
             </p>
           </ui-section>
 
-          <ui-section id="2-colour" label="2. Colour" sticky collapsible dividing collapsed>
+          <ui-section id="2-colour" label="2. Colour" sticky collapsible dividing open="false">
             <ui-icon slot="icon" name="palette"></ui-icon>
-            <ui-table celled compact striped unstackable>
+            <ui-table celled padding="compact" appearance="striped" unstackable>
               <table>
                 <thead>
                   <tr>
@@ -160,9 +160,9 @@
             </ui-table>
           </ui-section>
 
-          <ui-section id="3-casting" label="3. Casting" sticky collapsible dividing collapsed>
+          <ui-section id="3-casting" label="3. Casting" sticky collapsible dividing open="false">
             <ui-icon slot="icon" name="wand magic sparkles"></ui-icon>
-            <ui-table celled compact striped unstackable>
+            <ui-table celled padding="compact" appearance="striped" unstackable>
               <table>
                 <thead>
                   <tr>
@@ -183,9 +183,9 @@
             </ui-table>
           </ui-section>
 
-          <ui-section id="4-the-apps-pieces" label="4. The app's pieces" sticky collapsible dividing collapsed>
+          <ui-section id="4-the-apps-pieces" label="4. The app's pieces" sticky collapsible dividing open="false">
             <ui-icon slot="icon" name="mobile screen"></ui-icon>
-            <ui-table celled compact striped unstackable>
+            <ui-table celled padding="compact" appearance="striped" unstackable>
               <table>
                 <thead>
                   <tr>
@@ -210,9 +210,9 @@
             </ui-table>
           </ui-section>
 
-          <ui-section id="5-page-art" label="5. Page art" sticky collapsible dividing collapsed>
+          <ui-section id="5-page-art" label="5. Page art" sticky collapsible dividing open="false">
             <ui-icon slot="icon" name="feather"></ui-icon>
-            <ui-table celled compact striped unstackable>
+            <ui-table celled padding="compact" appearance="striped" unstackable>
               <table>
                 <thead>
                   <tr>
@@ -238,7 +238,7 @@
             </ui-table>
           </ui-section>
 
-          <ui-section id="6-specimen" label="6. Specimen" sticky collapsible dividing collapsed>
+          <ui-section id="6-specimen" label="6. Specimen" sticky collapsible dividing open="false">
             <ui-icon slot="icon" name="eye"></ui-icon>
             <p>
               Spell UI's fields in its panels, as the Theme Creator's inspector has them: an info tip, an output,
@@ -261,11 +261,11 @@
                     output="400"
                     description="Which of the 17 steps the base color lands on.  Auto picks the step closest in lightness."
                   >
-                    <ui-button slot="actions" size="mini" circular basic icon="check">Auto</ui-button>
+                    <ui-button slot="actions" size="mini" appearance="circular basic" icon="check">Auto</ui-button>
                     <ui-slider min="0" max="16" value="6" ticked></ui-slider>
                   </ui-field>
                   <ui-field label="Vibrancy" output="100%" description="How colourful the middle steps are.">
-                    <ui-button slot="actions" size="mini" circular basic icon="rotate left">Reset</ui-button>
+                    <ui-button slot="actions" size="mini" appearance="circular basic" icon="rotate left">Reset</ui-button>
                     <ui-slider min="0" max="200" step="20" value="100" ticked></ui-slider>
                   </ui-field>
                 </ui-panel>
@@ -278,7 +278,7 @@
                   <ui-input value="Habit Tracker"></ui-input>
                 </ui-field>
                 <ui-field label="Notifications" inline>
-                  <ui-checkbox type="toggle" selected></ui-checkbox>
+                  <ui-checkbox appearance="toggle" selected></ui-checkbox>
                 </ui-field>
               </ui-panel>
             </div>

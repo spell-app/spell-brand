@@ -83,11 +83,11 @@
         }
       </style>
 
-      <ui-segment vertical class="site-masthead">
+      <ui-segment appearance="vertical" class="site-masthead">
         <ui-container>
           <ui-menu icon class="site-page-links" aria-label="About this page">
             <ui-item
-              href="../../spell-brand/src/components/brand-color-picker/"
+              link="../../spell-brand/src/components/brand-color-picker/"
               icon="code"
               aria-label="Its code"
               title="Its code"
@@ -102,7 +102,7 @@
       </ui-segment>
 
       <ui-container class="site-body">
-        <ui-tabs id="site-tabs" class="site-tabs" history basic appearance="segmented" alignment="fluid" equal>
+        <ui-tabs id="site-tabs" class="site-tabs" history appearance="segmented basic" align="fluid" equal>
           <ui-tab value="examples" label="Examples">
             <ui-section id="examples-types" label="Types" sticky collapsible dividing>
               <ui-section id="examples-types-picker" label="Picker" sticky collapsible dividing>
@@ -121,7 +121,7 @@
                   <ui-popup on="click" position="bottom left" flowing>
                     <brand-color-picker value="#8E96B5" class="brand-docs-popup-picker">
                       <b slot="header">Choose a colour</b>
-                      <ui-button slot="actions" size="mini" basic icon="close" aria-label="Done" data-close></ui-button>
+                      <ui-button slot="actions" size="mini" appearance="basic" icon="close" aria-label="Done" data-close></ui-button>
                       <div class="brand-docs-families">
                         <span>Or start from a family</span>
                         <div>

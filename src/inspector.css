@@ -28,7 +28,7 @@
  *   - Its own `size` scales the menu's text back, as an input's:  leave it off.
  * - A `<ui-menu>` stretches across the panel:  its DOM element is `display: contents`, so it's given a block box
  *   (the menu's own `:host` rule loses to this one, from the outer tree);
- *   `alignment="fluid"` then fills it.
+ *   `align="fluid"` then fills it.
  */
 
 @layer ui.app {

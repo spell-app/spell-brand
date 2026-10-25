@@ -62,11 +62,11 @@
         }
       </style>
 
-      <ui-segment vertical class="site-masthead">
+      <ui-segment appearance="vertical" class="site-masthead">
         <ui-container>
           <ui-menu icon class="site-page-links" aria-label="About this page">
             <ui-item
-              href="../../spell-brand/src/components/brand-composer/"
+              link="../../spell-brand/src/components/brand-composer/"
               icon="code"
               aria-label="Its code"
               title="Its code"
@@ -81,7 +81,7 @@
       </ui-segment>
 
       <ui-container class="site-body">
-        <ui-tabs id="site-tabs" class="site-tabs" history basic appearance="segmented" alignment="fluid" equal>
+        <ui-tabs id="site-tabs" class="site-tabs" history appearance="segmented basic" align="fluid" equal>
           <ui-tab value="examples" label="Examples">
             <ui-section id="examples-types" label="Types" sticky collapsible dividing>
               <ui-section id="examples-types-composer" label="Composer" sticky collapsible dividing>
@@ -164,22 +164,19 @@
                     >
                       <ui-button
                         slot="tools"
-                        basic
-                        circular
+                        appearance="basic circular"
                         data-prompt="Create a habit tracker app with add, done and streaks."
                         >Habit tracker</ui-button
                       >
                       <ui-button
                         slot="tools"
-                        basic
-                        circular
+                        appearance="basic circular"
                         data-prompt="A reading list where members vote on next month’s book."
                         >Book club</ui-button
                       >
                       <ui-button
                         slot="tools"
-                        basic
-                        circular
+                        appearance="basic circular"
                         data-prompt="Guests reply yes, no or maybe, and say what dish they’re bringing."
                         >Dinner RSVP</ui-button
                       >
@@ -228,7 +225,7 @@
               <ui-code language="html">
                 <script type="text/plain">
                   <brand-composer id="spell" size="large" eyebrow="Try a spell" rows="2" hint="">
-                    <ui-button slot="tools" basic circular>Habit tracker</ui-button>
+                    <ui-button slot="tools" appearance="basic circular">Habit tracker</ui-button>
                   </brand-composer>
                 </script>
               </ui-code>

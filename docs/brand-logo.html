@@ -38,11 +38,11 @@
   </head>
   <body class="ui-typography">
     <main id="main" class="site-main" data-toc-header="Brand Logo">
-      <ui-segment vertical class="site-masthead">
+      <ui-segment appearance="vertical" class="site-masthead">
         <ui-container>
           <ui-menu icon class="site-page-links" aria-label="About this page">
             <ui-item
-              href="../../spell-brand/src/components/brand-logo/"
+              link="../../spell-brand/src/components/brand-logo/"
               icon="code"
               aria-label="Its code"
               title="Its code"
@@ -57,7 +57,7 @@
       </ui-segment>
 
       <ui-container class="site-body">
-        <ui-tabs id="site-tabs" class="site-tabs" history basic appearance="segmented" alignment="fluid" equal>
+        <ui-tabs id="site-tabs" class="site-tabs" history appearance="segmented basic" align="fluid" equal>
           <ui-tab value="examples" label="Examples">
             <ui-section id="examples-types" label="Types" sticky collapsible dividing>
               <ui-section id="examples-types-mark" label="Mark" sticky collapsible dividing>
@@ -123,7 +123,7 @@
                 <ui-docs-example
                   description='`tone="current"`:  the logo takes the colour of the text around it, e.g. inside a button, a label or a link.'
                 >
-                  <ui-button primary>
+                  <ui-button color="primary">
                     <brand-logo tone="current" label="" style="--brand-logo-height: 1.25em"></brand-logo>
                     Open Spell
                   </ui-button>

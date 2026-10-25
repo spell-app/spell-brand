@@ -55,7 +55,7 @@ describe("inspector.css:  a <ui-field> in a <ui-panel>", () => {
     const before = box(slider).top
     field.insertAdjacentHTML(
       "afterbegin",
-      `<ui-button slot="actions" size="mini" circular basic icon="rotate left">Reset</ui-button>`
+      `<ui-button slot="actions" size="mini" appearance="circular basic" icon="rotate left">Reset</ui-button>`
     )
     await ElementFixture.settle()
     expect(box(field.querySelector("ui-button")!).height).toBeGreaterThan(20)
@@ -120,7 +120,7 @@ describe("inspector.css:  the controls of an inspector field", () => {
 
   test("draws a slotted segmented menu as the inspector's track, stretched across the field", async () => {
     const field = await inspectorField(`<ui-field label="Corners">
-      <ui-menu appearance="segmented" alignment="fluid" equal link>
+      <ui-menu appearance="segmented" align="fluid" equal>
         <ui-item selected>Sharp</ui-item><ui-item>Soft</ui-item><ui-item>Round</ui-item>
       </ui-menu>
     </ui-field>`)
