@@ -41,8 +41,8 @@ BuiltInPacks.base = ASSETS
 Object.assign(globalThis, { UI, Palette })
 
 void UI.load()
-  .then((ui) => ui.themes.apply("spell-brand"))
-  .catch((error: unknown) => console.error("brand-ui:  the spell-brand theme", error))
+  .then((ui) => ui.themes.apply("spell"))
+  .catch((error: unknown) => console.error("brand-ui:  the spell theme", error))
 defineSite()
 
 // The elements LAST, by `import()`:  a chunked build may run a static import's chunk before this file's own

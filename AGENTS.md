@@ -206,7 +206,7 @@ when working with code in this package, `spell-brand`.
   served, their links root paths).
 - Colours, fonts, radii and shadows come ONLY from the theme's tokens, so dark mode works:
   - `--ui-*`
-  - the brand roles, `--spell-*`:  `spell-brand.css`, "Brand roles"
+  - the brand roles, `--spell-*`:  Spell UI's `spell.css`, "Brand roles"
     - e.g. `--spell-surface-warm`, `--spell-type-eyebrow`
 - Dark mode:  Spell UI's `color-scheme`, never the brand's `data-theme`.
   - i.e. `ui-dark` on `<html>`

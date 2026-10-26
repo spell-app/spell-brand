@@ -25,5 +25,5 @@ import { UI } from "spell-ui"
 export { UI }
 
 void UI.load()
-  .then((ui) => ui.themes.apply("spell-brand"))
-  .catch((error) => console.error("spell-ui:  the spell-brand theme", error))
+  .then((ui) => ui.themes.apply("spell"))
+  .catch((error) => console.error("spell-ui:  the spell theme", error))
