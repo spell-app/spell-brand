@@ -161,7 +161,8 @@
     "engineRoutes": {
       "/packages/brand/components/__pack/": "src/components/__pack",
       "/packages/brand/_assets/": "_assets",
-      "/_brand/assets/": "assets"
+      "/_brand/assets/": "assets",
+      "/spell-brand/_assets/": "_assets"
     }
   },
   "resolutions": {
