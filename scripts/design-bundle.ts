@@ -12,7 +12,7 @@
  *   - `--skip-ui-build`:  neither;  reuse both builds as they are
  * - Exactly ONE of each shared module:
  *   - every `solid-js` / `@solidjs/*` import resolves from UI's root, so a linked package can't bring its own copy
- *   - the brand build's `spell-ui/<entry>` / `spell/element` imports resolve to UI's `dist/` (`core.js` carries
+ *   - the brand build's `ui/<entry>` / `spell/element` imports resolve to UI's `dist/` (`core.js` carries
  *     the kit's element), the modules UI's own elements use:  one `UIComponent`, one `ValueSets`
  *   - checked against the metafile (`checkOneSolid()`, `checkEachFileOnce()`, `checkNoElementSource()`)
  * - Everything inlined:  Claude Design refuses a relative `<script src>` (caveat C6).
@@ -178,7 +178,7 @@ async function bundle(): Promise<string[]> {
 
 /**
  * esbuild plugin wiring the entry to UI's `dist/` and the brand's build:
- * - `spell-ui` ~== `dist/index.js`, `spell-ui/<entry>` ~== `dist/<entry>.js` (mirrors UI's published `exports`),
+ * - `spell-ui` ~== `dist/index.js`, `ui/<entry>` ~== `dist/<entry>.js` (mirrors UI's published `exports`),
  *   the entry's imports and the brand build's alike
  * - `spell-brand/design` ~== `BRAND_DESIGN`;  the `spell/element` it imports ~== `dist/core.js`, which carries it
  * - Not the kit's `sourceNames()`:  every one of our names here is a BUILT file, never source
@@ -234,7 +234,7 @@ function uiDistPath(sub: string): string {
  *   - Each is `register()`ed under each name in the first `UI.load()` callback:  every element `await`s that same
  *     promise before drawing an icon, so the names are in place first.
  *   - `reset()` first:  drop every pack, so the default pack's index is never requested (it can't load here).
- * - Imports `UI` from `spell-ui/core`, the same module `index.js` uses, so this runs BEFORE any family defines
+ * - Imports `UI` from `spell/ui/core`, the same module `index.js` uses, so this runs BEFORE any family defines
  *   (and so upgrades) its elements.
  * - Each file's licence comment is stripped (they're all one text, and `<!--` can't be in the bundle anyway):  the
  *   text goes ONCE into a `/*!` legal comment, which esbuild keeps at the end.
@@ -274,7 +274,7 @@ async function iconsModule(): Promise<string> {
   console.log(`-- icons:  ${svgs.length} SVGs, ${files.size} names`)
   return [
     ...[...licenses].map((text) => `/*! ${text.replaceAll("*/", "* /")} */`),
-    `import { UI } from "spell-ui/core"`,
+    `import { UI } from "spell/ui/core"`,
     `const SHEET = ${JSON.stringify(`<svg xmlns="http://www.w3.org/2000/svg">${svgs.join("")}</svg>`)}`,
     `const NAMES = ${JSON.stringify([...namesOf.values()])}`,
     `UI.load().then((ui) => {`,

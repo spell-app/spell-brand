@@ -1,4 +1,4 @@
-import { E } from "spell-ui/core"
+import { E } from "spell/ui/core"
 
 import { brandComposerVocabulary } from "./BrandComposer.en"
 import { BRAND, DEFAULT_ROWS, ENTER } from "./BrandComposer.types"

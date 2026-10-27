@@ -2,7 +2,7 @@ import { resolve } from "node:path"
 import { defineConfig, type TestProjectConfiguration } from "vite-plus"
 import { playwright } from "vite-plus/test/browser-playwright"
 
-import { baseConfig } from "spell-ui/vite.config.ts"
+import { baseConfig } from "spell/ui/vite.config.ts"
 
 /**
  * vitest config for `spell-brand`, a component pack (`spell pack`):  two projects.
@@ -15,7 +15,7 @@ import { baseConfig } from "spell-ui/vite.config.ts"
  *   - the brand pages' look on Spell UI's elements (`inspector.browser.test.ts`)
  *   - Vitest browser mode + Playwright, chromium
  *   - `baseConfig()`:  Spell UI's plugins (decorators BEFORE Solid), Solid dedupe, Lightning CSS
- *   - the test helpers come from the kit (`spell/test-helpers/...`), Spell UI's own from `spell-ui/test-helpers/...`
+ *   - the test helpers come from the kit (`spell/test-helpers/...`), Spell UI's own from `spell/ui/test-helpers/...`
  */
 /**
  * The tests live in the repo's tests/ folder, at the same paths as the code under `src/`:
@@ -44,8 +44,8 @@ function brandProjects(): TestProjectConfiguration[] {
         name: "browser",
         dir: TESTS,
         include: ["components/**/*.test.{ts,tsx}", BROWSER_SRC],
-        // Spell UI's core first, as a page has it:  its settings for the kit's element (`spell-ui/test-helpers/setup`)
-        setupFiles: ["spell-ui/test-helpers/setup.ts"],
+        // Spell UI's core first, as a page has it:  its settings for the kit's element (`spell/ui/test-helpers/setup`)
+        setupFiles: ["spell/ui/test-helpers/setup.ts"],
         testTimeout: 10_000,
         browser: {
           enabled: true,

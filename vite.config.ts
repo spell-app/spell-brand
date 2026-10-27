@@ -2,7 +2,7 @@ import { defineConfig, type UserConfig } from "vite-plus"
 import { fileURLToPath } from "node:url"
 
 import { fmtConfig, packageLint } from "spell/toolchain/lint"
-import { baseConfig } from "spell-ui/vite.config.ts"
+import { baseConfig } from "spell/ui/vite.config.ts"
 
 /** This repo, spell-brand. */
 const ROOT = fileURLToPath(new URL("./", import.meta.url))
@@ -24,7 +24,7 @@ export const BRAND_ENTRY = `${ROOT}src/brand-ui.ts`
  *   an APP build of one entry, code-split, `base: "./"` so chunk URLs are relative to the chunk that imports them.
  * - An ES module, so a page loads it from the page server, not `file://`
  *   (judgement J4:  a classic script would inline every theme, engine and emoji chunk).
- * - No aliases:  every file is imported by its package name (`spell-brand/components`, `spell-ui/core`), which Vite
+ * - No aliases:  every file is imported by its package name (`spell-brand/components`, `spell/ui/core`), which Vite
  *   finds through each package's `exports` (epic `repo-split` P14).
  * - Also `vp lint` / `vp fmt`:  the toolchain's settings, as the brand's own package's (`packageLint({ name: "brand" })`);
  *   the built bundles (this one, the pack, the design build) are not ours to lint.

@@ -1,7 +1,7 @@
 /* GENERATED -- do not edit:  `spell pack build brand`, from every vocabulary, `<Name>.en.ts` */
 // sources:  eacd88c72463c3a3
 
-import type { RootCatalogEntry } from "spell-ui"
+import type { RootCatalogEntry } from "spell/ui"
 
 /** Every tag of the `brand` pack => what `<ui-root>` needs before its family loads. */
 export const CATALOG: Readonly<Record<string, RootCatalogEntry>> = {

@@ -23,7 +23,7 @@ when working with code in this package, `spell-brand`.
   - the kit holds the ONE install for every repo (no `yarn.lock` here)
   - [its AGENTS.md](../AGENTS.md) has the rules across repos
 - Every file is imported by its package name and its path under `src/` ("Imports", below):
-  the brand's own (`spell-brand/components/brand-color`), and other repos' (`spell/element`, `spell-ui/core`).
+  the brand's own (`spell-brand/components/brand-color`), and other repos' (`spell/element`, `spell/ui/core`).
 - `agents/` (WWOD and the three logs):  a link to the kit's `agents/` (git-ignored here).
   - Every `yarn install` at the kit makes it (its `postinstall`).
 
@@ -38,7 +38,7 @@ when working with code in this package, `spell-brand`.
   - every element, making a copy, its limits
 - A COMPONENT PACK (epic `people-and-orgs` P18, Q26):  its elements are `<brand-*>`.
   - A page loads them through `<ui-root>`, as it loads the epics pack's
-    ([ui's AGENTS.md](../spell-ui/AGENTS.md), "Component packs").
+    ([ui's AGENTS.md](../spell/ui/AGENTS.md), "Component packs").
   - They were `<ui-brand-*>`, Spell UI's prefix, before P18.
   - Made one by `spell pack create brand --prefix brand-`.
   - Its build and check are the kit's pack tooling, which the brand uses as any pack does:
@@ -136,7 +136,7 @@ when working with code in this package, `spell-brand`.
       - `search.json5`:  every page's sections, for the side column's search
       - the editor manifests, VS Code's autocomplete for `<brand-*>`:
         `custom-elements.json`, `html-custom-data.json` and `css-custom-data.json`
-        - the app's VS Code extension (`spell-app/vscode`) builds them in, as `spell-brand.*-custom-data.json`
+        - the app's VS Code extension (`app/vscode`) builds them in, as `spell-brand.*-custom-data.json`
 - `src/` (`spell-brand`, self-namespace `B`):  every file of the package.
   - `Palette`:  the brand's colour math, ported from Claude Design's palette script.
     - its source:  `palette.mjs`, in Claude Design's `lib/`
@@ -155,11 +155,11 @@ when working with code in this package, `spell-brand`.
       the docs set loads Spell UI's site bundle and the pack instead.
 - `src/components/`:  the `<brand-*>` elements, one folder per family.
   - Imported as `spell-brand/components`.
-  - Written exactly like a Spell UI family ([ui's AGENTS.md](../spell-ui/AGENTS.md), "Solid authoring").
+  - Written exactly like a Spell UI family ([ui's AGENTS.md](../spell/ui/AGENTS.md), "Solid authoring").
   - Written on the kit's element:  `import { E } from "spell/element"`.
-    - Spell UI's shared code comes from `spell-ui/core` / `spell-ui/forms`.
+    - Spell UI's shared code comes from `spell/ui/core` / `spell/ui/forms`.
     - A file using Spell UI's own pieces (`E.IconGlyph` ...) imports Spell UI's `E` instead.
-      - `spell-ui/core`'s `E` carries the kit's element's names too
+      - `spell/ui/core`'s `E` carries the kit's element's names too
         ([the element's AGENTS.md](../src/element/AGENTS.md), "Imports").
   - `yarn lint` holds them to it:  the `spell-ui/*` rules (ui's "Solid authoring", "The lint guard").
   - Generic ones move into Spell UI later (epic decision D2).
@@ -211,7 +211,7 @@ when working with code in this package, `spell-brand`.
 - Dark mode:  Spell UI's `color-scheme`, never the brand's `data-theme`.
   - i.e. `ui-dark` on `<html>`
 - Anything the theme can't do:  the epic page's "What the theme can't do today" table, and an issue.
-- Spell UI's "UI rules" ([ui's AGENTS.md](../spell-ui/AGENTS.md))
+- Spell UI's "UI rules" ([ui's AGENTS.md](../spell/ui/AGENTS.md))
   apply to the pages and the `<brand-*>` elements too.
   - e.g. numeric fields right-aligned against their unit
 
@@ -253,7 +253,7 @@ when working with code in this package, `spell-brand`.
     - the elements
     - the `*.browser.test.ts` files:  the inspector's look
     - with the kit's test helpers:  `spell/test-helpers/ElementFixture`, `spell/test-helpers/A11y`;
-      Spell UI's own, `spell-ui/test-helpers/MemberClashes`, and its setup
+      Spell UI's own, `spell/ui/test-helpers/MemberClashes`, and its setup
   - The kit's `yarn test` runs this repo's `yarn test`, after the repos below it.
 - `yarn ts`, `yarn lint`, `yarn format`, `yarn review`.
 
@@ -296,7 +296,7 @@ ONE classic script of Spell UI, the `<brand-*>` elements and the `spell-brand` t
       - The readers:  `FamilyTokens`, `ComponentTokens`.
     - The brand's are `--brand-*` since P18 (people-and-orgs issue, at P18).
 - The claude.ai design system shows each family as a card in its "Brand" group
-  ([DesignBrand.ts](../spell-ui/src/tools/DesignBrand.ts), epic `claude-design` P11).
+  ([DesignBrand.ts](../spell/ui/src/tools/DesignBrand.ts), epic `claude-design` P11).
   - Spell UI reads this folder only where it's GIVEN it:
     `yarn design:build --brand <folder>`, which `spell design build` passes (epic `repo-split` P5).
   - its API:  from `components.json5` in `docs/__data/`
@@ -305,7 +305,7 @@ ONE classic script of Spell UI, the `<brand-*>` elements and the `spell-brand` t
   - So an example there must work on its own:  no page script, no file to load.
 
 - The inspector panel is Spell UI's now:  `<ui-panel>`, a `<ui-section>` subclass.
-  - Its source:  [ui-panel](../spell-ui/src/components/ui-panel/), moved from `<ui-brand-panel>` 2026-10-05.
+  - Its source:  [ui-panel](../spell/ui/src/components/ui-panel/), moved from `<ui-brand-panel>` 2026-10-05.
   - Its docs page is Spell UI's:  `/components/ui/ui-panel.html`.
   - Its tokens are `--ui-panel-*`.
   - `color="accent"` works on the brand pages:  [hues.ts](src/hues.ts) + `spell-brand`.
@@ -364,34 +364,34 @@ As WWOD §4, plus:
   - esbuild (the design bundle) reads none of the brand's names through them:
     its own resolver sends each of its imports to a built file.
 - Spell UI and the kit by the same names, entries of their `exports`:
-  - `spell-ui/core` (and `spell-ui/forms`):
+  - `spell/ui/core` (and `spell/ui/forms`):
     Spell UI's half of the element authoring API, beside `spell/element`'s.
     - Imported as a `ui` family imports it, through its namespaces:
 
       ```ts
-      import { E, UI, UIT } from "spell-ui/core"
-      import { F } from "spell-ui/forms"
+      import { E, UI, UIT } from "spell/ui/core"
+      import { F } from "spell/ui/forms"
       ```
 
     - then `E.IconGlyph`, `UI.browser`, `F.FormComponent` ...
     - `E.UIComponent` and `@E.state` are the kit's element's.
       - A file that needs nothing more takes `E` from `spell/element`.
   - the bundle entries (`src/`), as Spell UI's site entry does:
-    - `spell-ui/runtime`, `spell-ui/icons`, `spell-ui/styles`
-    - its stylesheet, `spell-ui/styles/ui.css`
+    - `spell/ui/runtime`, `spell/ui/icons`, `spell/ui/styles`
+    - its stylesheet, `spell/ui/styles/ui.css`
   - [site-data.ts](scripts/site-data.ts):  Spell UI's site-data tools, and the site data's types
-    - `spell-ui/tools/SiteDataBuilder`
-    - `spell-ui/tools/SiteSearchBuilder`
-    - `spell-ui/tools/ElementManifests`
-    - `spell-ui/docs-components/docs-components.types`
-  - `spell-ui/test-helpers/...` (`MemberClashes`, `setup.ts`), in tests
+    - `spell/ui/tools/SiteDataBuilder`
+    - `spell/ui/tools/SiteSearchBuilder`
+    - `spell/ui/tools/ElementManifests`
+    - `spell/ui/docs-components/docs-components.types`
+  - `spell/ui/test-helpers/...` (`MemberClashes`, `setup.ts`), in tests
     - the generic helpers are the kit's:  `spell/test-helpers/...`
 - NEVER the other way:  `ui` imports nothing of `brand`.
   - Its design export (`DesignBrand`) READS the docs set's `components.json5` and its pages, as data.
 - The pack's script may import only what a page shares (`PACK_MODULES` in the kit's
   [pack modules](../src/element-tools/packModules.ts), each by the name the source imports it by):
   - `spell/element`
-  - `spell-ui/core` and `spell-ui/forms`
+  - `spell/ui/core` and `spell/ui/forms`
   - Solid
   - the brand's own files (`spell-brand/...`) are bundled into it
 

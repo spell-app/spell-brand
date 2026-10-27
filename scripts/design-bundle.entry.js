@@ -20,7 +20,7 @@
 
 import "spell-ui:icons"
 import "spell-brand/design"
-import { UI } from "spell-ui"
+import { UI } from "spell/ui"
 
 export { UI }
 

@@ -15,7 +15,7 @@ Spell's brand in code:
 </ui-root>
 ```
 
-The page must load Spell UI's [docs bundle](../spell-epic/src/tools/_assets/spell-ui.js), or a set's site bundle, first:
+The page must load Spell UI's [docs bundle](../spell/epic/src/tools/_assets/spell-ui.js), or a set's site bundle, first:
 - the pack registers there (`SpellUI.registerPack()`)
 - and takes Solid and Spell UI's shared code from it (`SpellUI.packModules`)
 
@@ -41,7 +41,7 @@ If you find yourself writing a second copy of any of these, stop and reuse.
 - the brand's logo, fonts and reference images:  [`assets/`](assets/)
 - the docs data, in [site-data.ts](scripts/site-data.ts):  Spell UI's builders
   - `SiteDataBuilder`, `SiteSearchBuilder`, `ElementManifests`
-- the element authoring API:  `spell/element`, and Spell UI's `spell-ui/core`
+- the element authoring API:  `spell/element`, and Spell UI's `spell/ui/core`
 - the brand's colour math:  [`Palette`](src/Palette.ts)
 
 ## Files

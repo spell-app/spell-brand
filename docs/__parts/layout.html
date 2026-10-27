@@ -1,11 +1,11 @@
 <!doctype html>
 <!--
-  Brand UI's LAYOUT:  every page's chrome, written ONCE, as Epic UI's (`spell-epic/src/docs/__parts/layout.html`, which
+  Brand UI's LAYOUT:  every page's chrome, written ONCE, as Epic UI's (`epic/src/docs/__parts/layout.html`, which
   this copies, as it copies Spell UI's).
   - Brand UI is the docs set of the `<brand-*>` elements, a component pack (epic `people-and-orgs` P18), served at
     `/components/brand/` by the kit's page server (its `componentSets` setting, in this repo's `package.json`), with
     Spell UI's site bundle laid over it at `_assets/`:  so the bundle takes `/components/brand/` as its site's root, and
-    mounts THIS layout around each page's `main` (`spell-ui/site/_src/SiteShell.ts`), then swaps only the `main`
+    mounts THIS layout around each page's `main` (`ui/site/_src/SiteShell.ts`), then swaps only the `main`
     (`SiteRouter.ts`).
   - Relative URLs here are against THIS file AS SERVED (`/components/brand/__parts/`):  `../../..` is the checkout's
     root, at `/worktrees/<w>/components/brand/` too.  The shell makes them absolute as it mounts.

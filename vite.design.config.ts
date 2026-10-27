@@ -1,7 +1,7 @@
 import { defineConfig, type UserConfig } from "vite-plus"
 import { fileURLToPath } from "node:url"
 
-import { baseConfig, SOLID_EXTERNAL } from "spell-ui/vite.config.ts"
+import { baseConfig, SOLID_EXTERNAL } from "spell/ui/vite.config.ts"
 
 /** This repo, spell-brand. */
 const ROOT = fileURLToPath(new URL("./", import.meta.url))
@@ -16,7 +16,7 @@ export const DESIGN_OUT = `${ROOT}dist`
  * - Why a build of its own, not `src/` straight into that bundle:  the elements are Solid JSX, which only the Solid
  *   compiler (`baseConfig()`'s plugins) turns into code;  esbuild, which makes the bundle, can't.
  * - Spell UI, the kit's element and Solid stay EXTERNAL, by the names the elements import them by
- *   (`spell-ui/core`, `spell/element`):  the design bundle resolves `spell-ui/core` / `spell-ui/forms` to Spell UI's
+ *   (`spell/ui/core`, `spell/element`):  the design bundle resolves `spell/ui/core` / `spell/ui/forms` to Spell UI's
  *   `dist/core.js` / `dist/forms.js`, and `spell/element` to `dist/core.js` (which carries it), the same modules
  *   its own elements use, so there's ONE `UIComponent`, one `ValueSets` (the `accent` hue reaches every element) and
  *   one Solid.

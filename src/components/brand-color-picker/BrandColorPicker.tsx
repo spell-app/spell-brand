@@ -2,8 +2,8 @@ import { For, Show } from "solid-js"
 import type { JSX } from "@solidjs/web"
 
 import { clamp } from "spell/util/number"
-import { E } from "spell-ui/core"
-import { F } from "spell-ui/forms"
+import { E } from "spell/ui/core"
+import { F } from "spell/ui/forms"
 import { Palette, type Hsl, type Oklch } from "spell-brand"
 
 import { brandColorPickerVocabulary } from "./BrandColorPicker.en"

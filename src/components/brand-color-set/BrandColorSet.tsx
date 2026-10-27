@@ -1,6 +1,6 @@
 import type { JSX } from "@solidjs/web"
 
-import { E, UIT } from "spell-ui/core"
+import { E, UIT } from "spell/ui/core"
 import { Palette } from "spell-brand"
 import { DOMBrandColorElement } from "spell-brand/components/brand-color"
 

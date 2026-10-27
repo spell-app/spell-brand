@@ -1,0 +1,4 @@
+// spell-brand's epic settings (epic `epic-engine` Q51 A):  ONE key, the kit beside it, whose settings it shares.
+// - spell-brand is a project of its own beside the kit (`~/www/spell-brand`, beside `~/www/spell`), using `spell` as
+//   any other project would (epic `repo-split` P20);  its work is its own `/isolate`, in this repo (Q50 D).
+{ "top": "../spell" }

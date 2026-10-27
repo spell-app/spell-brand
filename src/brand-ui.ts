@@ -25,11 +25,11 @@
  * - `window.Palette`:  the brand's colour math (`spell-brand`), for the pages' own scripts.
  */
 import "./hues"
-import "spell-ui/styles/ui.css"
+import "spell/ui/styles/ui.css"
 import "./inspector.css"
 
-import { BuiltInPacks } from "spell-ui/icons"
-import { UI } from "spell-ui/runtime"
+import { BuiltInPacks } from "spell/ui/icons"
+import { UI } from "spell/ui/runtime"
 import { defineSite } from "spell/server/site"
 import { Palette } from "spell-brand"
 
@@ -47,5 +47,5 @@ defineSite()
 
 // The elements LAST, by `import()`:  a chunked build may run a static import's chunk before this file's own
 // imports (`./hues`), and an element upgraded before `accent` is a hue drops `color="accent"` (issue I17)
-await import("spell-ui")
+await import("spell/ui")
 await import("spell-brand/components")

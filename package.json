@@ -109,10 +109,11 @@
     "/////// TESTING": "",
     "test": "echo '>>>>>>>>>>>\n>> RUNNING TESTS' && vp test run && echo '<< TESTS PASSED\n'",
     "pack:build": "spell-pack build",
-    "pack:check": "spell-pack check"
+    "pack:check": "spell-pack check",
+    "postinstall": "node scripts/links.mjs"
   },
   "dependencies": {
-    "spell": "workspace:*"
+    "spell": "portal:../spell"
   },
   "devDependencies": {
     "@solidjs/web": "2.0.0-rc.17",
@@ -120,8 +121,7 @@
     "esbuild": "^0.28.2",
     "playwright": "1.63.0",
     "solid-js": "2.0.0-rc.17",
-    "spell-ui": "workspace:*",
-    "tsx": "^4.23.15",
+    "tsx": "4.20.3",
     "typescript": "^7.0.2",
     "vite": "catalog:",
     "vite-plus": "catalog:"
@@ -152,7 +152,7 @@
       "brand": {
         "name": "Brand",
         "dir": "docs",
-        "assets": "../spell-ui/site/_assets"
+        "assets": "node_modules/spell/ui/site/_assets"
       }
     },
     "engineRoutes": {
@@ -160,5 +160,16 @@
       "/packages/brand/_assets/": "_assets",
       "/_brand/assets/": "assets"
     }
+  },
+  "resolutions": {
+    "@solidjs/babel-plugin": "2.0.0-rc.17",
+    "@solidjs/compiler": "2.0.0-rc.17",
+    "@solidjs/h": "2.0.0-rc.17",
+    "@solidjs/signals": "2.0.0-rc.17",
+    "@solidjs/web": "2.0.0-rc.17",
+    "axe-core": "4.13.0",
+    "solid-js": "2.0.0-rc.17",
+    "vite": "npm:@voidzero-dev/vite-plus-core@1.0.0",
+    "vitest": "5.0.1"
   }
 }

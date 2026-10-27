@@ -3,7 +3,7 @@ import { describe, expect, test } from "vite-plus/test"
 import { ElementFixture } from "spell/test-helpers/ElementFixture"
 
 // every Spell UI family the fields hold (`<ui-panel>`, `<ui-menu>`, `<ui-input>` ...), as the brand bundle loads them
-import "spell-ui"
+import "spell/ui"
 import "spell-brand/components"
 import "spell-brand/inspector.css"
 
