@@ -371,4 +371,18 @@ describe("<brand-composer> form", () => {
     ])
     expect(submitted).toEqual(["Book club"])
   })
+
+  it("its fallback still validates `required`:  a broken render never passes an empty spell as valid", async () => {
+    const form = await ElementFixture.render<HTMLFormElement>(
+      `<form><brand-composer name="spell" required></brand-composer></form>`
+    )
+    const host = form.querySelector<ComposerDOMElement & DOMElement>("brand-composer")!
+    await ElementFixture.breakRender(host)
+    expect(form.checkValidity()).toBe(false)
+    const control = host.shadowRoot!.querySelector<HTMLTextAreaElement>("textarea")!
+    control.value = "Book club"
+    control.dispatchEvent(new Event("input", { bubbles: true }))
+    expect(form.checkValidity()).toBe(true)
+    expect(new FormData(form).get("spell")).toBe("Book club")
+  })
 })
