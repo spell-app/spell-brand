@@ -301,7 +301,7 @@ ONE classic script of Spell UI, the `<brand-*>` elements and the `spell-brand` t
     `yarn design:build --brand <folder>`, which `spell design build` passes (epic `repo-split` P5).
   - its API:  from `components.json5` in `docs/__data/`
   - its examples:  from its docs page's Examples tab
-    - each `<ui-docs-example>`, titled by its section, with the page's own styles
+    - each `<ui-example>`, titled by its section, with the page's own styles
   - So an example there must work on its own:  no page script, no file to load.
 
 - The inspector panel is Spell UI's now:  `<ui-panel>`, a `<ui-section>` subclass.
