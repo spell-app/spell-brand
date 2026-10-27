@@ -27,7 +27,7 @@ export class BrandColorPickerFallback extends E.NativeFallback<typeof brandColor
     "vetoing by re-setting `value`, form reset"
   ]
 
-  /** The colour input, for `attached()`. */
+  /** The colour input, for `sync()`. */
   private input?: HTMLInputElement
 
   protected override build() {
@@ -52,11 +52,6 @@ export class BrandColorPickerFallback extends E.NativeFallback<typeof brandColor
     return [this.create("div", { class: this.classes(BRAND_COLOR), part: "picker" }, input)]
   }
 
-  /** The first form value, which needs the input built. */
-  protected override attached() {
-    this.sync()
-  }
-
   /** The input changed:  update the DOM element and its form value, and send event `name`. */
   private changed(originalEvent: Event, name: E.EventName<typeof brandColorPickerVocabulary>) {
     const value = this.input!.value.toUpperCase()
@@ -65,8 +60,9 @@ export class BrandColorPickerFallback extends E.NativeFallback<typeof brandColor
     this.send(name, { value, originalEvent })
   }
 
-  /** Set the DOM element's form value to the colour. */
-  private sync() {
-    this.formInternals?.setFormValue(this.input!.value.toUpperCase())
+  /** The colour, upper-cased, and the input's validity (a colour input always holds one). */
+  protected override sync() {
+    const { input } = this
+    if (input) this.syncForm({ value: input.value.toUpperCase(), control: input })
   }
 }

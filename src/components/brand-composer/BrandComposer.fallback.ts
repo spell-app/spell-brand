@@ -10,8 +10,8 @@ import { BRAND, DEFAULT_ROWS, ENTER } from "./BrandComposer.types"
  *
  * - Its shadow DOM:  a native `<textarea part="textarea">` and a `<button part="cast">Cast spell</button>`,
  *   in the root (`<div class="composer brand" part="composer">`).
- * - Still a form control:  typing sets `domElement.value` and the DOM element's form value,
- *   and sends a composed `ui-typed`;  leaving the box edited sends `ui-changed`.
+ * - Still a form control:  typing sets `domElement.value` and the DOM element's form value and validity
+ *   (`required`), and sends a composed `ui-typed`;  leaving the box edited sends `ui-changed`.
  * - Still casts:  the button or Cmd / Ctrl+Enter send a cancelable `brand-cast` (not with blank text),
  *   then submit the form.
  * - Its starting value is the DOM element's `value` PROPERTY, else its attribute.
@@ -27,7 +27,7 @@ export class BrandComposerFallback extends E.NativeFallback<typeof brandComposer
     "vetoing by re-setting `value`, form reset of the value"
   ]
 
-  /** The text box, for `attached()` and the handlers. */
+  /** The text box, for `sync()` and the handlers. */
   private control?: HTMLTextAreaElement
 
   protected override build() {
@@ -36,6 +36,7 @@ export class BrandComposerFallback extends E.NativeFallback<typeof brandComposer
     const control = this.create("textarea", {
       rows: this.attr("rows") ?? String(DEFAULT_ROWS),
       placeholder: this.attr("placeholder") ?? "Describe what you want to build…",
+      required: this.flag("required"),
       disabled,
       readonly: this.flag("readonly"),
       "aria-label": this.attr("label") || this.attr("eyebrow") || "Your spell"
@@ -60,11 +61,6 @@ export class BrandComposerFallback extends E.NativeFallback<typeof brandComposer
     return [this.create("div", { class: this.classes(BRAND), part: "composer" }, control, button)]
   }
 
-  /** The first form value, which needs the text box built. */
-  protected override attached() {
-    this.sync()
-  }
-
   /** Cast:  `brand-cast` (cancelable), then the form's submit;  never with blank text. */
   private cast(originalEvent: Event) {
     const value = this.control!.value
@@ -77,8 +73,9 @@ export class BrandComposerFallback extends E.NativeFallback<typeof brandComposer
     this.send(name, { value: this.control!.value, originalEvent })
   }
 
-  /** Set the DOM element's form value to the text. */
-  private sync() {
-    this.formInternals?.setFormValue(this.control!.value)
+  /** The text, and the text box's validity (`required`). */
+  protected override sync() {
+    const { control } = this
+    if (control) this.syncForm({ value: control.value, control })
   }
 }

@@ -17,10 +17,10 @@ SpellUI.registerPack({
     "brand-blob": "6b264cee09e5e854",
     "brand-checklist": "e3955bd24b3cf58e",
     "brand-color": "1df7f252c168d32b",
-    "brand-color-picker": "35cbec46e0fbd905",
+    "brand-color-picker": "1e658e0ec8c8e94f",
     "brand-color-range": "1186ba1b1989b070",
     "brand-color-set": "dd60f532381e69ba",
-    "brand-composer": "fd50d5f1884de51c",
+    "brand-composer": "da3672289e00a3f0",
     "brand-flourish": "1779a045779a3765",
     "brand-logo": "8a819b74a10b535b",
     "brand-phone": "1b9f860eea394bdc"
