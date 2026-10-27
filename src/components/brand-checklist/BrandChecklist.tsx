@@ -49,9 +49,6 @@ export class BrandChecklist extends E.UIComponent<BrandChecklistVocabulary> impl
   /** The checks' DOM elements among the children (upgraded or not);  notifies on every write. */
   @E.state({ equals: false }) accessor checks: readonly E.DOMElement[] = this.readChecks()
 
-  /** A check re-read is queued. */
-  private refreshQueued = false
-
   /**
    * `ChecklistOwner`:  how `check` shows.  Tracked.
    * - SIDE EFFECT:  a check not among the children read so far (it upgraded later) queues a re-read.
@@ -72,16 +69,14 @@ export class BrandChecklist extends E.UIComponent<BrandChecklistVocabulary> impl
   }
 
   /**
-   * Queue `refreshChecks()` once:  it writes `checks`, so never from the tracked scope that asked
-   * (a check's `checkState()` call, which reads `checks`).
+   * `refreshChecks()` once after Solid's update, however often asked:  it writes `checks`, so never from the
+   * tracked scope that asked (a check's `checkState()` call, which reads `checks`).
    */
+  private readonly checkRefresh = new E.Queued({ when: E.afterSolidUpdate, run: () => this.refreshChecks() })
+
+  /** Queue `refreshChecks()`. */
   private queueRefresh() {
-    if (this.refreshQueued) return
-    this.refreshQueued = true
-    E.afterSolidUpdate(() => {
-      this.refreshQueued = false
-      this.refreshChecks()
-    })
+    this.checkRefresh.ask()
   }
 
   /** The check children, in order, upgraded or not. */

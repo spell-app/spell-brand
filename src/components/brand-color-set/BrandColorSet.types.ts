@@ -14,9 +14,6 @@ export const CHIP_TAG = "brand-color"
 /** Chip attributes a set reads:  what keys it (`name`, `value`), and what it starts chosen (`selected`). */
 export const CHIP_ATTRIBUTES = ["name", "value", "selected"] as const
 
-/** Keys that move between chips, by step;  horizontal ones run backwards right-to-left. */
-export const ARROWS: Readonly<Record<string, -1 | 1>> = { ArrowLeft: -1, ArrowUp: -1, ArrowRight: 1, ArrowDown: 1 }
-
 /** Keys that choose the focused chip. */
 export const CHOOSE_KEYS = new Set(["Enter", " "])
 

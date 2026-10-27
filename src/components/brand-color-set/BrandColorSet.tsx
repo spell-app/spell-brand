@@ -1,12 +1,11 @@
 import type { JSX } from "@solidjs/web"
 
-import { E, UIT } from "spell-ui/core"
+import { E, UI } from "spell-ui/core"
 import { Palette } from "spell-brand"
 import { DOMBrandColorElement } from "spell-brand/components/brand-color"
 
 import { brandColorSetVocabulary } from "./BrandColorSet.en"
 import {
-  ARROWS,
   CHIP_ATTRIBUTES,
   CHIP_TAG,
   CHOOSE_KEYS,
@@ -183,17 +182,28 @@ export class BrandColorSet extends E.UIComponent<BrandColorSetVocabulary> {
     if (index >= 0) this.choose(index, event)
   }
 
-  /** The radio group's keys (`selectable`):  arrows, Home / End, Enter / Space. */
+  /**
+   * The radio group's keys (`selectable`):  Enter / Space choose;  the arrows, Home and End move and choose,
+   * as in every Spell UI radio group (`UI.focus.arrowKey()`:  wrapping, left / right swapped right-to-left).
+   */
   @E.on("keydown")
   protected onKeyDown(event: KeyboardEvent) {
     if (!this.selectable || event.altKey || event.ctrlKey || event.metaKey) return
     const index = this.indexOf(event)
     if (index < 0) return
-    const count = this.chips.length
-    const target = this.keyTarget(event, index, count)
-    if (target === undefined) return
-    event.preventDefault()
-    this.choose(target, event)
+    if (CHOOSE_KEYS.has(event.key)) {
+      event.preventDefault()
+      this.choose(index, event)
+      return
+    }
+    UI.focus.arrowKey(event, {
+      container: this.domElement,
+      items: () => this.chips.map(({ chip }) => chip),
+      orientation: "both",
+      // the chosen chip is the Tab stop, drawn by `syncChips()`
+      tabindex: "left alone",
+      onChange: (_chip, target) => this.choose(target, event)
+    })
   }
 
   /** Index of the chip `event` happened in, else `-1`. */
@@ -201,19 +211,6 @@ export class BrandColorSet extends E.UIComponent<BrandColorSetVocabulary> {
   private indexOf(event: Event): number {
     const path = event.composedPath()
     return this.chips.findIndex(({ chip }) => path.includes(chip))
-  }
-
-  /** Where key `event` goes from chip `index` of `count`, or `undefined` for a key the group doesn't take. */
-  private keyTarget(event: KeyboardEvent, index: number, count: number): number | undefined {
-    const { key } = event
-    if (key === UIT.Key.home) return 0
-    if (key === UIT.Key.end) return count - 1
-    if (CHOOSE_KEYS.has(key)) return index
-    let step = ARROWS[key]
-    if (!step || event.shiftKey) return undefined
-    const horizontal = key === "ArrowLeft" || key === "ArrowRight"
-    if (horizontal && getComputedStyle(this.domElement).direction === "rtl") step = step === 1 ? -1 : 1
-    return (index + step + count) % count
   }
 
   /** What chip `chip` is chosen as:  its `name`, else its colour. */
