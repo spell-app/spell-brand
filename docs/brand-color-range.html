@@ -60,33 +60,33 @@
           <ui-tab value="examples" label="Examples">
             <ui-section id="examples-types" label="Types" sticky collapsible dividing>
               <ui-section id="examples-types-ladder" label="Ladder" sticky collapsible dividing>
-                <ui-docs-example
+                <ui-example
                   description="House of Owen, the brand's neutral, at 500:  17 shades, the base colour's ringed.  `name` names the chips `brand-25` ... `brand-975`;  `contrast` marks the shades text reads clearly on."
                 >
                   <brand-color-range value="#8E96B5" anchor="500" name="brand" contrast></brand-color-range>
-                </ui-docs-example>
+                </ui-example>
               </ui-section>
 
               <ui-section id="examples-types-anchored" label="Anchored" sticky collapsible dividing>
-                <ui-docs-example
+                <ui-example
                   description="Spell Purple sits at 600 (`anchor`), with Aubergine at 925, as the brand's violet set.  The base colour lands EXACTLY on its step."
                 >
                   <brand-color-range value="#6550CA" anchor="600" name="violet" contrast></brand-color-range>
-                </ui-docs-example>
+                </ui-example>
               </ui-section>
 
               <ui-section id="examples-types-auto" label="Auto anchor" sticky collapsible dividing>
-                <ui-docs-example
+                <ui-example
                   description='`anchor="auto"` (the default) puts the base colour on the step nearest its lightness:  Polished Ivory lands on 150.'
                 >
                   <brand-color-range value="#F1E7D4" name="accent" contrast></brand-color-range>
-                </ui-docs-example>
+                </ui-example>
               </ui-section>
             </ui-section>
 
             <ui-section id="examples-content" label="Content" sticky collapsible dividing>
               <ui-section id="examples-content-details" label="Details and copy" sticky collapsible dividing>
-                <ui-docs-example
+                <ui-example
                   description='`details` gives every chip its tip (token, hex, OKLCH, contrast);  `copy="token"` copies `var(--violet-600)` on a click.'
                 >
                   <brand-color-range
@@ -97,19 +97,19 @@
                     details
                     copy="token"
                   ></brand-color-range>
-                </ui-docs-example>
+                </ui-example>
               </ui-section>
 
               <ui-section id="examples-content-labels" label="Labels" sticky collapsible dividing>
-                <ui-docs-example
+                <ui-example
                   description="`label` puts text in every chip, as `<brand-color label>`:  here the hex."
                 >
                   <brand-color-range value="#00B9A6" anchor="500" name="teal" label="hex"></brand-color-range>
-                </ui-docs-example>
+                </ui-example>
               </ui-section>
 
               <ui-section id="examples-content-numbers" label="Numbers" sticky collapsible dividing>
-                <ui-docs-example
+                <ui-example
                   description='`numbers="none"`:  no step numbers under the chips, nor their row.  For a page that stacks many ladders and numbers them once, in a header row, as the Color Palette page does;  each chip&apos;s name still says its step.'
                 >
                   <div style="display: grid; gap: 0.5em">
@@ -117,13 +117,13 @@
                     <brand-color-range value="#6550CA" anchor="600" name="violet" numbers="none"></brand-color-range>
                     <brand-color-range value="#00B9A6" anchor="500" name="teal" numbers="none"></brand-color-range>
                   </div>
-                </ui-docs-example>
+                </ui-example>
               </ui-section>
             </ui-section>
 
             <ui-section id="examples-variations" label="Variations" sticky collapsible dividing>
               <ui-section id="examples-variations-vibrancy" label="Vibrancy" sticky collapsible dividing>
-                <ui-docs-example
+                <ui-example
                   description="`vibrancy`:  percent of the base colour's colourfulness.  The same Spell Purple at 40%, 100% and 160%."
                 >
                   <div style="display: grid; gap: 1em">
@@ -131,29 +131,29 @@
                     <brand-color-range value="#6550CA" anchor="600"></brand-color-range>
                     <brand-color-range value="#6550CA" anchor="600" vibrancy="160"></brand-color-range>
                   </div>
-                </ui-docs-example>
+                </ui-example>
               </ui-section>
 
               <ui-section id="examples-variations-hue-shift" label="Hue shift" sticky collapsible dividing>
-                <ui-docs-example
+                <ui-example
                   description="`hue-shift`:  degrees the hue drifts toward the dark end.  Teal drifting toward green (-60°) and toward blue (+60°)."
                 >
                   <div style="display: grid; gap: 1em">
                     <brand-color-range value="#00B9A6" anchor="500" hue-shift="-60"></brand-color-range>
                     <brand-color-range value="#00B9A6" anchor="500" hue-shift="60"></brand-color-range>
                   </div>
-                </ui-docs-example>
+                </ui-example>
               </ui-section>
 
               <ui-section id="examples-variations-strip" label="Strip" sticky collapsible dividing>
-                <ui-docs-example
+                <ui-example
                   description="`strip`:  17 small dots, as the Chooser's Variants header shows the ladder while folded."
                 >
                   <div style="display: grid; gap: 0.5em">
                     <brand-color-range value="#8E96B5" anchor="500" name="brand" strip></brand-color-range>
                     <brand-color-range value="#6550CA" anchor="600" name="violet" strip></brand-color-range>
                   </div>
-                </ui-docs-example>
+                </ui-example>
               </ui-section>
             </ui-section>
           </ui-tab>

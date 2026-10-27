@@ -106,15 +106,15 @@
           <ui-tab value="examples" label="Examples">
             <ui-section id="examples-types" label="Types" sticky collapsible dividing>
               <ui-section id="examples-types-picker" label="Picker" sticky collapsible dividing>
-                <ui-docs-example
+                <ui-example
                   description="The HSL square shows every saturation (right) and lightness (up) of the current hue.  Drag the marker, slide the hue, or type HSL, a hex or OKLCH;  each row's button copies that format."
                 >
                   <brand-color-picker value="#6550CA" class="brand-docs-panel"></brand-color-picker>
-                </ui-docs-example>
+                </ui-example>
               </ui-section>
 
               <ui-section id="examples-types-in-a-popup" label="In a popup" sticky collapsible dividing>
-                <ui-docs-example
+                <ui-example
                   description='Not a popover itself:  put it in a `<ui-popup on="click">` (or a `<dialog>`).  `slot="header"` takes the title, `slot="actions"` a close button;  the default slot, family chips.'
                 >
                   <ui-button>Choose a colour</ui-button>
@@ -146,11 +146,11 @@
                       </div>
                     </brand-color-picker>
                   </ui-popup>
-                </ui-docs-example>
+                </ui-example>
               </ui-section>
 
               <ui-section id="examples-types-in-a-panel" label="In a panel" sticky collapsible dividing>
-                <ui-docs-example
+                <ui-example
                   description="In the brand's inspector:  a `<ui-field>` labels it (and names it for screen readers), inside a `<ui-panel>`."
                 >
                   <ui-panel label="Color Set" color="accent" class="brand-docs-panel">
@@ -161,13 +161,13 @@
                       <brand-color-picker value="#14A39A" name="base"></brand-color-picker>
                     </ui-field>
                   </ui-panel>
-                </ui-docs-example>
+                </ui-example>
               </ui-section>
             </ui-section>
 
             <ui-section id="examples-content" label="Content" sticky collapsible dividing>
               <ui-section id="examples-content-families" label="Families" sticky collapsible dividing>
-                <ui-docs-example
+                <ui-example
                   description="The default slot sits under the rows:  here, chips that set `value` when clicked."
                 >
                   <brand-color-picker value="#E8436A" class="brand-docs-panel">
@@ -187,32 +187,32 @@
                       </div>
                     </div>
                   </brand-color-picker>
-                </ui-docs-example>
+                </ui-example>
               </ui-section>
             </ui-section>
 
             <ui-section id="examples-states" label="States" sticky collapsible dividing>
               <ui-section id="examples-states-copy-any-format" label="Copy any format" sticky collapsible dividing>
-                <ui-docs-example
+                <ui-example
                   description="Each row's button copies its format:  `hsl(250 54% 55%)` (as the row shows it), `#6550CA`, or `oklch(52.0% 0.181 286)`.  It shows a check for a moment (`:state(copied)`), announces what it copied, and dispatches `ui-copied` `{ value, format }`:  the line under the picker listens."
                 >
                   <brand-color-picker value="#6550CA" class="brand-docs-panel"></brand-color-picker>
                   <p class="brand-docs-copy-log" data-copy-log>Copy a row to see its <code>ui-copied</code> here.</p>
-                </ui-docs-example>
+                </ui-example>
               </ui-section>
 
               <ui-section id="examples-states-out-of-gamut" label="Out of gamut" sticky collapsible dividing>
-                <ui-docs-example
+                <ui-example
                   description="The square is HSL, so every point is a real screen colour.  OKLCH can ask for more:  `oklch(70% 0.37 150)` (or a bigger C typed in its row) becomes the nearest colour a screen shows, at the same lightness and hue."
                 >
                   <brand-color-picker value="oklch(70% 0.37 150)" class="brand-docs-panel"></brand-color-picker>
-                </ui-docs-example>
+                </ui-example>
               </ui-section>
 
               <ui-section id="examples-states-disabled" label="Disabled" sticky collapsible dividing>
-                <ui-docs-example description="`disabled`:  faded, and nothing in it reacts.">
+                <ui-example description="`disabled`:  faded, and nothing in it reacts.">
                   <brand-color-picker value="#F1E7D4" disabled class="brand-docs-panel"></brand-color-picker>
-                </ui-docs-example>
+                </ui-example>
               </ui-section>
             </ui-section>
           </ui-tab>

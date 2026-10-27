@@ -68,7 +68,7 @@
           <ui-tab value="examples" label="Examples">
             <ui-section id="examples-types" label="Types" sticky collapsible dividing>
               <ui-section id="examples-types-presets" label="Presets" sticky collapsible dividing>
-                <ui-docs-example
+                <ui-example
                   description="The Color Set Chooser's presets:  `selectable` makes the set a radio group;  `value` is the chosen chip's `name`.  Click a chip, or tab in and use the arrow keys."
                 >
                   <ui-panel label="Color Set" color="accent" class="brand-docs-panel">
@@ -83,11 +83,11 @@
                       </brand-color-set>
                     </ui-panel>
                   </ui-panel>
-                </ui-docs-example>
+                </ui-example>
               </ui-section>
 
               <ui-section id="examples-types-families" label="Families grid" sticky collapsible dividing>
-                <ui-docs-example
+                <ui-example
                   description="`columns`:  a grid of equal cells, each chip filling its cell.  The brand's 20 colour sets, each at its seed's step (the Chooser's &quot;Or start from a family&quot;)."
                 >
                   <brand-color-set
@@ -119,11 +119,11 @@
                     <brand-color name="rose" value="#FF2357"></brand-color>
                     <brand-color name="grey" value="#868992"></brand-color>
                   </brand-color-set>
-                </ui-docs-example>
+                </ui-example>
               </ui-section>
 
               <ui-section id="examples-types-row" label="Laid-out row" sticky collapsible dividing>
-                <ui-docs-example
+                <ui-example
                   description="Without `selectable`, just a row:  each chip keeps its own look and behaviour (`label`, `copy` ...).  Too narrow, every chip shrinks alike."
                 >
                   <brand-color-set>
@@ -133,13 +133,13 @@
                     <brand-color name="brand-600" value="#767D9A" label="step" copy="token"></brand-color>
                     <brand-color name="brand-700" value="#5D637D" label="step" copy="token"></brand-color>
                   </brand-color-set>
-                </ui-docs-example>
+                </ui-example>
               </ui-section>
             </ui-section>
 
             <ui-section id="examples-states" label="States" sticky collapsible dividing>
               <ui-section id="examples-states-value" label="Value" sticky collapsible dividing>
-                <ui-docs-example
+                <ui-example
                   description="`value` names the chosen chip by `name`, or by colour however written (`20 163 154` finds `#14A39A`).  Unset, the chips' own `selected` stand."
                 >
                   <brand-color-set selectable value="20 163 154" aria-label="Accent colour">
@@ -147,7 +147,7 @@
                     <brand-color value="#14A39A"></brand-color>
                     <brand-color value="#E8436A"></brand-color>
                   </brand-color-set>
-                </ui-docs-example>
+                </ui-example>
               </ui-section>
             </ui-section>
           </ui-tab>

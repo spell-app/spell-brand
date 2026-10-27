@@ -85,7 +85,7 @@
           <ui-tab value="examples" label="Examples">
             <ui-section id="examples-types" label="Types" sticky collapsible dividing>
               <ui-section id="examples-types-composer" label="Composer" sticky collapsible dividing>
-                <ui-docs-example
+                <ui-example
                   description="The Spell App's Build box:  a card with a serif text box, a row of tools (here the spell's language, a `<ui-label>` in `slot=&quot;tools&quot;`), the keyboard hint and the round Cast button.  Cast with the button or Cmd / Ctrl+Enter;  plain Enter types a new line."
                 >
                   <div class="composer-demo">
@@ -94,19 +94,19 @@
                     </brand-composer>
                     <p class="composer-log" data-log>Cast it: the event shows here.</p>
                   </div>
-                </ui-docs-example>
+                </ui-example>
               </ui-section>
             </ui-section>
 
             <ui-section id="examples-content" label="Content" sticky collapsible dividing>
               <ui-section id="examples-content-eyebrow" label="Eyebrow" sticky collapsible dividing>
-                <ui-docs-example
+                <ui-example
                   description='`eyebrow`:  a small mono caps line above the text box;  it also names the box for screen readers.  `slot="eyebrow"` takes richer content.'
                 >
                   <div class="composer-demo">
                     <brand-composer eyebrow="Try a spell" value="A reading list where members vote."></brand-composer>
                   </div>
-                </ui-docs-example>
+                </ui-example>
               </ui-section>
               <ui-section
                 id="examples-content-placeholder-hint"
@@ -115,7 +115,7 @@
                 collapsible
                 dividing
               >
-                <ui-docs-example
+                <ui-example
                   description='`placeholder`:  shown while the box is empty (the Cast button dims:  nothing to cast).  `hint`:  your own keyboard hint;  `hint=""` hides it.  `rows`:  how many lines tall the box starts;  it grows as you write.'
                 >
                   <div class="composer-demo">
@@ -123,23 +123,23 @@
                     <brand-composer hint="Press ⌘↵ when you're ready" rows="1" value="A tip jar"></brand-composer>
                     <brand-composer hint="" rows="1" value="No hint at all"></brand-composer>
                   </div>
-                </ui-docs-example>
+                </ui-example>
               </ui-section>
             </ui-section>
 
             <ui-section id="examples-states" label="States" sticky collapsible dividing>
               <ui-section id="examples-states-casting" label="Casting" sticky collapsible dividing>
-                <ui-docs-example
+                <ui-example
                   description='`casting`:  the page sets it while it builds, and clears it;  the element never does.  The Cast button spins and won&apos;t cast again, the text stays editable, and screen readers hear "Casting your spell…".  Here each cast sets `casting` for 2 seconds.'
                 >
                   <div class="composer-demo">
                     <brand-composer data-casting value="Guests reply yes, no or maybe."></brand-composer>
                     <p class="composer-log" data-log>Cast it: the event shows here.</p>
                   </div>
-                </ui-docs-example>
+                </ui-example>
               </ui-section>
               <ui-section id="examples-states-disabled" label="Disabled" sticky collapsible dividing>
-                <ui-docs-example
+                <ui-example
                   description="`disabled`:  faded;  can't be typed in or cast, and left out of its form."
                 >
                   <div class="composer-demo">
@@ -147,13 +147,13 @@
                       <ui-label slot="tools" icon="language">English</ui-label>
                     </brand-composer>
                   </div>
-                </ui-docs-example>
+                </ui-example>
               </ui-section>
             </ui-section>
 
             <ui-section id="examples-variations" label="Variations" sticky collapsible dividing>
               <ui-section id="examples-variations-large" label="Large" sticky collapsible dividing>
-                <ui-docs-example
+                <ui-example
                   description='`size="large"`:  the marketing hero&apos;s box, 19px text, a larger radius and shadow.  Here with an eyebrow, two rows, no hint, and idea chips in `slot="tools"`:  a chip sets the box&apos;s `value` and calls `cast()`.'
                 >
                   <div class="composer-demo">
@@ -186,13 +186,13 @@
                     </brand-composer>
                     <p class="composer-log" data-log>Pick an idea: the event shows here.</p>
                   </div>
-                </ui-docs-example>
+                </ui-example>
               </ui-section>
             </ui-section>
 
             <ui-section id="examples-usage" label="Usage" sticky collapsible dividing>
               <ui-section id="examples-usage-form" label="In a form" sticky collapsible dividing>
-                <ui-docs-example
+                <ui-example
                   description="A form element:  its text goes to the form under `name`.  Casting submits the form (`requestSubmit()`), unless a `brand-cast` handler calls `preventDefault()`:  handle the form's `submit` OR veto the cast, not both.  Here the form's `submit` shows what it got."
                 >
                   <div class="composer-demo">
@@ -205,7 +205,7 @@
                     </ui-form>
                     <p class="composer-log" data-log>Cast it: the submitted value shows here.</p>
                   </div>
-                </ui-docs-example>
+                </ui-example>
               </ui-section>
             </ui-section>
           </ui-tab>

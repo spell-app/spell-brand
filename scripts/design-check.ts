@@ -34,7 +34,7 @@ const DC_RUNTIME = path.join(BRAND_DIR, "vendor/claude-design/dc-runtime.js")
 
 /** A preview card's markup:  what each check below looks for, in one page. */
 const CARD = `
-<ui-button primary icon="check">Save</ui-button>
+<ui-button color="primary" icon="check">Save</ui-button>
 <ui-icon id="solid" name="dragon"></ui-icon>
 <ui-icon id="outline" name="calendar days outline"></ui-icon>
 <ui-icon id="brand" name="github"></ui-icon>
@@ -63,7 +63,7 @@ const BOARD = `<!doctype html>
 <x-dc>
 <div style="padding: 32px; display: flex; gap: 16px; align-items: center">
 <span id="loaded">bundle loaded:  {{loaded}}</span>
-<ui-button primary="" icon="rocket" onClick="{{bump}}">Clicked {{count}}</ui-button>
+<ui-button color="primary" icon="rocket" onClick="{{bump}}">Clicked {{count}}</ui-button>
 <ui-label>{{count}} clicks</ui-label>
 </div>
 </x-dc>
