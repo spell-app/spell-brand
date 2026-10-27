@@ -1,4 +1,6 @@
-import { resolve } from "node:path"
+import { realpathSync } from "node:fs"
+import { dirname, resolve } from "node:path"
+import { fileURLToPath } from "node:url"
 import { defineConfig, type TestProjectConfiguration } from "vite-plus"
 import { playwright } from "vite-plus/test/browser-playwright"
 
@@ -26,6 +28,12 @@ const TESTS = resolve(import.meta.dirname, "./tests")
 /** Tests of `src/`'s own files that need a browser (a page's CSS on real elements):  the `browser` project's, not `node`'s. */
 const BROWSER_SRC = "*.browser.test.ts"
 
+/**
+ * The `spell` this project uses, where it really is:  a portal to the kit (`portal:../spell`), outside this folder,
+ * so the browser tests' server must be allowed to serve its files (Spell UI's setup, the families).
+ */
+const SPELL = dirname(realpathSync(fileURLToPath(import.meta.resolve("spell/package.json"))))
+
 /** The two projects, `node` and `browser`. */
 function brandProjects(): TestProjectConfiguration[] {
   return [
@@ -40,6 +48,7 @@ function brandProjects(): TestProjectConfiguration[] {
     },
     {
       ...baseConfig(),
+      server: { fs: { allow: [import.meta.dirname, SPELL] } },
       test: {
         name: "browser",
         dir: TESTS,

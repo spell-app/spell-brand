@@ -118,13 +118,16 @@
   "devDependencies": {
     "@solidjs/web": "2.0.0-rc.17",
     "@types/node": "^22.20.4",
+    "@vitest/browser-playwright": "catalog:",
+    "axe-core": "^4.13.0",
     "esbuild": "^0.28.2",
     "playwright": "1.63.0",
     "solid-js": "2.0.0-rc.17",
     "tsx": "4.20.3",
     "typescript": "^7.0.2",
     "vite": "catalog:",
-    "vite-plus": "catalog:"
+    "vite-plus": "catalog:",
+    "vitest": "catalog:"
   },
   "engines": {
     "node": ">=24.11"
