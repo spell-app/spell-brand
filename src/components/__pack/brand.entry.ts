@@ -15,15 +15,15 @@ SpellUI.registerPack({
   catalog: CATALOG,
   families: {
     "brand-blob": "6b264cee09e5e854",
-    "brand-checklist": "e3955bd24b3cf58e",
-    "brand-color": "1df7f252c168d32b",
-    "brand-color-picker": "1e658e0ec8c8e94f",
-    "brand-color-range": "1186ba1b1989b070",
-    "brand-color-set": "dd60f532381e69ba",
-    "brand-composer": "da3672289e00a3f0",
+    "brand-checklist": "1e3e342e4be4d68b",
+    "brand-color": "a5c8bfa3317bfa53",
+    "brand-color-picker": "01cf5722332d52f3",
+    "brand-color-range": "56ba4386c9f82eb0",
+    "brand-color-set": "6978254e3264ff9a",
+    "brand-composer": "5a6b0e53c98a4e2f",
     "brand-flourish": "1779a045779a3765",
     "brand-logo": "8a819b74a10b535b",
-    "brand-phone": "1b9f860eea394bdc"
+    "brand-phone": "31712ee95dea4e3c"
   },
   define: () =>
     Promise.all([
